@@ -28,12 +28,18 @@
         <i class="menu-arrow"></i>
       </a>
       <div class="collapse <?php echo (strpos($_SERVER['REQUEST_URI'] ,"edit") !== false) ? 'show' : ''; ?>" id="general-pages-2">
-        <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'] ,"register") !== false) ? 'active' : ''; ?>" href="<?php echo URLROOT; ?>/users/register">Insertar</a></li>
-        </ul>
-        <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'] ,"edit") !== false OR strpos($_SERVER['REQUEST_URI'] ,"users/index") !== false) ? 'active' : ''; ?>" href="<?php echo URLROOT; ?>/users/index">Modificar</a></li>
-        </ul>
+        <?php if($_SESSION['isAdmin'] == 1) { ?>
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'] ,"add") !== false) ? 'active' : ''; ?>" href="<?php echo URLROOT; ?>/users/add">Insertar</a></li>
+          </ul>
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'] ,"edit_admin") !== false OR strpos($_SERVER['REQUEST_URI'] ,"users/edit_admin") !== false) ? 'active' : ''; ?>" href="<?php echo URLROOT; ?>/users/index">Modificar</a></li>
+          </ul>
+        <?php } else { ?>
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'] ,"edit") !== false OR strpos($_SERVER['REQUEST_URI'] ,"users/edit") !== false) ? 'active' : ''; ?>" href="<?php echo URLROOT; ?>/users/index">Modificar</a></li>
+          </ul>
+        <?php } ?>
       </div>
     </li>
   </ul>

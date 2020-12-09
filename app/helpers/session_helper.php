@@ -33,3 +33,11 @@
       return false;
     }
   }
+
+  function isLoggedInAndAdmin(){
+    if(isset($_SESSION['user_id']) && $_SESSION['isAdmin'] == 1){
+      return true;
+    } else {
+      return false;
+    }
+  }

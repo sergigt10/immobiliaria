@@ -25,33 +25,12 @@
       }
     }
 
-    // Regsiter user
-    public function register($data){
-      $this->db->query('INSERT INTO usuari (email, contrasena, nom_cognoms, empresa, direccio, poblacio, codi_postal, telefon, web, descripcio_cat, descripcio_esp, descripcio_eng, logo, max_immobles, max_fotos, activat) VALUES(:email, :contrasena, :nom_cognoms, :empresa, :direccio, :poblacio, :codi_postal, :telefon, :web, :descripcio_cat, :descripcio_esp, :descripcio_eng, :logo, :max_immobles, :max_fotos, :activat)');
-      // Bind values
-      $this->db->bind(':email', $data['email']);
-      $this->db->bind(':contrasena', $data['contrasena']);
-      $this->db->bind(':nom_cognoms', $data['nom_cognoms']);
-      $this->db->bind(':empresa', $data['empresa']);
-      $this->db->bind(':direccio', $data['direccio']);
-      $this->db->bind(':poblacio', $data['poblacio']);
-      $this->db->bind(':codi_postal', $data['codi_postal']);
-      $this->db->bind(':telefon', $data['telefon']);
-      $this->db->bind(':web', $data['web']);
-      $this->db->bind(':descripcio_cat', $data['descripcio_cat']);
-      $this->db->bind(':descripcio_esp', $data['descripcio_esp']);
-      $this->db->bind(':descripcio_eng', $data['descripcio_eng']);
-      $this->db->bind(':logo', $data['logo']);
-      $this->db->bind(':max_immobles', $data['max_immobles']);
-      $this->db->bind(':max_fotos', $data['max_fotos']);
-      $this->db->bind(':activat', $data['activat']);
+    public function getUsers(){
+      $this->db->query('SELECT * FROM usuari');
+      // Bind value
+      $results = $this->db->resultSet();
 
-      // Execute
-      if($this->db->execute()){
-        return true;
-      } else {
-        return false;
-      }
+      return $results;
     }
 
     // Find user by username
@@ -111,6 +90,89 @@
       $row = $this->db->single();
 
       return $row;
+    }
+
+    // Regsiter user
+    public function add($data){
+      $this->db->query('INSERT INTO usuari (email, contrasena, nom_cognoms, empresa, direccio, poblacio, codi_postal, telefon, web, descripcio_cat, descripcio_esp, descripcio_eng, logo, max_immobles, max_fotos, activat) VALUES(:email, :contrasena, :nom_cognoms, :empresa, :direccio, :poblacio, :codi_postal, :telefon, :web, :descripcio_cat, :descripcio_esp, :descripcio_eng, :logo, :max_immobles, :max_fotos, :activat)');
+      // Bind values
+      $this->db->bind(':email', $data['email']);
+      $this->db->bind(':contrasena', $data['contrasena']);
+      $this->db->bind(':nom_cognoms', $data['nom_cognoms']);
+      $this->db->bind(':empresa', $data['empresa']);
+      $this->db->bind(':direccio', $data['direccio']);
+      $this->db->bind(':poblacio', $data['poblacio']);
+      $this->db->bind(':codi_postal', $data['codi_postal']);
+      $this->db->bind(':telefon', $data['telefon']);
+      $this->db->bind(':web', $data['web']);
+      $this->db->bind(':descripcio_cat', $data['descripcio_cat']);
+      $this->db->bind(':descripcio_esp', $data['descripcio_esp']);
+      $this->db->bind(':descripcio_eng', $data['descripcio_eng']);
+      $this->db->bind(':logo', $data['logo']);
+      $this->db->bind(':max_immobles', $data['max_immobles']);
+      $this->db->bind(':max_fotos', $data['max_fotos']);
+      $this->db->bind(':activat', $data['activat']);
+
+      // Execute
+      if($this->db->execute()){
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    public function updateAdmin($data){
+      $this->db->query('UPDATE usuari SET email = :email, contrasena = :contrasena, nom_cognoms = :nom_cognoms, empresa = :empresa, direccio = :direccio, poblacio = :poblacio, codi_postal = :codi_postal, telefon = :telefon, web = :web, descripcio_cat = :descripcio_cat, descripcio_esp = :descripcio_esp, descripcio_eng = :descripcio_eng, logo = :logo, max_immobles = :max_immobles, max_fotos = :max_fotos, activat = :activat WHERE id = :id');
+      // Bind values
+      $this->db->bind(':id', $data['id']);
+      $this->db->bind(':email', $data['email']);
+      $this->db->bind(':contrasena', $data['contrasena']);
+      $this->db->bind(':nom_cognoms', $data['nom_cognoms']);
+      $this->db->bind(':empresa', $data['empresa']);
+      $this->db->bind(':direccio', $data['direccio']);
+      $this->db->bind(':poblacio', $data['poblacio']);
+      $this->db->bind(':codi_postal', $data['codi_postal']);
+      $this->db->bind(':telefon', $data['telefon']);
+      $this->db->bind(':web', $data['web']);
+      $this->db->bind(':descripcio_cat', $data['descripcio_cat']);
+      $this->db->bind(':descripcio_esp', $data['descripcio_esp']);
+      $this->db->bind(':descripcio_eng', $data['descripcio_eng']);
+      $this->db->bind(':logo', $data['logo']);
+      $this->db->bind(':max_immobles', $data['max_immobles']);
+      $this->db->bind(':max_fotos', $data['max_fotos']);
+      $this->db->bind(':activat', $data['activat']);
+
+      // Execute
+      if($this->db->execute()){
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    public function update($data){
+      $this->db->query('UPDATE usuari SET contrasena = :contrasena, nom_cognoms = :nom_cognoms, empresa = :empresa, direccio = :direccio, poblacio = :poblacio, codi_postal = :codi_postal, telefon = :telefon, web = :web, descripcio_cat = :descripcio_cat, descripcio_esp = :descripcio_esp, descripcio_eng = :descripcio_eng, logo = :logo WHERE id = :id');
+      // Bind values
+      $this->db->bind(':id', $data['id']);
+      $this->db->bind(':contrasena', $data['contrasena']);
+      $this->db->bind(':nom_cognoms', $data['nom_cognoms']);
+      $this->db->bind(':empresa', $data['empresa']);
+      $this->db->bind(':direccio', $data['direccio']);
+      $this->db->bind(':poblacio', $data['poblacio']);
+      $this->db->bind(':codi_postal', $data['codi_postal']);
+      $this->db->bind(':telefon', $data['telefon']);
+      $this->db->bind(':web', $data['web']);
+      $this->db->bind(':descripcio_cat', $data['descripcio_cat']);
+      $this->db->bind(':descripcio_esp', $data['descripcio_esp']);
+      $this->db->bind(':descripcio_eng', $data['descripcio_eng']);
+      $this->db->bind(':logo', $data['logo']);
+
+      // Execute
+      if($this->db->execute()){
+        return true;
+      } else {
+        return false;
+      }
     }
 
   }

@@ -5,17 +5,15 @@
         <div class="col-12 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
-              <h2>Crear un nou usuari</h2>
-              <p> * Camps obligatoris </p>
+              <h2>Modificar usuari</h2>
               <br>
-              <?php flash('register_success'); ?>
-              <br>
-              <form class="forms-sample" method="post" action="<?php echo URLROOT; ?>/users/register" enctype="multipart/form-data">
+              <form class="forms-sample" method="post" action="<?php echo URLROOT; ?>/users/edit/<?php echo $data['id']; ?>" enctype="multipart/form-data">
 
-                <?php echo (!empty($data['email_err'])) ? '<div class="alert alert-danger" role="alert">'.$data['email_err'].'</div>' : ''; ?>
+              <?php echo (!empty($data['email_err'])) ? '<div class="alert alert-danger" role="alert">'.$data['email_err'].'</div>' : ''; ?>
                 <?php echo (!empty($data['contrasena_err'])) ? '<div class="alert alert-danger" role="alert">'.$data['contrasena_err'].'</div>' : ''; ?>
                 <?php echo (!empty($data['confirm_password_err'])) ? '<div class="alert alert-danger" role="alert">'.$data['confirm_password_err'].'</div>' : ''; ?>
                 <?php echo (!empty($data['nom_cognoms_err'])) ? '<div class="alert alert-danger" role="alert">'.$data['nom_cognoms_err'].'</div>' : ''; ?>
+
 
                 <div class="form-group">
                   <label for="exampleInputEmail3">Correu electrònic *:</label>
@@ -63,7 +61,7 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="exampleInputEmail3">Web:</label>
+                  <label for="exampleInputEmail3">Pàgina web:</label>
                   <input name="web" type="text" class="form-control" id="exampleInputEmail3" placeholder="www.hola.com" value="<?php echo $data['web']; ?>">
                 </div>
 
@@ -95,8 +93,8 @@
                 <div class="form-group">
                   <label for="exampleInputName1">Activat?:</label>
                   <select name="activat" class="form-control" id="exampleSelectGender">
-                    <option value="1" selected>Si</option>
-                    <option value="0">No</option>
+                    <option value="1" <?php echo ($data['activat']) === '1' ? 'selected' : ''; ?>>Si</option>
+                    <option value="0" <?php echo ($data['activat']) === '0' ? 'selected' : ''; ?>>No</option>
                   </select>
                 </div>
 
@@ -105,29 +103,40 @@
                     <div class="card">
                       <div class="card-body">
                         <h4 style="color:red">Pujar imatges en format: jpg, png o gif</h4>
-                        <br>
-
+                          <br>
                           <div class="form-row">
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-9">
                               <div class="form-group">
                                 <label>Pujar logo</label>
                                 <input name="foto1file" type="file" class="file-upload-default">
                                 <div class="input-group col-xs-12">
-                                  <input name="logo" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="Logo" value="<?php echo $data['logo']; ?>">
+                                  <input name="logo" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="Logo" value="<?php echo $data['logo'];?>">
                                   <span class="input-group-append">
                                     <button class="file-upload-browse btn btn-primary" type="button">Pujar logo</button>
                                   </span>
                                 </div>
                               </div>
                             </div>
+                            <div class="form-group col-md-3">
+                              <div class="form-check form-check-danger" style="float:right;">
+                                <label class="form-check-label">
+                                  <input type="checkbox" class="form-check-input" name="del_img1" value="1">
+                                  Eliminar logo?
+                                  <i class="input-helper"></i></label>
+                                  <br>
+                                  <?php if(!empty($data['logo']) && file_exists('../../admin-web/public/images/img_xara/'.$data['logo'])){ ?>
+                                      <p><img src="../../../admin-web/public/images/img_xarxa/thumb_img/thumb.php?src=../<?php echo $data['logo'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
+                                  <?php } ?>
+                              </div>
+                            </div>
                           </div>
 
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                <button type="submit" name="funcioBoto" class="btn btn-primary mr-2" value="Crear usuari">Crear usuari</button>
+                <button type="submit" name="funcioBoto" class="btn btn-primary mr-2" value="Guardar">Guardar</button>
               </form>
             </div>
           </div>
