@@ -38,16 +38,18 @@
                       <td><a href="<?php echo URLROOT; ?><?php echo $path ?><?php echo $user->id; ?>" style="color: black;">&nbsp;<?php echo $user->empresa; ?></a></td>
                       <td>
                         <a href="<?php echo URLROOT; ?><?php echo $path ?><?php echo $user->id; ?>" style="color: black;">
-                            <?php if($user->activat == 1) { ?>
-                              <i class="mdi mdi-check"></i>
-                            <?php } else { ?>
-                              <i class="mdi mdi-close"></i>
-                            <?php } ?>
+                          <?php if($user->activat == 1) { ?>
+                            <i class="mdi mdi-check"></i>
+                          <?php } else { ?>
+                            <i class="mdi mdi-close"></i>
+                          <?php } ?>
                         </a>
                       </td>
                       <td><a href="<?php echo URLROOT; ?><?php echo $path ?><?php echo $user->id; ?>" style="color: black;"><i class="mdi mdi-pencil menu-icon"></i></a></td>
                       <?php if( $user->id == $_SESSION['user_id'] ) { ?>
-                        <td></td>
+                        <?php if(isLoggedInAndAdmin()) { ?>
+                          <td></td>
+                        <?php } ?>
                       <?php } else { ?>
                         <td><a href="" style="color: black;" data-toggle="modal" data-target="#exampleModalCenter<?php echo $user->id ?>"><i class="mdi mdi-close-circle menu-icon"></i></a></td>
                       <?php } ?>

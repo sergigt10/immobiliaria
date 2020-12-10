@@ -4,7 +4,7 @@
       <a class="nav-link" href="<?php echo URLROOT; ?>/">
         <i class="mdi mdi-home menu-icon"></i>
         <span class="menu-title">
-            Inici
+            ADMINISTRADOR
         </span>
       </a>
     </li>
@@ -30,9 +30,12 @@
         <i class="menu-arrow"></i>
       </a>
       <div class="collapse <?php echo (strpos($_SERVER['REQUEST_URI'] ,"edit") !== false) ? 'show' : ''; ?>" id="general-pages-2">
-          <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'] ,"edit") !== false OR strpos($_SERVER['REQUEST_URI'] ,"users/edit") !== false) ? 'active' : ''; ?>" href="<?php echo URLROOT; ?>/users/index">Modificar</a></li>
-          </ul>
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'] ,"add") !== false) ? 'active' : ''; ?>" href="<?php echo URLROOT; ?>/users/add">Insertar</a></li>
+        </ul>
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'] ,"index") !== false OR strpos($_SERVER['REQUEST_URI'] ,"users/index") !== false) ? 'active' : ''; ?>" href="<?php echo URLROOT; ?>/users/index">Modificar</a></li>
+        </ul>
       </div>
     </li>
   </ul>

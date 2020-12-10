@@ -41,4 +41,4 @@
       </nav>
       <div class="container-fluid page-body-wrapper">
         <div id="right-sidebar" class="settings-panel"></div>
-        <?php require APPROOT . '/views/inc/navbar.php'; ?>
+        <?php (isLoggedInAndAdmin()) ?  require APPROOT . '/views/inc/navbar_admin.php' : require APPROOT . '/views/inc/navbar.php'; ?>

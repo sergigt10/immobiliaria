@@ -653,11 +653,11 @@
 
     // Session
     public function createUserSession($user){
-      $_SESSION['user_id'] = $user->id;
-      $_SESSION['user_name'] = $user->email;
-      $_SESSION['name_surname'] = $user->nom_cognoms;
-      $_SESSION['activat'] = $user->activat;
-      $_SESSION['isAdmin'] = $user->es_admin;
+      $_SESSION['user_id'] = htmlspecialchars(strip_tags($user->id));
+      $_SESSION['user_name'] = htmlspecialchars(strip_tags($user->email));
+      $_SESSION['name_surname'] = htmlspecialchars(strip_tags($user->nom_cognoms));
+      $_SESSION['activate'] = htmlspecialchars(strip_tags($user->activat));
+      $_SESSION['isAdmin'] = htmlspecialchars(strip_tags($user->es_admin));
       redirect('index');
     }
 
