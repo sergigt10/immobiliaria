@@ -25,6 +25,7 @@
       }
     }
 
+    // Get all users
     public function getUsers(){
       $this->db->query('SELECT * FROM usuari');
       // Bind value
@@ -92,7 +93,7 @@
       return $row;
     }
 
-    // Regsiter user
+    // Add new user
     public function add($data){
       $this->db->query('INSERT INTO usuari (email, contrasena, nom_cognoms, empresa, direccio, poblacio, codi_postal, telefon, web, descripcio_cat, descripcio_esp, descripcio_eng, logo, max_immobles, max_fotos, activat) VALUES(:email, :contrasena, :nom_cognoms, :empresa, :direccio, :poblacio, :codi_postal, :telefon, :web, :descripcio_cat, :descripcio_esp, :descripcio_eng, :logo, :max_immobles, :max_fotos, :activat)');
       // Bind values
@@ -121,6 +122,7 @@
       }
     }
 
+    // Update users by admin
     public function updateAdmin($data){
       $this->db->query('UPDATE usuari SET email = :email, contrasena = :contrasena, nom_cognoms = :nom_cognoms, empresa = :empresa, direccio = :direccio, poblacio = :poblacio, codi_postal = :codi_postal, telefon = :telefon, web = :web, descripcio_cat = :descripcio_cat, descripcio_esp = :descripcio_esp, descripcio_eng = :descripcio_eng, logo = :logo, max_immobles = :max_immobles, max_fotos = :max_fotos, activat = :activat WHERE id = :id');
       // Bind values
@@ -150,6 +152,7 @@
       }
     }
 
+    // Update user
     public function update($data){
       $this->db->query('UPDATE usuari SET contrasena = :contrasena, nom_cognoms = :nom_cognoms, empresa = :empresa, direccio = :direccio, poblacio = :poblacio, codi_postal = :codi_postal, telefon = :telefon, web = :web, descripcio_cat = :descripcio_cat, descripcio_esp = :descripcio_esp, descripcio_eng = :descripcio_eng, logo = :logo WHERE id = :id');
       // Bind values

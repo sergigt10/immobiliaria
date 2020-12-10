@@ -7,7 +7,7 @@
             <div class="card-body">
               <?php flash('post_message'); ?>
               <br>
-              <h2>Blog</h2>
+              <h2>Immobles</h2>
               <br>
               <input class="form-control" id="myInput" type="text" placeholder="Buscar blog.." aria-label="Search">
               <br>
@@ -15,8 +15,9 @@
                 <table class="table table-hover table-bordered table-sm">
                   <thead>
                     <tr style="background: black; color: white;">
-                      <th scope="col">Titol</th>
-                      <th scope="col">Categoria</th>
+                      <th scope="col">Títol</th>
+                      <th scope="col">Població</th>
+                      <th scope="col">Província</th>
                       <th scope="col">Editar</th>
                       <th scope="col">Eliminar</th>
                     </tr>

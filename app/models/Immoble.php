@@ -6,15 +6,15 @@
       $this->db = new Database;
     }
 
-    public function getBlogs(){
-      $this->db->query('SELECT * FROM blog ORDER BY id_blog ASC');
+    public function getImmobles(){
+      $this->db->query('SELECT * FROM immoble ORDER BY id ASC');
       // Devuelve más de una fila
       $results = $this->db->resultSet();
 
       return $results;
     }
 
-    public function addBlog($data){
+    public function add($data){
       $this->db->query('INSERT INTO blog (titol_cat, id_tag, descripcio_cat, imatge1, imatge2, imatge3, imatge4, imatge5) VALUES (:titol_cat, :id_tag, :descripcio_cat, :imatge1, :imatge2, :imatge3, :imatge4, :imatge5)');
       // Bind values
       $this->db->bind(':titol_cat', $data['titol_cat']);
@@ -34,7 +34,7 @@
       }
     }
 
-    public function updateBlog($data){
+    public function update($data){
       $this->db->query('UPDATE blog SET titol_cat = :titol_cat, id_tag = :id_tag, descripcio_cat = :descripcio_cat, imatge1 = :imatge1, imatge2 = :imatge2, imatge3 = :imatge3, imatge4 = :imatge4, imatge5 = :imatge5 WHERE id_blog = :id_blog');
       // Bind values
       $this->db->bind(':id_blog', $data['id_blog']);
@@ -56,19 +56,19 @@
     }
 
     // Obtener post con la id
-    public function getBlogById($id){
-      $this->db->query('SELECT * FROM blog WHERE id_blog = :id_blog');
-      $this->db->bind(':id_blog', $id);
+    public function getImmobleById($id){
+      $this->db->query('SELECT * FROM immoble WHERE id = :id');
+      $this->db->bind(':id', $id);
 
       $row = $this->db->single();
 
       return $row;
     }
 
-    public function deleteBlog($id){
-      $this->db->query('DELETE FROM blog WHERE id_blog = :id_blog');
+    public function deleteImmoble($id){
+      $this->db->query('DELETE FROM immoble WHERE id = :id');
       // Bind values
-      $this->db->bind(':id_blog', $id);
+      $this->db->bind(':id', $id);
 
       // Execute
       if($this->db->execute()){

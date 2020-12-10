@@ -7,7 +7,7 @@
             <div class="card-body">
               <h2>Modificar usuari</h2>
               <br>
-              <form class="forms-sample" method="post" action="<?php echo URLROOT; ?>/users/edit/<?php echo $data['id']; ?>" enctype="multipart/form-data">
+              <form class="forms-sample" method="post" action="<?php echo URLROOT; ?>/users/edit_admin/<?php echo $data['id']; ?>" enctype="multipart/form-data">
 
               <?php echo (!empty($data['email_err'])) ? '<div class="alert alert-danger" role="alert">'.$data['email_err'].'</div>' : ''; ?>
                 <?php echo (!empty($data['contrasena_err'])) ? '<div class="alert alert-danger" role="alert">'.$data['contrasena_err'].'</div>' : ''; ?>
@@ -102,7 +102,7 @@
                   <div class="col-lg-12">
                     <div class="card">
                       <div class="card-body">
-                        <h4 style="color:red">Pujar imatges en format: jpg, png o gif</h4>
+                        <h4 style="color:red">Pujar imatges en format: jpg, png o gifas</h4>
                           <br>
                           <div class="form-row">
                             <div class="form-group col-md-9">
@@ -124,7 +124,7 @@
                                   Eliminar logo?
                                   <i class="input-helper"></i></label>
                                   <br>
-                                  <?php if(!empty($data['logo']) && file_exists('../../admin-web/public/images/img_xara/'.$data['logo'])){ ?>
+                                  <?php if(!empty($data['logo']) && file_exists('../../admin-web/public/images/img_xarxa/'.$data['logo'])){ ?>
                                       <p><img src="../../../admin-web/public/images/img_xarxa/thumb_img/thumb.php?src=../<?php echo $data['logo'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
                                   <?php } ?>
                               </div>

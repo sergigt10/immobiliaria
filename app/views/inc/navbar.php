@@ -3,7 +3,11 @@
     <li class="nav-item">
       <a class="nav-link" href="<?php echo URLROOT; ?>/">
         <i class="mdi mdi-home menu-icon"></i>
-        <span class="menu-title">Inici</span>
+        <span class="menu-title">
+          <?php if(isLoggedInAndAdmin()) { ?>
+            ADMINISTRADOR
+          <?php } ?>
+        </span>
       </a>
     </li>
     <li class="nav-item">
@@ -17,7 +21,7 @@
           <li class="nav-item"> <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'] ,"add") !== false) ? 'active' : ''; ?>" href="<?php echo URLROOT; ?>/blogs/add">Insertar</a></li>
         </ul>
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'] ,"edit") !== false OR strpos($_SERVER['REQUEST_URI'] ,"blogs/index") !== false) ? 'active' : ''; ?>" href="<?php echo URLROOT; ?>/blogs/index">Modificar</a></li>
+          <li class="nav-item"> <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'] ,"paas") !== false OR strpos($_SERVER['REQUEST_URI'] ,"blogs/index") !== false) ? 'active' : ''; ?>" href="<?php echo URLROOT; ?>/blogs/index">Modificar</a></li>
         </ul>
       </div>
     </li>
@@ -28,12 +32,12 @@
         <i class="menu-arrow"></i>
       </a>
       <div class="collapse <?php echo (strpos($_SERVER['REQUEST_URI'] ,"edit") !== false) ? 'show' : ''; ?>" id="general-pages-2">
-        <?php if($_SESSION['isAdmin'] == 1) { ?>
+        <?php if(isLoggedInAndAdmin()) { ?>
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'] ,"add") !== false) ? 'active' : ''; ?>" href="<?php echo URLROOT; ?>/users/add">Insertar</a></li>
           </ul>
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'] ,"edit_admin") !== false OR strpos($_SERVER['REQUEST_URI'] ,"users/edit_admin") !== false) ? 'active' : ''; ?>" href="<?php echo URLROOT; ?>/users/index">Modificar</a></li>
+            <li class="nav-item"> <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'] ,"index") !== false OR strpos($_SERVER['REQUEST_URI'] ,"users/index") !== false) ? 'active' : ''; ?>" href="<?php echo URLROOT; ?>/users/index">Modificar</a></li>
           </ul>
         <?php } else { ?>
           <ul class="nav flex-column sub-menu">

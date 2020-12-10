@@ -5,7 +5,7 @@
         <div class="col-12 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
-              <h2>Formulari - Insertar blog</h2>
+              <h2>Afegir un nou immoble</h2>
               <br>
               <form class="forms-sample" method="post" action="<?php echo URLROOT; ?>/blogs/add" enctype="multipart/form-data">
 

@@ -5,7 +5,7 @@
         <div class="col-12 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
-              <h2>Formulari - Modificar blog</h2>
+              <h2>Modificar immoble</h2>
               <br>
               <form class="forms-sample" method="post" action="<?php echo URLROOT; ?>/blogs/edit/<?php echo $data['id_blog']; ?>" enctype="multipart/form-data">
 

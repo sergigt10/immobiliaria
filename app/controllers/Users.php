@@ -4,8 +4,12 @@
       $this->userModel = $this->model('User');
     }
 
-    // Cargar usuaris
+    // Load user
     public function index(){
+
+      if(!isLoggedIn()){
+        redirect('users/login');
+      }
 
       if(!isLoggedInAndAdmin()){
         $users = [$this->userModel->getUserById($_SESSION['user_id'])];
@@ -22,6 +26,7 @@
 
     }
 
+    // Add user
     public function add(){
 
       if(!isLoggedInAndAdmin()){
@@ -203,7 +208,7 @@
       }
     }
 
-    // Editar post
+    // Edit user by admin
     public function edit_admin($id){
 
       if(!isLoggedInAndAdmin()){
@@ -366,11 +371,11 @@
           // Load view with errors
           $data['contrasena'] = '';
           $data['confirm_password'] = '';
-          $this->view('users/edit', $data);
+          $this->view('users/edit_admin', $data);
         }
 
       } else {
-        // Hacedemos a la página edita para editar el producto pasado por parámetros
+        // Acedemos a la página edita para editar el producto pasado por parámetros
 
         $data = [
           'id' => $id,
@@ -393,11 +398,11 @@
           'activat' => $user->activat,
         ];
   
-        $this->view('users/edit', $data);
+        $this->view('users/edit_admin', $data);
       }
     }
 
-    // Editar post
+    // Edit user
     public function edit($id){
 
       if(!isLoggedIn()){
@@ -578,6 +583,7 @@
       }
     }
     
+    // Login
     public function login(){
       // Check for POST
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -645,18 +651,22 @@
       }
     }
 
+    // Session
     public function createUserSession($user){
       $_SESSION['user_id'] = $user->id;
       $_SESSION['user_name'] = $user->email;
       $_SESSION['name_surname'] = $user->nom_cognoms;
+      $_SESSION['activat'] = $user->activat;
       $_SESSION['isAdmin'] = $user->es_admin;
       redirect('index');
     }
 
+    // Logout
     public function logout(){
       unset($_SESSION['user_id']);
       unset($_SESSION['user_name']);
       unset($_SESSION['name_surname']);
+      unset($_SESSION['activat']);
       unset($_SESSION['isAdmin']);
       session_destroy();
       redirect('users/login');

@@ -7,20 +7,20 @@
         redirect('users/login');
       }
       // Importamos los modelos
-      $this->blogModel = $this->model('Blog');
+      $this->immobleModel = $this->model('Immoble');
       $this->userModel = $this->model('User');
     }
 
     // Cargar menu
     public function index(){
       // Get menus
-      $blogs = $this->blogModel->getBlogs();
+      $immobles = $this->immobleModel->getImmobles();
       // Cargamos el array
       $data = [
-        'blogs' => $blogs
+        'immobles' => $immobles
       ];
       // Mostramos en la vista
-      $this->view('blogs/index', $data);
+      $this->view('immobles/index', $data);
     }
 
     public function add(){
