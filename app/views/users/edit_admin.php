@@ -20,6 +20,7 @@
                   <input name="email" type="text" class="form-control" id="exampleInputEmail3" placeholder="Correu electrònic" value="<?php echo $data['email']; ?>">
                 </div>
 
+                <h5 style="color:red">Si es deixa buit es manté la contrasenya actual</h5>
                 <div class="form-group">
                   <label for="exampleInputEmail3">Contrasenya *:</label>
                   <input name="contrasena" type="password" class="form-control" id="exampleInputEmail3" placeholder="Contrasenya" value="<?php echo $data['contrasena']; ?>">

@@ -13,7 +13,7 @@
                 <?php echo (!empty($data['confirm_password_err'])) ? '<div class="alert alert-danger" role="alert">'.$data['confirm_password_err'].'</div>' : ''; ?>
                 <?php echo (!empty($data['nom_cognoms_err'])) ? '<div class="alert alert-danger" role="alert">'.$data['nom_cognoms_err'].'</div>' : ''; ?>
 
-
+                <h5 style="color:red">Si es deixa buit es manté la contrasenya actual</h5>
                 <div class="form-group">
                   <label for="exampleInputEmail3">Contrasenya *:</label>
                   <input name="contrasena" type="password" class="form-control" id="exampleInputEmail3" placeholder="Contrasenya" value="<?php echo $data['contrasena']; ?>">

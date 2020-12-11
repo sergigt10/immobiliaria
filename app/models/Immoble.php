@@ -14,6 +14,38 @@
       return $results;
     }
 
+    public function getCaracteristiques(){
+      $this->db->query('SELECT * FROM caracteristica ORDER BY id ASC');
+      // Devuelve más de una fila
+      $results = $this->db->resultSet();
+
+      return $results;
+    }
+
+    public function getCategories(){
+      $this->db->query('SELECT * FROM categoria ORDER BY id ASC');
+      // Devuelve más de una fila
+      $results = $this->db->resultSet();
+
+      return $results;
+    }
+
+    public function getPoblacions(){
+      $this->db->query('SELECT * FROM poblacio ORDER BY id ASC');
+      // Devuelve más de una fila
+      $results = $this->db->resultSet();
+
+      return $results;
+    }
+
+    public function getProvincies(){
+      $this->db->query('SELECT * FROM provincia ORDER BY id ASC');
+      // Devuelve más de una fila
+      $results = $this->db->resultSet();
+
+      return $results;
+    }
+    
     public function add($data){
       $this->db->query('INSERT INTO blog (titol_cat, id_tag, descripcio_cat, imatge1, imatge2, imatge3, imatge4, imatge5) VALUES (:titol_cat, :id_tag, :descripcio_cat, :imatge1, :imatge2, :imatge3, :imatge4, :imatge5)');
       // Bind values
