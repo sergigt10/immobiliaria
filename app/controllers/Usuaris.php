@@ -432,7 +432,7 @@
 
           // Validated
           if($this->usuariModel->update($data)){
-            flash('post_message', 'Usuari actualitzat correctament');
+            flash('usuari_message', 'Usuari actualitzat correctament');
             redirect('usuaris');
           } else {
             die('Error!');

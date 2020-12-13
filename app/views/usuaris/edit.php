@@ -102,13 +102,15 @@
                       <input name="max_fotos" min="3" max="10" type="number" class="form-control" id="exampleInputEmail3" placeholder="Màxim de fotos" value="3">
                     </div>
 
-                    <div class="form-group col-md-4">
-                      <label for="exampleInputName1">Activat?:</label>
-                      <select name="activat" class="form-control" id="exampleSelectGender">
-                        <option value="1" <?php echo ($data['activat']) === '1' ? 'selected' : ''; ?>>Si</option>
-                        <option value="0" <?php echo ($data['activat']) === '0' ? 'selected' : ''; ?>>No</option>
-                      </select>
-                    </div>
+                    <?php if($data['id'] != $_SESSION['usuari_id']) { ?>
+                      <div class="form-group col-md-4">
+                        <label for="exampleInputName1">Activat?:</label>
+                        <select name="activat" class="form-control" id="exampleSelectGender">
+                          <option value="1" <?php echo ($data['activat']) === '1' ? 'selected' : ''; ?>>Si</option>
+                          <option value="0" <?php echo ($data['activat']) === '0' ? 'selected' : ''; ?>>No</option>
+                        </select>
+                      </div>
+                    <?php } ?>
                   </div>
                 <?php } ?>
 
