@@ -51,7 +51,7 @@
               </div>
               <h4>Benvingut/da!</h4>
               <h6>Zona restringida</h6>
-              <form class="pt-3" action="<?php echo URLROOT; ?>/users/login" method="POST">
+              <form class="pt-3" action="<?php echo URLROOT; ?>/usuaris/login" method="POST">
                 <div class="form-group">
                   <label for="exampleInputEmail">Usuari</label>
                   <div class="input-group">

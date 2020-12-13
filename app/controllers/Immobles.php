@@ -1,139 +1,51 @@
 <?php
-  class Blogs extends Controller {
+  class Immobles extends Controller {
+
     public function __construct(){
       // Sino esta registrado
       // Función helper
       if(!isLoggedIn()){
-        redirect('users/login');
+        redirect('usuaris/login');
       }
       // Importamos los modelos
       $this->immobleModel = $this->model('Immoble');
-      $this->userModel = $this->model('User');
+      $this->poblacioModel = $this->model('Poblacio');
+      $this->caracteristicaModel = $this->model('Caracteristica');
+      $this->CategoriaModel = $this->model('Categoria');
+      $this->usuariModel = $this->model('Usuari');
+      
+      if(!$this->usuariModel->getIsActivateById($_SESSION['usuari_id'])) {
+        redirect('usuaris/login');
+      }
     }
 
-    // Cargar immobles
+    // Get immobles
     public function index(){
-      // Get immobles
-      $immobles = $this->immobleModel->getImmobles();
+      
+      if(!isLoggedInAndAdmin()){
+        $immobles = $this->immobleModel->getImmoblesByUsuari($_SESSION['usuari_id']);
+      } else {
+        // Get immobles
+        $immobles = $this->immobleModel->getImmobles();
+      }
       // Cargamos el array
       $data = [
         'immobles' => $immobles
       ];
-      // Mostramos en la vista
+      // Mostramos a la vista
       $this->view('immobles/index', $data);
     }
 
-    // Cargar opcions
-    public function opcio($type){
-      // Get immobles
-      $opcions = $this->immobleModel->get.$type."()";
-      // Cargamos el array
-      $data = [
-        'opcions' => $opcions
-      ];
-      // Mostramos en la vista
-      $this->view('immobles/index_opcio', $data);
-    }
-
-    public function add_opcio($type){
-      // Si viene de un POST
-      if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        // Sanitize POST array
-        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
-        $data = [
-          'nom_cat' => trim($_POST['nom_cat']),
-          'nom_esp' => trim($_POST['nom_esp']),
-          'nom_eng' => trim($_POST['nom_eng']),
-          'nom_cat_err' => '',
-          'nom_esp_err' => '',
-          'nom_eng_err' => ''
-        ];
-
-        // Validate data
-        if(empty($data['nom_cat'])){
-          $data['nom_cat_err'] = 'Introduïr el nom';
-        }
-
-        // Validate data
-        if(empty($data['nom_esp'])){
-          $data['nom_esp_err'] = 'Introduïr el nom';
-        }
-
-        // Validate data
-        if(empty($data['nom_eng'])){
-          $data['nom_eng_err'] = 'Introduïr el nom';
-        }
-
-        // Make sure no errors
-        if(empty($data['nom_cat_err']) && empty($data['nom_esp_err']) && empty($data['nom_eng_err'])){
-          // Validated
-          $function="add".$type."(".$data.")";
-          if($this->immobleModel->$function){
-            flash('opcio_message', 'Afegit correctament');
-            redirect('opcions');
-          } else {
-            die('Something went wrong');
-          }
-        } else {
-          // Load view with errors
-          $this->view('immobles/add_opcio', $data);
-        }
-
-      } else {
-        $data = [
-          'nom' => ''
-        ];
-        $this->view('immobles/add_opcio', $data);
-      }
-    }
-
-    // Editar opcio
-    public function edit_opcio($id,$type){
-      if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        // Sanitize POST array
-        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
-        $data = [
-          'id' => $id,
-          'nom' => trim($_POST['nom'])
-        ];
-
-        // Validate data
-        if(empty($data['nom'])){
-          $data['nom_err'] = 'Introduïr el nom';
-        }
-
-        // Make sure no errors
-        if(empty($data['nom_err'])){
-          // Validated
-          if($this->immobleModel->updateOpcio($data)){
-            flash('opcio_message', 'Actualitzat correctament');
-            redirect('posts');
-          } else {
-            die('Something went wrong');
-          }
-        } else {
-          // Load view with errors
-          $this->view('immobles/edit_opcio', $data);
-        }
-
-      } else {
-        // Hacedemos a la página edita para editar el producto pasado por parámetros
-
-        // Get existing post from model
-        $opcio = $this->immobleModel->."get".$type."ById(".$id.")";
-
-        $data = [
-          'id' => $id,
-          'nom' => $opcio->nom
-        ];
-  
-        $this->view('immobles/edit_opcio', $data);
-      }
-    }
-
     public function add(){
+
+      // if( ($_SESSION['max_immobles'])  ){
+
+      // }
+
+      $poblacions = $this->poblacioModel->getPoblacionsWithProvincies();
+      $caracteristiques = $this->caracteristicaModel->getCaracteristiquesActivat() ;
+      $categories = $this->CategoriaModel->getCategoriesActives();
+
       // Si viene de un POST
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Sanitize POST array
@@ -149,30 +61,32 @@
           'descripcio_cat' => trim($_POST['descripcio_cat']),
           'descripcio_esp' => trim($_POST['descripcio_esp']),
           'descripcio_eng' => trim($_POST['descripcio_eng']),
-          'imatge1' => trim($_POST['imatge_1']),
-          'imatge2' => trim($_POST['imatge_2']),
-          'imatge3' => trim($_POST['imatge_3']),
-          'imatge4' => trim($_POST['imatge_4']),
-          'imatge5' => trim($_POST['imatge_5']),
-          'imatge6' => trim($_POST['imatge_6']),
-          'imatge7' => trim($_POST['imatge_7']),
-          'imatge8' => trim($_POST['imatge_8']),
-          'imatge9' => trim($_POST['imatge_9']),
-          'imatge10' => trim($_POST['imatge_10']),
-          'portada' => trim($_POST['portada']),
+          'imatge1' => trim($_POST['imatge1']),
+          'imatge2' => trim($_POST['imatge2']),
+          'imatge3' => trim($_POST['imatge3']),
+          'imatge4' => trim($_POST['imatge4']),
+          'imatge5' => trim($_POST['imatge5']),
+          'imatge6' => trim($_POST['imatge6']),
+          'imatge7' => trim($_POST['imatge7']),
+          'imatge8' => trim($_POST['imatge8']),
+          'imatge9' => trim($_POST['imatge9']),
+          'imatge10' => trim($_POST['imatge10']),
+          'portada' => (!isLoggedInAndAdmin()) ? '0' : trim($_POST['portada']),
           'preu' => trim($_POST['preu']),
           'habitacio' => trim($_POST['habitacio']),
           'banys' => trim($_POST['banys']),
           'tamany' => trim($_POST['tamany']),
           'activat' => trim($_POST['activat']),
-          'provincia_id' => trim($_POST['provincia_id']),
           'poblacio_id' => trim($_POST['poblacio_id']),
           'categoria_id' => trim($_POST['categoria_id']),
           'caracteristica_id' => trim($_POST['caracteristica_id']),
-          'usuari_id' => $_SESSION['user_id'],
+          'usuari_id' => $_SESSION['usuari_id'],
           'titol_cat_err' => '',
           'titol_esp_err' => '',
           'titol_eng_err' => '',
+          'poblacions' => $poblacions,
+          'caracteristiques' => $caracteristiques,
+          'categories' => $categories
         ];
 
         // Validate data
@@ -836,10 +750,12 @@
           'banys' => '',
           'tamany' => '',
           'activat' => '',
-          'provincia_id' => '',
           'poblacio_id' => '',
           'categoria_id' => '',
-          'caracteristica_id' => ''
+          'caracteristica_id' => '',
+          'poblacions' => $poblacions,
+          'caracteristiques' => $caracteristiques,
+          'categories' => $categories
         ];
 
         $this->view('immobles/add', $data);
@@ -853,7 +769,7 @@
       $immoble = $this->immobleModel->getImmobleById($id);
 
       // Check owner
-      if($immoble->user_id != $_SESSION['user_id']){
+      if($immoble->usuari_id != $_SESSION['usuari_id']){
         redirect('immobles');
       }
       
@@ -892,7 +808,7 @@
           'poblacio_id' => trim($_POST['poblacio_id']),
           'categoria_id' => trim($_POST['categoria_id']),
           'caracteristica_id' => trim($_POST['caracteristica_id']),
-          'usuari_id' => $_SESSION['user_id'],
+          'usuari_id' => $_SESSION['usuari_id'],
           'titol_cat_err' => '',
           'titol_esp_err' => '',
           'titol_eng_err' => '',
@@ -1689,6 +1605,7 @@
     }
 
     public function delete($id){
+      
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         
         $immoble = $this->immobleModel->getImmobleById($id);

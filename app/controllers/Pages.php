@@ -5,7 +5,7 @@
     }
     public function index(){
       if(!isLoggedIn()){
-        redirect('users/login');
+        redirect('usuaris/login');
       }
            
       $this->view('pages/index');

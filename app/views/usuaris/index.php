@@ -1,11 +1,4 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-  <?php
-    if(!isLoggedInAndAdmin()){
-      $path = '/users/edit/';
-    } else {
-      $path = '/users/edit_admin/';
-    }
-  ?>
   <div class="main-panel">
     <div class="content-wrapper">
       <div class="card">
@@ -23,7 +16,7 @@
                         <th>Nom i cognoms</th>
                         <th>Email</th>
                         <th>Empresa</th>
-                        <th data-orderable="false">Activat</th>
+                        <th data-orderable="false">Estat</th>
                         <th data-orderable="false">Editar</th>
                         <?php if(isLoggedInAndAdmin()) { ?>
                           <th data-orderable="false">Eliminar</th>
@@ -31,30 +24,30 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <?php foreach($data['users'] as $user) : ?>
+                    <?php foreach($data['usuaris'] as $usuari) : ?>
                     <tr>
-                      <td><a href="<?php echo URLROOT; ?><?php echo $path ?><?php echo $user->id; ?>" style="color: black;">&nbsp;<?php echo $user->nom_cognoms; ?></a></td>
-                      <td><a href="<?php echo URLROOT; ?><?php echo $path ?><?php echo $user->id; ?>" style="color: black;">&nbsp;<?php echo $user->email; ?></a></td>
-                      <td><a href="<?php echo URLROOT; ?><?php echo $path ?><?php echo $user->id; ?>" style="color: black;">&nbsp;<?php echo $user->empresa; ?></a></td>
+                      <td><a href="<?php echo URLROOT; ?>/usuaris/edit/<?php echo $usuari->id; ?>" style="color: black;"><?php echo $usuari->nom_cognoms; ?></a></td>
+                      <td><a href="<?php echo URLROOT; ?>/usuaris/edit/<?php echo $usuari->id; ?>" style="color: black;"><?php echo $usuari->email; ?></a></td>
+                      <td><a href="<?php echo URLROOT; ?>/usuaris/edit/<?php echo $usuari->id; ?>" style="color: black;"><?php echo $usuari->empresa; ?></a></td>
                       <td>
-                        <a href="<?php echo URLROOT; ?><?php echo $path ?><?php echo $user->id; ?>" style="color: black;">
-                          <?php if($user->activat == 1) { ?>
+                        <a href="<?php echo URLROOT; ?>/usuaris/edit/<?php echo $usuari->id; ?>" style="color: black;">
+                          <?php if($usuari->activat == 1) { ?>
                             <i class="mdi mdi-check"></i>
                           <?php } else { ?>
                             <i class="mdi mdi-close"></i>
                           <?php } ?>
                         </a>
                       </td>
-                      <td><a href="<?php echo URLROOT; ?><?php echo $path ?><?php echo $user->id; ?>" style="color: black;"><i class="mdi mdi-pencil menu-icon"></i></a></td>
-                      <?php if( $user->id == $_SESSION['user_id'] ) { ?>
+                      <td><a href="<?php echo URLROOT; ?>/usuaris/edit/<?php echo $usuari->id; ?>" style="color: black;"><i class="mdi mdi-pencil menu-icon"></i></a></td>
+                      <?php if( $usuari->id == $_SESSION['usuari_id'] ) { ?>
                         <?php if(isLoggedInAndAdmin()) { ?>
                           <td></td>
                         <?php } ?>
                       <?php } else { ?>
-                        <td><a href="" style="color: black;" data-toggle="modal" data-target="#exampleModalCenter<?php echo $user->id ?>"><i class="mdi mdi-close-circle menu-icon"></i></a></td>
+                        <td><a href="" style="color: black;" data-toggle="modal" data-target="#exampleModalCenter<?php echo $usuari->id ?>"><i class="mdi mdi-close-circle menu-icon"></i></a></td>
                       <?php } ?>
                     </tr>
-                    <div class="modal fade" id="exampleModalCenter<?php echo $user->id?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal fade" id="exampleModalCenter<?php echo $usuari->id?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -64,10 +57,10 @@
                             </button>
                           </div>
                           <div class="modal-body">
-                            Segur que vols esborrar: <?php echo $user->nom_cognoms; ?>
+                            Segur que vols esborrar: <?php echo $usuari->nom_cognoms; ?>
                           </div>
                           <div class="modal-footer">
-                            <form class="pull-right" action="<?php echo URLROOT; ?>/users/delete/<?php echo $user->id ?>" method="post">
+                            <form class="pull-right" action="<?php echo URLROOT; ?>/usuaris/delete/<?php echo $usuari->id ?>" method="post">
                               <input type="submit" value="Esborrar" class="btn btn-danger">
                             </form>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel·lar</button>

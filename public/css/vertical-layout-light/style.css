@@ -21125,7 +21125,7 @@ code {
 .input-group-prepend .input-group-text {
   border-color: #f3f3f3;
   padding: 0.875rem 0.75rem;
-  color: #c9c8c8;
+  color: #000000;
 }
 
 .form-control, .asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text],
@@ -27650,7 +27650,7 @@ div.tagsinput span.tag a {
   -moz-osx-font-smoothing: grayscale;
   margin-left: auto;
   margin-right: 0;
-  color: #8e94ac;
+  color: #000;
 }
 
 .rtl .sidebar .nav .nav-item .nav-link i.menu-arrow {
@@ -27670,7 +27670,7 @@ div.tagsinput span.tag a {
   -ms-transition: all 0.2s ease-in;
   -o-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
-  color: white;
+  color: #000;
 }
 
 .sidebar .nav .nav-item .nav-link .menu-title {
@@ -27721,8 +27721,8 @@ div.tagsinput span.tag a {
 }
 
 .sidebar .nav:not(.sub-menu) > .nav-item:hover > .nav-link {
-  background: grey;
-  color: #fff;
+  background: #ccc;
+  color: #000;
 }
 
 .sidebar .nav.sub-menu {
@@ -27743,11 +27743,11 @@ div.tagsinput span.tag a {
   position: absolute;
   margin-top: 17px;
   border-radius: 50%;
-  background: white;
+  background: #000;
 }
 
 .sidebar .nav.sub-menu .nav-item .nav-link {
-  color: white;
+  color: #000;
   padding: 0.75rem;
   position: relative;
   font-size: 0.875rem;
@@ -27757,12 +27757,13 @@ div.tagsinput span.tag a {
 }
 
 .sidebar .nav.sub-menu .nav-item .nav-link:hover {
-  color: white;
+  color: #3c6f8b;
 }
 
 .sidebar .nav.sub-menu .nav-item .nav-link.active {
-  color: red;
+  color: #3c6f8b;
   background: transparent;
+  text-decoration: underline;
 }
 
 .sidebar .nav.sub-menu .nav-item:hover {
@@ -29518,15 +29519,17 @@ div.tagsinput span.tag a {
 }
 
 .sidebar{
-  background: black !important;
+  background: #fff !important;
+  border-right: 1px solid #d2d2dc;
 }
 
 .navbar .navbar-brand-wrapper{
-  background: black !important;
+  background: #fff !important;
 }
 
 .sidebar .nav .nav-item .nav-link .menu-title{
-  color: white !important;
+  color: #000 !important;
+  font-weight: bold;
 }
 
 .navbar .navbar-brand-wrapper .navbar-brand img{
@@ -29534,7 +29537,7 @@ div.tagsinput span.tag a {
 }
 
 .sidebar .nav .nav-item .nav-link i.menu-icon::before{
-  color: white;
+  color: #000;
 }
 
 .text-muted, .preview-list .preview-item .preview-item-content p .content-category, .email-wrapper .mail-sidebar .menu-bar .profile-list-item a .user .u-designation, .email-wrapper .mail-list-container .mail-list .content .message_text, .email-wrapper .mail-list-container .mail-list .details .date{
