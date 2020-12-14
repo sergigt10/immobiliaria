@@ -270,13 +270,13 @@
                     </div>
 
                   </div>
-
-                  <?php if(isLoggedInAndAdmin()) { ?>
+                  
+                  <?php if(isLoggedInAndAdmin() && ($data['totalPortada'] <= MAXPORTADA) ) { ?>
                     <div class="form-group">
                       <label for="exampleInputName1">Portada?:</label>
                       <select name="portada" class="form-control" id="exampleSelectGender">
-                        <option value="1" selected>Si</option>
-                        <option value="0">No</option>
+                        <option value="1">Si</option>
+                        <option value="0" selected>No</option>
                       </select>
                     </div>
                   <?php } ?>

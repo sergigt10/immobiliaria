@@ -88,6 +88,13 @@
       return $row;
     }
 
+    public function getMaxImmobleByUser($id){
+      $this->db->query(' SELECT max_immobles AS total_max_immobles FROM usuari WHERE id = '.$id.' ');
+      $row = $this->db->single();
+
+      return $row;
+    }
+
     // Add new usuari
     public function add($data){
       $this->db->query('INSERT INTO usuari (email, contrasenya, nom_cognoms, empresa, direccio, poblacio, codi_postal, telefon, web, descripcio_cat, descripcio_esp, descripcio_eng, logo, max_immobles, max_fotos, activat) VALUES(:email, :contrasenya, :nom_cognoms, :empresa, :direccio, :poblacio, :codi_postal, :telefon, :web, :descripcio_cat, :descripcio_esp, :descripcio_eng, :logo, :max_immobles, :max_fotos, :activat)');

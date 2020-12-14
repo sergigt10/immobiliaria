@@ -11,7 +11,7 @@
       $this->immobleModel = $this->model('Immoble');
       $this->poblacioModel = $this->model('Poblacio');
       $this->caracteristicaModel = $this->model('Caracteristica');
-      $this->CategoriaModel = $this->model('Categoria');
+      $this->categoriaModel = $this->model('Categoria');
       $this->usuariModel = $this->model('Usuari');
       
       if(!$this->usuariModel->getIsActivateById($_SESSION['usuari_id'])) {
@@ -37,14 +37,19 @@
     }
 
     public function add(){
+      
+      $totalImmoblesByUser = $this->immobleModel->getTotalImmoblesByUser($_SESSION['usuari_id']);
+      $MaxImmobleByUser = $this->usuariModel->getMaxImmobleByUser($_SESSION['usuari_id']);
 
-      // if( ($_SESSION['max_immobles'])  ){
-
-      // }
+      if( $totalImmoblesByUser->total_immobles >= $MaxImmobleByUser->total_max_immobles ){
+        flash('immoble_message', 'Has superat el límit d\'immobles permesos. Contacte amb l\'administrador.', 'alert alert-danger');
+        redirect('immobles/index');
+      }
 
       $poblacions = $this->poblacioModel->getPoblacionsWithProvincies();
       $caracteristiques = $this->caracteristicaModel->getCaracteristiquesActivat() ;
-      $categories = $this->CategoriaModel->getCategoriesActives();
+      $categories = $this->categoriaModel->getCategoriesActives();
+      $totalPortada = $this->immobleModel->getTotalImmoblesPortada();
 
       // Si viene de un POST
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -86,7 +91,8 @@
           'titol_eng_err' => '',
           'poblacions' => $poblacions,
           'caracteristiques' => $caracteristiques,
-          'categories' => $categories
+          'categories' => $categories,
+          'totalPortada' => $totalPortada->total_portada
         ];
 
         // Validate data
@@ -755,7 +761,8 @@
           'caracteristica_id' => '',
           'poblacions' => $poblacions,
           'caracteristiques' => $caracteristiques,
-          'categories' => $categories
+          'categories' => $categories,
+          'totalPortada' => $totalPortada->total_portada
         ];
 
         $this->view('immobles/add', $data);
@@ -765,13 +772,10 @@
     // Editar post
     public function edit($id){
 
-      // Get existing post from model
-      $immoble = $this->immobleModel->getImmobleById($id);
-
-      // Check owner
-      if($immoble->usuari_id != $_SESSION['usuari_id']){
-        redirect('immobles');
-      }
+      $poblacions = $this->poblacioModel->getPoblacionsWithProvincies();
+      $caracteristiques = $this->caracteristicaModel->getCaracteristiquesActivat() ;
+      $categories = $this->categoriaModel->getCategoriesActives();
+      $totalPortada = $this->immobleModel->getTotalImmoblesPortada();
       
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Sanitize POST array
@@ -788,23 +792,22 @@
           'descripcio_cat' => trim($_POST['descripcio_cat']),
           'descripcio_esp' => trim($_POST['descripcio_esp']),
           'descripcio_eng' => trim($_POST['descripcio_eng']),
-          'imatge1' => trim($_POST['imatge_1']),
-          'imatge2' => trim($_POST['imatge_2']),
-          'imatge3' => trim($_POST['imatge_3']),
-          'imatge4' => trim($_POST['imatge_4']),
-          'imatge5' => trim($_POST['imatge_5']),
-          'imatge6' => trim($_POST['imatge_6']),
-          'imatge7' => trim($_POST['imatge_7']),
-          'imatge8' => trim($_POST['imatge_8']),
-          'imatge9' => trim($_POST['imatge_9']),
-          'imatge10' => trim($_POST['imatge_10']),
-          'portada' => trim($_POST['portada']),
+          'imatge1' => trim($_POST['imatge1']),
+          'imatge2' => trim($_POST['imatge2']),
+          'imatge3' => trim($_POST['imatge3']),
+          'imatge4' => trim($_POST['imatge4']),
+          'imatge5' => trim($_POST['imatge5']),
+          'imatge6' => trim($_POST['imatge6']),
+          'imatge7' => trim($_POST['imatge7']),
+          'imatge8' => trim($_POST['imatge8']),
+          'imatge9' => trim($_POST['imatge9']),
+          'imatge10' => trim($_POST['imatge10']),
+          'portada' => (!isLoggedInAndAdmin()) ? '0' : trim($_POST['portada']),
           'preu' => trim($_POST['preu']),
           'habitacio' => trim($_POST['habitacio']),
           'banys' => trim($_POST['banys']),
           'tamany' => trim($_POST['tamany']),
           'activat' => trim($_POST['activat']),
-          'provincia_id' => trim($_POST['provincia_id']),
           'poblacio_id' => trim($_POST['poblacio_id']),
           'categoria_id' => trim($_POST['categoria_id']),
           'caracteristica_id' => trim($_POST['caracteristica_id']),
@@ -812,6 +815,10 @@
           'titol_cat_err' => '',
           'titol_esp_err' => '',
           'titol_eng_err' => '',
+          'poblacions' => $poblacions,
+          'caracteristiques' => $caracteristiques,
+          'categories' => $categories,
+          'totalPortada' => $totalPortada->total_portada
         ];
 
         $del_img1 = (!empty($_POST["del_img1"])) ? '1' : '0';
@@ -900,19 +907,19 @@
             $data['imatge10'] = "";
           }
 
-          $getimmobleImg = $this->immobleModel->getimmobleImg($id);
+          $getimmobleImg = $this->immobleModel->getimmobleById($id);
 
           $dataImg = [
-            'imatge1' => $getimmobleImg->imatge1,
-            'imatge2' => $getimmobleImg->imatge2,
-            'imatge3' => $getimmobleImg->imatge3,
-            'imatge4' => $getimmobleImg->imatge4,
-            'imatge5' => $getimmobleImg->imatge5,
-            'imatge6' => $getimmobleImg->imatge6,
-            'imatge7' => $getimmobleImg->imatge7,
-            'imatge8' => $getimmobleImg->imatge8,
-            'imatge9' => $getimmobleImg->imatge9,
-            'imatge10' => $getimmobleImg->imatge10
+            'imatge1' => $getimmobleImg->imatge_1,
+            'imatge2' => $getimmobleImg->imatge_2,
+            'imatge3' => $getimmobleImg->imatge_3,
+            'imatge4' => $getimmobleImg->imatge_4,
+            'imatge5' => $getimmobleImg->imatge_5,
+            'imatge6' => $getimmobleImg->imatge_6,
+            'imatge7' => $getimmobleImg->imatge_7,
+            'imatge8' => $getimmobleImg->imatge_8,
+            'imatge9' => $getimmobleImg->imatge_9,
+            'imatge10' => $getimmobleImg->imatge_10
           ];
 
           // Pujada d'imatges. Es mira si ens passen un arxiu i si aquest es nou.
@@ -1568,7 +1575,16 @@
         }
 
       } else {
-        // Accedemos a la página editar para editar el producto pasado por parámetros
+        
+        // Get existing post from model
+        $immoble = $this->immobleModel->getImmobleById($id);
+
+        if(!isLoggedInAndAdmin()){
+          // Check owner
+          if($immoble->usuari_id != $_SESSION['usuari_id']){
+            redirect('immobles/index');
+          }
+        }
 
         $data = [
           'id' => $id,
@@ -1594,10 +1610,13 @@
           'banys' => $immoble->banys,
           'tamany' => $immoble->tamany,
           'activat' => $immoble->activat,
-          'provincia_id' => $immoble->provincia_id,
           'poblacio_id' => $immoble->poblacio_id,
           'categoria_id' => $immoble->categoria_id,
-          'caracteristica_id' => $immoble->caracteristica_id
+          'caracteristica_id' => $immoble->caracteristica_id,
+          'poblacions' => $poblacions,
+          'caracteristiques' => $caracteristiques,
+          'categories' => $categories,
+          'totalPortada' => $totalPortada->total_portada
         ];
 
         $this->view('immobles/edit', $data);
@@ -1610,16 +1629,16 @@
         
         $immoble = $this->immobleModel->getImmobleById($id);
         $data = [
-          'imatge1' => $immoble->imatge1,
-          'imatge2' => $immoble->imatge2,
-          'imatge3' => $immoble->imatge3,
-          'imatge4' => $immoble->imatge4,
-          'imatge5' => $immoble->imatge5,
-          'imatge6' => $immoble->imatge6,
-          'imatge7' => $immoble->imatge7,
-          'imatge8' => $immoble->imatge8,
-          'imatge9' => $immoble->imatge9,
-          'imatge10' => $immoble->imatge10
+          'imatge1' => $immoble->imatge_1,
+          'imatge2' => $immoble->imatge_2,
+          'imatge3' => $immoble->imatge_3,
+          'imatge4' => $immoble->imatge_4,
+          'imatge5' => $immoble->imatge_5,
+          'imatge6' => $immoble->imatge_6,
+          'imatge7' => $immoble->imatge_7,
+          'imatge8' => $immoble->imatge_8,
+          'imatge9' => $immoble->imatge_9,
+          'imatge10' => $immoble->imatge_10
         ];
         if(!empty($data['imatge1']) && file_exists('../../admin-web/public/images/img_xarxa/'.$data['imatge1'])){
           unlink('../../admin-web/public/images/img_xarxa/'.$data['imatge1']);
@@ -1649,7 +1668,7 @@
           unlink('../../admin-web/public/images/img_xarxa/'.$data['imatge10']);
         }
 
-        if($this->blogModel->deleteBlog($id)){
+        if($this->immobleModel->delete($id)){
           flash('immoble_message', 'Immoble eliminat correctament');
           redirect('immobles');
         } else {

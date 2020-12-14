@@ -20,12 +20,12 @@
                     <input name="nom_cat" type="text" class="form-control" id="exampleInputEmail3" placeholder="Nom CAT" value="<?php echo $data['nom_cat']; ?>">
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group col-md-4">
                     <label for="exampleInputEmail3">Nom de la categoria ESP *:</label>
                     <input name="nom_esp" type="text" class="form-control" id="exampleInputEmail3" placeholder="Nom ESP" value="<?php echo $data['nom_esp']; ?>">
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group col-md-4">
                     <label for="exampleInputEmail3">Nom de la categoria ENG *:</label>
                     <input name="nom_eng" type="text" class="form-control" id="exampleInputEmail3" placeholder="Nom ENG" value="<?php echo $data['nom_eng']; ?>">
                   </div>

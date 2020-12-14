@@ -38,7 +38,7 @@
         
         // Init data
         $data =[
-          'username' => trim($_POST['username']),
+          'username' => trim(strtolower($_POST['username'])),
           'password' => trim($_POST['password']),
           'username_err' => '',
           'password_err' => '',      

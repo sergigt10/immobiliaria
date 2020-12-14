@@ -13581,7 +13581,7 @@ input[type="button"].btn-block {
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid #d2d2dc;
-  border-radius: 0;
+  border-radius: 15px;
 }
 
 .card > hr {
@@ -27556,7 +27556,7 @@ div.tagsinput span.tag a {
 }
 
 .content-wrapper {
-  background: #eee;
+  background: #d9e1e5; /* #ecf0f2 */
   padding: 1.75rem 1.312rem;
   width: 100%;
   -webkit-flex-grow: 1;

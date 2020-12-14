@@ -93,12 +93,12 @@
                 <div class="form-row">
                   <div class="form-group col-md-4">
                     <label for="exampleInputEmail3">Màxim d'immobles:</label>
-                    <input name="max_immobles" min="20" min="300" type="number" class="form-control" id="exampleInputEmail3" placeholder="Màxim d'immobles" value="20">
+                    <input name="max_immobles" min="1" min="500" type="number" class="form-control" id="exampleInputEmail3" placeholder="Màxim d'immobles" value="<?php echo $data['max_immobles']; ?>">
                   </div>
 
                   <div class="form-group col-md-4">
                     <label for="exampleInputEmail3">Màxim fotos:</label>
-                    <input name="max_fotos" min="3" max="10" type="number" class="form-control" id="exampleInputEmail3" placeholder="Màxim de fotos" value="3">
+                    <input name="max_fotos" min="1" max="10" type="number" class="form-control" id="exampleInputEmail3" placeholder="Màxim de fotos" value="<?php echo $data['max_fotos']; ?>">
                   </div>
 
                   <div class="form-group col-md-4">

@@ -17,7 +17,7 @@
                         <th>Categoria</th>
                         <th>Població</th>
                         <?php if (isLoggedInAndAdmin()) { ?>
-                          <th>Usuari</th>
+                          <th>Venedor</th>
                           <th data-orderable="false">Portada</th>
                         <?php } ?>
                         <th data-orderable="false">Estat</th>
