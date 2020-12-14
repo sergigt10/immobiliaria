@@ -10379,7 +10379,8 @@ select.form-control:not([size]):not([multiple]), select.asColorPicker-input:not(
 .jsgrid .jsgrid-table .jsgrid-filter-row select:not([size]):not([multiple]), .select2-container--default select.select2-selection--single:not([size]):not([multiple]), .select2-container--default .select2-selection--single select.select2-search__field:not([size]):not([multiple]), select.typeahead:not([size]):not([multiple]),
 select.tt-query:not([size]):not([multiple]),
 select.tt-hint:not([size]):not([multiple]) {
-  height: calc(2.25rem + 2px);
+  /* height: calc(2.25rem + 2px); */
+  height: 59%;
 }
 
 select.form-control:focus::-ms-value, select.asColorPicker-input:focus::-ms-value, .dataTables_wrapper select:focus::-ms-value,
