@@ -23,8 +23,8 @@
                   <tbody>
                     <?php foreach($data['poblacions'] as $poblacio) : ?>
                     <tr>
-                        <td><a href="<?php echo URLROOT; ?>/poblacions/edit/<?php echo $poblacio->id; ?>" style="color: black;">&nbsp;<?php echo $poblacio->nom_cat; ?></a></td>
-                        <td><a href="<?php echo URLROOT; ?>/poblacions/edit/<?php echo $poblacio->id; ?>" style="color: black;">&nbsp;<?php echo $poblacio->nom_cat; ?></a></td>
+                        <td><a href="<?php echo URLROOT; ?>/poblacions/edit/<?php echo $poblacio->id; ?>" style="color: black;"><?php echo $poblacio->poblacio; ?></a></td>
+                        <td><a href="<?php echo URLROOT; ?>/poblacions/edit/<?php echo $poblacio->id; ?>" style="color: black;"><?php echo $poblacio->provincia; ?></a></td>
                         <td>
                           <a href="<?php echo URLROOT; ?>/poblacions/edit/<?php echo $poblacio->id; ?>" style="color: black;">
                             <?php if($poblacio->activat == 1) { ?>
@@ -47,7 +47,7 @@
                             </button>
                           </div>
                           <div class="modal-body">
-                            Segur que vols esborrar: <?php echo $poblacio->nom_cat; ?>
+                            Segur que vols esborrar: <?php echo $poblacio->poblacio; ?>
                           </div>
                           <div class="modal-footer">
                             <form class="pull-right" action="<?php echo URLROOT; ?>/poblacions/delete/<?php echo $poblacio->id ?>" method="post">

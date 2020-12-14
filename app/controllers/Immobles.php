@@ -717,7 +717,7 @@
           }
           if($this->immobleModel->add($data)){
             flash('immoble_message', 'Immoble creat correctament');
-            redirect('immobles');
+            redirect('immobles/index');
           } else {
             die('Error add');
           }
@@ -1557,8 +1557,8 @@
           }
 
           if($this->immobleModel->update($data)){
-            flash('immoble_message', 'Immbole actualitzat correctament');
-            redirect('immobles');
+            flash('immoble_message', 'Immoble actualitzat correctament');
+            redirect('immobles/index');
           } else {
             die('Error update');
           }

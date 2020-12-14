@@ -53,7 +53,7 @@
 
           if($this->caracteristicaModel->add($data)){
             flash('caracteristica_message', 'Característica afegida correctament');
-            redirect('caracteristiques');
+            redirect('caracteristiques/index');
           } else {
             die('Something went wrong');
           }
@@ -105,7 +105,7 @@
           // Validated
           if($this->caracteristicaModel->update($data)){
             flash('caracteristica_message', 'Característica actualitzada correctament');
-            redirect('caracteristiques');
+            redirect('caracteristiques/index');
           } else {
             die('Something went wrong');
           }
@@ -135,7 +135,7 @@
       
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         if($this->caracteristicaModel->delete($id)){
-          flash('caracteristica_message', 'Característica eliminada');
+          flash('caracteristica_message', 'Característica eliminada correctamente');
           redirect('caracteristiques');
         } else {
           die('Something went wrong');

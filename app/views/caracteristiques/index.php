@@ -22,7 +22,7 @@
                   <tbody>
                     <?php foreach($data['caracteristiques'] as $caracteristica) : ?>
                     <tr>
-                        <td><a href="<?php echo URLROOT; ?>/caracteristiques/edit/<?php echo $caracteristica->id; ?>" style="color: black;">&nbsp;<?php echo $caracteristica->nom_cat; ?></a></td>
+                        <td><a href="<?php echo URLROOT; ?>/caracteristiques/edit/<?php echo $caracteristica->id; ?>" style="color: black;"><?php echo $caracteristica->nom_cat; ?></a></td>
                         <td>
                           <a href="<?php echo URLROOT; ?>/caracteristiques/edit/<?php echo $caracteristica->id; ?>" style="color: black;">
                             <?php if($caracteristica->activat == 1) { ?>

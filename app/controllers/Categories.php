@@ -53,7 +53,7 @@
 
           if($this->categoriaModel->add($data)){
             flash('categoria_message', 'Categoria afegida correctament');
-            redirect('categories');
+            redirect('categories/index');
           } else {
             die('Something went wrong');
           }
@@ -105,7 +105,7 @@
           // Validated
           if($this->categoriaModel->update($data)){
             flash('categoria_message', 'Categoria actualitzada correctament');
-            redirect('categories');
+            redirect('categories/index');
           } else {
             die('Something went wrong');
           }
@@ -135,7 +135,7 @@
       
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         if($this->categoriaModel->delete($id)){
-          flash('categoria_message', 'Categoria eliminada');
+          flash('categoria_message', 'Categoria eliminada correctamente');
           redirect('categories');
         } else {
           die('Something went wrong');

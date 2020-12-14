@@ -22,7 +22,7 @@
                   <tbody>
                     <?php foreach($data['categories'] as $categoria) : ?>
                     <tr>
-                        <td><a href="<?php echo URLROOT; ?>/categories/edit/<?php echo $categoria->id; ?>" style="color: black;">&nbsp;<?php echo $categoria->nom_cat; ?></a></td>
+                        <td><a href="<?php echo URLROOT; ?>/categories/edit/<?php echo $categoria->id; ?>" style="color: black;"><?php echo $categoria->nom_cat; ?></a></td>
                         <td>
                           <a href="<?php echo URLROOT; ?>/categories/edit/<?php echo $categoria->id; ?>" style="color: black;">
                             <?php if($categoria->activat == 1) { ?>

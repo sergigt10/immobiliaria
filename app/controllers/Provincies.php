@@ -43,7 +43,7 @@
 
           if($this->provinciaModel->add($data)){
             flash('provincia_message', 'Província afegida correctament');
-            redirect('provincies');
+            redirect('provincies/index');
           } else {
             die('Something went wrong');
           }
@@ -83,7 +83,7 @@
           // Validated
           if($this->provinciaModel->update($data)){
             flash('provincia_message', 'Població actualitzada correctament');
-            redirect('provincies');
+            redirect('provincies/index');
           } else {
             die('Something went wrong');
           }
@@ -111,7 +111,7 @@
       
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         if($this->provinciaModel->delete($id)){
-          flash('provincia_message', 'Província eliminada');
+          flash('provincia_message', 'Província eliminada correctamente');
           redirect('provincies');
         } else {
           die('Something went wrong');

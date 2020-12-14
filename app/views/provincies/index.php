@@ -22,7 +22,7 @@
                   <tbody>
                     <?php foreach($data['provincies'] as $provincia) : ?>
                     <tr>
-                        <td><a href="<?php echo URLROOT; ?>/provincies/edit/<?php echo $provincia->id; ?>" style="color: black;">&nbsp;<?php echo $provincia->nom_cat; ?></a></td>
+                        <td><a href="<?php echo URLROOT; ?>/provincies/edit/<?php echo $provincia->id; ?>" style="color: black;"><?php echo $provincia->nom_cat; ?></a></td>
                         <td>
                           <a href="<?php echo URLROOT; ?>/provincies/edit/<?php echo $provincia->id; ?>" style="color: black;">
                             <?php if($provincia->activat == 1) { ?>

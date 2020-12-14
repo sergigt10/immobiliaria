@@ -10,10 +10,10 @@
       "iDisplayLength": 10,
       "language": {
         "processing": "Processant...",
-        "lengthMenu": "Mostrant _MENU_ registres",
+        "lengthMenu": "Mostrant _MENU_ registre/s",
         "zeroRecords": "No s'han trobat registres",
         "emptyTable": "No hi ha registres disponibles en aquesta taula",
-        "info": "Mostrant del _START_ al _END_ d'un total de _TOTAL_ registres",
+        "info": "Mostrant del _START_ al _END_ d'un total de _TOTAL_ registre/s",
         "infoEmpty": "No hi ha registres disponibles",
         "infoFiltered": "(filtrat de _MAX_ registres)",
         "search": "Buscador: ",

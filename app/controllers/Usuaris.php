@@ -236,7 +236,7 @@
           // Register Usuaris
           if($this->usuariModel->add($data)){
             flash('register_success', 'L\'usuari s\'ha creat correctament');
-            redirect('/usuaris/add');
+            redirect('usuaris/index');
           } else {
             die('Error !');
           }
@@ -433,7 +433,7 @@
           // Validated
           if($this->usuariModel->update($data)){
             flash('usuari_message', 'Usuari actualitzat correctament');
-            redirect('usuaris');
+            redirect('usuaris/index');
           } else {
             die('Error!');
           }

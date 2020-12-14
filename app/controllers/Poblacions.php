@@ -12,7 +12,7 @@
     // Get poblacions
     public function index(){
       // Call model with switch
-      $poblacions = $this->poblacioModel->getPoblacions();
+      $poblacions = $this->poblacioModel->getPoblacionsWithProvincies();
 
       $data = [
         'poblacions' => $poblacions
@@ -48,7 +48,7 @@
 
           if($this->poblacioModel->add($data)){
             flash('poblacio_message', 'Població afegida correctament');
-            redirect('poblacions');
+            redirect('poblacions/index');
           } else {
             die('Something went wrong');
           }
@@ -95,7 +95,7 @@
           // Validated
           if($this->poblacioModel->update($data)){
             flash('poblacio_message', 'Població actualitzada correctament');
-            redirect('poblacions');
+            redirect('poblacions/index');
           } else {
             die('Something went wrong');
           }
@@ -125,7 +125,7 @@
       
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         if($this->poblacioModel->delete($id)){
-          flash('poblacio_message', 'Població eliminada');
+          flash('poblacio_message', 'Població eliminada correctamente');
           redirect('poblacions');
         } else {
           die('Something went wrong');

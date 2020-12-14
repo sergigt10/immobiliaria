@@ -15,7 +15,7 @@
     }
 
     public function getPoblacionsWithProvincies(){
-      $this->db->query('SELECT poblacio.id, poblacio.nom_cat AS poblacio, provincia.nom_cat AS provincia 
+      $this->db->query('SELECT poblacio.id, poblacio.nom_cat AS poblacio, provincia.nom_cat AS provincia, poblacio.activat 
       FROM poblacio
       INNER JOIN provincia
         ON poblacio.provincia_id = provincia.id

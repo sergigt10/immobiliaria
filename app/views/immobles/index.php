@@ -17,12 +17,10 @@
                         <th>Categoria</th>
                         <th>Població</th>
                         <?php if (isLoggedInAndAdmin()) { ?>
+                          <th>Usuari</th>
                           <th data-orderable="false">Portada</th>
                         <?php } ?>
                         <th data-orderable="false">Estat</th>
-                        <?php if (isLoggedInAndAdmin()) { ?>
-                          <th>Usuari</th>
-                        <?php } ?>
                         <th data-orderable="false">Editar</th>
                         <th data-orderable="false">Eliminar</th>
                     </tr>
@@ -33,6 +31,9 @@
                         <td><a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->titol_cat; ?></a></td>
                         <td><a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->categoria; ?></a></td>
                         <td><a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->poblacio; ?></a></td>
+                        <?php if (isLoggedInAndAdmin()) { ?>
+                          <td><a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->usuari; ?></a></td>
+                        <?php } ?>
                         <?php if (isLoggedInAndAdmin()) { ?>
                           <td>
                             <a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;">
@@ -53,9 +54,6 @@
                             <?php } ?>
                           </a>
                         </td>
-                        <?php if (isLoggedInAndAdmin()) { ?>
-                          <td><a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->usuari; ?></a></td>
-                        <?php } ?>
                         <td><a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;"><i class="mdi mdi-pencil menu-icon"></i></a></td>
                         <td><a href="" style="color: black;" data-toggle="modal" data-target="#exampleModalCenter<?php echo $immoble->id ?>"><i class="mdi mdi-close-circle menu-icon"></i></a></td>
                     </tr>

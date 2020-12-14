@@ -14,19 +14,21 @@
                 <?php echo (!empty($data['nom_esp_err'])) ? "<div class='alert alert-danger' role='alert'>* ".$data['nom_esp_err']."</div>" : ' '; ?>
                 <?php echo (!empty($data['nom_eng_err'])) ? "<div class='alert alert-danger' role='alert'>* ".$data['nom_eng_err']."</div>" : ' '; ?>
 
-                <div class="form-group">
-                  <label for="exampleInputEmail3">Nom de la característica CAT *:</label>
-                  <input name="nom_cat" type="text" class="form-control" id="exampleInputEmail3" placeholder="Nom CAT" value="<?php echo $data['nom_cat']; ?>">
-                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="exampleInputEmail3">Nom de la característica CAT *:</label>
+                    <input name="nom_cat" type="text" class="form-control" id="exampleInputEmail3" placeholder="Nom CAT" value="<?php echo $data['nom_cat']; ?>">
+                  </div>
 
-                <div class="form-group">
-                  <label for="exampleInputEmail3">Nom de la característica ESP *:</label>
-                  <input name="nom_esp" type="text" class="form-control" id="exampleInputEmail3" placeholder="Nom ESP" value="<?php echo $data['nom_esp']; ?>">
-                </div>
+                  <div class="form-group col-md-4">
+                    <label for="exampleInputEmail3">Nom de la característica ESP *:</label>
+                    <input name="nom_esp" type="text" class="form-control" id="exampleInputEmail3" placeholder="Nom ESP" value="<?php echo $data['nom_esp']; ?>">
+                  </div>
 
-                <div class="form-group">
-                  <label for="exampleInputEmail3">Nom de la característica ENG *:</label>
-                  <input name="nom_eng" type="text" class="form-control" id="exampleInputEmail3" placeholder="Nom ENG" value="<?php echo $data['nom_eng']; ?>">
+                  <div class="form-group col-md-4">
+                    <label for="exampleInputEmail3">Nom de la característica ENG *:</label>
+                    <input name="nom_eng" type="text" class="form-control" id="exampleInputEmail3" placeholder="Nom ENG" value="<?php echo $data['nom_eng']; ?>">
+                  </div>
                 </div>
 
                 <div class="form-group">

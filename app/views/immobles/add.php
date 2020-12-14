@@ -14,19 +14,21 @@
                 <?php echo (!empty($data['titol_esp_err'])) ? "<div class='alert alert-danger' role='alert'>* ".$data['titol_esp_err']."</div>" : ' '; ?>
                 <?php echo (!empty($data['titol_eng_err'])) ? "<div class='alert alert-danger' role='alert'>* ".$data['titol_eng_err']."</div>" : ' '; ?>
 
-                <div class="form-group">
-                  <label for="exampleInputEmail3">Títol CAT *:</label>
-                  <input name="titol_cat" type="text" class="form-control" id="exampleInputEmail3" placeholder="Títol CAT" value="<?php echo $data['titol_cat']; ?>">
-                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="exampleInputEmail3">Títol CAT *:</label>
+                    <input name="titol_cat" type="text" class="form-control" id="exampleInputEmail3" placeholder="Títol CAT" value="<?php echo $data['titol_cat']; ?>">
+                  </div>
 
-                <div class="form-group">
-                  <label for="exampleInputEmail3">Títol ESP *:</label>
-                  <input name="titol_esp" type="text" class="form-control" id="exampleInputEmail3" placeholder="Títol ESP" value="<?php echo $data['titol_esp']; ?>">
-                </div>
+                  <div class="form-group col-md-4">
+                    <label for="exampleInputEmail3">Títol ESP *:</label>
+                    <input name="titol_esp" type="text" class="form-control" id="exampleInputEmail3" placeholder="Títol ESP" value="<?php echo $data['titol_esp']; ?>">
+                  </div>
 
-                <div class="form-group">
-                  <label for="exampleInputEmail3">Títol ENG *:</label>
-                  <input name="titol_eng" type="text" class="form-control" id="exampleInputEmail3" placeholder="Títol ENG" value="<?php echo $data['titol_eng']; ?>">
+                  <div class="form-group col-md-4">
+                    <label for="exampleInputEmail3">Títol ENG *:</label>
+                    <input name="titol_eng" type="text" class="form-control" id="exampleInputEmail3" placeholder="Títol ENG" value="<?php echo $data['titol_eng']; ?>">
+                  </div>
                 </div>
 
                 <div class="form-group">
@@ -205,6 +207,70 @@
                     </div>
                   </div>
 
+                  <div class="form-row">
+                    <div class="form-group col-md-3">
+                      <label for="exampleInputEmail3">Preu:</label>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">€</span>
+                        </div>
+                        <input type="number" name="preu" min="0" class="form-control" placeholder="Preu" aria-label="Preu" aria-describedby="basic-addon1" value="<?php echo $data['preu']; ?>">
+                      </div>
+                      <h5 style="color:red">No s'ha d'afegir el simbol €</h5>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                      <label for="exampleInputEmail3">Habitacions:</label>
+                      <input name="habitacio" min="0" type="number" class="form-control" id="exampleInputEmail3" placeholder="Habitació" value="<?php echo $data['habitacio']; ?>">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                    <label for="exampleInputEmail3">Tamany:</label>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">m²</span>
+                        </div>
+                        <input type="number" name="tamany" min="0" step="any" class="form-control" placeholder="Tamany" aria-label="Tamany" aria-describedby="basic-addon1" value="<?php echo $data['tamany']; ?>">
+                      </div>
+                      <h5 style="color:red">No s'ha d'afegir el simbol m²</h5>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                      <label for="exampleInputEmail3">Banys:</label>
+                      <input name="banys" min="0" type="number" class="form-control" id="exampleInputEmail3" placeholder="Banys" value="<?php echo $data['banys']; ?>">
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md-4">
+                      <label for="exampleInputName1">Característiques:</label>
+                      <select name="caracteristica_id" class="form-control" id="exampleSelectGender">
+                        <?php foreach($data['caracteristiques'] as $caracteristica) : ?>
+                          <option value="<?php echo $caracteristica->id; ?>"><?php echo $caracteristica->nom_cat; ?></option>
+                        <?php endforeach; ?>
+                      </select>
+                    </div>
+                    
+                    <div class="form-group col-md-4">
+                      <label for="exampleInputName1">Població:</label>
+                      <select name="poblacio_id" class="form-control" id="exampleSelectGender">
+                        <?php foreach($data['poblacions'] as $poblacio) : ?>
+                          <option value="<?php echo $poblacio->id; ?>"><?php echo $poblacio->poblacio; ?> - <?php echo $poblacio->provincia; ?></option>
+                        <?php endforeach; ?>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                      <label for="exampleInputName1">Categoria:</label>
+                      <select name="categoria_id" class="form-control" id="exampleSelectGender">
+                        <?php foreach($data['categories'] as $categoria) : ?>
+                          <option value="<?php echo $categoria->id; ?>"><?php echo $categoria->nom_cat; ?></option>
+                        <?php endforeach; ?>
+                      </select>
+                    </div>
+
+                  </div>
+
                   <?php if(isLoggedInAndAdmin()) { ?>
                     <div class="form-group">
                       <label for="exampleInputName1">Portada?:</label>
@@ -214,69 +280,12 @@
                       </select>
                     </div>
                   <?php } ?>
-
-                  <div class="form-group">
-                    <label for="exampleInputEmail3">Preu:</label>
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">€</span>
-                      </div>
-                      <input type="number" name="preu" min="0" class="form-control" placeholder="Preu" aria-label="Preu" aria-describedby="basic-addon1" value="<?php echo $data['preu']; ?>">
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="exampleInputEmail3">Habitacions:</label>
-                    <input name="habitacio" min="0" type="number" class="form-control" id="exampleInputEmail3" placeholder="Habitació" value="<?php echo $data['habitacio']; ?>">
-                  </div>
-
-                  <div class="form-group">
-                  <label for="exampleInputEmail3">Tamany:</label>
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">m²</span>
-                      </div>
-                      <input type="number" name="tamany" min="0" step="any" class="form-control" placeholder="Tamany" aria-label="Tamany" aria-describedby="basic-addon1" value="<?php echo $data['tamany']; ?>">
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="exampleInputEmail3">Banys:</label>
-                    <input name="banys" min="0" type="number" class="form-control" id="exampleInputEmail3" placeholder="Banys" value="<?php echo $data['banys']; ?>">
-                  </div>
                   
                   <div class="form-group">
                     <label for="exampleInputName1">Activat?:</label>
                     <select name="activat" class="form-control" id="exampleSelectGender">
                       <option value="1" selected>Si</option>
                       <option value="0">No</option>
-                    </select>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="exampleInputName1">Població:</label>
-                    <select name="poblacio_id" class="form-control" id="exampleSelectGender">
-                      <?php foreach($data['poblacions'] as $poblacio) : ?>
-                        <option value="<?php echo $poblacio->id; ?>"><?php echo $poblacio->poblacio; ?> - <?php echo $poblacio->provincia; ?></option>
-                      <?php endforeach; ?>
-                    </select>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="exampleInputName1">Categoria:</label>
-                    <select name="categoria_id" class="form-control" id="exampleSelectGender">
-                      <?php foreach($data['categories'] as $categoria) : ?>
-                        <option value="<?php echo $categoria->id; ?>"><?php echo $categoria->nom_cat; ?></option>
-                      <?php endforeach; ?>
-                    </select>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="exampleInputName1">Característiques:</label>
-                    <select name="caracteristica_id" class="form-control" id="exampleSelectGender">
-                      <?php foreach($data['caracteristiques'] as $caracteristica) : ?>
-                        <option value="<?php echo $caracteristica->id; ?>"><?php echo $caracteristica->nom_cat; ?></option>
-                      <?php endforeach; ?>
                     </select>
                   </div>
 
