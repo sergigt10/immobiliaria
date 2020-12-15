@@ -46,6 +46,72 @@
                   <textarea id="tinyMceExample2" class="editor" name="descripcio_eng"><?php echo $data['descripcio_eng']; ?></textarea>
                 </div>
 
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+                    <label for="exampleInputEmail3">Preu:</label>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">€</span>
+                      </div>
+                      <input type="number" name="preu" min="0" class="form-control" placeholder="Preu" aria-label="Preu" aria-describedby="basic-addon1" value="<?php echo $data['preu']; ?>">
+                    </div>
+                    <h5 style="color:red">No s'ha d'afegir el simbol €</h5>
+                  </div>
+
+                  <div class="form-group col-md-3">
+                    <label for="exampleInputEmail3">Habitacions:</label>
+                    <input name="habitacio" min="0" type="number" class="form-control" id="exampleInputEmail3" placeholder="Habitació" value="<?php echo $data['habitacio']; ?>">
+                  </div>
+
+                  <div class="form-group col-md-3">
+                  <label for="exampleInputEmail3">Tamany:</label>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">m²</span>
+                      </div>
+                      <input type="number" name="tamany" min="0" step="any" class="form-control" placeholder="Tamany" aria-label="Tamany" aria-describedby="basic-addon1" value="<?php echo $data['tamany']; ?>">
+                    </div>
+                    <h5 style="color:red">No s'ha d'afegir el simbol m²</h5>
+                  </div>
+
+                  <div class="form-group col-md-3">
+                    <label for="exampleInputEmail3">Banys:</label>
+                    <input name="banys" min="0" type="number" class="form-control" id="exampleInputEmail3" placeholder="Banys" value="<?php echo $data['banys']; ?>">
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="exampleInputName1">Població:</label>
+                    <select name="poblacio_id" class="form-control" id="exampleSelectGender">
+                      <?php foreach($data['poblacions'] as $poblacio) : ?>
+                        <option value="<?php echo $poblacio->id; ?>"><?php echo $poblacio->poblacio; ?> - <?php echo $poblacio->provincia; ?></option>
+                      <?php endforeach; ?>
+                    </select>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label for="exampleInputName1">Categoria:</label>
+                    <select name="categoria_id" class="form-control" id="exampleSelectGender">
+                      <?php foreach($data['categories'] as $categoria) : ?>
+                        <option value="<?php echo $categoria->id; ?>"><?php echo $categoria->nom_cat; ?></option>
+                      <?php endforeach; ?>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputName1">Característiques:</label><br>
+                  <?php foreach($data['caracteristiques'] as $caracteristica) : ?>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input class="checkbox" type="checkbox" name="caracteristica_id[]" value="<?php echo $caracteristica->id; ?>">
+                        <?php echo $caracteristica->nom_cat; ?>
+                      </label>
+                    </div>
+                  <?php endforeach; ?>
+                </div>
+
                 <div class="row grid-margin">
                   <div class="col-lg-12">
                     <div class="card">
@@ -58,7 +124,7 @@
                                 <label>Pujar imatge 1</label>
                                 <input name="foto1file" type="file" class="file-upload-default">
                                 <div class="input-group col-xs-12">
-                                  <input name="imatge1" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="Imatge 1" value="<?php echo $data['imatge1']; ?>">
+                                  <input name="imatge1" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="Imatge 1" value="">
                                   <span class="input-group-append">
                                     <button class="file-upload-browse btn btn-primary" type="button">Pujar imatge 1</button>
                                   </span>
@@ -73,7 +139,7 @@
                                 <label>Pujar imatge 2</label>
                                 <input name="foto2file" type="file" class="file-upload-default">
                                 <div class="input-group col-xs-12">
-                                  <input name="imatge2" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="Imatge 2" value="<?php echo $data['imatge2']; ?>">
+                                  <input name="imatge2" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="Imatge 2" value="">
                                   <span class="input-group-append">
                                     <button class="file-upload-browse btn btn-primary" type="button">Pujar imatge 2</button>
                                   </span>
@@ -88,7 +154,7 @@
                                 <label>Pujar imatge 3</label>
                                 <input name="foto3file" type="file" class="file-upload-default">
                                 <div class="input-group col-xs-12">
-                                  <input name="imatge3" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="Imatge 3" value="<?php echo $data['imatge3']; ?>">
+                                  <input name="imatge3" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="Imatge 3" value="">
                                   <span class="input-group-append">
                                     <button class="file-upload-browse btn btn-primary" type="button">Pujar imatge 3</button>
                                   </span>
@@ -103,7 +169,7 @@
                                 <label>Pujar imatge 4</label>
                                 <input name="foto4file" type="file" class="file-upload-default">
                                 <div class="input-group col-xs-12">
-                                  <input name="imatge4" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="Imatge 4" value="<?php echo $data['imatge4']; ?>">
+                                  <input name="imatge4" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="Imatge 4" value="">
                                   <span class="input-group-append">
                                     <button class="file-upload-browse btn btn-primary" type="button">Pujar imatge 4</button>
                                   </span>
@@ -118,7 +184,7 @@
                                 <label>Pujar imatge 5</label>
                                 <input name="foto5file" type="file" class="file-upload-default">
                                 <div class="input-group col-xs-12">
-                                  <input name="imatge5" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="Imatge 5" value="<?php echo $data['imatge5']; ?>">
+                                  <input name="imatge5" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="Imatge 5" value="">
                                   <span class="input-group-append">
                                     <button class="file-upload-browse btn btn-primary" type="button">Pujar imatge 5</button>
                                   </span>
@@ -133,7 +199,7 @@
                                 <label>Pujar imatge 6</label>
                                 <input name="foto6file" type="file" class="file-upload-default">
                                 <div class="input-group col-xs-12">
-                                  <input name="imatge6" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="Imatge 6" value="<?php echo $data['imatge6']; ?>">
+                                  <input name="imatge6" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="Imatge 6" value="">
                                   <span class="input-group-append">
                                     <button class="file-upload-browse btn btn-primary" type="button">Pujar imatge 6</button>
                                   </span>
@@ -148,7 +214,7 @@
                                 <label>Pujar imatge 7</label>
                                 <input name="foto7file" type="file" class="file-upload-default">
                                 <div class="input-group col-xs-12">
-                                  <input name="imatge7" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="Imatge 7" value="<?php echo $data['imatge7']; ?>">
+                                  <input name="imatge7" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="Imatge 7" value="">
                                   <span class="input-group-append">
                                     <button class="file-upload-browse btn btn-primary" type="button">Pujar imatge 7</button>
                                   </span>
@@ -163,7 +229,7 @@
                                 <label>Pujar imatge 8</label>
                                 <input name="foto8file" type="file" class="file-upload-default">
                                 <div class="input-group col-xs-12">
-                                  <input name="imatge8" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="Imatge 8" value="<?php echo $data['imatge8']; ?>">
+                                  <input name="imatge8" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="Imatge 8" value="">
                                   <span class="input-group-append">
                                     <button class="file-upload-browse btn btn-primary" type="button">Pujar imatge 8</button>
                                   </span>
@@ -178,7 +244,7 @@
                                 <label>Pujar imatge 9</label>
                                 <input name="foto9file" type="file" class="file-upload-default">
                                 <div class="input-group col-xs-12">
-                                  <input name="imatge9" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="Imatge 9" value="<?php echo $data['imatge9']; ?>">
+                                  <input name="imatge9" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="Imatge 9" value="">
                                   <span class="input-group-append">
                                     <button class="file-upload-browse btn btn-primary" type="button">Pujar imatge 9</button>
                                   </span>
@@ -193,7 +259,7 @@
                                 <label>Pujar imatge 10</label>
                                 <input name="foto10file" type="file" class="file-upload-default">
                                 <div class="input-group col-xs-12">
-                                  <input name="imatge10" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="Imatge 10" value="<?php echo $data['imatge10']; ?>">
+                                  <input name="imatge10" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="Imatge 10" value="">
                                   <span class="input-group-append">
                                     <button class="file-upload-browse btn btn-primary" type="button">Pujar imatge 10</button>
                                   </span>
@@ -206,88 +272,24 @@
                       </div>
                     </div>
                   </div>
-
-                  <div class="form-row">
-                    <div class="form-group col-md-3">
-                      <label for="exampleInputEmail3">Preu:</label>
-                      <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon1">€</span>
-                        </div>
-                        <input type="number" name="preu" min="0" class="form-control" placeholder="Preu" aria-label="Preu" aria-describedby="basic-addon1" value="<?php echo $data['preu']; ?>">
-                      </div>
-                      <h5 style="color:red">No s'ha d'afegir el simbol €</h5>
-                    </div>
-
-                    <div class="form-group col-md-3">
-                      <label for="exampleInputEmail3">Habitacions:</label>
-                      <input name="habitacio" min="0" type="number" class="form-control" id="exampleInputEmail3" placeholder="Habitació" value="<?php echo $data['habitacio']; ?>">
-                    </div>
-
-                    <div class="form-group col-md-3">
-                    <label for="exampleInputEmail3">Tamany:</label>
-                      <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon1">m²</span>
-                        </div>
-                        <input type="number" name="tamany" min="0" step="any" class="form-control" placeholder="Tamany" aria-label="Tamany" aria-describedby="basic-addon1" value="<?php echo $data['tamany']; ?>">
-                      </div>
-                      <h5 style="color:red">No s'ha d'afegir el simbol m²</h5>
-                    </div>
-
-                    <div class="form-group col-md-3">
-                      <label for="exampleInputEmail3">Banys:</label>
-                      <input name="banys" min="0" type="number" class="form-control" id="exampleInputEmail3" placeholder="Banys" value="<?php echo $data['banys']; ?>">
-                    </div>
-                  </div>
-
-                  <div class="form-row">
-                    <div class="form-group col-md-4">
-                      <label for="exampleInputName1">Característiques:</label>
-                      <select name="caracteristica_id" class="form-control" id="exampleSelectGender">
-                        <?php foreach($data['caracteristiques'] as $caracteristica) : ?>
-                          <option value="<?php echo $caracteristica->id; ?>"><?php echo $caracteristica->nom_cat; ?></option>
-                        <?php endforeach; ?>
-                      </select>
-                    </div>
-                    
-                    <div class="form-group col-md-4">
-                      <label for="exampleInputName1">Població:</label>
-                      <select name="poblacio_id" class="form-control" id="exampleSelectGender">
-                        <?php foreach($data['poblacions'] as $poblacio) : ?>
-                          <option value="<?php echo $poblacio->id; ?>"><?php echo $poblacio->poblacio; ?> - <?php echo $poblacio->provincia; ?></option>
-                        <?php endforeach; ?>
-                      </select>
-                    </div>
-
-                    <div class="form-group col-md-4">
-                      <label for="exampleInputName1">Categoria:</label>
-                      <select name="categoria_id" class="form-control" id="exampleSelectGender">
-                        <?php foreach($data['categories'] as $categoria) : ?>
-                          <option value="<?php echo $categoria->id; ?>"><?php echo $categoria->nom_cat; ?></option>
-                        <?php endforeach; ?>
-                      </select>
-                    </div>
-
-                  </div>
-                  
-                  <?php if(isLoggedInAndAdmin() && ($data['totalPortada'] <= MAXPORTADA) ) { ?>
-                    <div class="form-group">
-                      <label for="exampleInputName1">Portada?:</label>
-                      <select name="portada" class="form-control" id="exampleSelectGender">
-                        <option value="1">Si</option>
-                        <option value="0" selected>No</option>
-                      </select>
-                    </div>
-                  <?php } ?>
-                  
+                
+                <?php if(isLoggedInAndAdmin() && ($data['totalPortada'] <= MAXPORTADA) ) { ?>
                   <div class="form-group">
-                    <label for="exampleInputName1">Activat?:</label>
-                    <select name="activat" class="form-control" id="exampleSelectGender">
-                      <option value="1" selected>Si</option>
-                      <option value="0">No</option>
+                    <label for="exampleInputName1">Portada?:</label>
+                    <select name="portada" class="form-control" id="exampleSelectGender">
+                      <option value="1">Si</option>
+                      <option value="0" selected>No</option>
                     </select>
                   </div>
+                <?php } ?>
+                
+                <div class="form-group">
+                  <label for="exampleInputName1">Activat?:</label>
+                  <select name="activat" class="form-control" id="exampleSelectGender">
+                    <option value="1" selected>Si</option>
+                    <option value="0">No</option>
+                  </select>
+                </div>
 
                 <button type="submit" name="funcioBoto" class="btn btn-primary mr-2" value="Guardar">Guardar</button>
               </form>

@@ -148,8 +148,8 @@
                                   Eliminar logo?
                                   <i class="input-helper"></i></label>
                                   <br>
-                                  <?php if(!empty($data['logo']) && file_exists('../../admin-web/public/images/img_xarxa/'.$data['logo'])){ ?>
-                                      <p><img src="../../../admin-web/public/images/img_xarxa/thumb_img/thumb.php?src=../<?php echo $data['logo'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
+                                  <?php if(!empty($data['logo']) && file_exists('../../admin-web/public/images/img_xarxa/usuari/'.$data['logo'])){ ?>
+                                      <p><img src="../../../admin-web/public/images/img_xarxa/usuari/thumb_img/thumb.php?src=../<?php echo $data['logo'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
                                   <?php } ?>
                               </div>
                             </div>

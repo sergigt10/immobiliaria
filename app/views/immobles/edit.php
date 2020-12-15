@@ -45,6 +45,72 @@
                   <textarea id="tinyMceExample2" class="editor" name="descripcio_eng"><?php echo $data['descripcio_eng']; ?></textarea>
                 </div>
 
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+                    <label for="exampleInputEmail3">Preu:</label>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">€</span>
+                      </div>
+                      <input type="number" name="preu" min="0" class="form-control" placeholder="Preu" aria-label="Preu" aria-describedby="basic-addon1" value="<?php echo $data['preu']; ?>">
+                    </div>
+                    <h5 style="color:red">No s'ha d'afegir el simbol €</h5>
+                  </div>
+
+                  <div class="form-group col-md-3">
+                    <label for="exampleInputEmail3">Habitacions:</label>
+                    <input name="habitacio" min="0" type="number" class="form-control" id="exampleInputEmail3" placeholder="Habitació" value="<?php echo $data['habitacio']; ?>">
+                  </div>
+
+                  <div class="form-group col-md-3">
+                  <label for="exampleInputEmail3">Tamany:</label>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">m²</span>
+                      </div>
+                      <input type="number" name="tamany" min="0" step="any" class="form-control" placeholder="Tamany" aria-label="Tamany" aria-describedby="basic-addon1" value="<?php echo $data['tamany']; ?>">
+                    </div>
+                    <h5 style="color:red">No s'ha d'afegir el simbol m²</h5>
+                  </div>
+
+                  <div class="form-group col-md-3">
+                    <label for="exampleInputEmail3">Banys:</label>
+                    <input name="banys" min="0" type="number" class="form-control" id="exampleInputEmail3" placeholder="Banys" value="<?php echo $data['banys']; ?>">
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="exampleInputName1">Població:</label>
+                    <select name="poblacio_id" class="form-control" id="exampleSelectGender">
+                      <?php foreach($data['poblacions'] as $poblacio) : ?>
+                        <option value="<?php echo $poblacio->id; ?>" <?php echo ($data['poblacio_id']) == $poblacio->id ? 'selected' : ''; ?> ><?php echo $poblacio->poblacio; ?> - <?php echo $poblacio->provincia; ?></option>
+                      <?php endforeach; ?>
+                    </select>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label for="exampleInputName1">Categoria:</label>
+                    <select name="categoria_id" class="form-control" id="exampleSelectGender">
+                      <?php foreach($data['categories'] as $categoria) : ?>
+                        <option value="<?php echo $categoria->id; ?>" <?php echo ($data['categoria_id']) == $categoria->id ? 'selected' : ''; ?> ><?php echo $categoria->nom_cat; ?></option>
+                      <?php endforeach; ?>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputName1">Característiques:</label><br>
+                  <?php foreach($data['caracteristiques'] as $caracteristica) : ?>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input class="checkbox" type="checkbox" <?php echo ( !empty(json_decode($data['caracteristica_id'])) && in_array( $caracteristica->id, json_decode($data['caracteristica_id'])) ) ? 'checked' : '' ?> name="caracteristica_id[]" value="<?php echo $caracteristica->id; ?>">
+                        <?php echo $caracteristica->nom_cat; ?>
+                      </label>
+                    </div>
+                  <?php endforeach; ?>
+                </div>
+
                 <div class="row grid-margin">
                   <div class="col-lg-12">
                     <div class="card">
@@ -205,88 +271,24 @@
                       </div>
                     </div>
                   </div>
-
-                  <div class="form-row">
-                    <div class="form-group col-md-3">
-                      <label for="exampleInputEmail3">Preu:</label>
-                      <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon1">€</span>
-                        </div>
-                        <input type="number" name="preu" min="0" class="form-control" placeholder="Preu" aria-label="Preu" aria-describedby="basic-addon1" value="<?php echo $data['preu']; ?>">
-                      </div>
-                      <h5 style="color:red">No s'ha d'afegir el simbol €</h5>
-                    </div>
-
-                    <div class="form-group col-md-3">
-                      <label for="exampleInputEmail3">Habitacions:</label>
-                      <input name="habitacio" min="0" type="number" class="form-control" id="exampleInputEmail3" placeholder="Habitació" value="<?php echo $data['habitacio']; ?>">
-                    </div>
-
-                    <div class="form-group col-md-3">
-                    <label for="exampleInputEmail3">Tamany:</label>
-                      <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon1">m²</span>
-                        </div>
-                        <input type="number" name="tamany" min="0" step="any" class="form-control" placeholder="Tamany" aria-label="Tamany" aria-describedby="basic-addon1" value="<?php echo $data['tamany']; ?>">
-                      </div>
-                      <h5 style="color:red">No s'ha d'afegir el simbol m²</h5>
-                    </div>
-
-                    <div class="form-group col-md-3">
-                      <label for="exampleInputEmail3">Banys:</label>
-                      <input name="banys" min="0" type="number" class="form-control" id="exampleInputEmail3" placeholder="Banys" value="<?php echo $data['banys']; ?>">
-                    </div>
-                  </div>
-
-                  <div class="form-row">
-                    <div class="form-group col-md-4">
-                      <label for="exampleInputName1">Característiques:</label>
-                      <select name="caracteristica_id" class="form-control" id="exampleSelectGender">
-                        <?php foreach($data['caracteristiques'] as $caracteristica) : ?>
-                          <option value="<?php echo $caracteristica->id; ?>" <?php echo ($data['caracteristica_id']) == $caracteristica->id ? 'selected' : ''; ?> ><?php echo $caracteristica->nom_cat; ?></option>
-                        <?php endforeach; ?>
-                      </select>
-                    </div>
-                    
-                    <div class="form-group col-md-4">
-                      <label for="exampleInputName1">Població:</label>
-                      <select name="poblacio_id" class="form-control" id="exampleSelectGender">
-                        <?php foreach($data['poblacions'] as $poblacio) : ?>
-                          <option value="<?php echo $poblacio->id; ?>" <?php echo ($data['poblacio_id']) == $poblacio->id ? 'selected' : ''; ?> ><?php echo $poblacio->poblacio; ?> - <?php echo $poblacio->provincia; ?></option>
-                        <?php endforeach; ?>
-                      </select>
-                    </div>
-
-                    <div class="form-group col-md-4">
-                      <label for="exampleInputName1">Categoria:</label>
-                      <select name="categoria_id" class="form-control" id="exampleSelectGender">
-                        <?php foreach($data['categories'] as $categoria) : ?>
-                          <option value="<?php echo $categoria->id; ?>" <?php echo ($data['categoria_id']) == $categoria->id ? 'selected' : ''; ?> ><?php echo $categoria->nom_cat; ?></option>
-                        <?php endforeach; ?>
-                      </select>
-                    </div>
-
-                  </div>
-                  
-                  <?php if(isLoggedInAndAdmin() && ($data['totalPortada'] <= MAXPORTADA) ) { ?>
-                    <div class="form-group">
-                      <label for="exampleInputName1">Portada?:</label>
-                      <select name="portada" class="form-control" id="exampleSelectGender">
-                        <option value="1" <?php echo ($data['portada']) === '1' ? 'selected' : ''; ?>>Si</option>
-                        <option value="0" <?php echo ($data['portada']) === '0' ? 'selected' : ''; ?>>No</option>
-                      </select>
-                    </div>
-                  <?php } ?>
-                  
+                
+                <?php if(isLoggedInAndAdmin() && ($data['totalPortada'] <= MAXPORTADA) ) { ?>
                   <div class="form-group">
-                    <label for="exampleInputName1">Activat?:</label>
-                    <select name="activat" class="form-control" id="exampleSelectGender">
-                      <option value="1" <?php echo ($data['activat']) === '1' ? 'selected' : ''; ?>>Si</option>
-                      <option value="0" <?php echo ($data['activat']) === '0' ? 'selected' : ''; ?>>No</option>
+                    <label for="exampleInputName1">Portada?:</label>
+                    <select name="portada" class="form-control" id="exampleSelectGender">
+                      <option value="1" <?php echo ($data['portada']) === '1' ? 'selected' : ''; ?>>Si</option>
+                      <option value="0" <?php echo ($data['portada']) === '0' ? 'selected' : ''; ?>>No</option>
                     </select>
                   </div>
+                <?php } ?>
+                
+                <div class="form-group">
+                  <label for="exampleInputName1">Activat?:</label>
+                  <select name="activat" class="form-control" id="exampleSelectGender">
+                    <option value="1" <?php echo ($data['activat']) === '1' ? 'selected' : ''; ?>>Si</option>
+                    <option value="0" <?php echo ($data['activat']) === '0' ? 'selected' : ''; ?>>No</option>
+                  </select>
+                </div>
 
                 <button type="submit" name="funcioBoto" class="btn btn-primary mr-2" value="Guardar">Guardar</button>
               </form>

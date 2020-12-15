@@ -8,8 +8,6 @@
               <h2>Crear un nou usuari</h2>
               <p> * Camps obligatoris </p>
               <br>
-              <?php flash('register_success'); ?>
-              <br>
               <form class="forms-sample" method="post" action="<?php echo URLROOT; ?>/usuaris/add" enctype="multipart/form-data">
 
                 <?php echo (!empty($data['email_err'])) ? '<div class="alert alert-danger" role="alert">'.$data['email_err'].'</div>' : ''; ?>
@@ -123,7 +121,7 @@
                                 <label>Pujar logo</label>
                                 <input name="foto1file" type="file" class="file-upload-default">
                                 <div class="input-group col-xs-12">
-                                  <input name="logo" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="Logo" value="<?php echo $data['logo']; ?>">
+                                  <input name="logo" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="Logo" value="">
                                   <span class="input-group-append">
                                     <button class="file-upload-browse btn btn-primary" type="button">Pujar logo</button>
                                   </span>

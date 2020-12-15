@@ -210,8 +210,8 @@
             $lienzo=imagecreatetruecolor($ancho_final,$alto_final); 
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
-            $id_thumb=rand(1, 30);
-            $new_nombre_thumb = "1_".$id_thumb."_".$nombre_archivo;
+            $id_thumb=rand(1, 50);
+            $new_nombre_thumb = "logo_".$id_thumb."_".$nombre_archivo;
 
             //Destruir la original
             imagedestroy($original);
@@ -219,13 +219,13 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto1file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/usuari/$new_nombre_thumb");
               $data['logo'] = "$new_nombre_thumb";
             }else if($_FILES['foto1file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/usuari/$new_nombre_thumb");
               $data['logo'] = "$new_nombre_thumb";
             }else if($_FILES['foto1file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/usuari/$new_nombre_thumb");
               $data['logo'] = "$new_nombre_thumb";
             }
             // ********* Fin REDUIR IMATGE *********
@@ -356,14 +356,12 @@
 
           // Eliminar imatges
           if($del_img1 == "1"){
-            unlink('../../admin-web/public/images/img_xarxa/'.$data['logo']);
+            unlink('../../admin-web/public/images/img_xarxa/usuari/'.$data['logo']);
             $data['logo'] = "";
           }
 
-          $getUsuariImg = $this->usuariModel->getUsuariById($id);
-
           $dataImg = [
-            'logo' => $getUsuariImg->logo
+            'logo' => $usuari->logo
           ];
 
           // Pujada d'imatges. Es mira si ens passen un arxiu i si aquest es nou.
@@ -407,8 +405,8 @@
             $lienzo=imagecreatetruecolor($ancho_final,$alto_final); 
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
-            $id_thumb=rand(1, 30);
-            $new_nombre_thumb = "1_".$id_thumb."_".$nombre_archivo;
+            $id_thumb=rand(1, 50);
+            $new_nombre_thumb = "logo_".$id_thumb."_".$nombre_archivo;
 
             //Destruir la original
             imagedestroy($original);
@@ -416,17 +414,17 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto1file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/usuari/$new_nombre_thumb");
               $data['logo'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/".$dataImg['logo']);
+              unlink("../../admin-web/public/images/img_xarxa/usuari/".$dataImg['logo']);
             }else if($_FILES['foto1file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/usuari/$new_nombre_thumb");
               $data['logo'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/".$dataImg['logo']);
+              unlink("../../admin-web/public/images/img_xarxa/usuari/".$dataImg['logo']);
             }else if($_FILES['foto1file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/usuari/$new_nombre_thumb");
               $data['logo'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/".$dataImg['logo']);
+              unlink("../../admin-web/public/images/img_xarxa/usuari/".$dataImg['logo']);
             }
             // ********* Fin REDUIR IMATGE *********
           }
@@ -452,6 +450,7 @@
           // Load view with errors
           $data['contrasenya'] = '';
           $data['confirm_password'] = '';
+          $data['logo'] = $usuari->logo;
           $this->view('usuaris/edit', $data);
         }
 
@@ -502,8 +501,8 @@
           'imatge1' => $usuari->logo,
         ];
 
-        if(!empty($data['logo']) && file_exists('../../admin-web/public/images/img_xarxa/'.$data['logo'])){
-          unlink('../../admin-web/public/images/img_xarxa/'.$data['logo']);
+        if(!empty($data['logo']) && file_exists('../../admin-web/public/images/img_xarxa/usuari/'.$data['logo'])){
+          unlink('../../admin-web/public/images/img_xarxa/usuari/'.$data['logo']);
         }
 
         // Eliminar immobles de l'usuari
