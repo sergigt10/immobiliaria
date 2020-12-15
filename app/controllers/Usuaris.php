@@ -2,6 +2,7 @@
   class Usuaris extends Controller {
     public function __construct(){
       $this->usuariModel = $this->model('Usuari');
+      $this->immobleModel = $this->model('Immoble');
     }
 
     // Load usuari
@@ -432,6 +433,16 @@
 
           // Validated
           if($this->usuariModel->update($data)){
+
+            // Si el valor d'activat es modifica s'actualitza l'estat dels immobles (activat o no)
+            if($usuari->activat != $data['activat']) {
+              if($data['activat'] == 0) {
+                $this->immobleModel->disableAllImmoblesByUsuari($id);
+              } else {
+                $this->immobleModel->enableAllImmoblesByUsuari($id);
+              }
+            }
+
             flash('usuari_message', 'Usuari actualitzat correctament');
             redirect('usuaris/index');
           } else {
@@ -476,6 +487,39 @@
   
         $this->view('usuaris/edit', $data);
       }
+    }
+
+    public function delete($id){
+
+      if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+        if(!isLoggedInAndAdmin()){
+          redirect('usuaris/index');
+        }
+
+        $usuari = $this->usuariModel->getUsuariById($id);
+        $data = [
+          'imatge1' => $usuari->logo,
+        ];
+
+        if(!empty($data['logo']) && file_exists('../../admin-web/public/images/img_xarxa/'.$data['logo'])){
+          unlink('../../admin-web/public/images/img_xarxa/'.$data['logo']);
+        }
+
+        // Eliminar immobles de l'usuari
+        $this->immobleModel->eliminateAllImmoblesByUsuari($id);
+
+        if($this->usuariModel->delete($id)){
+          flash('usuari_message', 'Usuari eliminat correctament');
+          redirect('usuaris/index');
+        } else {
+          die('Error delete');
+        }
+
+      } else {
+        redirect('usuaris/index');
+      }
+
     }
 
     // Session

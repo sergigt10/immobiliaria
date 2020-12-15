@@ -135,7 +135,7 @@
       
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         if($this->caracteristicaModel->delete($id)){
-          flash('caracteristica_message', 'Característica eliminada correctamente');
+          flash('caracteristica_message', 'Característica eliminada correctament');
           redirect('caracteristiques');
         } else {
           die('Something went wrong');

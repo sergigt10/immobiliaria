@@ -9,6 +9,7 @@
       }
       // Importamos los modelos
       $this->immobleModel = $this->model('Immoble');
+      $this->immobleCategoriaModel = $this->model('Immoble_categoria');
       $this->poblacioModel = $this->model('Poblacio');
       $this->caracteristicaModel = $this->model('Caracteristica');
       $this->categoriaModel = $this->model('Categoria');
@@ -1626,8 +1627,17 @@
     public function delete($id){
       
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        
+
+        // Get existing post from model
         $immoble = $this->immobleModel->getImmobleById($id);
+
+        if(!isLoggedInAndAdmin()){
+          // Check owner
+          if($immoble->usuari_id != $_SESSION['usuari_id']){
+            redirect('immobles/index');
+          }
+        }
+        
         $data = [
           'imatge1' => $immoble->imatge_1,
           'imatge2' => $immoble->imatge_2,
@@ -1670,12 +1680,12 @@
 
         if($this->immobleModel->delete($id)){
           flash('immoble_message', 'Immoble eliminat correctament');
-          redirect('immobles');
+          redirect('immobles/index');
         } else {
           die('Error delete');
         }
       } else {
-        redirect('immobles');
+        redirect('immobles/index');
       }
     }
   }

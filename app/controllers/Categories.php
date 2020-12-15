@@ -135,7 +135,7 @@
       
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         if($this->categoriaModel->delete($id)){
-          flash('categoria_message', 'Categoria eliminada correctamente');
+          flash('categoria_message', 'Categoria eliminada correctament');
           redirect('categories');
         } else {
           die('Something went wrong');

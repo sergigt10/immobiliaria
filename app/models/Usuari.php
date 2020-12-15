@@ -89,7 +89,10 @@
     }
 
     public function getMaxImmobleByUser($id){
-      $this->db->query(' SELECT max_immobles AS total_max_immobles FROM usuari WHERE id = '.$id.' ');
+      $this->db->query(' SELECT max_immobles AS total_max_immobles FROM usuari WHERE id = :id ');
+      // Bind value
+      $this->db->bind(':id', $id);
+
       $row = $this->db->single();
 
       return $row;
@@ -97,7 +100,7 @@
 
     // Add new usuari
     public function add($data){
-      $this->db->query('INSERT INTO usuari (email, contrasenya, nom_cognoms, empresa, direccio, poblacio, codi_postal, telefon, web, descripcio_cat, descripcio_esp, descripcio_eng, logo, max_immobles, max_fotos, activat) VALUES(:email, :contrasenya, :nom_cognoms, :empresa, :direccio, :poblacio, :codi_postal, :telefon, :web, :descripcio_cat, :descripcio_esp, :descripcio_eng, :logo, :max_immobles, :max_fotos, :activat)');
+      $this->db->query('INSERT INTO usuari (email, contrasenya, nom_cognoms, empresa, direccio, poblacio, codi_postal, telefon, web, descripcio_cat, descripcio_esp, descripcio_eng, logo, max_immobles, max_fotos, activat) VALUES (:email, :contrasenya, :nom_cognoms, :empresa, :direccio, :poblacio, :codi_postal, :telefon, :web, :descripcio_cat, :descripcio_esp, :descripcio_eng, :logo, :max_immobles, :max_fotos, :activat)');
       // Bind values
       $this->db->bind(':email', $data['email']);
       $this->db->bind(':contrasenya', $data['contrasenya']);
@@ -145,6 +148,19 @@
       $this->db->bind(':max_immobles', $data['max_immobles']);
       $this->db->bind(':max_fotos', $data['max_fotos']);
       $this->db->bind(':activat', $data['activat']);
+
+      // Execute
+      if($this->db->execute()){
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    public function delete($id){
+      $this->db->query('DELETE FROM usuari WHERE id = :id');
+      // Bind values
+      $this->db->bind(':id', $id);
 
       // Execute
       if($this->db->execute()){

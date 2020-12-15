@@ -17,7 +17,7 @@
     }
 
     public function getImmobles(){
-      $this->db->query('SELECT immoble.id, immoble.titol_cat, categoria.nom_cat AS categoria, poblacio.nom_cat AS poblacio, immoble.portada, immoble.activat, usuari.nom_cognoms AS usuari
+      $this->db->query('SELECT immoble.id, immoble.titol_cat, categoria.nom_cat AS categoria, poblacio.nom_cat AS poblacio, immoble.portada, immoble.activat, usuari.email AS usuari
         FROM immoble
         INNER JOIN poblacio
             ON immoble.poblacio_id = poblacio.id
@@ -34,7 +34,7 @@
     }
 
     public function getImmoblesByUsuari($id){
-      $this->db->query('SELECT immoble.id, immoble.titol_cat, categoria.nom_cat AS categoria, poblacio.nom_cat AS poblacio, immoble.portada, immoble.activat, usuari.nom_cognoms AS usuari
+      $this->db->query('SELECT immoble.id, immoble.titol_cat, categoria.nom_cat AS categoria, poblacio.nom_cat AS poblacio, immoble.portada, immoble.activat, usuari.email AS usuari
       FROM immoble
       INNER JOIN poblacio
           ON immoble.poblacio_id = poblacio.id
@@ -69,6 +69,13 @@
 
     public function disableAllImmoblesByUsuari($id){
       $this->db->query(' UPDATE immoble SET activat = 0 WHERE usuari_id = :id ');
+      $this->db->bind(':id', $id);
+
+      $this->db->execute();
+    }
+
+    public function enableAllImmoblesByUsuari($id){
+      $this->db->query(' UPDATE immoble SET activat = 1 WHERE usuari_id = :id ');
       $this->db->bind(':id', $id);
 
       $this->db->execute();

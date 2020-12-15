@@ -111,7 +111,7 @@
       
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         if($this->provinciaModel->delete($id)){
-          flash('provincia_message', 'Província eliminada correctamente');
+          flash('provincia_message', 'Província eliminada correctament');
           redirect('provincies');
         } else {
           die('Something went wrong');
