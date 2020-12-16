@@ -84,7 +84,7 @@
           'activat' => trim($_POST['activat']),
           'poblacio_id' => trim($_POST['poblacio_id']),
           'categoria_id' => trim($_POST['categoria_id']),
-          'caracteristica_id' => json_encode($_POST['caracteristica_id']),
+          'caracteristica_id' => !isset($_POST['caracteristica_id']) ? '[""]' : json_encode($_POST['caracteristica_id']),
           'usuari_id' => $_SESSION['usuari_id'],
           'titol_cat_err' => '',
           'titol_esp_err' => '',
@@ -123,6 +123,7 @@
           // Pujada d'imatges
           if (!empty($data['imatge1'])) {
             $nombre_archivo = $_FILES['foto1file']['name'];
+            $ext = pathinfo($nombre_archivo, PATHINFO_EXTENSION);
             // ********* Inici REDUIR IMATGE *********
             //Imatge reduida 360 x 230
             //Imagen original
@@ -161,8 +162,8 @@
             $lienzo=imagecreatetruecolor($ancho_final,$alto_final); 
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
-            $id_thumb=rand(1, 30);
-            $new_nombre_thumb = "1_".$id_thumb."_".$nombre_archivo;
+            $id_thumb=rand(1, 50);
+            $new_nombre_thumb = "1_".$data['slug_cat']."_".$id_thumb."_".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -170,19 +171,20 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto1file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/immoble/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge1'] = "$new_nombre_thumb";
             }else if($_FILES['foto1file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/immoble/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge1'] = "$new_nombre_thumb";
             }else if($_FILES['foto1file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/immoble/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge1'] = "$new_nombre_thumb";
             }
             // ********* Fin REDUIR IMATGE *********
           }
           if (!empty($data['imatge2'])) {
             $nombre_archivo = $_FILES['foto2file']['name'];
+            $ext = pathinfo($nombre_archivo, PATHINFO_EXTENSION);
             // ********* Inici REDUIR IMATGE *********
             //Imatge reduida 360 x 230
             //Imagen original
@@ -221,8 +223,8 @@
             $lienzo=imagecreatetruecolor($ancho_final,$alto_final); 
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
-            $id_thumb=rand(1, 30);
-            $new_nombre_thumb = "2_".$id_thumb."_".$nombre_archivo;
+            $id_thumb=rand(1, 50);
+            $new_nombre_thumb = "2_".$data['slug_cat']."_".$id_thumb."_".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -230,19 +232,20 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto2file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/immoble/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge2'] = "$new_nombre_thumb";
             }else if($_FILES['foto2file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/immoble/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge2'] = "$new_nombre_thumb";
             }else if($_FILES['foto2file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/immoble/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge2'] = "$new_nombre_thumb";
             }
             // ********* Fin REDUIR IMATGE *********
           }
           if (!empty($data['imatge3'])) {
             $nombre_archivo = $_FILES['foto3file']['name'];
+            $ext = pathinfo($nombre_archivo, PATHINFO_EXTENSION);
             // ********* Inici REDUIR IMATGE *********
             //Imatge reduida 360 x 230
             //Imagen original
@@ -281,8 +284,8 @@
             $lienzo=imagecreatetruecolor($ancho_final,$alto_final); 
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
-            $id_thumb=rand(1, 30);
-            $new_nombre_thumb = "3_".$id_thumb."_".$nombre_archivo;
+            $id_thumb=rand(1, 50);
+            $new_nombre_thumb = "3_".$data['slug_cat']."_".$id_thumb."_".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -290,19 +293,20 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto3file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/immoble/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge3'] = "$new_nombre_thumb";
             }else if($_FILES['foto3file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/immoble/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge3'] = "$new_nombre_thumb";
             }else if($_FILES['foto3file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/immoble/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge3'] = "$new_nombre_thumb";
             }
             // ********* Fin REDUIR IMATGE *********
           }
           if (!empty($data['imatge4'])) {
             $nombre_archivo = $_FILES['foto4file']['name'];
+            $ext = pathinfo($nombre_archivo, PATHINFO_EXTENSION);
             // ********* Inici REDUIR IMATGE *********
             //Imatge reduida 360 x 230
             //Imagen original
@@ -341,8 +345,8 @@
             $lienzo=imagecreatetruecolor($ancho_final,$alto_final); 
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
-            $id_thumb=rand(1, 30);
-            $new_nombre_thumb = "4_".$id_thumb."_".$nombre_archivo;
+            $id_thumb=rand(1, 50);
+            $new_nombre_thumb = "4_".$data['slug_cat']."_".$id_thumb."_".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -350,19 +354,20 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto4file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/immoble/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge4'] = "$new_nombre_thumb";
             }else if($_FILES['foto4file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/immoble/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge4'] = "$new_nombre_thumb";
             }else if($_FILES['foto4file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/immoble/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge4'] = "$new_nombre_thumb";
             }
             // ********* Fin REDUIR IMATGE *********
           }
           if (!empty($data['imatge5'])) {
             $nombre_archivo = $_FILES['foto5file']['name'];
+            $ext = pathinfo($nombre_archivo, PATHINFO_EXTENSION);
             // ********* Inici REDUIR IMATGE *********
             //Imatge reduida 360 x 230
             //Imagen original
@@ -401,8 +406,8 @@
             $lienzo=imagecreatetruecolor($ancho_final,$alto_final); 
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
-            $id_thumb=rand(1, 30);
-            $new_nombre_thumb = "5_".$id_thumb."_".$nombre_archivo;
+            $id_thumb=rand(1, 50);
+            $new_nombre_thumb = "5_".$data['slug_cat']."_".$id_thumb."_".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -410,19 +415,20 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto5file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/immoble/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge5'] = "$new_nombre_thumb";
             }else if($_FILES['foto5file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/immoble/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge5'] = "$new_nombre_thumb";
             }else if($_FILES['foto5file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/immoble/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge5'] = "$new_nombre_thumb";
             }
             // ********* Fin REDUIR IMATGE *********
           }
           if (!empty($data['imatge6'])) {
             $nombre_archivo = $_FILES['foto6file']['name'];
+            $ext = pathinfo($nombre_archivo, PATHINFO_EXTENSION);
             // ********* Inici REDUIR IMATGE *********
             //Imatge reduida 360 x 230
             //Imagen original
@@ -461,8 +467,8 @@
             $lienzo=imagecreatetruecolor($ancho_final,$alto_final); 
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
-            $id_thumb=rand(1, 30);
-            $new_nombre_thumb = "6_".$id_thumb."_".$nombre_archivo;
+            $id_thumb=rand(1, 50);
+            $new_nombre_thumb = "6_".$data['slug_cat']."_".$id_thumb."_".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -470,19 +476,20 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto6file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/immoble/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge6'] = "$new_nombre_thumb";
             }else if($_FILES['foto6file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/immoble/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge6'] = "$new_nombre_thumb";
             }else if($_FILES['foto6file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/immoble/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge6'] = "$new_nombre_thumb";
             }
             // ********* Fin REDUIR IMATGE *********
           }
           if (!empty($data['imatge7'])) {
             $nombre_archivo = $_FILES['foto7file']['name'];
+            $ext = pathinfo($nombre_archivo, PATHINFO_EXTENSION);
             // ********* Inici REDUIR IMATGE *********
             //Imatge reduida 360 x 230
             //Imagen original
@@ -521,8 +528,8 @@
             $lienzo=imagecreatetruecolor($ancho_final,$alto_final); 
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
-            $id_thumb=rand(1, 30);
-            $new_nombre_thumb = "7_".$id_thumb."_".$nombre_archivo;
+            $id_thumb=rand(1, 50);
+            $new_nombre_thumb = "7_".$data['slug_cat']."_".$id_thumb."_".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -543,6 +550,7 @@
           }
           if (!empty($data['imatge8'])) {
             $nombre_archivo = $_FILES['foto8file']['name'];
+            $ext = pathinfo($nombre_archivo, PATHINFO_EXTENSION);
             // ********* Inici REDUIR IMATGE *********
             //Imatge reduida 360 x 230
             //Imagen original
@@ -581,8 +589,8 @@
             $lienzo=imagecreatetruecolor($ancho_final,$alto_final); 
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
-            $id_thumb=rand(1, 30);
-            $new_nombre_thumb = "8_".$id_thumb."_".$nombre_archivo;
+            $id_thumb=rand(1, 50);
+            $new_nombre_thumb = "8_".$data['slug_cat']."_".$id_thumb."_".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -603,6 +611,7 @@
           }
           if (!empty($data['imatge9'])) {
             $nombre_archivo = $_FILES['foto9file']['name'];
+            $ext = pathinfo($nombre_archivo, PATHINFO_EXTENSION);
             // ********* Inici REDUIR IMATGE *********
             //Imatge reduida 360 x 230
             //Imagen original
@@ -641,8 +650,8 @@
             $lienzo=imagecreatetruecolor($ancho_final,$alto_final); 
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
-            $id_thumb=rand(1, 30);
-            $new_nombre_thumb = "9_".$id_thumb."_".$nombre_archivo;
+            $id_thumb=rand(1, 50);
+            $new_nombre_thumb = "9_".$data['slug_cat']."_".$id_thumb."_".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -663,6 +672,7 @@
           }
           if (!empty($data['imatge10'])) {
             $nombre_archivo = $_FILES['foto10file']['name'];
+            $ext = pathinfo($nombre_archivo, PATHINFO_EXTENSION);
             // ********* Inici REDUIR IMATGE *********
             //Imatge reduida 360 x 230
             //Imagen original
@@ -701,8 +711,8 @@
             $lienzo=imagecreatetruecolor($ancho_final,$alto_final); 
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
-            $id_thumb=rand(1, 30);
-            $new_nombre_thumb = "10_".$id_thumb."_".$nombre_archivo;
+            $id_thumb=rand(1, 50);
+            $new_nombre_thumb = "10_".$data['slug_cat']."_".$id_thumb."_".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -769,7 +779,7 @@
       }
     }
 
-    // Editar post
+    // Editar immoble
     public function edit($id){
 
       $poblacions = $this->poblacioModel->getPoblacionsWithProvincies();
@@ -810,7 +820,7 @@
           'activat' => trim($_POST['activat']),
           'poblacio_id' => trim($_POST['poblacio_id']),
           'categoria_id' => trim($_POST['categoria_id']),
-          'caracteristica_id' => json_encode($_POST['caracteristica_id']),
+          'caracteristica_id' => !isset($_POST['caracteristica_id']) ? '[""]' : json_encode($_POST['caracteristica_id']),
           'usuari_id' => $_SESSION['usuari_id'],
           'titol_cat_err' => '',
           'titol_esp_err' => '',
@@ -925,6 +935,7 @@
           // Pujada d'imatges. Es mira si ens passen un arxiu i si aquest es nou.
           if (!empty($data['imatge1']) && $del_img1 != "1" && $dataImg['imatge1']!=$data['imatge1']) {
             $nombre_archivo = $_FILES['foto1file']['name'];
+            $ext = pathinfo($nombre_archivo, PATHINFO_EXTENSION);
             // ********* Inici REDUIR IMATGE *********
             //Imatge reduida 360 x 230
             //Imagen original
@@ -963,8 +974,8 @@
             $lienzo=imagecreatetruecolor($ancho_final,$alto_final); 
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
-            $id_thumb=rand(1, 30);
-            $new_nombre_thumb = "1_".$id_thumb."_".$nombre_archivo;
+            $id_thumb=rand(1, 50);
+            $new_nombre_thumb = "1_".$data['slug_cat']."_".$id_thumb."_".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -989,6 +1000,7 @@
 
           if (!empty($data['imatge2']) && $del_img2 != "1" && $dataImg['imatge2']!=$data['imatge2']) {
             $nombre_archivo = $_FILES['foto2file']['name'];
+            $ext = pathinfo($nombre_archivo, PATHINFO_EXTENSION);
             // ********* Inici REDUIR IMATGE *********
             //Imatge reduida 360 x 230
             //Imagen original
@@ -1027,8 +1039,8 @@
             $lienzo=imagecreatetruecolor($ancho_final,$alto_final); 
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
-            $id_thumb=rand(1, 30);
-            $new_nombre_thumb = "2_".$id_thumb."_".$nombre_archivo;
+            $id_thumb=rand(1, 50);
+            $new_nombre_thumb = "2_".$data['slug_cat']."_".$id_thumb."_".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1053,6 +1065,7 @@
 
           if (!empty($data['imatge3']) && $del_img3 != "1" && $dataImg['imatge3']!=$data['imatge3']) {
             $nombre_archivo = $_FILES['foto3file']['name'];
+            $ext = pathinfo($nombre_archivo, PATHINFO_EXTENSION);
             // ********* Inici REDUIR IMATGE *********
             //Imatge reduida 360 x 230
             //Imagen original
@@ -1091,8 +1104,8 @@
             $lienzo=imagecreatetruecolor($ancho_final,$alto_final); 
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
-            $id_thumb=rand(1, 30);
-            $new_nombre_thumb = "3_".$id_thumb."_".$nombre_archivo;
+            $id_thumb=rand(1, 50);
+            $new_nombre_thumb = "3_".$data['slug_cat']."_".$id_thumb."_".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1117,6 +1130,7 @@
 
           if (!empty($data['imatge4']) && $del_img4 != "1" && $dataImg['imatge4']!=$data['imatge4']) {
             $nombre_archivo = $_FILES['foto4file']['name'];
+            $ext = pathinfo($nombre_archivo, PATHINFO_EXTENSION);
             // ********* Inici REDUIR IMATGE *********
             //Imatge reduida 360 x 230
             //Imagen original
@@ -1155,8 +1169,8 @@
             $lienzo=imagecreatetruecolor($ancho_final,$alto_final); 
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
-            $id_thumb=rand(1, 30);
-            $new_nombre_thumb = "4_".$id_thumb."_".$nombre_archivo;
+            $id_thumb=rand(1, 50);
+            $new_nombre_thumb = "4_".$data['slug_cat']."_".$id_thumb."_".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1181,6 +1195,7 @@
 
           if (!empty($data['imatge5']) && $del_img5 != "1" && $dataImg['imatge5']!=$data['imatge5']) {
             $nombre_archivo = $_FILES['foto5file']['name'];
+            $ext = pathinfo($nombre_archivo, PATHINFO_EXTENSION);
             // ********* Inici REDUIR IMATGE *********
             //Imatge reduida 360 x 230
             //Imagen original
@@ -1219,8 +1234,8 @@
             $lienzo=imagecreatetruecolor($ancho_final,$alto_final); 
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
-            $id_thumb=rand(1, 30);
-            $new_nombre_thumb = "5_".$id_thumb."_".$nombre_archivo;
+            $id_thumb=rand(1, 50);
+            $new_nombre_thumb = "5_".$data['slug_cat']."_".$id_thumb."_".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1245,6 +1260,7 @@
 
           if (!empty($data['imatge6']) && $del_img6 != "1" && $dataImg['imatge6']!=$data['imatge6']) {
             $nombre_archivo = $_FILES['foto6file']['name'];
+            $ext = pathinfo($nombre_archivo, PATHINFO_EXTENSION);
             // ********* Inici REDUIR IMATGE *********
             //Imatge reduida 360 x 230
             //Imagen original
@@ -1283,8 +1299,8 @@
             $lienzo=imagecreatetruecolor($ancho_final,$alto_final); 
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
-            $id_thumb=rand(1, 30);
-            $new_nombre_thumb = "6_".$id_thumb."_".$nombre_archivo;
+            $id_thumb=rand(1, 50);
+            $new_nombre_thumb = "6_".$data['slug_cat']."_".$id_thumb."_".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1309,6 +1325,7 @@
 
           if (!empty($data['imatge7']) && $del_img7 != "1" && $dataImg['imatge7']!=$data['imatge7']) {
             $nombre_archivo = $_FILES['foto7file']['name'];
+            $ext = pathinfo($nombre_archivo, PATHINFO_EXTENSION);
             // ********* Inici REDUIR IMATGE *********
             //Imatge reduida 360 x 230
             //Imagen original
@@ -1347,8 +1364,8 @@
             $lienzo=imagecreatetruecolor($ancho_final,$alto_final); 
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
-            $id_thumb=rand(1, 30);
-            $new_nombre_thumb = "7_".$id_thumb."_".$nombre_archivo;
+            $id_thumb=rand(1, 50);
+            $new_nombre_thumb = "7_".$data['slug_cat']."_".$id_thumb."_".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1373,6 +1390,7 @@
 
           if (!empty($data['imatge8']) && $del_img8 != "1" && $dataImg['imatge8']!=$data['imatge8']) {
             $nombre_archivo = $_FILES['foto8file']['name'];
+            $ext = pathinfo($nombre_archivo, PATHINFO_EXTENSION);
             // ********* Inici REDUIR IMATGE *********
             //Imatge reduida 360 x 230
             //Imagen original
@@ -1411,8 +1429,8 @@
             $lienzo=imagecreatetruecolor($ancho_final,$alto_final); 
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
-            $id_thumb=rand(1, 30);
-            $new_nombre_thumb = "8_".$id_thumb."_".$nombre_archivo;
+            $id_thumb=rand(1, 50);
+            $new_nombre_thumb = "8_".$data['slug_cat']."_".$id_thumb."_".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1437,6 +1455,7 @@
 
           if (!empty($data['imatge9']) && $del_img9 != "1" && $dataImg['imatge9']!=$data['imatge9']) {
             $nombre_archivo = $_FILES['foto9file']['name'];
+            $ext = pathinfo($nombre_archivo, PATHINFO_EXTENSION);
             // ********* Inici REDUIR IMATGE *********
             //Imatge reduida 360 x 230
             //Imagen original
@@ -1475,8 +1494,8 @@
             $lienzo=imagecreatetruecolor($ancho_final,$alto_final); 
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
-            $id_thumb=rand(1, 30);
-            $new_nombre_thumb = "9_".$id_thumb."_".$nombre_archivo;
+            $id_thumb=rand(1, 50);
+            $new_nombre_thumb = "9_".$data['slug_cat']."_".$id_thumb."_".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1501,6 +1520,7 @@
 
           if (!empty($data['imatge10']) && $del_img10 != "1" && $dataImg['imatge10']!=$data['imatge10']) {
             $nombre_archivo = $_FILES['foto10file']['name'];
+            $ext = pathinfo($nombre_archivo, PATHINFO_EXTENSION);
             // ********* Inici REDUIR IMATGE *********
             //Imatge reduida 360 x 230
             //Imagen original
@@ -1539,8 +1559,8 @@
             $lienzo=imagecreatetruecolor($ancho_final,$alto_final); 
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
-            $id_thumb=rand(1, 30);
-            $new_nombre_thumb = "10_".$id_thumb."_".$nombre_archivo;
+            $id_thumb=rand(1, 50);
+            $new_nombre_thumb = "10_".$data['slug_cat']."_".$id_thumb."_".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1548,17 +1568,17 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto10file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/immoble/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge10'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/immoble/".$dataImg['imatge10']);
+              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge10']);
             }else if($_FILES['foto10file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/immoble/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge10'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/immoble/".$dataImg['imatge10']);
+              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge10']);
             }else if($_FILES['foto10file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/immoble/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge10'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/immoble/".$dataImg['imatge10']);
+              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge10']);
             }
             // ********* Fin REDUIR IMATGE *********
           }
@@ -1660,32 +1680,32 @@
           'imatge9' => $immoble->imatge_9,
           'imatge10' => $immoble->imatge_10
         ];
-        if(!empty($data['imatge1']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/immoble/'.$data['imatge1'])){
-          unlink('../../admin-web/public/images/img_xarxa/immoble/immoble/'.$data['imatge1']);
+        if(!empty($data['imatge1']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge1'])){
+          unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge1']);
         }
-        if(!empty($data['imatge2']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/immoble/'.$data['imatge2'])){
-          unlink('../../admin-web/public/images/img_xarxa/immoble/immoble/'.$data['imatge2']);
+        if(!empty($data['imatge2']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge2'])){
+          unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge2']);
         }
-        if(!empty($data['imatge3']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/immoble/'.$data['imatge3'])){
-          unlink('../../admin-web/public/images/img_xarxa/immoble/immoble/'.$data['imatge3']);
+        if(!empty($data['imatge3']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge3'])){
+          unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge3']);
         }
-        if(!empty($data['imatge4']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/immoble/'.$data['imatge4'])){
-          unlink('../../admin-web/public/images/img_xarxa/immoble/immoble/'.$data['imatge4']);
+        if(!empty($data['imatge4']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge4'])){
+          unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge4']);
         }
-        if(!empty($data['imatge5']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/immoble/'.$data['imatge5'])){
-          unlink('../../admin-web/public/images/img_xarxa/immoble/immoble/'.$data['imatge5']);
+        if(!empty($data['imatge5']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge5'])){
+          unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge5']);
         }
-        if(!empty($data['imatge6']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/immoble/'.$data['imatge6'])){
-          unlink('../../admin-web/public/images/img_xarxa/immoble/immoble/'.$data['imatge6']);
+        if(!empty($data['imatge6']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge6'])){
+          unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge6']);
         }
-        if(!empty($data['imatge8']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/immoble/'.$data['imatge8'])){
-          unlink('../../admin-web/public/images/img_xarxa/immoble/immoble/'.$data['imatge8']);
+        if(!empty($data['imatge8']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge8'])){
+          unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge8']);
         }
-        if(!empty($data['imatge9']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/immoble/'.$data['imatge9'])){
-          unlink('../../admin-web/public/images/img_xarxa/immoble/immoble/'.$data['imatge9']);
+        if(!empty($data['imatge9']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge9'])){
+          unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge9']);
         }
-        if(!empty($data['imatge10']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/immoble/'.$data['imatge10'])){
-          unlink('../../admin-web/public/images/img_xarxa/immoble/immoble/'.$data['imatge10']);
+        if(!empty($data['imatge10']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge10'])){
+          unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge10']);
         }
 
         if($this->immobleModel->delete($id)){

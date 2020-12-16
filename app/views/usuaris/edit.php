@@ -21,11 +21,11 @@
                 </div>
                 <?php } ?>
 
-                <h5 style="color:red">Si es deixa buit el camp es manté la contrasenya actual</h5>
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="exampleInputEmail3">Contrasenya *:</label>
                     <input name="contrasenya" type="password" class="form-control" id="exampleInputEmail3" placeholder="Contrasenya" value="<?php echo $data['contrasenya']; ?>">
+                    <h5 style="color:red">Si es deixa buit el camp es manté la contrasenya actual</h5>
                   </div>
 
                   <div class="form-group col-md-6">

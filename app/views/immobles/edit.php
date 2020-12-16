@@ -54,12 +54,14 @@
                       </div>
                       <input type="number" name="preu" min="0" class="form-control" placeholder="Preu" aria-label="Preu" aria-describedby="basic-addon1" value="<?php echo $data['preu']; ?>">
                     </div>
-                    <h5 style="color:red">No s'ha d'afegir el simbol €</h5>
+                    <h5 style="color:red">No s'ha d'afegir el simbol €. Si el camp no s'omple, per defecte és 0.</h5>
                   </div>
 
                   <div class="form-group col-md-3">
                     <label for="exampleInputEmail3">Habitacions:</label>
                     <input name="habitacio" min="0" type="number" class="form-control" id="exampleInputEmail3" placeholder="Habitació" value="<?php echo $data['habitacio']; ?>">
+                    <br>
+                    <h5 style="color:red">Si el camp no s'omple, per defecte és 0.</h5>
                   </div>
 
                   <div class="form-group col-md-3">
@@ -70,12 +72,14 @@
                       </div>
                       <input type="number" name="tamany" min="0" step="any" class="form-control" placeholder="Tamany" aria-label="Tamany" aria-describedby="basic-addon1" value="<?php echo $data['tamany']; ?>">
                     </div>
-                    <h5 style="color:red">No s'ha d'afegir el simbol m²</h5>
+                    <h5 style="color:red">No s'ha d'afegir el simbol m². Si el camp no s'omple, per defecte és 0.</h5>
                   </div>
 
                   <div class="form-group col-md-3">
                     <label for="exampleInputEmail3">Banys:</label>
                     <input name="banys" min="0" type="number" class="form-control" id="exampleInputEmail3" placeholder="Banys" value="<?php echo $data['banys']; ?>">
+                    <br>
+                    <h5 style="color:red">Si el camp no s'omple, per defecte és 0.</h5>
                   </div>
                 </div>
 
@@ -118,7 +122,7 @@
                         <h4 style="color:red">Pujar imatges en format: jpg, png o gif</h4>
                         <br>
                           <div class="form-row">
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-9">
                               <div class="form-group">
                                 <label>Pujar imatge 1</label>
                                 <input name="foto1file" type="file" class="file-upload-default">
@@ -130,10 +134,22 @@
                                 </div>
                               </div>
                             </div>
+                            <div class="form-group col-md-3">
+                              <div class="form-check form-check-danger" style="float:right;">
+                                <label class="form-check-label">
+                                  <input type="checkbox" class="form-check-input" name="del_img1" value="1">
+                                  Eliminar logo?
+                                  <i class="input-helper"></i></label>
+                                  <br>
+                                  <?php if(!empty($data['imatge1']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge1'])){ ?>
+                                      <p><img src="../../../admin-web/public/images/img_xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge1'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
+                                  <?php } ?>
+                              </div>
+                            </div>
                           </div>
 
                           <div class="form-row">
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-9">
                               <div class="form-group">
                                 <label>Pujar imatge 2</label>
                                 <input name="foto2file" type="file" class="file-upload-default">
@@ -145,10 +161,22 @@
                                 </div>
                               </div>
                             </div>
+                            <div class="form-group col-md-3">
+                              <div class="form-check form-check-danger" style="float:right;">
+                                <label class="form-check-label">
+                                  <input type="checkbox" class="form-check-input" name="del_img2" value="2">
+                                  Eliminar logo?
+                                  <i class="input-helper"></i></label>
+                                  <br>
+                                  <?php if(!empty($data['imatge2']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge2'])){ ?>
+                                      <p><img src="../../../admin-web/public/images/img_xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge2'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
+                                  <?php } ?>
+                              </div>
+                            </div>
                           </div>
 
                           <div class="form-row">
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-9">
                               <div class="form-group">
                                 <label>Pujar imatge 3</label>
                                 <input name="foto3file" type="file" class="file-upload-default">
@@ -160,10 +188,22 @@
                                 </div>
                               </div>
                             </div>
+                            <div class="form-group col-md-3">
+                              <div class="form-check form-check-danger" style="float:right;">
+                                <label class="form-check-label">
+                                  <input type="checkbox" class="form-check-input" name="del_img3" value="3">
+                                  Eliminar logo?
+                                  <i class="input-helper"></i></label>
+                                  <br>
+                                  <?php if(!empty($data['imatge3']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge3'])){ ?>
+                                      <p><img src="../../../admin-web/public/images/img_xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge3'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
+                                  <?php } ?>
+                              </div>
+                            </div>
                           </div>
 
                           <div class="form-row">
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-9">
                               <div class="form-group">
                                 <label>Pujar imatge 4</label>
                                 <input name="foto4file" type="file" class="file-upload-default">
@@ -175,10 +215,22 @@
                                 </div>
                               </div>
                             </div>
+                            <div class="form-group col-md-3">
+                              <div class="form-check form-check-danger" style="float:right;">
+                                <label class="form-check-label">
+                                  <input type="checkbox" class="form-check-input" name="del_img4" value="4">
+                                  Eliminar logo?
+                                  <i class="input-helper"></i></label>
+                                  <br>
+                                  <?php if(!empty($data['imatge4']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge4'])){ ?>
+                                      <p><img src="../../../admin-web/public/images/img_xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge4'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
+                                  <?php } ?>
+                              </div>
+                            </div>
                           </div>
 
                           <div class="form-row">
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-9">
                               <div class="form-group">
                                 <label>Pujar imatge 5</label>
                                 <input name="foto5file" type="file" class="file-upload-default">
@@ -190,10 +242,22 @@
                                 </div>
                               </div>
                             </div>
+                            <div class="form-group col-md-3">
+                              <div class="form-check form-check-danger" style="float:right;">
+                                <label class="form-check-label">
+                                  <input type="checkbox" class="form-check-input" name="del_img5" value="5">
+                                  Eliminar logo?
+                                  <i class="input-helper"></i></label>
+                                  <br>
+                                  <?php if(!empty($data['imatge5']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge5'])){ ?>
+                                      <p><img src="../../../admin-web/public/images/img_xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge5'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
+                                  <?php } ?>
+                              </div>
+                            </div>
                           </div>
 
                           <div class="form-row">
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-9">
                               <div class="form-group">
                                 <label>Pujar imatge 6</label>
                                 <input name="foto6file" type="file" class="file-upload-default">
@@ -205,10 +269,22 @@
                                 </div>
                               </div>
                             </div>
+                            <div class="form-group col-md-3">
+                              <div class="form-check form-check-danger" style="float:right;">
+                                <label class="form-check-label">
+                                  <input type="checkbox" class="form-check-input" name="del_img6" value="6">
+                                  Eliminar logo?
+                                  <i class="input-helper"></i></label>
+                                  <br>
+                                  <?php if(!empty($data['imatge6']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge6'])){ ?>
+                                      <p><img src="../../../admin-web/public/images/img_xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge6'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
+                                  <?php } ?>
+                              </div>
+                            </div>
                           </div>
 
                           <div class="form-row">
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-9">
                               <div class="form-group">
                                 <label>Pujar imatge 7</label>
                                 <input name="foto7file" type="file" class="file-upload-default">
@@ -220,10 +296,22 @@
                                 </div>
                               </div>
                             </div>
+                            <div class="form-group col-md-3">
+                              <div class="form-check form-check-danger" style="float:right;">
+                                <label class="form-check-label">
+                                  <input type="checkbox" class="form-check-input" name="del_img7" value="7">
+                                  Eliminar logo?
+                                  <i class="input-helper"></i></label>
+                                  <br>
+                                  <?php if(!empty($data['imatge7']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge7'])){ ?>
+                                      <p><img src="../../../admin-web/public/images/img_xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge7'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
+                                  <?php } ?>
+                              </div>
+                            </div>
                           </div>
 
                           <div class="form-row">
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-9">
                               <div class="form-group">
                                 <label>Pujar imatge 8</label>
                                 <input name="foto8file" type="file" class="file-upload-default">
@@ -235,10 +323,22 @@
                                 </div>
                               </div>
                             </div>
+                            <div class="form-group col-md-3">
+                              <div class="form-check form-check-danger" style="float:right;">
+                                <label class="form-check-label">
+                                  <input type="checkbox" class="form-check-input" name="del_img8" value="8">
+                                  Eliminar logo?
+                                  <i class="input-helper"></i></label>
+                                  <br>
+                                  <?php if(!empty($data['imatge8']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge8'])){ ?>
+                                      <p><img src="../../../admin-web/public/images/img_xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge8'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
+                                  <?php } ?>
+                              </div>
+                            </div>
                           </div>
 
                           <div class="form-row">
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-9">
                               <div class="form-group">
                                 <label>Pujar imatge 9</label>
                                 <input name="foto9file" type="file" class="file-upload-default">
@@ -250,10 +350,22 @@
                                 </div>
                               </div>
                             </div>
+                            <div class="form-group col-md-3">
+                              <div class="form-check form-check-danger" style="float:right;">
+                                <label class="form-check-label">
+                                  <input type="checkbox" class="form-check-input" name="del_img9" value="9">
+                                  Eliminar logo?
+                                  <i class="input-helper"></i></label>
+                                  <br>
+                                  <?php if(!empty($data['imatge9']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge9'])){ ?>
+                                      <p><img src="../../../admin-web/public/images/img_xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge9'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
+                                  <?php } ?>
+                              </div>
+                            </div>
                           </div>
 
                           <div class="form-row">
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-9">
                               <div class="form-group">
                                 <label>Pujar imatge 10</label>
                                 <input name="foto10file" type="file" class="file-upload-default">
@@ -263,6 +375,18 @@
                                     <button class="file-upload-browse btn btn-primary" type="button">Pujar imatge 10</button>
                                   </span>
                                 </div>
+                              </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                              <div class="form-check form-check-danger" style="float:right;">
+                                <label class="form-check-label">
+                                  <input type="checkbox" class="form-check-input" name="del_img10" value="10">
+                                  Eliminar logo?
+                                  <i class="input-helper"></i></label>
+                                  <br>
+                                  <?php if(!empty($data['imatge10']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge10'])){ ?>
+                                      <p><img src="../../../admin-web/public/images/img_xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge10'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
+                                  <?php } ?>
                               </div>
                             </div>
                           </div>

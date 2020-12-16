@@ -92,11 +92,13 @@
                   <div class="form-group col-md-4">
                     <label for="exampleInputEmail3">Màxim d'immobles:</label>
                     <input name="max_immobles" min="1" min="500" type="number" class="form-control" id="exampleInputEmail3" placeholder="Màxim d'immobles" value="<?php echo $data['max_immobles']; ?>">
+                    <h5 style="color:red">Si el camp no s'omple, per defecte és 50.</h5>
                   </div>
 
                   <div class="form-group col-md-4">
                     <label for="exampleInputEmail3">Màxim fotos:</label>
                     <input name="max_fotos" min="1" max="10" type="number" class="form-control" id="exampleInputEmail3" placeholder="Màxim de fotos" value="<?php echo $data['max_fotos']; ?>">
+                    <h5 style="color:red">Si el camp no s'omple, per defecte és 10.</h5>
                   </div>
 
                   <div class="form-group col-md-4">

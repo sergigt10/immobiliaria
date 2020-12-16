@@ -125,8 +125,8 @@
           'descripcio_cat' => trim($_POST['descripcio_cat']),
           'descripcio_eng' => trim($_POST['descripcio_eng']),
           'logo' => trim($_POST['logo']),
-          'max_immobles' => trim($_POST['max_immobles']),
-          'max_fotos' => trim($_POST['max_fotos']),
+          'max_immobles' => empty(trim($_POST['max_immobles'])) ? '50' : trim($_POST['max_immobles']),
+          'max_fotos' => empty(trim($_POST['max_fotos'])) ? '10' : trim($_POST['max_fotos']),
           'activat' => trim($_POST['activat']),
           'email_err' => '',
           'contrasenya_err' => '',
@@ -172,6 +172,7 @@
           // Pujada d'imatges
           if (!empty($data['logo'])) {
             $nombre_archivo = $_FILES['foto1file']['name'];
+            $ext = pathinfo($nombre_archivo, PATHINFO_EXTENSION);
             // ********* Inici REDUIR IMATGE *********
             //Imatge reduida 360 x 230
             //Imagen original
@@ -211,7 +212,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "logo_".$id_thumb."_".$nombre_archivo;
+            $new_nombre_thumb = "logo_usuari_".$id_thumb."_".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -367,6 +368,7 @@
           // Pujada d'imatges. Es mira si ens passen un arxiu i si aquest es nou.
           if (!empty($data['logo']) && $del_img1 != "1" && $dataImg['logo']!=$data['logo']) {
             $nombre_archivo = $_FILES['foto1file']['name'];
+            $ext = pathinfo($nombre_archivo, PATHINFO_EXTENSION);
             // ********* Inici REDUIR IMATGE *********
             //Imatge reduida 360 x 230
             //Imagen original
@@ -406,7 +408,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "logo_".$id_thumb."_".$nombre_archivo;
+            $new_nombre_thumb = "logo_usuari_".$id_thumb."_".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -498,7 +500,7 @@
 
         $usuari = $this->usuariModel->getUsuariById($id);
         $data = [
-          'imatge1' => $usuari->logo,
+          'logo' => $usuari->logo,
         ];
 
         if(!empty($data['logo']) && file_exists('../../admin-web/public/images/img_xarxa/usuari/'.$data['logo'])){
@@ -527,8 +529,6 @@
       $_SESSION['user_name'] = htmlspecialchars(strip_tags($usuari->email));
       $_SESSION['name_surname'] = htmlspecialchars(strip_tags($usuari->nom_cognoms));
       $_SESSION['isAdmin'] = htmlspecialchars(strip_tags($usuari->es_admin));
-      $_SESSION['max_immobles'] = htmlspecialchars(strip_tags($usuari->max_immobles));
-      $_SESSION['max_fotos'] = htmlspecialchars(strip_tags($usuari->max_fotos));
       redirect('index');
     }
 
@@ -538,8 +538,6 @@
       unset($_SESSION['user_name']);
       unset($_SESSION['name_surname']);
       unset($_SESSION['isAdmin']);
-      unset($_SESSION['max_immobles']);
-      unset($_SESSION['max_fotos']);
       session_destroy();
       redirect('usuaris/login');
     }

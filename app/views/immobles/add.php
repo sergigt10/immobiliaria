@@ -55,12 +55,14 @@
                       </div>
                       <input type="number" name="preu" min="0" class="form-control" placeholder="Preu" aria-label="Preu" aria-describedby="basic-addon1" value="<?php echo $data['preu']; ?>">
                     </div>
-                    <h5 style="color:red">No s'ha d'afegir el simbol €</h5>
+                    <h5 style="color:red">No s'ha d'afegir el simbol €. Si el camp no s'omple, per defecte és 0.</h5>
                   </div>
 
                   <div class="form-group col-md-3">
                     <label for="exampleInputEmail3">Habitacions:</label>
                     <input name="habitacio" min="0" type="number" class="form-control" id="exampleInputEmail3" placeholder="Habitació" value="<?php echo $data['habitacio']; ?>">
+                    <br>
+                    <h5 style="color:red">Si el camp no s'omple, per defecte és 0.</h5>
                   </div>
 
                   <div class="form-group col-md-3">
@@ -71,12 +73,14 @@
                       </div>
                       <input type="number" name="tamany" min="0" step="any" class="form-control" placeholder="Tamany" aria-label="Tamany" aria-describedby="basic-addon1" value="<?php echo $data['tamany']; ?>">
                     </div>
-                    <h5 style="color:red">No s'ha d'afegir el simbol m²</h5>
+                    <h5 style="color:red">No s'ha d'afegir el simbol m². Si el camp no s'omple, per defecte és 0.</h5>
                   </div>
 
                   <div class="form-group col-md-3">
                     <label for="exampleInputEmail3">Banys:</label>
                     <input name="banys" min="0" type="number" class="form-control" id="exampleInputEmail3" placeholder="Banys" value="<?php echo $data['banys']; ?>">
+                    <br>
+                    <h5 style="color:red">Si el camp no s'omple, per defecte és 0.</h5>
                   </div>
                 </div>
 
