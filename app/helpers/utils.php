@@ -1,11 +1,13 @@
 <?php
+  header('Content-Type: text/html; charset=utf-8');
+
   function urls_amigables($url) {
     // Tranformamos todo a minusculas
-    $url = strtolower($url);
+    $url = mb_strtolower($url);
     
     //Rememplazamos caracteres especiales latinos
-    $find = array('á', 'é', 'í', 'ó', 'ú', 'ñ');
-    $repl = array('a', 'e', 'i', 'o', 'u', 'n');
+    $find = array('á', 'é', 'í', 'ó', 'ú', 'ñ', 'à', 'è', 'ì', 'ò', 'ù');
+    $repl = array('a', 'e', 'i', 'o', 'u', 'n', 'a', 'e', 'i', 'o', 'u');
     $url = str_replace ($find, $repl, $url);
     
     // Añadimos los guiones

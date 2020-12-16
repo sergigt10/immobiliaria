@@ -2,18 +2,17 @@
   class Immobles extends Controller {
 
     public function __construct(){
-      // Sino esta registrado
-      // Función helper
+      // If not registered
       if(!isLoggedIn()){
         redirect('usuaris/login');
       }
-      // Importamos los modelos
+      // Import models
       $this->immobleModel = $this->model('Immoble');
       $this->poblacioModel = $this->model('Poblacio');
       $this->caracteristicaModel = $this->model('Caracteristica');
       $this->categoriaModel = $this->model('Categoria');
       $this->usuariModel = $this->model('Usuari');
-      
+      // If not activated
       if(!$this->usuariModel->getIsActivateById($_SESSION['usuari_id'])) {
         redirect('usuaris/login');
       }
@@ -21,24 +20,25 @@
 
     // Get immobles
     public function index(){
-      
+      // Get all immobles or only immobles by usuari
       if(!isLoggedInAndAdmin()){
         $immobles = $this->immobleModel->getImmoblesByUsuari($_SESSION['usuari_id']);
       } else {
-        // Get immobles
         $immobles = $this->immobleModel->getImmobles();
       }
-      // Cargamos el array
+
       $data = [
         'immobles' => $immobles
       ];
-      // Mostramos a la vista
+
       $this->view('immobles/index', $data);
     }
 
+    // Add immobles
     public function add(){
       
-      $totalImmoblesByUser = $this->immobleModel->getTotalImmoblesByUser($_SESSION['usuari_id']);
+      // Check if we overcome the max immobles by usuari
+      $totalImmoblesByUser = $this->immobleModel->getTotalImmoblesByUsuari($_SESSION['usuari_id']);
       $MaxImmobleByUser = $this->usuariModel->getMaxImmobleByUser($_SESSION['usuari_id']);
 
       if( $totalImmoblesByUser->total_immobles >= $MaxImmobleByUser->total_max_immobles ){
@@ -779,7 +779,7 @@
       }
     }
 
-    // Editar immoble
+    // Edit immoble
     public function edit($id){
 
       $poblacions = $this->poblacioModel->getPoblacionsWithProvincies();
@@ -985,15 +985,21 @@
               //Crear la imagen y guardar en un directorio
               imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge1'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge1']);
+              if(!empty($dataImg['imatge1'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge1']);
+              }
             }else if($_FILES['foto1file']['type']=='image/png'){
               imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge1'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge1']);
+              if(!empty($dataImg['imatge1'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge1']);
+              }
             }else if($_FILES['foto1file']['type']=='image/gif'){
               imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge1'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge1']);
+              if(!empty($dataImg['imatge1'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge1']);
+              }
             }
             // ********* Fin REDUIR IMATGE *********
           }
@@ -1050,15 +1056,21 @@
               //Crear la imagen y guardar en un directorio
               imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge2'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge2']);
+              if(!empty($dataImg['imatge2'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge2']);
+              }
             }else if($_FILES['foto2file']['type']=='image/png'){
               imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge2'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge2']);
+              if(!empty($dataImg['imatge2'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge2']);
+              }
             }else if($_FILES['foto2file']['type']=='image/gif'){
               imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge2'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge2']);
+              if(!empty($dataImg['imatge2'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge2']);
+              }
             }
             // ********* Fin REDUIR IMATGE *********
           }
@@ -1115,15 +1127,21 @@
               //Crear la imagen y guardar en un directorio
               imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge3'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge3']);
+              if(!empty($dataImg['imatge3'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge3']);
+              }
             }else if($_FILES['foto3file']['type']=='image/png'){
               imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge3'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge3']);
+              if(!empty($dataImg['imatge3'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge3']);
+              }
             }else if($_FILES['foto3file']['type']=='image/gif'){
               imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge3'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge3']);
+              if(!empty($dataImg['imatge3'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge3']);
+              }
             }
             // ********* Fin REDUIR IMATGE *********
           }
@@ -1180,15 +1198,21 @@
               //Crear la imagen y guardar en un directorio
               imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge4'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge4']);
+              if(!empty($dataImg['imatge4'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge4']);
+              }
             }else if($_FILES['foto4file']['type']=='image/png'){
               imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge4'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge4']);
+              if(!empty($dataImg['imatge4'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge4']);
+              }
             }else if($_FILES['foto4file']['type']=='image/gif'){
               imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge4'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge4']);
+              if(!empty($dataImg['imatge4'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge4']);
+              }
             }
             // ********* Fin REDUIR IMATGE *********
           }
@@ -1245,15 +1269,21 @@
               //Crear la imagen y guardar en un directorio
               imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge5'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge5']);
+              if(!empty($dataImg['imatge5'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge5']);
+              }
             }else if($_FILES['foto5file']['type']=='image/png'){
               imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge5'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge5']);
+              if(!empty($dataImg['imatge5'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge5']);
+              }
             }else if($_FILES['foto5file']['type']=='image/gif'){
               imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge5'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge5']);
+              if(!empty($dataImg['imatge5'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge5']);
+              }
             }
             // ********* Fin REDUIR IMATGE *********
           }
@@ -1310,15 +1340,21 @@
               //Crear la imagen y guardar en un directorio
               imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge6'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge6']);
+              if(!empty($dataImg['imatge6'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge6']);
+              }
             }else if($_FILES['foto6file']['type']=='image/png'){
               imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge6'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge6']);
+              if(!empty($dataImg['imatge6'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge6']);
+              }
             }else if($_FILES['foto6file']['type']=='image/gif'){
               imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge6'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge6']);
+              if(!empty($dataImg['imatge6'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge6']);
+              }
             }
             // ********* Fin REDUIR IMATGE *********
           }
@@ -1375,15 +1411,21 @@
               //Crear la imagen y guardar en un directorio
               imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge7'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge7']);
+              if(!empty($dataImg['imatge7'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge7']);
+              }
             }else if($_FILES['foto7file']['type']=='image/png'){
               imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge7'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge7']);
+              if(!empty($dataImg['imatge7'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge7']);
+              }
             }else if($_FILES['foto7file']['type']=='image/gif'){
               imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge7'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge7']);
+              if(!empty($dataImg['imatge7'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge7']);
+              }
             }
             // ********* Fin REDUIR IMATGE *********
           }
@@ -1440,15 +1482,21 @@
               //Crear la imagen y guardar en un directorio
               imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge8'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge8']);
+              if(!empty($dataImg['imatge8'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge8']);
+              }
             }else if($_FILES['foto8file']['type']=='image/png'){
               imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge8'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge8']);
+              if(!empty($dataImg['imatge8'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge8']);
+              }
             }else if($_FILES['foto8file']['type']=='image/gif'){
               imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge8'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge8']);
+              if(!empty($dataImg['imatge8'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge8']);
+              }
             }
             // ********* Fin REDUIR IMATGE *********
           }
@@ -1505,15 +1553,21 @@
               //Crear la imagen y guardar en un directorio
               imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge9'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge9']);
+              if(!empty($dataImg['imatge9'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge9']);
+              }
             }else if($_FILES['foto9file']['type']=='image/png'){
               imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge9'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge9']);
+              if(!empty($dataImg['imatge9'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge9']);
+              }
             }else if($_FILES['foto9file']['type']=='image/gif'){
               imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge9'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge9']);
+              if(!empty($dataImg['imatge9'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge9']);
+              }
             }
             // ********* Fin REDUIR IMATGE *********
           }
@@ -1570,15 +1624,21 @@
               //Crear la imagen y guardar en un directorio
               imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge10'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge10']);
+              if(!empty($dataImg['imatge10'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge10']);
+              }
             }else if($_FILES['foto10file']['type']=='image/png'){
               imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge10'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge10']);
+              if(!empty($dataImg['imatge10'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge10']);
+              }
             }else if($_FILES['foto10file']['type']=='image/gif'){
               imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
               $data['imatge10'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge10']);
+              if(!empty($dataImg['imatge10'])) {
+                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge10']);
+              }
             }
             // ********* Fin REDUIR IMATGE *********
           }
@@ -1607,11 +1667,11 @@
 
       } else {
         
-        // Get existing post from model
+        // Get existing immoble from model
         $immoble = $this->immobleModel->getImmobleById($id);
 
+        // Check owner
         if(!isLoggedInAndAdmin()){
-          // Check owner
           if($immoble->usuari_id != $_SESSION['usuari_id']){
             redirect('immobles/index');
           }
@@ -1654,15 +1714,16 @@
       }
     }
 
+    // Delete immoble
     public function delete($id){
       
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-        // Get existing post from model
+        // Get existing immoble from model
         $immoble = $this->immobleModel->getImmobleById($id);
 
+        // Check owner
         if(!isLoggedInAndAdmin()){
-          // Check owner
           if($immoble->usuari_id != $_SESSION['usuari_id']){
             redirect('immobles/index');
           }
@@ -1680,6 +1741,8 @@
           'imatge9' => $immoble->imatge_9,
           'imatge10' => $immoble->imatge_10
         ];
+
+        // Delete all images of the immoble
         if(!empty($data['imatge1']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge1'])){
           unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge1']);
         }
@@ -1697,6 +1760,9 @@
         }
         if(!empty($data['imatge6']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge6'])){
           unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge6']);
+        }
+        if(!empty($data['imatge7']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge7'])){
+          unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge7']);
         }
         if(!empty($data['imatge8']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge8'])){
           unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge8']);

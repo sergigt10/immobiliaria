@@ -16,6 +16,7 @@
       return $row;
     }
 
+    // Get immobles by admin
     public function getImmobles(){
       $this->db->query('SELECT immoble.id, immoble.titol_cat, categoria.nom_cat AS categoria, poblacio.nom_cat AS poblacio, immoble.portada, immoble.activat, usuari.email AS usuari
         FROM immoble
@@ -33,6 +34,7 @@
       return $results;
     }
 
+    // Get immobles by user
     public function getImmoblesByUsuari($id){
       $this->db->query('SELECT immoble.id, immoble.titol_cat, categoria.nom_cat AS categoria, poblacio.nom_cat AS poblacio, immoble.portada, immoble.activat, usuari.email AS usuari
       FROM immoble
@@ -51,6 +53,7 @@
       return $results;
     }
 
+    // Get immobles portada
     public function getTotalImmoblesPortada(){
       $this->db->query('SELECT COUNT(id) AS total_portada FROM immoble WHERE portada = 1');
       $row = $this->db->single();
@@ -58,7 +61,8 @@
       return $row;
     }
 
-    public function getTotalImmoblesByUser($id){
+    // Get quantity of immobles by usuari
+    public function getTotalImmoblesByUsuari($id){
       $this->db->query(' SELECT COUNT(id) AS total_immobles FROM immoble WHERE usuari_id = :id ');
       $this->db->bind(':id', $id);
 
@@ -67,6 +71,17 @@
       return $row;
     }
 
+    // Get imatges of the immobles by usuari
+    public function getImatgeImmoblesByUsuari($id){
+      $this->db->query(' SELECT imatge_1,imatge_2,imatge_3,imatge_4,imatge_5,imatge_6,imatge_7,imatge_8,imatge_9,imatge_10 FROM immoble WHERE usuari_id = :id ');
+      $this->db->bind(':id', $id);
+
+      $results = $this->db->resultSet();
+
+      return $results;
+    }
+
+    // Disable all immobles by usuari
     public function disableAllImmoblesByUsuari($id){
       $this->db->query(' UPDATE immoble SET activat = 0 WHERE usuari_id = :id ');
       $this->db->bind(':id', $id);
@@ -74,6 +89,7 @@
       $this->db->execute();
     }
 
+    // Enable all immobles by usuari
     public function enableAllImmoblesByUsuari($id){
       $this->db->query(' UPDATE immoble SET activat = 1 WHERE usuari_id = :id ');
       $this->db->bind(':id', $id);
@@ -81,13 +97,15 @@
       $this->db->execute();
     }
 
-    public function eliminateAllImmoblesByUsuari($id){
+    // Delete all immobles by usuari
+    public function deleteAllImmoblesByUsuari($id){
       $this->db->query(' DELETE FROM immoble WHERE usuari_id = :id ');
       $this->db->bind(':id', $id);
 
       $this->db->execute();
     }
 
+    // Add immoble
     public function add($data){
       $this->db->query('INSERT INTO immoble (titol_cat, titol_esp, titol_eng, slug_cat, slug_esp, slug_eng, descripcio_cat, descripcio_esp, descripcio_eng, imatge_1, imatge_2, imatge_3, imatge_4, imatge_5, imatge_6, imatge_7, imatge_8, imatge_9, imatge_10, portada, preu, habitacio, banys, tamany, activat, poblacio_id, categoria_id, caracteristica_id, usuari_id) VALUES (:titol_cat, :titol_esp, :titol_eng, :slug_cat, :slug_esp, :slug_eng, :descripcio_cat, :descripcio_esp, :descripcio_eng, :imatge1, :imatge2, :imatge3, :imatge4, :imatge5, :imatge6, :imatge7, :imatge8, :imatge9, :imatge10, :portada, :preu, :habitacio, :banys, :tamany, :activat, :poblacio_id, :categoria_id, :caracteristica_id, :usuari_id)');
       // Bind values
@@ -129,6 +147,7 @@
       }
     }
 
+    // Update immoble
     public function update($data){
       $this->db->query('UPDATE immoble SET titol_cat = :titol_cat, titol_esp = :titol_esp, titol_eng = :titol_eng, slug_cat = :slug_cat, slug_esp = :slug_esp, slug_eng = :slug_eng, descripcio_cat = :descripcio_cat, descripcio_esp = :descripcio_esp, descripcio_eng = :descripcio_eng, imatge_1 = :imatge1, imatge_2 = :imatge2, imatge_3 = :imatge3, imatge_4 = :imatge4, imatge_5 = :imatge5, imatge_6 = :imatge6, imatge_7 = :imatge7, imatge_8 = :imatge8, imatge_9 = :imatge9, imatge_10 = :imatge10, portada = :portada, preu = :preu, habitacio = :habitacio, banys = :banys, tamany = :tamany, activat = :activat, poblacio_id = :poblacio_id, categoria_id = :categoria_id, caracteristica_id = :caracteristica_id, usuari_id = :usuari_id WHERE id = :id');
       // Bind values
@@ -171,6 +190,7 @@
       }
     }
 
+    // Delete immoble
     public function delete($id){
       $this->db->query('DELETE FROM immoble WHERE id = :id');
       // Bind values

@@ -6,10 +6,6 @@
       $this->db = new Database;
     }
 
-    /*  
-      USUARI
-    */
-
     // Login usuari
     public function login($username, $password){
       $this->db->query('SELECT * FROM usuari WHERE email = :nom_usuari');
@@ -66,7 +62,7 @@
       }
     }
 
-    // Get usuari by ID
+    // Get usuari by id
     public function getUsuariById($id){
       $this->db->query('SELECT * FROM usuari WHERE id = :id');
       // Bind value
@@ -88,6 +84,7 @@
       return $row;
     }
 
+    // Get max immobles by usuari
     public function getMaxImmobleByUser($id){
       $this->db->query(' SELECT max_immobles AS total_max_immobles FROM usuari WHERE id = :id ');
       // Bind value
@@ -127,7 +124,7 @@
       }
     }
 
-    // Update usuaris
+    // Update usuari
     public function update($data){
       $this->db->query('UPDATE usuari SET email = :email, contrasenya = :contrasenya, nom_cognoms = :nom_cognoms, empresa = :empresa, direccio = :direccio, poblacio = :poblacio, codi_postal = :codi_postal, telefon = :telefon, web = :web, descripcio_cat = :descripcio_cat, descripcio_esp = :descripcio_esp, descripcio_eng = :descripcio_eng, logo = :logo, max_immobles = :max_immobles, max_fotos = :max_fotos, activat = :activat WHERE id = :id');
       // Bind values
@@ -157,6 +154,7 @@
       }
     }
 
+    // Delete usuari
     public function delete($id){
       $this->db->query('DELETE FROM usuari WHERE id = :id');
       // Bind values

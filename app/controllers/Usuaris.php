@@ -5,26 +5,27 @@
       $this->immobleModel = $this->model('Immoble');
     }
 
-    // Load usuari
+    // Load usuaris
     public function index(){
 
+      // Check if we are logged
       if(!isLoggedIn()){
         redirect('usuaris/login');
       } else if(!$this->usuariModel->getIsActivateById($_SESSION['usuari_id'])) {
         redirect('usuaris/login');
       }
 
+      // Upload info usuaris by role
       if(!isLoggedInAndAdmin()){
         $usuaris = [$this->usuariModel->getUsuariById($_SESSION['usuari_id'])];
       } else {
         $usuaris = $this->usuariModel->getUsuaris();
       }
       
-      // Cargamos el array
       $data = [
         'usuaris' => $usuaris
       ];
-      // Mostramos en la vista
+
       $this->view('usuaris/index', $data);
 
     }
@@ -33,24 +34,22 @@
     public function login(){
       // Check for POST
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        // Process form
-        // Sanitize POST data
+
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         
-        // Init data
         $data =[
-          'username' => trim(strtolower($_POST['username'])),
+          'username' => trim(mb_strtolower($_POST['username'])),
           'password' => trim($_POST['password']),
           'username_err' => '',
           'password_err' => '',      
         ];
 
-        // Validate username
+        
         if(empty($data['username'])){
           $data['username_err'] = "Introduïu el nom d'usuari";
         }
 
-        // Validate Password
+        
         if(empty($data['password'])){
           $data['password_err'] = 'Introduïu la contrasenya';
         }
@@ -104,14 +103,11 @@
 
       // Check for POST
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        // Process form
-  
-        // Sanitize POST data
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
         // Init data
         $data =[
-          'email' => trim(strtolower($_POST['email'])),
+          'email' => trim(mb_strtolower($_POST['email'])),
           'contrasenya' => trim($_POST['contrasenya']),
           'confirm_password' => trim($_POST['confirm_password']),
           'nom_cognoms' => trim(ucwords($_POST['nom_cognoms'])),
@@ -278,7 +274,7 @@
       }
     }
 
-    // Edit usuari by admin
+    // Edit usuari
     public function edit($id){
 
       if(!isLoggedIn()){
@@ -297,7 +293,7 @@
 
         $data = [
           'id' => $id,
-          'email' => (isLoggedInAndAdmin()) ? trim(strtolower($_POST['email'])) : $usuari->email,
+          'email' => (isLoggedInAndAdmin()) ? trim(mb_strtolower($_POST['email'])) : $usuari->email,
           'contrasenya' => trim($_POST['contrasenya']),
           'confirm_password' => trim($_POST['confirm_password']),
           'nom_cognoms' => trim(ucwords($_POST['nom_cognoms'])),
@@ -311,9 +307,9 @@
           'descripcio_cat' => trim($_POST['descripcio_cat']),
           'descripcio_eng' => trim($_POST['descripcio_eng']),
           'logo' => trim($_POST['logo']),
-          'max_immobles' => (isLoggedInAndAdmin()) ? trim(strtolower($_POST['max_immobles'])) : $usuari->max_immobles,
-          'max_fotos' => (isLoggedInAndAdmin()) ? trim(strtolower($_POST['max_fotos'])) : $usuari->max_fotos,
-          'activat' => (isLoggedInAndAdmin()) ? trim(strtolower($_POST['activat'])) : $usuari->activat,
+          'max_immobles' => (isLoggedInAndAdmin()) ? trim($_POST['max_immobles']) : $usuari->max_immobles,
+          'max_fotos' => (isLoggedInAndAdmin()) ? trim($_POST['max_fotos']) : $usuari->max_fotos,
+          'activat' => (isLoggedInAndAdmin()) ? trim($_POST['activat']) : $usuari->activat,
           'email_err' => '',
           'contrasenya_err' => '',
           'nom_cognoms_err' => '',
@@ -343,7 +339,6 @@
               $data['confirm_password_err'] = 'Les contrasenyes no coincideixen';
             }
           }
-
           $data['contrasenya'] = password_hash($data['contrasenya'], PASSWORD_DEFAULT);
         }
 
@@ -418,15 +413,21 @@
               //Crear la imagen y guardar en un directorio
               imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/usuari/$new_nombre_thumb");
               $data['logo'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/usuari/".$dataImg['logo']);
+              if(!empty($dataImg['logo'])) {
+                unlink("../../admin-web/public/images/img_xarxa/usuari/".$dataImg['logo']);
+              }
             }else if($_FILES['foto1file']['type']=='image/png'){
               imagepng($lienzo,"../../admin-web/public/images/img_xarxa/usuari/$new_nombre_thumb");
               $data['logo'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/usuari/".$dataImg['logo']);
+              if(!empty($dataImg['logo'])) {
+                unlink("../../admin-web/public/images/img_xarxa/usuari/".$dataImg['logo']);
+              }
             }else if($_FILES['foto1file']['type']=='image/gif'){
               imagegif($lienzo,"../../admin-web/public/images/img_xarxa/usuari/$new_nombre_thumb");
               $data['logo'] = "$new_nombre_thumb";
-              unlink("../../admin-web/public/images/img_xarxa/usuari/".$dataImg['logo']);
+              if(!empty($dataImg['logo'])) {
+                unlink("../../admin-web/public/images/img_xarxa/usuari/".$dataImg['logo']);
+              }
             }
             // ********* Fin REDUIR IMATGE *********
           }
@@ -434,7 +435,7 @@
           // Validated
           if($this->usuariModel->update($data)){
 
-            // Si el valor d'activat es modifica s'actualitza l'estat dels immobles (activat o no)
+            // We enable or disable immobles depending on the value (activat) of the usuari.
             if($usuari->activat != $data['activat']) {
               if($data['activat'] == 0) {
                 $this->immobleModel->disableAllImmoblesByUsuari($id);
@@ -458,8 +459,8 @@
 
       } else {
 
+        // Check owner
         if(!isLoggedInAndAdmin()){
-          // Check for usuari owner
           if($usuari->id != $_SESSION['usuari_id']){
             redirect('usuaris');
           }
@@ -490,6 +491,7 @@
       }
     }
 
+    // Delete usuari
     public function delete($id){
 
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -507,8 +509,51 @@
           unlink('../../admin-web/public/images/img_xarxa/usuari/'.$data['logo']);
         }
 
-        // Eliminar immobles de l'usuari
-        $this->immobleModel->eliminateAllImmoblesByUsuari($id);
+        // $dataImg = [
+        //   'imatge1' => $immoble->imatge_1,
+        //   'imatge2' => $immoble->imatge_2,
+        //   'imatge3' => $immoble->imatge_3,
+        //   'imatge4' => $immoble->imatge_4,
+        //   'imatge5' => $immoble->imatge_5,
+        //   'imatge6' => $immoble->imatge_6,
+        //   'imatge7' => $immoble->imatge_7,
+        //   'imatge8' => $immoble->imatge_8,
+        //   'imatge9' => $immoble->imatge_9,
+        //   'imatge10' => $immoble->imatge_10
+        // ];
+        // if(!empty($dataImg['imatge1']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$dataImg['imatge1'])){
+        //   unlink('../../admin-web/public/images/img_xarxa/immoble/'.$dataImg['imatge1']);
+        // }
+        // if(!empty($dataImg['imatge2']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$dataImg['imatge2'])){
+        //   unlink('../../admin-web/public/images/img_xarxa/immoble/'.$dataImg['imatge2']);
+        // }
+        // if(!empty($dataImg['imatge3']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$dataImg['imatge3'])){
+        //   unlink('../../admin-web/public/images/img_xarxa/immoble/'.$dataImg['imatge3']);
+        // }
+        // if(!empty($dataImg['imatge4']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$dataImg['imatge4'])){
+        //   unlink('../../admin-web/public/images/img_xarxa/immoble/'.$dataImg['imatge4']);
+        // }
+        // if(!empty($dataImg['imatge5']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge5'])){
+        //   unlink('../../admin-web/public/images/img_xarxa/immoble/'.$dataImg['imatge5']);
+        // }
+        // if(!empty($dataImg['imatge6']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge6'])){
+        //   unlink('../../admin-web/public/images/img_xarxa/immoble/'.$dataImg['imatge6']);
+        // }
+        // if(!empty($dataImg['imatge7']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$dataImg['imatge7'])){
+        //   unlink('../../admin-web/public/images/img_xarxa/immoble/'.$dataImg['imatge7']);
+        // }
+        // if(!empty($dataImg['imatge8']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$dataImg['imatge8'])){
+        //   unlink('../../admin-web/public/images/img_xarxa/immoble/'.$dataImg['imatge8']);
+        // }
+        // if(!empty($dataImg['imatge9']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$dataImg['imatge9'])){
+        //   unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge9']);
+        // }
+        // if(!empty($dataImg['imatge10']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$dataImg['imatge10'])){
+        //   unlink('../../admin-web/public/images/img_xarxa/immoble/'.$dataImg['imatge10']);
+        // }
+
+        // Delete all immobles by id usuari
+        $this->immobleModel->deleteAllImmoblesByUsuari($id);
 
         if($this->usuariModel->delete($id)){
           flash('usuari_message', 'Usuari eliminat correctament');
@@ -523,7 +568,7 @@
 
     }
 
-    // Session
+    // Create value sessions
     public function createUserSession($usuari){
       $_SESSION['usuari_id'] = htmlspecialchars(strip_tags($usuari->id));
       $_SESSION['user_name'] = htmlspecialchars(strip_tags($usuari->email));
