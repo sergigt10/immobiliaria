@@ -141,8 +141,8 @@
                                   Eliminar logo?
                                   <i class="input-helper"></i></label>
                                   <br>
-                                  <?php if(!empty($data['imatge1']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge1'])){ ?>
-                                      <p><img src="../../../admin-web/public/images/img_xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge1'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
+                                  <?php if(!empty($data['imatge1']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge1'])){ ?>
+                                      <p><img src="../../../admin-web/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge1'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
                                   <?php } ?>
                               </div>
                             </div>
@@ -168,8 +168,8 @@
                                   Eliminar logo?
                                   <i class="input-helper"></i></label>
                                   <br>
-                                  <?php if(!empty($data['imatge2']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge2'])){ ?>
-                                      <p><img src="../../../admin-web/public/images/img_xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge2'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
+                                  <?php if(!empty($data['imatge2']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge2'])){ ?>
+                                      <p><img src="../../../admin-web/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge2'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
                                   <?php } ?>
                               </div>
                             </div>
@@ -195,8 +195,8 @@
                                   Eliminar logo?
                                   <i class="input-helper"></i></label>
                                   <br>
-                                  <?php if(!empty($data['imatge3']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge3'])){ ?>
-                                      <p><img src="../../../admin-web/public/images/img_xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge3'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
+                                  <?php if(!empty($data['imatge3']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge3'])){ ?>
+                                      <p><img src="../../../admin-web/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge3'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
                                   <?php } ?>
                               </div>
                             </div>
@@ -222,8 +222,8 @@
                                   Eliminar logo?
                                   <i class="input-helper"></i></label>
                                   <br>
-                                  <?php if(!empty($data['imatge4']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge4'])){ ?>
-                                      <p><img src="../../../admin-web/public/images/img_xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge4'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
+                                  <?php if(!empty($data['imatge4']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge4'])){ ?>
+                                      <p><img src="../../../admin-web/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge4'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
                                   <?php } ?>
                               </div>
                             </div>
@@ -249,8 +249,8 @@
                                   Eliminar logo?
                                   <i class="input-helper"></i></label>
                                   <br>
-                                  <?php if(!empty($data['imatge5']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge5'])){ ?>
-                                      <p><img src="../../../admin-web/public/images/img_xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge5'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
+                                  <?php if(!empty($data['imatge5']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge5'])){ ?>
+                                      <p><img src="../../../admin-web/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge5'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
                                   <?php } ?>
                               </div>
                             </div>
@@ -276,8 +276,8 @@
                                   Eliminar logo?
                                   <i class="input-helper"></i></label>
                                   <br>
-                                  <?php if(!empty($data['imatge6']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge6'])){ ?>
-                                      <p><img src="../../../admin-web/public/images/img_xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge6'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
+                                  <?php if(!empty($data['imatge6']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge6'])){ ?>
+                                      <p><img src="../../../admin-web/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge6'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
                                   <?php } ?>
                               </div>
                             </div>
@@ -303,8 +303,8 @@
                                   Eliminar logo?
                                   <i class="input-helper"></i></label>
                                   <br>
-                                  <?php if(!empty($data['imatge7']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge7'])){ ?>
-                                      <p><img src="../../../admin-web/public/images/img_xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge7'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
+                                  <?php if(!empty($data['imatge7']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge7'])){ ?>
+                                      <p><img src="../../../admin-web/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge7'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
                                   <?php } ?>
                               </div>
                             </div>
@@ -330,8 +330,8 @@
                                   Eliminar logo?
                                   <i class="input-helper"></i></label>
                                   <br>
-                                  <?php if(!empty($data['imatge8']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge8'])){ ?>
-                                      <p><img src="../../../admin-web/public/images/img_xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge8'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
+                                  <?php if(!empty($data['imatge8']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge8'])){ ?>
+                                      <p><img src="../../../admin-web/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge8'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
                                   <?php } ?>
                               </div>
                             </div>
@@ -357,8 +357,8 @@
                                   Eliminar logo?
                                   <i class="input-helper"></i></label>
                                   <br>
-                                  <?php if(!empty($data['imatge9']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge9'])){ ?>
-                                      <p><img src="../../../admin-web/public/images/img_xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge9'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
+                                  <?php if(!empty($data['imatge9']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge9'])){ ?>
+                                      <p><img src="../../../admin-web/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge9'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
                                   <?php } ?>
                               </div>
                             </div>
@@ -384,8 +384,8 @@
                                   Eliminar logo?
                                   <i class="input-helper"></i></label>
                                   <br>
-                                  <?php if(!empty($data['imatge10']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge10'])){ ?>
-                                      <p><img src="../../../admin-web/public/images/img_xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge10'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
+                                  <?php if(!empty($data['imatge10']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge10'])){ ?>
+                                      <p><img src="../../../admin-web/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge10'] ?>&size=209x92&crop=0&trim=1" class="img-responsive"/></p>
                                   <?php } ?>
                               </div>
                             </div>

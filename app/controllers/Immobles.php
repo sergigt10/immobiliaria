@@ -14,7 +14,7 @@
       $this->usuariModel = $this->model('Usuari');
       // If not activated
       if(!$this->usuariModel->getIsActivateById($_SESSION['usuari_id'])) {
-        redirect('usuaris/login');
+        redirect('usuaris/logout');
       }
     }
 
@@ -171,13 +171,13 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto1file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge1'] = "$new_nombre_thumb";
             }else if($_FILES['foto1file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge1'] = "$new_nombre_thumb";
             }else if($_FILES['foto1file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge1'] = "$new_nombre_thumb";
             }
             // ********* Fin REDUIR IMATGE *********
@@ -232,13 +232,13 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto2file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge2'] = "$new_nombre_thumb";
             }else if($_FILES['foto2file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge2'] = "$new_nombre_thumb";
             }else if($_FILES['foto2file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge2'] = "$new_nombre_thumb";
             }
             // ********* Fin REDUIR IMATGE *********
@@ -293,13 +293,13 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto3file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge3'] = "$new_nombre_thumb";
             }else if($_FILES['foto3file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge3'] = "$new_nombre_thumb";
             }else if($_FILES['foto3file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge3'] = "$new_nombre_thumb";
             }
             // ********* Fin REDUIR IMATGE *********
@@ -354,13 +354,13 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto4file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge4'] = "$new_nombre_thumb";
             }else if($_FILES['foto4file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge4'] = "$new_nombre_thumb";
             }else if($_FILES['foto4file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge4'] = "$new_nombre_thumb";
             }
             // ********* Fin REDUIR IMATGE *********
@@ -415,13 +415,13 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto5file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge5'] = "$new_nombre_thumb";
             }else if($_FILES['foto5file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge5'] = "$new_nombre_thumb";
             }else if($_FILES['foto5file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge5'] = "$new_nombre_thumb";
             }
             // ********* Fin REDUIR IMATGE *********
@@ -476,13 +476,13 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto6file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge6'] = "$new_nombre_thumb";
             }else if($_FILES['foto6file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge6'] = "$new_nombre_thumb";
             }else if($_FILES['foto6file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge6'] = "$new_nombre_thumb";
             }
             // ********* Fin REDUIR IMATGE *********
@@ -537,13 +537,13 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto7file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge7'] = "$new_nombre_thumb";
             }else if($_FILES['foto7file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge7'] = "$new_nombre_thumb";
             }else if($_FILES['foto7file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge7'] = "$new_nombre_thumb";
             }
             // ********* Fin REDUIR IMATGE *********
@@ -598,13 +598,13 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto8file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge8'] = "$new_nombre_thumb";
             }else if($_FILES['foto8file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge8'] = "$new_nombre_thumb";
             }else if($_FILES['foto8file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge8'] = "$new_nombre_thumb";
             }
             // ********* Fin REDUIR IMATGE *********
@@ -659,13 +659,13 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto9file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge9'] = "$new_nombre_thumb";
             }else if($_FILES['foto9file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge9'] = "$new_nombre_thumb";
             }else if($_FILES['foto9file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge9'] = "$new_nombre_thumb";
             }
             // ********* Fin REDUIR IMATGE *********
@@ -720,13 +720,13 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto10file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge10'] = "$new_nombre_thumb";
             }else if($_FILES['foto10file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge10'] = "$new_nombre_thumb";
             }else if($_FILES['foto10file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge10'] = "$new_nombre_thumb";
             }
             // ********* Fin REDUIR IMATGE *********
@@ -868,52 +868,52 @@
           
           // Eliminar imatges
           if($del_img1 == "1"){
-            unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge1']);
+            unlink('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge1']);
             $data['imatge1'] = "";
           }
 
           if($del_img2 == "1"){
-            unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge2']);
+            unlink('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge2']);
             $data['imatge2'] = "";
           }
 
           if($del_img3 == "1"){
-            unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge3']);
+            unlink('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge3']);
             $data['imatge3'] = "";
           }
 
           if($del_img4 == "1"){
-            unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge4']);
+            unlink('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge4']);
             $data['imatge4'] = "";
           }
 
           if($del_img5 == "1"){
-            unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge5']);
+            unlink('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge5']);
             $data['imatge5'] = "";
           }
 
           if($del_img6 == "1"){
-            unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge6']);
+            unlink('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge6']);
             $data['imatge6'] = "";
           }
 
           if($del_img7 == "1"){
-            unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge7']);
+            unlink('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge7']);
             $data['imatge7'] = "";
           }
 
           if($del_img8 == "1"){
-            unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge8']);
+            unlink('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge8']);
             $data['imatge8'] = "";
           }
 
           if($del_img9 == "1"){
-            unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge9']);
+            unlink('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge9']);
             $data['imatge9'] = "";
           }
 
           if($del_img10 == "1"){
-            unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge10']);
+            unlink('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge10']);
             $data['imatge10'] = "";
           }
 
@@ -983,22 +983,22 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto1file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge1'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge1'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge1']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge1']);
               }
             }else if($_FILES['foto1file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge1'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge1'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge1']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge1']);
               }
             }else if($_FILES['foto1file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge1'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge1'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge1']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge1']);
               }
             }
             // ********* Fin REDUIR IMATGE *********
@@ -1054,22 +1054,22 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto2file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge2'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge2'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge2']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge2']);
               }
             }else if($_FILES['foto2file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge2'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge2'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge2']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge2']);
               }
             }else if($_FILES['foto2file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge2'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge2'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge2']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge2']);
               }
             }
             // ********* Fin REDUIR IMATGE *********
@@ -1125,22 +1125,22 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto3file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge3'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge3'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge3']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge3']);
               }
             }else if($_FILES['foto3file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge3'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge3'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge3']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge3']);
               }
             }else if($_FILES['foto3file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge3'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge3'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge3']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge3']);
               }
             }
             // ********* Fin REDUIR IMATGE *********
@@ -1196,22 +1196,22 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto4file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge4'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge4'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge4']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge4']);
               }
             }else if($_FILES['foto4file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge4'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge4'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge4']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge4']);
               }
             }else if($_FILES['foto4file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge4'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge4'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge4']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge4']);
               }
             }
             // ********* Fin REDUIR IMATGE *********
@@ -1267,22 +1267,22 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto5file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge5'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge5'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge5']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge5']);
               }
             }else if($_FILES['foto5file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge5'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge5'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge5']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge5']);
               }
             }else if($_FILES['foto5file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge5'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge5'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge5']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge5']);
               }
             }
             // ********* Fin REDUIR IMATGE *********
@@ -1338,22 +1338,22 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto6file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge6'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge6'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge6']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge6']);
               }
             }else if($_FILES['foto6file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge6'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge6'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge6']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge6']);
               }
             }else if($_FILES['foto6file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge6'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge6'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge6']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge6']);
               }
             }
             // ********* Fin REDUIR IMATGE *********
@@ -1409,22 +1409,22 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto7file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge7'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge7'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge7']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge7']);
               }
             }else if($_FILES['foto7file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge7'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge7'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge7']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge7']);
               }
             }else if($_FILES['foto7file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge7'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge7'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge7']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge7']);
               }
             }
             // ********* Fin REDUIR IMATGE *********
@@ -1480,22 +1480,22 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto8file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge8'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge8'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge8']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge8']);
               }
             }else if($_FILES['foto8file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge8'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge8'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge8']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge8']);
               }
             }else if($_FILES['foto8file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge8'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge8'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge8']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge8']);
               }
             }
             // ********* Fin REDUIR IMATGE *********
@@ -1551,22 +1551,22 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto9file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge9'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge9'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge9']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge9']);
               }
             }else if($_FILES['foto9file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge9'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge9'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge9']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge9']);
               }
             }else if($_FILES['foto9file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge9'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge9'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge9']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge9']);
               }
             }
             // ********* Fin REDUIR IMATGE *********
@@ -1622,22 +1622,22 @@
             //Comprovem si es jpg / png o gif depenent de la situacio cridara una funció o una altre
             if($_FILES['foto10file']['type']=='image/jpeg'){
               //Crear la imagen y guardar en un directorio
-              imagejpeg($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagejpeg($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge10'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge10'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge10']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge10']);
               }
             }else if($_FILES['foto10file']['type']=='image/png'){
-              imagepng($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagepng($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge10'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge10'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge10']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge10']);
               }
             }else if($_FILES['foto10file']['type']=='image/gif'){
-              imagegif($lienzo,"../../admin-web/public/images/img_xarxa/immoble/$new_nombre_thumb");
+              imagegif($lienzo,"../../admin-web/public/images/img-xarxa/immoble/$new_nombre_thumb");
               $data['imatge10'] = "$new_nombre_thumb";
               if(!empty($dataImg['imatge10'])) {
-                unlink("../../admin-web/public/images/img_xarxa/immoble/".$dataImg['imatge10']);
+                unlink("../../admin-web/public/images/img-xarxa/immoble/".$dataImg['imatge10']);
               }
             }
             // ********* Fin REDUIR IMATGE *********
@@ -1743,35 +1743,35 @@
         ];
 
         // Delete all images of the immoble
-        if(!empty($data['imatge1']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge1'])){
-          unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge1']);
+        if(!empty($data['imatge1']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge1'])){
+          unlink('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge1']);
         }
-        if(!empty($data['imatge2']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge2'])){
-          unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge2']);
+        if(!empty($data['imatge2']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge2'])){
+          unlink('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge2']);
         }
-        if(!empty($data['imatge3']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge3'])){
-          unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge3']);
+        if(!empty($data['imatge3']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge3'])){
+          unlink('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge3']);
         }
-        if(!empty($data['imatge4']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge4'])){
-          unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge4']);
+        if(!empty($data['imatge4']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge4'])){
+          unlink('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge4']);
         }
-        if(!empty($data['imatge5']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge5'])){
-          unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge5']);
+        if(!empty($data['imatge5']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge5'])){
+          unlink('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge5']);
         }
-        if(!empty($data['imatge6']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge6'])){
-          unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge6']);
+        if(!empty($data['imatge6']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge6'])){
+          unlink('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge6']);
         }
-        if(!empty($data['imatge7']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge7'])){
-          unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge7']);
+        if(!empty($data['imatge7']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge7'])){
+          unlink('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge7']);
         }
-        if(!empty($data['imatge8']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge8'])){
-          unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge8']);
+        if(!empty($data['imatge8']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge8'])){
+          unlink('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge8']);
         }
-        if(!empty($data['imatge9']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge9'])){
-          unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge9']);
+        if(!empty($data['imatge9']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge9'])){
+          unlink('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge9']);
         }
-        if(!empty($data['imatge10']) && file_exists('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge10'])){
-          unlink('../../admin-web/public/images/img_xarxa/immoble/'.$data['imatge10']);
+        if(!empty($data['imatge10']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge10'])){
+          unlink('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge10']);
         }
 
         if($this->immobleModel->delete($id)){
