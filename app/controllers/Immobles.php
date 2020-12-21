@@ -163,7 +163,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "1_".$data['slug_cat']."_".$id_thumb."_".$data['usuari_id']."_".uniqid().".".$ext;
+            $new_nombre_thumb = "1-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -224,7 +224,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "2_".$data['slug_cat']."_".$id_thumb."_".$data['usuari_id']."_".uniqid().".".$ext;
+            $new_nombre_thumb = "2-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -285,7 +285,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "3_".$data['slug_cat']."_".$id_thumb."_".$data['usuari_id']."_".uniqid().".".$ext;
+            $new_nombre_thumb = "3-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -346,7 +346,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "4_".$data['slug_cat']."_".$id_thumb."_".$data['usuari_id']."_".uniqid().".".$ext;
+            $new_nombre_thumb = "4-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -407,7 +407,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "5_".$data['slug_cat']."_".$id_thumb."_".$data['usuari_id']."_".uniqid().".".$ext;
+            $new_nombre_thumb = "5-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -468,7 +468,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "6_".$data['slug_cat']."_".$id_thumb."_".$data['usuari_id']."_".uniqid().".".$ext;
+            $new_nombre_thumb = "6-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -529,7 +529,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "7_".$data['slug_cat']."_".$id_thumb."_".$data['usuari_id']."_".uniqid().".".$ext;
+            $new_nombre_thumb = "7-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -590,7 +590,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "8_".$data['slug_cat']."_".$id_thumb."_".$data['usuari_id']."_".uniqid().".".$ext;
+            $new_nombre_thumb = "8-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -651,7 +651,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "9_".$data['slug_cat']."_".$id_thumb."_".$data['usuari_id']."_".uniqid().".".$ext;
+            $new_nombre_thumb = "9-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -712,7 +712,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "10_".$data['slug_cat']."_".$id_thumb."_".$data['usuari_id']."_".uniqid().".".$ext;
+            $new_nombre_thumb = "10-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -975,7 +975,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "1_".$data['slug_cat']."_".$id_thumb."_".$data['usuari_id']."_".uniqid().".".$ext;
+            $new_nombre_thumb = "1-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1046,7 +1046,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "2_".$data['slug_cat']."_".$id_thumb."_".$data['usuari_id']."_".uniqid().".".$ext;
+            $new_nombre_thumb = "2-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1117,7 +1117,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "3_".$data['slug_cat']."_".$id_thumb."_".$data['usuari_id']."_".uniqid().".".$ext;
+            $new_nombre_thumb = "3-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1188,7 +1188,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "4_".$data['slug_cat']."_".$id_thumb."_".$data['usuari_id']."_".uniqid().".".$ext;
+            $new_nombre_thumb = "4-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1259,7 +1259,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "5_".$data['slug_cat']."_".$id_thumb."_".$data['usuari_id']."_".uniqid().".".$ext;
+            $new_nombre_thumb = "5-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1330,7 +1330,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "6_".$data['slug_cat']."_".$id_thumb."_".$data['usuari_id']."_".uniqid().".".$ext;
+            $new_nombre_thumb = "6-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1401,7 +1401,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "7_".$data['slug_cat']."_".$id_thumb."_".$data['usuari_id']."_".uniqid().".".$ext;
+            $new_nombre_thumb = "7-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1472,7 +1472,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "8_".$data['slug_cat']."_".$id_thumb."_".$data['usuari_id']."_".uniqid().".".$ext;
+            $new_nombre_thumb = "8-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1543,7 +1543,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "9_".$data['slug_cat']."_".$id_thumb."_".$data['usuari_id']."_".uniqid().".".$ext;
+            $new_nombre_thumb = "9-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1614,7 +1614,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "10_".$data['slug_cat']."_".$id_thumb."_".$data['usuari_id']."_".uniqid().".".$ext;
+            $new_nombre_thumb = "10-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
