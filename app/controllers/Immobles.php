@@ -11,6 +11,7 @@
       $this->poblacioModel = $this->model('Poblacio');
       $this->caracteristicaModel = $this->model('Caracteristica');
       $this->categoriaModel = $this->model('Categoria');
+      $this->certificatModel = $this->model('Certificat');
       $this->usuariModel = $this->model('Usuari');
       // If not activated
       if(!$this->usuariModel->getIsActivateById($_SESSION['usuari_id'])) {
@@ -49,6 +50,7 @@
       $poblacions = $this->poblacioModel->getPoblacionsWithProvincies();
       $caracteristiques = $this->caracteristicaModel->getCaracteristiquesActivat() ;
       $categories = $this->categoriaModel->getCategoriesActives();
+      $certificats = $this->certificatModel->getCertificatsActivats();
       $totalPortada = $this->immobleModel->getTotalImmoblesPortada();
 
       // Si viene de un POST
@@ -63,6 +65,7 @@
           'slug_cat' => '',
           'slug_esp' => '',
           'slug_eng' => '',
+          'referencia' => trim($_POST['referencia']),
           'descripcio_cat' => trim($_POST['descripcio_cat']),
           'descripcio_esp' => trim($_POST['descripcio_esp']),
           'descripcio_eng' => trim($_POST['descripcio_eng']),
@@ -85,19 +88,20 @@
           'poblacio_id' => trim($_POST['poblacio_id']),
           'categoria_id' => trim($_POST['categoria_id']),
           'caracteristica_id' => !isset($_POST['caracteristica_id']) ? '[""]' : json_encode($_POST['caracteristica_id']),
+          'certificat_id' => trim($_POST['certificat_id']),
           'usuari_id' => $_SESSION['usuari_id'],
-          'titol_cat_err' => '',
           'titol_esp_err' => '',
-          'titol_eng_err' => '',
+          'referencia_err' => '',
           'poblacions' => $poblacions,
           'caracteristiques' => $caracteristiques,
           'categories' => $categories,
+          'certificats' => $certificats,
           'totalPortada' => $totalPortada->total_portada
         ];
 
         // Validate data
         if(empty($data['titol_cat'])){
-          $data['titol_cat_err'] = 'Introduïr títol en català';
+          // $data['titol_cat_err'] = 'Introduïr títol en català';
         } else {
           $data['slug_cat'] = urls_amigables($data['titol_cat']);
         }
@@ -111,13 +115,17 @@
 
         // Validate data
         if(empty($data['titol_eng'])){
-          $data['titol_eng_err'] = 'Introduïr títol en anglès';
+          // $data['titol_eng_err'] = 'Introduïr títol en anglès';
         } else {
           $data['slug_eng'] = urls_amigables($data['titol_eng']);
         }
 
+        if(empty($data['referencia'])){
+          $data['referencia_err'] = 'Introduïr referencia de l\'immoble';
+        }
+
         // Make sure no errors
-        if(empty($data['titol_cat_err']) && empty($data['titol_esp_err']) && empty($data['titol_eng_err'])){
+        if(empty($data['titol_esp_err']) && empty($data['referencia_err'])){
           // Validated
 
           // Pujada d'imatges
@@ -163,7 +171,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "1-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
+            $new_nombre_thumb = "1-".$data['slug_esp']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -224,7 +232,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "2-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
+            $new_nombre_thumb = "2-".$data['slug_esp']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -285,7 +293,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "3-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
+            $new_nombre_thumb = "3-".$data['slug_esp']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -346,7 +354,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "4-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
+            $new_nombre_thumb = "4-".$data['slug_esp']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -407,7 +415,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "5-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
+            $new_nombre_thumb = "5-".$data['slug_esp']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -468,7 +476,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "6-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
+            $new_nombre_thumb = "6-".$data['slug_esp']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -529,7 +537,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "7-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
+            $new_nombre_thumb = "7-".$data['slug_esp']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -590,7 +598,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "8-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
+            $new_nombre_thumb = "8-".$data['slug_esp']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -651,7 +659,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "9-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
+            $new_nombre_thumb = "9-".$data['slug_esp']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -712,7 +720,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "10-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
+            $new_nombre_thumb = "10-".$data['slug_esp']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -747,6 +755,7 @@
           'titol_cat' => '',
           'titol_esp' => '',
           'titol_eng' => '',
+          'referencia' => '',
           'descripcio_cat' => '',
           'descripcio_esp' => '',
           'descripcio_eng' => '',
@@ -769,9 +778,11 @@
           'poblacio_id' => '',
           'categoria_id' => '',
           'caracteristica_id' => '',
+          'certificat_id' => '',
           'poblacions' => $poblacions,
           'caracteristiques' => $caracteristiques,
           'categories' => $categories,
+          'certificats' => $certificats,
           'totalPortada' => $totalPortada->total_portada
         ];
 
@@ -785,6 +796,7 @@
       $poblacions = $this->poblacioModel->getPoblacionsWithProvincies();
       $caracteristiques = $this->caracteristicaModel->getCaracteristiquesActivat() ;
       $categories = $this->categoriaModel->getCategoriesActives();
+      $certificats = $this->certificatModel->getCertificatsActivats();
       $totalPortada = $this->immobleModel->getTotalImmoblesPortada();
       
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -799,6 +811,7 @@
           'slug_cat' => '',
           'slug_esp' => '',
           'slug_eng' => '',
+          'referencia' => trim($_POST['referencia']),
           'descripcio_cat' => trim($_POST['descripcio_cat']),
           'descripcio_esp' => trim($_POST['descripcio_esp']),
           'descripcio_eng' => trim($_POST['descripcio_eng']),
@@ -821,6 +834,7 @@
           'poblacio_id' => trim($_POST['poblacio_id']),
           'categoria_id' => trim($_POST['categoria_id']),
           'caracteristica_id' => !isset($_POST['caracteristica_id']) ? '[""]' : json_encode($_POST['caracteristica_id']),
+          'certificat_id' => trim($_POST['certificat_id']),
           'usuari_id' => $_SESSION['usuari_id'],
           'titol_cat_err' => '',
           'titol_esp_err' => '',
@@ -828,6 +842,7 @@
           'poblacions' => $poblacions,
           'caracteristiques' => $caracteristiques,
           'categories' => $categories,
+          'certificats' => $certificats,
           'totalPortada' => $totalPortada->total_portada
         ];
 
@@ -844,7 +859,7 @@
 
         // Validate data
         if(empty($data['titol_cat'])){
-          $data['titol_cat_err'] = 'Introduïr títol en català';
+          // $data['titol_cat_err'] = 'Introduïr títol en català';
         } else {
           $data['slug_cat'] = urls_amigables($data['titol_cat']);
         }
@@ -858,13 +873,17 @@
 
         // Validate data
         if(empty($data['titol_eng'])){
-          $data['titol_eng_err'] = 'Introduïr títol en anglès';
+          // $data['titol_eng_err'] = 'Introduïr títol en anglès';
         } else {
           $data['slug_eng'] = urls_amigables($data['titol_eng']);
         }
 
+        if(empty($data['referencia'])){
+          $data['referencia_err'] = 'Introduïr referencia de l\'immoble';
+        }
+
         // Make sure no errors
-        if(empty($data['titol_cat_err']) && empty($data['titol_esp_err']) && empty($data['titol_eng_err'])){
+        if(empty($data['titol_esp_err']) && empty($data['referencia_err'])){
           
           // Eliminar imatges
           if($del_img1 == "1"){
@@ -975,7 +994,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "1-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
+            $new_nombre_thumb = "1-".$data['slug_esp']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1046,7 +1065,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "2-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
+            $new_nombre_thumb = "2-".$data['slug_esp']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1117,7 +1136,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "3-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
+            $new_nombre_thumb = "3-".$data['slug_esp']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1188,7 +1207,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "4-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
+            $new_nombre_thumb = "4-".$data['slug_esp']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1259,7 +1278,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "5-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
+            $new_nombre_thumb = "5-".$data['slug_esp']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1330,7 +1349,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "6-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
+            $new_nombre_thumb = "6-".$data['slug_esp']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1401,7 +1420,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "7-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
+            $new_nombre_thumb = "7-".$data['slug_esp']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1472,7 +1491,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "8-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
+            $new_nombre_thumb = "8-".$data['slug_esp']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1543,7 +1562,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "9-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
+            $new_nombre_thumb = "9-".$data['slug_esp']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1614,7 +1633,7 @@
             //Copiar original en lienzo
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final,$alto_final,$ancho,$alto);
             $id_thumb=rand(1, 50);
-            $new_nombre_thumb = "10-".$data['slug_cat']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
+            $new_nombre_thumb = "10-".$data['slug_esp']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
 
             //Destruir la original
             imagedestroy($original);
@@ -1682,6 +1701,7 @@
           'titol_cat' => $immoble->titol_cat,
           'titol_esp' => $immoble->titol_esp,
           'titol_eng' => $immoble->titol_eng,
+          'referencia' => $immoble->referencia,
           'descripcio_cat' => $immoble->descripcio_cat,
           'descripcio_esp' => $immoble->descripcio_esp,
           'descripcio_eng' => $immoble->descripcio_eng,
@@ -1704,9 +1724,11 @@
           'poblacio_id' => $immoble->poblacio_id,
           'categoria_id' => $immoble->categoria_id,
           'caracteristica_id' => $immoble->caracteristica_id,
+          'certificat_id' => $immoble->certificat_id,
           'poblacions' => $poblacions,
           'caracteristiques' => $caracteristiques,
           'categories' => $categories,
+          'certificats' => $certificats,
           'totalPortada' => $totalPortada->total_portada
         ];
 

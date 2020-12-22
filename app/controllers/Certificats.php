@@ -1,27 +1,27 @@
 <?php
-  class Provincies extends Controller {
+  class Certificats extends Controller {
 
     public function __construct(){
       if(!isLoggedInAndAdmin()){
         redirect('usuaris/login');
       }
-      $this->provinciaModel = $this->model('Provincia');
+      $this->certificatModel = $this->model('Certificat');
     }
 
     // Get províncies
     public function index(){
       // Call model with switch
-      $provincies = $this->provinciaModel->getProvincies();
+      $certificats = $this->certificatModel->getCertificats();
 
       $data = [
-        'provincies' => $provincies
+        'certificats' => $certificats
       ];
 
       // Send to View
-      $this->view('provincies/index', $data);
+      $this->view('certificats/index', $data);
     }
 
-    // Add new provincia
+    // Add new certificat
     public function add(){
       // POST
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -35,21 +35,21 @@
 
         // Validate data
         if(empty($data['nom_cat'])){
-          $data['nom_cat_err'] = 'Introduïr el nom de la província';
+          $data['nom_cat_err'] = 'Introduïr el nom del certificat';
         }
         
         // Make sure no errors
         if(empty($data['nom_cat_err'])){
 
-          if($this->provinciaModel->add($data)){
-            flash('provincia_message', 'Província afegida correctament');
-            redirect('provincies/index');
+          if($this->certificatModel->add($data)){
+            flash('certificat_message', 'Certificat afegit correctament');
+            redirect('certificats/index');
           } else {
             die('Something went wrong');
           }
         } else {
           // Load view with errors
-          $this->view('provincies/add', $data);
+          $this->view('certificats/add', $data);
         }
 
       } else {
@@ -57,11 +57,11 @@
           'nom_cat' => '',
           'activat' => '',
         ];
-        $this->view('provincies/add', $data);
+        $this->view('certificats/add', $data);
       }
     }
 
-    // Editar provincia
+    // Editar certificats
     public function edit($id){
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Sanitize POST array
@@ -75,49 +75,49 @@
 
         // Validate data
         if(empty($data['nom_cat'])){
-          $data['nom_cat_err'] = 'Introduïr el nom de la població';
+          $data['nom_cat_err'] = 'Introduïr el nom del certificat';
         }
 
         // Make sure no errors
         if(empty($data['nom_cat_err'])){
           // Validated
-          if($this->provinciaModel->update($data)){
-            flash('provincia_message', 'Població actualitzada correctament');
-            redirect('provincies/index');
+          if($this->certificatModel->update($data)){
+            flash('certificat_message', 'Certificat actualitzat correctament');
+            redirect('certificats/index');
           } else {
             die('Something went wrong');
           }
         } else {
           // Load view with errors
-          $this->view('provincies/edit', $data);
+          $this->view('certificats/edit', $data);
         }
 
       } else {
 
-        // Get existing provincia from model
-        $provincia = $this->provinciaModel->getProvinciaById($id);
+        // Get existing certificat from model
+        $certificat = $this->certificatModel->getCertificatById($id);
 
         $data = [
           'id' => $id,
-          'nom_cat' => $provincia->nom_cat,
-          'activat' => $provincia->activat,
+          'nom_cat' => $certificat->nom_cat,
+          'activat' => $certificat->activat,
         ];
   
-        $this->view('provincies/edit', $data);
+        $this->view('certificats/edit', $data);
       }
     }
 
     public function delete($id){
       
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        if($this->provinciaModel->delete($id)){
-          flash('provincia_message', 'Província eliminada correctament');
-          redirect('provincies/index');
+        if($this->certificatModel->delete($id)){
+          flash('certificat_message', 'Certificat eliminat correctament');
+          redirect('certificats/index');
         } else {
           die('Something went wrong');
         }
       } else {
-        redirect('provincies/index');
+        redirect('certificats/index');
       }
     }
 

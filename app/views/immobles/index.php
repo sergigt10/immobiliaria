@@ -14,6 +14,7 @@
                   <thead>
                     <tr>
                         <th>Títol</th>
+                        <th>Referencia</th>
                         <th>Categoria</th>
                         <th>Població</th>
                         <?php if (isLoggedInAndAdmin()) { ?>
@@ -28,7 +29,8 @@
                   <tbody>
                     <?php foreach($data['immobles'] as $immoble) : ?>
                     <tr>
-                        <td><a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->titol_cat; ?></a></td>
+                        <td><a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->titol_esp; ?></a></td>
+                        <td><a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->referencia; ?></a></td>
                         <td><a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->categoria; ?></a></td>
                         <td><a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->poblacio; ?></a></td>
                         <?php if (isLoggedInAndAdmin()) { ?>
@@ -67,7 +69,7 @@
                             </button>
                           </div>
                           <div class="modal-body">
-                            Segur que vols esborrar: <?php echo $immoble->titol_cat; ?>
+                            Segur que vols esborrar: <?php echo $immoble->titol_esp; ?>
                           </div>
                           <div class="modal-footer">
                             <form class="pull-right" action="<?php echo URLROOT; ?>/immobles/delete/<?php echo $immoble->id ?>" method="post">

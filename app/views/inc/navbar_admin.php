@@ -84,6 +84,21 @@
       </div>
     </li>
     <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#general-pages-7" <?php echo (strpos($_SERVER['REQUEST_URI'] ,"certificats") !== false) ? 'aria-expanded="true"' : 'aria-expanded="false"'; ?> aria-controls="general-pages-7">
+        <i class="mdi mdi-table-edit  menu-icon"></i>
+        <span class="menu-title">Certificats</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div <?php echo (strpos($_SERVER['REQUEST_URI'] ,"certificats") !== false) ? 'class="collapse show"' : 'class="collapse"'; ?> id="general-pages-7">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'] ,"certificats/add") !== false) ? 'active' : ''; ?>" href="<?php echo URLROOT; ?>/certificats/add">Inserir</a></li>
+        </ul>
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'] ,"certificats/index") !== false OR strpos($_SERVER['REQUEST_URI'] ,"certificats/edit") !== false) ? 'active' : ''; ?>" href="<?php echo URLROOT; ?>/certificats/index">Modificar</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#general-pages-6" <?php echo (strpos($_SERVER['REQUEST_URI'] ,"usuaris") !== false) ? 'aria-expanded="true"' : 'aria-expanded="false"'; ?> aria-controls="general-pages-6">
         <i class="mdi mdi-table-edit  menu-icon"></i>
         <span class="menu-title">Usuaris</span>

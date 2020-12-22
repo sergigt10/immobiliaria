@@ -126,12 +126,12 @@
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         if($this->poblacioModel->delete($id)){
           flash('poblacio_message', 'Població eliminada correctament');
-          redirect('poblacions');
+          redirect('poblacions/index');
         } else {
           die('Something went wrong');
         }
       } else {
-        redirect('poblacions');
+        redirect('poblacions/index');
       }
     }
 
