@@ -41,7 +41,7 @@
           'username' => trim(mb_strtolower($_POST['username'])),
           'password' => trim($_POST['password']),
           'username_err' => '',
-          'password_err' => '',      
+          'contrasenya_err' => '',      
         ];
 
         
@@ -51,18 +51,18 @@
 
         
         if(empty($data['password'])){
-          $data['password_err'] = 'Introduïu la contrasenya';
+          $data['contrasenya_err'] = 'Introduïu la contrasenya';
         }
 
         // Check for username
         if(!$this->usuariModel->findUsuariByUsername($data['username'])){
           // User not found
           $data['username_err'] = "Hi ha un error amb l'usuari o contrasenya";
-          $data['password_err'] = "Hi ha un error amb l'usuari o contrasenya";
+          $data['contrasenya_err'] = "Hi ha un error amb l'usuari o contrasenya";
         }
 
         // Make sure errors are empty
-        if(empty($data['username_err']) && empty($data['password_err'])){
+        if(empty($data['username_err']) && empty($data['contrasenya_err'])){
           // Validated
           // Check and set logged in usuari
           $loggedInUser = $this->usuariModel->login($data['username'], $data['password']);
@@ -73,7 +73,7 @@
           } else {
             // Error password
             $data['username_err'] = "Hi ha un error amb l'usuari o contrasenya";
-            $data['password_err'] = "Hi ha un error amb l'usuari o contrasenya";
+            $data['contrasenya_err'] = "Hi ha un error amb l'usuari o contrasenya";
 
             $this->view('usuaris/login', $data);
           }
@@ -87,7 +87,7 @@
           'username' => '',
           'password' => '',
           'username_err' => '',
-          'password_err' => '',        
+          'contrasenya_err' => '',        
         ];
         // Load view
         $this->view('usuaris/login', $data);
@@ -162,7 +162,7 @@
         }
 
         // Make sure errors are empty
-        if(empty($data['email_err']) && empty($data['nom_cognoms_err']) && empty($data['password_err']) && empty($data['confirm_password_err'])){
+        if(empty($data['email_err']) && empty($data['nom_cognoms_err']) && empty($data['contrasenya_err']) && empty($data['confirm_password_err'])){
           // Validated
           
           // Pujada d'imatges
@@ -265,7 +265,7 @@
           'max_fotos' => '',
           'activat' => '',
           'email_err' => '',
-          'password_err' => '',
+          'contrasenya_err' => '',
           'confirm_password_err' => ''
         ];
 
@@ -339,7 +339,12 @@
               $data['confirm_password_err'] = 'Les contrasenyes no coincideixen';
             }
           }
-          $data['contrasenya'] = password_hash($data['contrasenya'], PASSWORD_DEFAULT);
+          
+          if (strlen($data['contrasenya']) < 6){
+            $data['contrasenya_err'] = 'La contrasenya ha de tenir com a mínim 6 caràcters';
+          } else {
+            $data['contrasenya'] = password_hash($data['contrasenya'], PASSWORD_DEFAULT);
+          }
         }
 
         // Validate Name
@@ -348,7 +353,7 @@
         }
 
         // Make sure errors are empty
-        if(empty($data['email_err']) && empty($data['nom_cognoms_err']) && empty($data['password_err']) && empty($data['confirm_password_err'])){
+        if(empty($data['email_err']) && empty($data['nom_cognoms_err']) && empty($data['contrasenya_err']) && empty($data['confirm_password_err'])){
 
           // Eliminar imatges
           if($del_img1 == "1"){

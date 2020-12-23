@@ -17,13 +17,14 @@
                 
                 <div class="form-group">
                   <label for="exampleInputEmail3">Correu electrònic *:</label>
-                  <input name="email" type="text" class="form-control" id="exampleInputEmail3" placeholder="Correu electrònic" value="<?php echo $data['email']; ?>">
+                  <input name="email" type="email" class="form-control" id="exampleInputEmail3" placeholder="Correu electrònic" value="<?php echo $data['email']; ?>">
                 </div>
 
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="exampleInputEmail3">Contrasenya *:</label>
                     <input name="contrasenya" type="password" class="form-control" id="exampleInputEmail3" placeholder="Contrasenya" value="<?php echo $data['contrasenya']; ?>">
+                    <h5 style="color:red">Mínim 6 caràcters.</h5>
                   </div>
 
                   <div class="form-group col-md-6">

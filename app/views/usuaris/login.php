@@ -72,8 +72,8 @@
                         <i class="mdi mdi-lock-outline text-primary"></i>
                       </span>
                     </div>
-                    <input type="password" name="password" class="form-control form-control-lg border-left-0 <?php echo (!empty($data['password_err'])) ? 'is-invalid' : ''; ?>" id="exampleInputPassword" value="<?php echo $data['password']; ?>">
-                    <span class="invalid-feedback"><?php echo $data['password_err']; ?></span>    
+                    <input type="password" name="password" class="form-control form-control-lg border-left-0 <?php echo (!empty($data['contrasenya_err'])) ? 'is-invalid' : ''; ?>" id="exampleInputPassword" value="<?php echo $data['password']; ?>">
+                    <span class="invalid-feedback"><?php echo $data['contrasenya_err']; ?></span>    
                   </div>
                 </div>
                 <div class="my-3">

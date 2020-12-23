@@ -9,6 +9,9 @@
           <br>
           <div class="row">
             <div class="col-12">
+              <button type="button" class="btn btn-info mb-3" onclick="location.href='<?php echo URLROOT; ?>/categories/add'">+ Inserir</button>
+            </div>
+            <div class="col-12">
               <div class="table-responsive">
                 <table id="order-listing" class="table table-hover table-bordered">
                   <thead>
