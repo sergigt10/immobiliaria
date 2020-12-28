@@ -92,7 +92,7 @@
                     <label for="exampleInputName1">Població:</label>
                     <select name="poblacio_id" class="js-example-basic-single w-100">
                       <?php foreach($data['poblacions'] as $poblacio) : ?>
-                        <option value="<?php echo $poblacio->id; ?>" <?php echo ($data['poblacio_id']) == $poblacio->id ? 'selected' : ''; ?> ><?php echo $poblacio->poblacio; ?> - <?php echo $poblacio->provincia; ?></option>
+                        <option value="<?php echo $poblacio->id; ?>" <?php echo ($data['poblacio_id']) == $poblacio->id ? 'selected' : ''; ?> ><?php echo $poblacio->poblacio; ?></option>
                       <?php endforeach; ?>
                     </select>
                   </div>
@@ -107,7 +107,7 @@
                   </div>
 
                   <div class="form-group col-md-4">
-                    <label for="exampleInputName1">Eficiencia energética:</label>
+                    <label for="exampleInputName1">Eficiencia energètica:</label>
                     <select name="certificat_id" class="form-control" id="exampleSelectGender">
                       <?php foreach($data['certificats'] as $certificat) : ?>
                         <option value="<?php echo $certificat->id; ?>" <?php echo ($data['certificat_id']) == $certificat->id ? 'selected' : ''; ?> ><?php echo $certificat->nom_cat; ?></option>
