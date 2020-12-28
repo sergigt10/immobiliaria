@@ -21303,6 +21303,9 @@ select.border-dark.tt-hint:focus {
 
 .form-group .file-upload-info {
   background: transparent;
+  font-weight: bold;
+  color: #405189;
+  font-size: 20px;
 }
 
 .map-container {
@@ -29590,4 +29593,5 @@ select.form-control, select.asColorPicker-input, .dataTables_wrapper select, .js
     background: white;
     color: black;
 }
+
 /*# sourceMappingURL=../maps/vertical-layout-light/style.css.map */
