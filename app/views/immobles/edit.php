@@ -90,7 +90,7 @@
                 <div class="form-row">
                   <div class="form-group col-md-4">
                     <label for="exampleInputName1">Població:</label>
-                    <select name="poblacio_id" class="form-control" id="exampleSelectGender">
+                    <select name="poblacio_id" class="js-example-basic-single w-100">
                       <?php foreach($data['poblacions'] as $poblacio) : ?>
                         <option value="<?php echo $poblacio->id; ?>" <?php echo ($data['poblacio_id']) == $poblacio->id ? 'selected' : ''; ?> ><?php echo $poblacio->poblacio; ?> - <?php echo $poblacio->provincia; ?></option>
                       <?php endforeach; ?>

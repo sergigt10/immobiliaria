@@ -20,7 +20,7 @@
       INNER JOIN provincia
         ON poblacio.provincia_id = provincia.id
       WHERE poblacio.activat = 1
-      ORDER BY id ASC');
+      ORDER BY provincia.nom_cat ASC');
       // Devuelve más de una fila
       $results = $this->db->resultSet();
 

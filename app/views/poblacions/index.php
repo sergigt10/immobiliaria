@@ -16,8 +16,8 @@
                 <table id="order-listing" class="table table-hover table-bordered">
                   <thead>
                     <tr>
-                        <th>Població</th>
                         <th>Provincia</th>
+                        <th>Població</th>
                         <th data-orderable="false">Estat</th>
                         <th>Editar</th>
                         <th>Eliminar</th>
@@ -26,8 +26,8 @@
                   <tbody>
                     <?php foreach($data['poblacions'] as $poblacio) : ?>
                     <tr>
-                        <td><a href="<?php echo URLROOT; ?>/poblacions/edit/<?php echo $poblacio->id; ?>" style="color: black;"><?php echo $poblacio->poblacio; ?></a></td>
                         <td><a href="<?php echo URLROOT; ?>/poblacions/edit/<?php echo $poblacio->id; ?>" style="color: black;"><?php echo $poblacio->provincia; ?></a></td>
+                        <td><a href="<?php echo URLROOT; ?>/poblacions/edit/<?php echo $poblacio->id; ?>" style="color: black;"><?php echo $poblacio->poblacio; ?></a></td>
                         <td>
                           <a href="<?php echo URLROOT; ?>/poblacions/edit/<?php echo $poblacio->id; ?>" style="color: black;">
                             <?php if($poblacio->activat == 1) { ?>
