@@ -37,7 +37,7 @@
                         <td><a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->categoria; ?></a></td>
                         <td><a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->poblacio; ?></a></td>
                         <?php if (isLoggedInAndAdmin()) { ?>
-                          <td><a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->usuari; ?></a></td>
+                          <td><a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->usuari; ?> - <?php echo $immoble->usuariNom; ?></a></td>
                         <?php } ?>
                         <?php if (isLoggedInAndAdmin()) { ?>
                           <td>
