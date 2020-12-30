@@ -18,15 +18,17 @@
 
     // Get immobles by admin
     public function getImmobles(){
-      $this->db->query('SELECT immoble.id, immoble.titol_esp, immoble.referencia, categoria.nom_cat AS categoria, poblacio.nom_cat AS poblacio, immoble.portada, immoble.tipus_venda, immoble.activat, usuari.empresa AS usuari, usuari.nom_cognoms AS usuariNom
-        FROM immoble
-        INNER JOIN poblacio
-            ON immoble.poblacio_id = poblacio.id
-        INNER JOIN categoria
-            ON immoble.categoria_id = categoria.id
-        INNER JOIN usuari
-            ON immoble.usuari_id = usuari.id
-        ORDER BY immoble.id'
+      $this->db->query('SELECT immoble.id, immoble.titol_esp, immoble.referencia, tipus_venda.nom_cat AS tipus_venda, categoria.nom_cat AS categoria, poblacio.nom_cat AS poblacio, immoble.portada, immoble.activat, usuari.empresa AS usuari, usuari.nom_cognoms AS usuariNom
+      FROM immoble
+      INNER JOIN poblacio
+          ON immoble.poblacio_id = poblacio.id
+      INNER JOIN categoria as tipus_venda
+          ON immoble.tipus_venda = tipus_venda.id
+      INNER JOIN categoria
+          ON immoble.categoria_id = categoria.id
+      INNER JOIN usuari
+          ON immoble.usuari_id = usuari.id
+      ORDER BY immoble.id'
       );
       // Devuelve más de una fila
       $results = $this->db->resultSet();
@@ -36,10 +38,12 @@
 
     // Get immobles by user
     public function getImmoblesByUsuari($id){
-      $this->db->query('SELECT immoble.id, immoble.titol_esp, immoble.referencia, categoria.nom_cat AS categoria, poblacio.nom_cat AS poblacio, immoble.portada, immoble.tipus_venda, immoble.activat, usuari.email AS usuari
+      $this->db->query('SELECT immoble.id, immoble.titol_esp, immoble.referencia, tipus_venda.nom_cat AS tipus_venda, categoria.nom_cat AS categoria, poblacio.nom_cat AS poblacio, immoble.portada, immoble.activat, usuari.email AS usuari
       FROM immoble
       INNER JOIN poblacio
           ON immoble.poblacio_id = poblacio.id
+      INNER JOIN categoria as tipus_venda
+          ON immoble.tipus_venda = tipus_venda.id
       INNER JOIN categoria
           ON immoble.categoria_id = categoria.id
       INNER JOIN usuari

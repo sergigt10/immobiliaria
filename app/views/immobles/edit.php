@@ -88,7 +88,7 @@
                 </div>
 
                 <div class="form-row">
-                  <div class="form-group col-md-4">
+                  <div class="form-group col-md-3">
                     <label for="exampleInputName1">Població:</label>
                     <select name="poblacio_id" class="js-example-basic-single w-100">
                       <?php foreach($data['poblacions'] as $poblacio) : ?>
@@ -97,25 +97,35 @@
                     </select>
                   </div>
 
-                  <div class="form-group col-md-4">
+                  <div class="form-group col-md-3">
                     <label for="exampleInputName1">Tipus de venda:</label>
                     <select name="tipus_venda" class="form-control" id="exampleSelectGender">
-                      <option value="Compra" <?php echo ($data['tipus_venda']) === 'Compra' ? 'selected' : ''; ?>>Compra</option>
-                      <option value="Lloguer" <?php echo ($data['tipus_venda']) === 'Lloguer' ? 'selected' : ''; ?>>Lloguer</option>
-                      <option value="Obra nova" <?php echo ($data['tipus_venda']) === 'Obra nova' ? 'selected' : ''; ?>>Obra nova</option>
+                      <?php foreach($data['categories'] as $categoria) : 
+                        if($categoria->nom_cat === "Compra" || $categoria->nom_cat === "Lloguer" || $categoria->nom_cat === "Obra nova") {
+                      ?>
+                        <option value="<?php echo $categoria->id; ?>" <?php echo ($data['tipus_venda']) == $categoria->id ? 'selected' : ''; ?> ><?php echo $categoria->nom_cat; ?></option>
+                      <?php 
+                        }
+                        endforeach; 
+                      ?>
                     </select>
                   </div>
 
-                  <div class="form-group col-md-4">
+                  <div class="form-group col-md-3">
                     <label for="exampleInputName1">Categoria de l'immoble:</label>
                     <select name="categoria_id" class="form-control" id="exampleSelectGender">
-                      <?php foreach($data['categories'] as $categoria) : ?>
+                      <?php foreach($data['categories'] as $categoria) : 
+                        if($categoria->nom_cat !== "Compra" && $categoria->nom_cat !== "Lloguer" && $categoria->nom_cat !== "Obra nova") {
+                      ?>
                         <option value="<?php echo $categoria->id; ?>" <?php echo ($data['categoria_id']) == $categoria->id ? 'selected' : ''; ?> ><?php echo $categoria->nom_cat; ?></option>
-                      <?php endforeach; ?>
+                      <?php 
+                        }
+                        endforeach; 
+                      ?>
                     </select>
                   </div>
 
-                  <div class="form-group col-md-4">
+                  <div class="form-group col-md-3">
                     <label for="exampleInputName1">Eficiencia energètica:</label>
                     <select name="certificat_id" class="form-control" id="exampleSelectGender">
                       <?php foreach($data['certificats'] as $certificat) : ?>
