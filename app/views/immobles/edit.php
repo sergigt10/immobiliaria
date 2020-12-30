@@ -98,7 +98,16 @@
                   </div>
 
                   <div class="form-group col-md-4">
-                    <label for="exampleInputName1">Categoria:</label>
+                    <label for="exampleInputName1">Tipus de venda:</label>
+                    <select name="tipus_venda" class="form-control" id="exampleSelectGender">
+                      <option value="Compra" <?php echo ($data['tipus_venda']) === 'Compra' ? 'selected' : ''; ?>>Compra</option>
+                      <option value="Lloguer" <?php echo ($data['tipus_venda']) === 'Lloguer' ? 'selected' : ''; ?>>Lloguer</option>
+                      <option value="Obra nova" <?php echo ($data['tipus_venda']) === 'Obra nova' ? 'selected' : ''; ?>>Obra nova</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label for="exampleInputName1">Categoria de l'immoble:</label>
                     <select name="categoria_id" class="form-control" id="exampleSelectGender">
                       <?php foreach($data['categories'] as $categoria) : ?>
                         <option value="<?php echo $categoria->id; ?>" <?php echo ($data['categoria_id']) == $categoria->id ? 'selected' : ''; ?> ><?php echo $categoria->nom_cat; ?></option>

@@ -579,7 +579,7 @@
       $_SESSION['user_name'] = htmlspecialchars(strip_tags($usuari->email));
       $_SESSION['name_surname'] = htmlspecialchars(strip_tags($usuari->nom_cognoms));
       $_SESSION['isAdmin'] = htmlspecialchars(strip_tags($usuari->es_admin));
-      redirect('index');
+      redirect('admin/index');
     }
 
     // Logout

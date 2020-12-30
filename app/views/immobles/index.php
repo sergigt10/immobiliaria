@@ -18,6 +18,7 @@
                     <tr>
                         <th>Títol</th>
                         <th>Referencia</th>
+                        <th>Tipus de venda</th>
                         <th>Categoria</th>
                         <th>Població</th>
                         <?php if (isLoggedInAndAdmin()) { ?>
@@ -34,6 +35,7 @@
                     <tr>
                         <td><a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->titol_esp; ?></a></td>
                         <td><a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->referencia; ?></a></td>
+                        <td><a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->tipus_venda; ?></a></td>
                         <td><a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->categoria; ?></a></td>
                         <td><a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->poblacio; ?></a></td>
                         <?php if (isLoggedInAndAdmin()) { ?>
