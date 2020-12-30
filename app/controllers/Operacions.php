@@ -1,27 +1,27 @@
 <?php
-  class Categories extends Controller {
+  class Operacions extends Controller {
 
     public function __construct(){
       if(!isLoggedInAndAdmin()){
         redirect('usuaris/login');
       }
-      $this->categoriaModel = $this->model('Categoria');
+      $this->operacioModel = $this->model('Operacio');
     }
 
-    // Get categories
+    // Get operacions
     public function index(){
       // Call model with switch
-      $categories = $this->categoriaModel->getCategories();
+      $operacions = $this->operacioModel->getOperacions();
 
       $data = [
-        'categories' => $categories
+        'operacions' => $operacions
       ];
 
       // Send to View
-      $this->view('categories/index', $data);
+      $this->view('operacions/index', $data);
     }
 
-    // Add new categoria
+    // Add new operacio
     public function add(){
       // POST
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -37,29 +37,29 @@
 
         // Validate data
         if(empty($data['nom_cat'])){
-          $data['nom_cat_err'] = 'Introduïr el nom de la categoria en català';
+          $data['nom_cat_err'] = 'Introduïr el tipus d\'operació en català';
         }
 
         if(empty($data['nom_esp'])){
-          $data['nom_esp_err'] = 'Introduïr el nom de la categoria en castellà';
+          $data['nom_esp_err'] = 'Introduïr el tipus d\'operació en castellà';
         }
 
         if(empty($data['nom_eng'])){
-          $data['nom_eng_err'] = 'Introduïr el nom de la categoria en anglès';
+          $data['nom_eng_err'] = 'Introduïr el tipus d\'operació en anglès';
         }
         
         // Make sure no errors
         if(empty($data['nom_cat_err']) && empty($data['nom_esp_err']) && empty($data['nom_eng_err'])){
 
-          if($this->categoriaModel->add($data)){
-            flash('categoria_message', 'Categoria afegida correctament');
-            redirect('categories/index');
+          if($this->operacioModel->add($data)){
+            flash('operacio_message', 'Tipus d\'operació afegida correctament');
+            redirect('operacions/index');
           } else {
             die('Something went wrong');
           }
         } else {
           // Load view with errors
-          $this->view('categories/add', $data);
+          $this->view('operacions/add', $data);
         }
 
       } else {
@@ -69,11 +69,11 @@
           'nom_eng' => '',
           'activat' => '',
         ];
-        $this->view('categories/add', $data);
+        $this->view('operacions/add', $data);
       }
     }
 
-    // Editar categoria
+    // Editar operacio
     public function edit($id){
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Sanitize POST array
@@ -89,59 +89,59 @@
 
         // Validate data
         if(empty($data['nom_cat'])){
-          $data['nom_cat_err'] = 'Introduïr el nom de la categoria en català';
+          $data['nom_cat_err'] = 'Introduïr el tipus d\'operació en català';
         }
 
         if(empty($data['nom_esp'])){
-          $data['nom_esp_err'] = 'Introduïr el nom de la categoria en castellà';
+          $data['nom_esp_err'] = 'Introduïr el tipus d\'operació en castellà';
         }
 
         if(empty($data['nom_eng'])){
-          $data['nom_eng_err'] = 'Introduïr el nom de la categoria en anglès';
+          $data['nom_eng_err'] = 'Introduïr el tipus d\'operació en anglès';
         }
 
         // Make sure no errors
         if(empty($data['nom_cat_err']) && empty($data['nom_esp_err']) && empty($data['nom_eng_err'])){
           // Validated
-          if($this->categoriaModel->update($data)){
-            flash('categoria_message', 'Categoria actualitzada correctament');
-            redirect('categories/index');
+          if($this->operacioModel->update($data)){
+            flash('operacio_message', 'Tipus d\'operació actualitzada correctament');
+            redirect('operacions/index');
           } else {
             die('Something went wrong');
           }
         } else {
           // Load view with errors
-          $this->view('categories/edit', $data);
+          $this->view('operacions/edit', $data);
         }
 
       } else {
 
         // Get existing característica from model
-        $categoria = $this->categoriaModel->getCategoriaById($id);
+        $operacio = $this->operacioModel->getOperacioById($id);
 
         $data = [
           'id' => $id,
-          'nom_cat' => $categoria->nom_cat,
-          'nom_esp' => $categoria->nom_esp,
-          'nom_eng' => $categoria->nom_eng,
-          'activat' => $categoria->activat,
+          'nom_cat' => $operacio->nom_cat,
+          'nom_esp' => $operacio->nom_esp,
+          'nom_eng' => $operacio->nom_eng,
+          'activat' => $operacio->activat,
         ];
   
-        $this->view('categories/edit', $data);
+        $this->view('operacions/edit', $data);
       }
     }
 
     public function delete($id){
       
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        if($this->categoriaModel->delete($id)){
-          flash('categoria_message', 'Categoria eliminada correctament');
-          redirect('categories/index');
+        if($this->operacioModel->delete($id)){
+          flash('operacio_message', 'Tipus d\'operació eliminada correctament');
+          redirect('operacions/index');
         } else {
           die('Something went wrong');
         }
       } else {
-        redirect('categories/index');
+        redirect('operacions/index');
       }
     }
 

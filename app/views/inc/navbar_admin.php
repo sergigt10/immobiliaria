@@ -26,7 +26,7 @@
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#ui-basic" <?php echo (strpos($_SERVER['REQUEST_URI'] ,"categories") !== false) ? 'aria-expanded="true"' : 'aria-expanded="false"'; ?> aria-controls="ui-basic">
         <i class="mdi mdi-table-edit  menu-icon"></i>
-        <span class="menu-title">Categories</span>
+        <span class="menu-title">Categories d'immobles</span>
         <i class="menu-arrow"></i>
       </a>
       <div <?php echo (strpos($_SERVER['REQUEST_URI'] ,"categories") !== false) ? 'class="collapse show"' : 'class="collapse"'; ?> id="ui-basic">
@@ -35,6 +35,21 @@
         </ul>
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'] ,"categories/index") !== false OR strpos($_SERVER['REQUEST_URI'] ,"categories/edit") !== false) ? 'active' : ''; ?>" href="<?php echo URLROOT; ?>/categories/index">Modificar</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#ui-basic-1" <?php echo (strpos($_SERVER['REQUEST_URI'] ,"operacions") !== false) ? 'aria-expanded="true"' : 'aria-expanded="false"'; ?> aria-controls="ui-basic-1">
+        <i class="mdi mdi-table-edit  menu-icon"></i>
+        <span class="menu-title">Tipus d'operacions</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div <?php echo (strpos($_SERVER['REQUEST_URI'] ,"operacions") !== false) ? 'class="collapse show"' : 'class="collapse"'; ?> id="ui-basic-1">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'] ,"operacions/add") !== false) ? 'active' : ''; ?>" href="<?php echo URLROOT; ?>/operacions/add">Inserir</a></li>
+        </ul>
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'] ,"operacions/index") !== false OR strpos($_SERVER['REQUEST_URI'] ,"operacions/edit") !== false) ? 'active' : ''; ?>" href="<?php echo URLROOT; ?>/operacions/index">Modificar</a></li>
         </ul>
       </div>
     </li>

@@ -99,16 +99,11 @@
                   </div>
 
                   <div class="form-group col-md-3">
-                    <label for="exampleInputName1">Tipus de venda:</label>
-                    <select name="tipus_venda" class="form-control" id="exampleSelectGender">
-                      <?php foreach($data['categories'] as $categoria) : 
-                        if($categoria->nom_cat === "Compra" || $categoria->nom_cat === "Lloguer" || $categoria->nom_cat === "Obra nova") {
-                      ?>
-                        <option value="<?php echo $categoria->id; ?>"><?php echo $categoria->nom_cat; ?></option>
-                      <?php 
-                        }
-                        endforeach; 
-                      ?>
+                    <label for="exampleInputName1">Tipus d'operació:</label>
+                    <select name="operacio_id" class="form-control" id="exampleSelectGender">
+                      <?php foreach($data['operacions'] as $operacio) : ?>
+                        <option value="<?php echo $operacio->id; ?>"><?php echo $operacio->nom_cat; ?></option>
+                      <?php endforeach; ?>
                     </select>
                   </div>
 

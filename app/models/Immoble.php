@@ -18,12 +18,12 @@
 
     // Get immobles by admin
     public function getImmobles(){
-      $this->db->query('SELECT immoble.id, immoble.titol_esp, immoble.referencia, tipus_venda.nom_cat AS tipus_venda, categoria.nom_cat AS categoria, poblacio.nom_cat AS poblacio, immoble.portada, immoble.activat, usuari.empresa AS usuari, usuari.nom_cognoms AS usuariNom
+      $this->db->query('SELECT immoble.id, immoble.titol_esp, immoble.referencia, operacio.nom_cat AS operacio, categoria.nom_cat AS categoria, poblacio.nom_cat AS poblacio, immoble.portada, immoble.activat, usuari.empresa AS usuari, usuari.nom_cognoms AS usuariNom
       FROM immoble
       INNER JOIN poblacio
           ON immoble.poblacio_id = poblacio.id
-      INNER JOIN categoria as tipus_venda
-          ON immoble.tipus_venda = tipus_venda.id
+      INNER JOIN operacio
+          ON immoble.operacio_id = operacio.id
       INNER JOIN categoria
           ON immoble.categoria_id = categoria.id
       INNER JOIN usuari
@@ -38,12 +38,12 @@
 
     // Get immobles by user
     public function getImmoblesByUsuari($id){
-      $this->db->query('SELECT immoble.id, immoble.titol_esp, immoble.referencia, tipus_venda.nom_cat AS tipus_venda, categoria.nom_cat AS categoria, poblacio.nom_cat AS poblacio, immoble.portada, immoble.activat, usuari.email AS usuari
+      $this->db->query('SELECT immoble.id, immoble.titol_esp, immoble.referencia, operacio.nom_cat AS operacio, categoria.nom_cat AS categoria, poblacio.nom_cat AS poblacio, immoble.portada, immoble.activat, usuari.email AS usuari
       FROM immoble
       INNER JOIN poblacio
           ON immoble.poblacio_id = poblacio.id
-      INNER JOIN categoria as tipus_venda
-          ON immoble.tipus_venda = tipus_venda.id
+      INNER JOIN operacio
+          ON immoble.operacio_id = operacio.id
       INNER JOIN categoria
           ON immoble.categoria_id = categoria.id
       INNER JOIN usuari
@@ -111,7 +111,7 @@
 
     // Add immoble
     public function add($data){
-      $this->db->query('INSERT INTO immoble (titol_cat, titol_esp, titol_eng, slug_cat, slug_esp, slug_eng, referencia, descripcio_cat, descripcio_esp, descripcio_eng, imatge_1, imatge_2, imatge_3, imatge_4, imatge_5, imatge_6, imatge_7, imatge_8, imatge_9, imatge_10, portada, preu, habitacio, banys, tamany, activat, tipus_venda, poblacio_id, categoria_id, caracteristica_id, certificat_id, usuari_id) VALUES (:titol_cat, :titol_esp, :titol_eng, :slug_cat, :slug_esp, :slug_eng, :referencia, :descripcio_cat, :descripcio_esp, :descripcio_eng, :imatge1, :imatge2, :imatge3, :imatge4, :imatge5, :imatge6, :imatge7, :imatge8, :imatge9, :imatge10, :portada, :preu, :habitacio, :banys, :tamany, :activat, :tipus_venda, :poblacio_id, :categoria_id, :caracteristica_id, :certificat_id, :usuari_id)');
+      $this->db->query('INSERT INTO immoble (titol_cat, titol_esp, titol_eng, slug_cat, slug_esp, slug_eng, referencia, descripcio_cat, descripcio_esp, descripcio_eng, imatge_1, imatge_2, imatge_3, imatge_4, imatge_5, imatge_6, imatge_7, imatge_8, imatge_9, imatge_10, portada, preu, habitacio, banys, tamany, activat, operacio_id, poblacio_id, categoria_id, caracteristica_id, certificat_id, usuari_id) VALUES (:titol_cat, :titol_esp, :titol_eng, :slug_cat, :slug_esp, :slug_eng, :referencia, :descripcio_cat, :descripcio_esp, :descripcio_eng, :imatge1, :imatge2, :imatge3, :imatge4, :imatge5, :imatge6, :imatge7, :imatge8, :imatge9, :imatge10, :portada, :preu, :habitacio, :banys, :tamany, :activat, :operacio_id, :poblacio_id, :categoria_id, :caracteristica_id, :certificat_id, :usuari_id)');
       // Bind values
       $this->db->bind(':titol_cat', $data['titol_cat']);
       $this->db->bind(':titol_esp', $data['titol_esp']);
@@ -139,7 +139,7 @@
       $this->db->bind(':banys', $data['banys']);
       $this->db->bind(':tamany', $data['tamany']);
       $this->db->bind(':activat', $data['activat']);
-      $this->db->bind(':tipus_venda', $data['tipus_venda']);
+      $this->db->bind(':operacio_id', $data['operacio_id']);
       $this->db->bind(':poblacio_id', $data['poblacio_id']);
       $this->db->bind(':categoria_id', $data['categoria_id']);
       $this->db->bind(':caracteristica_id', $data['caracteristica_id']);
@@ -156,7 +156,7 @@
 
     // Update immoble
     public function update($data){
-      $this->db->query('UPDATE immoble SET titol_cat = :titol_cat, titol_esp = :titol_esp, titol_eng = :titol_eng, slug_cat = :slug_cat, slug_esp = :slug_esp, slug_eng = :slug_eng, referencia = :referencia, descripcio_cat = :descripcio_cat, descripcio_esp = :descripcio_esp, descripcio_eng = :descripcio_eng, imatge_1 = :imatge1, imatge_2 = :imatge2, imatge_3 = :imatge3, imatge_4 = :imatge4, imatge_5 = :imatge5, imatge_6 = :imatge6, imatge_7 = :imatge7, imatge_8 = :imatge8, imatge_9 = :imatge9, imatge_10 = :imatge10, portada = :portada, preu = :preu, habitacio = :habitacio, banys = :banys, tamany = :tamany, activat = :activat, tipus_venda = :tipus_venda, poblacio_id = :poblacio_id, categoria_id = :categoria_id, caracteristica_id = :caracteristica_id, certificat_id = :certificat_id, usuari_id = :usuari_id WHERE id = :id');
+      $this->db->query('UPDATE immoble SET titol_cat = :titol_cat, titol_esp = :titol_esp, titol_eng = :titol_eng, slug_cat = :slug_cat, slug_esp = :slug_esp, slug_eng = :slug_eng, referencia = :referencia, descripcio_cat = :descripcio_cat, descripcio_esp = :descripcio_esp, descripcio_eng = :descripcio_eng, imatge_1 = :imatge1, imatge_2 = :imatge2, imatge_3 = :imatge3, imatge_4 = :imatge4, imatge_5 = :imatge5, imatge_6 = :imatge6, imatge_7 = :imatge7, imatge_8 = :imatge8, imatge_9 = :imatge9, imatge_10 = :imatge10, portada = :portada, preu = :preu, habitacio = :habitacio, banys = :banys, tamany = :tamany, activat = :activat, operacio_id = :operacio_id, poblacio_id = :poblacio_id, categoria_id = :categoria_id, caracteristica_id = :caracteristica_id, certificat_id = :certificat_id, usuari_id = :usuari_id WHERE id = :id');
       // Bind values
       $this->db->bind(':id', $data['id']);
       $this->db->bind(':titol_cat', $data['titol_cat']);
@@ -185,7 +185,7 @@
       $this->db->bind(':banys', $data['banys']);
       $this->db->bind(':tamany', $data['tamany']);
       $this->db->bind(':activat', $data['activat']);
-      $this->db->bind(':tipus_venda', $data['tipus_venda']);
+      $this->db->bind(':operacio_id', $data['operacio_id']);
       $this->db->bind(':poblacio_id', $data['poblacio_id']);
       $this->db->bind(':categoria_id', $data['categoria_id']);
       $this->db->bind(':caracteristica_id', $data['caracteristica_id']);

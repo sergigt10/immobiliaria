@@ -12,6 +12,7 @@
       $this->caracteristicaModel = $this->model('Caracteristica');
       $this->categoriaModel = $this->model('Categoria');
       $this->certificatModel = $this->model('Certificat');
+      $this->operacioModel = $this->model('Operacio');
       $this->usuariModel = $this->model('Usuari');
       // If not activated
       if(!$this->usuariModel->getIsActivateById($_SESSION['usuari_id'])) {
@@ -51,6 +52,7 @@
       $caracteristiques = $this->caracteristicaModel->getCaracteristiquesActivat() ;
       $categories = $this->categoriaModel->getCategoriesActives();
       $certificats = $this->certificatModel->getCertificatsActivats();
+      $operacions = $this->operacioModel->getOperacionsActives();
       $totalPortada = $this->immobleModel->getTotalImmoblesPortada();
 
       // Si viene de un POST
@@ -85,7 +87,7 @@
           'banys' => trim($_POST['banys']),
           'tamany' => trim($_POST['tamany']),
           'activat' => trim($_POST['activat']),
-          'tipus_venda' => trim($_POST['tipus_venda']),
+          'operacio_id' => trim($_POST['operacio_id']),
           'poblacio_id' => trim($_POST['poblacio_id']),
           'categoria_id' => trim($_POST['categoria_id']),
           'caracteristica_id' => !isset($_POST['caracteristica_id']) ? '[""]' : json_encode($_POST['caracteristica_id']),
@@ -97,6 +99,7 @@
           'caracteristiques' => $caracteristiques,
           'categories' => $categories,
           'certificats' => $certificats,
+          'operacions' => $operacions,
           'totalPortada' => $totalPortada->total_portada
         ];
 
@@ -776,7 +779,7 @@
           'banys' => '',
           'tamany' => '',
           'activat' => '',
-          'tipus_venda' => '',
+          'operacio_id' => '',
           'poblacio_id' => '',
           'categoria_id' => '',
           'caracteristica_id' => '',
@@ -785,6 +788,7 @@
           'caracteristiques' => $caracteristiques,
           'categories' => $categories,
           'certificats' => $certificats,
+          'operacions' => $operacions,
           'totalPortada' => $totalPortada->total_portada
         ];
 
@@ -799,6 +803,7 @@
       $caracteristiques = $this->caracteristicaModel->getCaracteristiquesActivat() ;
       $categories = $this->categoriaModel->getCategoriesActives();
       $certificats = $this->certificatModel->getCertificatsActivats();
+      $operacions = $this->operacioModel->getOperacionsActives();
       $totalPortada = $this->immobleModel->getTotalImmoblesPortada();
       
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -833,7 +838,7 @@
           'banys' => trim($_POST['banys']),
           'tamany' => trim($_POST['tamany']),
           'activat' => trim($_POST['activat']),
-          'tipus_venda' => trim($_POST['tipus_venda']),
+          'operacio_id' => trim($_POST['operacio_id']),
           'poblacio_id' => trim($_POST['poblacio_id']),
           'categoria_id' => trim($_POST['categoria_id']),
           'caracteristica_id' => !isset($_POST['caracteristica_id']) ? '[""]' : json_encode($_POST['caracteristica_id']),
@@ -846,6 +851,7 @@
           'caracteristiques' => $caracteristiques,
           'categories' => $categories,
           'certificats' => $certificats,
+          'operacions' => $operacions,
           'totalPortada' => $totalPortada->total_portada
         ];
 
@@ -939,7 +945,7 @@
             $data['imatge10'] = "";
           }
 
-          $getimmobleImg = $this->immobleModel->getimmobleById($id);
+          $getimmobleImg = $this->immobleModel->getImmobleById($id);
 
           $dataImg = [
             'imatge1' => $getimmobleImg->imatge_1,
@@ -1672,7 +1678,7 @@
             die('Error update');
           }
         } else {
-          $getimmobleImg = $this->immobleModel->getimmobleById($id);
+          $getimmobleImg = $this->immobleModel->getImmobleById($id);
           // Load view with errors
           $data['imatge1'] = $getimmobleImg->imatge_1;
           $data['imatge2'] = $getimmobleImg->imatge_2;
@@ -1724,7 +1730,7 @@
           'banys' => $immoble->banys,
           'tamany' => $immoble->tamany,
           'activat' => $immoble->activat,
-          'tipus_venda' => $immoble->tipus_venda,
+          'operacio_id' => $immoble->operacio_id,
           'poblacio_id' => $immoble->poblacio_id,
           'categoria_id' => $immoble->categoria_id,
           'caracteristica_id' => $immoble->caracteristica_id,
@@ -1733,6 +1739,7 @@
           'caracteristiques' => $caracteristiques,
           'categories' => $categories,
           'certificats' => $certificats,
+          'operacions' => $operacions,
           'totalPortada' => $totalPortada->total_portada
         ];
 

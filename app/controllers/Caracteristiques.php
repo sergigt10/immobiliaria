@@ -49,7 +49,7 @@
         }
         
         // Make sure no errors
-        if(empty($data['nom_cat_err']) && empty($data['nom_cat_err']) && empty($data['nom_cat_err'])){
+        if(empty($data['nom_cat_err']) && empty($data['nom_esp_err']) && empty($data['nom_eng_err'])){
 
           if($this->caracteristicaModel->add($data)){
             flash('caracteristica_message', 'Característica afegida correctament');
@@ -101,7 +101,7 @@
         }
 
         // Make sure no errors
-        if(empty($data['nom_cat_err']) && empty($data['nom_cat_err']) && empty($data['nom_cat_err'])){
+        if(empty($data['nom_cat_err']) && empty($data['nom_esp_err']) && empty($data['nom_eng_err'])){
           // Validated
           if($this->caracteristicaModel->update($data)){
             flash('caracteristica_message', 'Característica actualitzada correctament');
