@@ -27,6 +27,19 @@
       return $results;
     }
 
+    public function getPoblacionsWithProvinciaId($id){
+      $this->db->query('SELECT poblacio.id, poblacio.nom_cat
+      FROM poblacio
+      WHERE poblacio.activat = 1 && poblacio.provincia_id = :id
+      ORDER BY poblacio.nom_cat ASC');
+      $this->db->bind(':id', $id);
+
+      // Devuelve más de una fila
+      $results = $this->db->resultSet();
+
+      return $results;
+    }
+
     // Get poblacio by id
     public function getPoblacioById($id){
       $this->db->query('SELECT * FROM poblacio WHERE id = :id');

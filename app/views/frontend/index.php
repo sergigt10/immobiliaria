@@ -18,12 +18,12 @@
 								<div class="home1-advnc-search home3">
 									<ul class="h1ads_1st_list mb0">
 										<li class="list-inline-item">
-                                            <div class="search_option_two">
+											<div class="search_option_two">
 												<div class="candidate_revew_select">
-													<select class="selectpicker w100 show-tick">
-														<option>Lloguer</option>
-														<option>Compra</option>
-														<option>Venda</option>
+													<select name="operacio" class="js-example-basic-single" id="operacio">
+														<?php foreach($data['operacions'] as $operacio) : ?>
+															<option value="<?php echo $operacio->id; ?>" <?php echo (2) == $operacio->id ? 'selected' : ''; ?> ><?php echo $operacio->nom_cat; ?></option>
+														<?php endforeach; ?>
 													</select>
 												</div>
 											</div>
@@ -31,17 +31,10 @@
 										<li class="list-inline-item">
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
-													<select class="selectpicker w100 show-tick">
-														<option>Pisos</option>
-														<option>Cases</option>
-														<option>Oficines</option>
-														<option>Locals</option>
-														<option>Garatges</option>
-														<option>Edificis</option>
-														<option>Solars</option>
-														<option>Industrials</option>
-														<option>Oficines</option>
-														<option>Altres...</option>
+													<select name="categoria" class="js-example-basic-single" id="categoria">
+														<?php foreach($data['categories'] as $categoria) : ?>
+															<option value="<?php echo $categoria->id; ?>" <?php echo (1) == $categoria->id ? 'selected' : ''; ?> ><?php echo $categoria->nom_cat; ?></option>
+														<?php endforeach; ?>
 													</select>
 												</div>
 											</div>
@@ -49,11 +42,10 @@
 										<li class="list-inline-item">
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
-													<select class="selectpicker w100 show-tick">
-														<option>Barcelona</option>
-														<option>Girona</option>
-														<option>Lleida</option>
-														<option>Tarragona</option>
+													<select name="provincia" class="js-example-basic-single" id="provincia">
+														<?php foreach($data['provincies'] as $provincia) : ?>
+															<option value="<?php echo $provincia->id; ?>" <?php echo (8) == $provincia->id ? 'selected' : ''; ?> ><?php echo $provincia->nom_cat; ?></option>
+														<?php endforeach; ?>
 													</select>
 												</div>
 											</div>
@@ -61,10 +53,10 @@
 										<li class="list-inline-item">
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
-													<select class="selectpicker w100 show-tick">
-														<option>Vic</option>
-														<option>Manlleu</option>
-														<option>Torelló</option>
+													<select name="poblacio" class="js-example-basic-single" id="poblacio">
+														<?php foreach($data['poblacions'] as $poblacio) : ?>
+															<option value="<?php echo $poblacio->id; ?>" <?php echo (1158) == $poblacio->id ? 'selected' : ''; ?> ><?php echo $poblacio->nom_cat; ?></option>
+														<?php endforeach; ?>
 													</select>
 												</div>
 											</div>

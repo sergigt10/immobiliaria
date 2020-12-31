@@ -104,5 +104,48 @@
 <script type="text/javascript" src="<?php echo URLROOT; ?>/js/frontend/timepicker.js"></script>
 <!-- Custom script for all pages --> 
 <script type="text/javascript" src="<?php echo URLROOT; ?>/js/frontend/script.js"></script>
+
+<link href="<?php echo URLROOT; ?>/css/frontend/select2.min.css" rel="stylesheet" />
+<script src="<?php echo URLROOT; ?>/js/frontend/select2.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.js-example-basic-single').select2({
+			language: {
+				noResults: function() {
+					return " ... ";        
+				},
+				searching: function() {
+					return " ... ";
+				}
+			},
+		});
+	});
+	// Quan seleccionem una provincia
+	$("#provincia").change(function() {
+		// Obtenim id de la provincia
+		var provincia = jQuery("select#provincia option:selected").val();
+		// S'envia aquest valor per POST a municipios.php
+		var datastring = 'id_provincia='+provincia;
+
+		jQuery.ajax({
+			type: 'POST',
+			url: '<?php echo URLROOT; ?>/frontend/index/',
+			dataType: 'json',
+			data: datastring,
+				success: function(data){
+					let arrayPoblacions = "";
+
+					data['poblacions'].forEach(function(poblacio) {
+						arrayPoblacions += "<option value="+poblacio['id']+">"+poblacio['nom_cat']+"</option>";
+					});
+
+					jQuery('#poblacio').html('');
+					jQuery('#poblacio').html(arrayPoblacions);
+				}
+		});
+	});
+</script>
+
 </body>
 </html>
