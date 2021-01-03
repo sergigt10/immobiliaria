@@ -13,11 +13,11 @@
 
   <script src="<?php echo URLROOT; ?>/vendors/js/vendor.bundle.base.js"></script>
   <script src="<?php echo URLROOT; ?>/vendors/js/vendor.bundle.addons.js"></script>
-  <script src="<?php echo URLROOT; ?>/js/off-canvas.js"></script>
-  <script src="<?php echo URLROOT; ?>/js/hoverable-collapse.js"></script>
-  <script src="<?php echo URLROOT; ?>/js/template.js"></script>
-  <script src="<?php echo URLROOT; ?>/js/settings.js"></script>
-  <script src="<?php echo URLROOT; ?>/js/todolist.js"></script>
-  <script src="<?php echo URLROOT; ?>/js/data-table.js"></script>
+  <script src="<?php echo URLROOT; ?>/js/backend/off-canvas.js"></script>
+  <script src="<?php echo URLROOT; ?>/js/backend/hoverable-collapse.js"></script>
+  <script src="<?php echo URLROOT; ?>/js/backend/template.js"></script>
+  <script src="<?php echo URLROOT; ?>/js/backend/settings.js"></script>
+  <script src="<?php echo URLROOT; ?>/js/backend/todolist.js"></script>
+  <script src="<?php echo URLROOT; ?>/js/backend/data-table.js"></script>
 </body>
 </html>

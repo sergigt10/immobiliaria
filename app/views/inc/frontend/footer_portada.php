@@ -108,9 +108,10 @@
 <link href="<?php echo URLROOT; ?>/css/frontend/select2.min.css" rel="stylesheet" />
 <script src="<?php echo URLROOT; ?>/js/frontend/select2.min.js"></script>
 
+<!-- AJAX POBLACIONS -->
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('.js-example-basic-single').select2({
+		$('.buscador').select2({
 			language: {
 				noResults: function() {
 					return " ... ";        
@@ -118,14 +119,14 @@
 				searching: function() {
 					return " ... ";
 				}
-			},
+			}
 		});
 	});
 	// Quan seleccionem una provincia
 	$("#provincia").change(function() {
 		// Obtenim id de la provincia
 		var provincia = jQuery("select#provincia option:selected").val();
-		// S'envia aquest valor per POST a municipios.php
+		// S'envia aquest valor per POST
 		var datastring = 'id_provincia='+provincia;
 
 		jQuery.ajax({
@@ -142,7 +143,10 @@
 
 					jQuery('#poblacio').html('');
 					jQuery('#poblacio').html(arrayPoblacions);
-				}
+				},
+				error: function() {
+					alert('ERROR !');
+      			}
 		});
 	});
 </script>

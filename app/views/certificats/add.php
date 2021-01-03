@@ -1,4 +1,4 @@
-<?php require APPROOT . '/views/inc/header.php'; ?>
+<?php require APPROOT . '/views/inc/backend/header.php'; ?>
   <div class="main-panel">        
     <div class="content-wrapper">
       <div class="row">
@@ -34,4 +34,4 @@
         </div>
       </div>
     </div>
-<?php require APPROOT . '/views/inc/footer_edit_add.php'; ?>
+<?php require APPROOT . '/views/inc/backend/footer_edit_add.php'; ?>

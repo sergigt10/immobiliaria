@@ -2446,11 +2446,11 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last{
 }
 .home1-advnc-search ul li .search_option_button button{
   border-radius: 8px;
-  background-color: #ff5a5f;
-  -webkit-box-shadow:0px 1px 4px 0px rgba(255, 90, 95, 0.3);
-  -moz-box-shadow:0px 1px 4px 0px rgba(255, 90, 95, 0.3);
-  -o-box-shadow:0px 1px 4px 0px rgba(255, 90, 95, 0.3);
-  box-shadow:0px 1px 4px 0px rgba(255, 90, 95, 0.3);
+  background-color: #3e4c66;
+  -webkit-box-shadow:0px 1px 4px 0px rgba(62, 76, 102, 0.3);
+  -moz-box-shadow:0px 1px 4px 0px rgba(62, 76, 102,0.3);
+  -o-box-shadow:0px 1px 4px 0px rgba(62, 76, 102, 0.3);
+  box-shadow:0px 1px 4px 0px rgba(62, 76, 102, 0.3);
   font-size: 16px;
   color: #ffffff;
   font-weight: bold;
@@ -5198,6 +5198,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   color: #484848;
   font-weight: bold;
   line-height: 1.2;
+  background: rgba(255, 255, 255, 0.3);
 }
 .search_smart_property p{
   font-size: 16px;
@@ -5205,6 +5206,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   color: #484848;
   line-height: 1.875;
   margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.3);
 }
 .search_smart_property button.ssp_btn{
   background-color: #ffffff;
@@ -8532,12 +8534,12 @@ li.slick-slide.slick-active:nth-child(8) img{
 .feature_property_home3_slider.owl-carousel.owl-theme.owl-loaded .owl-prev,
 .feature_property_home6_slider.owl-carousel.owl-theme.owl-loaded .owl-prev,
 .our_agents_home6_slider.owl-carousel.owl-theme.owl-loaded .owl-prev{
-  left: -25px;
+  left: -15px;
 }
 .team_slider.owl-carousel.owl-theme.owl-loaded .owl-next,
 .feature_post_slider.owl-carousel.owl-theme.owl-loaded .owl-next,
 .feature_property_home3_slider.owl-carousel.owl-theme.owl-loaded .owl-next{
-  right: -25px;
+  right: -15px;
 }
 .team_slider.owl-carousel.owl-theme.owl-loaded .owl-prev,
 .team_slider.owl-carousel.owl-theme.owl-loaded .owl-next,
@@ -14520,7 +14522,7 @@ a.btn.btn_error{
 }
 .bg-img3 {
   background-attachment: scroll;
-  background-image: url("../images/background/3.jpg");
+  background-image: url("../../images/frontend/background/3.jpg");
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 8px;
@@ -14528,7 +14530,7 @@ a.btn.btn_error{
 }
 .bg-img4 {
   background-attachment: scroll;
-  background-image: url("../images/4.jpg");
+  background-image: url("../../images/frontend/4.jpg");
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 8px;
@@ -14536,21 +14538,21 @@ a.btn.btn_error{
 }
 .bg-img5 {
   background-attachment: scroll;
-  background-image: url("../images/background/5.jpg");
+  background-image: url("../../images/frontend/background/5.jpg");
   background-position: center;
   background-repeat: no-repeat;
   height: 650px;
 }
 .bg-img6 {
   background-attachment: scroll;
-  background-image: url("../images/background/8.jpg");
+  background-image: url("../../images/frontend/background/8.jpg");
   background-position: center;
   background-repeat: no-repeat;
   height: 960px;
 }
 .bg-ptrn1 {
   background-attachment: scroll;
-  background-image: url("../images/pattern/1.png");
+  background-image: url("../../images/frontend/pattern/1.png");
   background-position: center;
   background-repeat: no-repeat;
   -webkit-background-size: cover;
@@ -14558,7 +14560,7 @@ a.btn.btn_error{
 }
 .bg-ptrn2 {
   background-attachment: scroll;
-  background-image: url("../images/pattern/2.png");
+  background-image: url("../../images/frontend/pattern/2.png");
   background-position: center;
   background-repeat: no-repeat;
   -webkit-background-size: cover;
@@ -16407,4 +16409,19 @@ button.gm-ui-hover-effect:focus {
 }
 .gm-style-iw-d p span{
   margin-right: 10px;
+}
+
+/* CSS select2  */
+.select2-selection__rendered {
+  line-height: 50px !important;
+}
+.select2-container .select2-selection--single {
+  height: 50px !important;
+}
+.select2-selection__arrow {
+  height: 50px !important;
+}
+.select2-container .select2-selection--single .select2-selection__rendered{
+  padding-left: 15px !important;
+  font-weight: 700;
 }

@@ -1,4 +1,4 @@
-<?php require APPROOT . '/views/inc/header.php'; ?>
+<?php require APPROOT . '/views/inc/backend/header.php'; ?>
   <div class="main-panel">
     <div class="content-wrapper">
       <div class="card">
@@ -94,4 +94,4 @@
         </div>
       </div>
     </div>        
-<?php require APPROOT . '/views/inc/footer_table.php'; ?>
+<?php require APPROOT . '/views/inc/backend/footer_table.php'; ?>

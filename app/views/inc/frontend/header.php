@@ -13,10 +13,12 @@
 <!-- Responsive stylesheet -->
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/frontend/responsive.css">
 <!-- Title -->
-<title>IMMOBILIARIES EN XARXA</title>
+<title>Immobiliàries en xarxa</title>
 <!-- Favicon -->
 <link href="<?php echo URLROOT; ?>/images/frontend/favicon.ico" sizes="128x128" rel="shortcut icon" type="image/x-icon" />
 <link href="<?php echo URLROOT; ?>/images/frontend/favicon.ico" sizes="128x128" rel="shortcut icon" />
+
+<script type="text/javascript" src="<?php echo URLROOT; ?>/js/all/correct-price.js"></script>
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

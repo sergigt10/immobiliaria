@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="<?php echo URLROOT; ?>/vendors/iconfonts/mdi/font/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?php echo URLROOT; ?>/vendors/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="<?php echo URLROOT; ?>/vendors/css/vendor.bundle.addons.css">
-  <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/vertical-layout-light/style.css">
+  <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/backend/vertical-layout-light/style.css">
   <link rel="shortcut icon" href="<?php echo URLROOT; ?>/images/favicon.ico" />
 </head>
 <style type="text/css">
@@ -91,10 +91,10 @@
   </div>
   <script src="<?php echo URLROOT; ?>/vendors/js/vendor.bundle.base.js"></script>
   <script src="<?php echo URLROOT; ?>/vendors/js/vendor.bundle.addons.js"></script>
-  <script src="<?php echo URLROOT; ?>/js/off-canvas.js"></script>
-  <script src="<?php echo URLROOT; ?>/js/hoverable-collapse.js"></script>
-  <script src="<?php echo URLROOT; ?>/js/template.js"></script>
-  <script src="<?php echo URLROOT; ?>/js/settings.js"></script>
-  <script src="<?php echo URLROOT; ?>/js/todolist.js"></script>
+  <script src="<?php echo URLROOT; ?>/js/backend/off-canvas.js"></script>
+  <script src="<?php echo URLROOT; ?>/js/backend/hoverable-collapse.js"></script>
+  <script src="<?php echo URLROOT; ?>/js/backend/template.js"></script>
+  <script src="<?php echo URLROOT; ?>/js/backend/settings.js"></script>
+  <script src="<?php echo URLROOT; ?>/js/backend/todolist.js"></script>
 </body>
 </html>

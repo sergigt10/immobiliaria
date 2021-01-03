@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="<?php echo URLROOT; ?>/vendors/iconfonts/mdi/font/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?php echo URLROOT; ?>/vendors/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="<?php echo URLROOT; ?>/vendors/css/vendor.bundle.addons.css">
-  <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/vertical-layout-light/style.css">
+  <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/backend/vertical-layout-light/style.css">
   <link rel="shortcut icon" href="<?php echo URLROOT; ?>/images/favicon.ico" />
 </head>
 <body>
@@ -41,4 +41,4 @@
       </nav>
       <div class="container-fluid page-body-wrapper">
         <div id="right-sidebar" class="settings-panel"></div>
-        <?php (isLoggedInAndAdmin()) ?  require APPROOT . '/views/inc/navbar_admin.php' : require APPROOT . '/views/inc/navbar.php'; ?>
+        <?php (isLoggedInAndAdmin()) ?  require APPROOT . '/views/inc/backend/navbar_admin.php' : require APPROOT . '/views/inc/backend/navbar.php'; ?>

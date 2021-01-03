@@ -1,7 +1,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <ul class="nav">
     <li class="nav-item">
-      <a class="nav-link" href="<?php echo URLROOT; ?>/">
+      <a class="nav-link" href="<?php echo URLROOT; ?>/admin/index">
         <i class="mdi mdi-home menu-icon"></i>
         <span class="menu-title">
             Inici

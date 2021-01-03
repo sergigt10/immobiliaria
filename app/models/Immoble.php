@@ -65,6 +65,27 @@
       return $row;
     }
 
+    // Get all about immobles by portada
+    public function getInfoImmoblesPortada(){
+      $this->db->query('SELECT * FROM immoble WHERE portada = 1');
+      $this->db->query('SELECT immoble.titol_cat, immoble.titol_esp, immoble.titol_eng, immoble.referencia, immoble.preu, immoble.habitacio, immoble.banys, immoble.tamany, operacio.nom_cat AS operacio_cat, operacio.nom_esp AS operacio_esp, operacio.nom_eng AS operacio_eng, categoria.nom_cat AS categoria_cat, categoria.nom_esp AS categoria_esp, categoria.nom_eng AS categoria_eng, poblacio.nom_cat AS poblacio, immoble.portada, immoble.activat
+      FROM immoble
+      INNER JOIN poblacio
+          ON immoble.poblacio_id = poblacio.id
+      INNER JOIN operacio
+          ON immoble.operacio_id = operacio.id
+      INNER JOIN categoria
+          ON immoble.categoria_id = categoria.id
+      INNER JOIN usuari
+          ON immoble.usuari_id = usuari.id
+      WHERE immoble.portada = 1
+      ORDER BY immoble.id ASC');
+
+      $results = $this->db->resultSet();
+
+      return $results;
+    }
+
     // Get quantity of immobles by usuari
     public function getTotalImmoblesByUsuari($id){
       $this->db->query(' SELECT COUNT(id) AS total_immobles FROM immoble WHERE usuari_id = :id ');

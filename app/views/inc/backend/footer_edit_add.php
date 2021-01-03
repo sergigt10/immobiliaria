@@ -13,15 +13,15 @@
   <script src="<?php echo URLROOT; ?>/vendors/js/vendor.bundle.base.js"></script>
   <script src="<?php echo URLROOT; ?>/vendors/js/vendor.bundle.addons.js"></script>
   <script src="<?php echo URLROOT; ?>/vendors/select2/select2.min.js"></script>
-  <script src="<?php echo URLROOT; ?>/js/off-canvas.js"></script>
-  <script src="<?php echo URLROOT; ?>/js/hoverable-collapse.js"></script>
-  <script src="<?php echo URLROOT; ?>/js/template.js"></script>
-  <script src="<?php echo URLROOT; ?>/js/settings.js"></script>
-  <script src="<?php echo URLROOT; ?>/js/todolist.js"></script>
+  <script src="<?php echo URLROOT; ?>/js/backend/off-canvas.js"></script>
+  <script src="<?php echo URLROOT; ?>/js/backend/hoverable-collapse.js"></script>
+  <script src="<?php echo URLROOT; ?>/js/backend/template.js"></script>
+  <script src="<?php echo URLROOT; ?>/js/backend/settings.js"></script>
+  <script src="<?php echo URLROOT; ?>/js/backend/todolist.js"></script>
   <script src="<?php echo URLROOT; ?>/vendors/tinymce/tinymce.min.js"></script>
   <script src="<?php echo URLROOT; ?>/vendors/tinymce/themes/modern/theme.js"></script>
-  <script src="<?php echo URLROOT; ?>/js/file-upload.js"></script>
-  <script src="<?php echo URLROOT; ?>/js/select2.js"></script>
+  <script src="<?php echo URLROOT; ?>/js/backend/file-upload.js"></script>
+  <script src="<?php echo URLROOT; ?>/js/backend/select2.js"></script>
   <script type="text/javascript">
     // Multiples TEXTAREA TINYMCE
     tinymce.init({

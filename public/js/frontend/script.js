@@ -532,8 +532,8 @@
             dots:false,
             nav:true,
             rtl:false,
-            autoplayHoverPause:false,
-            autoplay: false,
+            autoplayHoverPause:true,
+            autoplay: true,
             singleItem: true,
             smartSpeed: 1200,
             navText: [
