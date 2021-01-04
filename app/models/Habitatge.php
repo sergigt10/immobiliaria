@@ -16,6 +16,27 @@
       return $row;
     }
 
+    public function getImmobleDetallById($id){
+      $this->db->query('SELECT immoble.id, immoble.titol_cat, immoble.titol_esp, immoble.titol_eng, immoble.referencia, immoble.descripcio_cat, immoble.descripcio_esp, immoble.descripcio_eng, immoble.imatge_1, immoble.imatge_2, immoble.imatge_3, immoble.imatge_4, immoble.imatge_5, immoble.imatge_6, immoble.imatge_7, immoble.imatge_8, immoble.imatge_9, immoble.imatge_10, immoble.preu, immoble.habitacio, immoble.banys, immoble.tamany, immoble.activat, immoble.caracteristica_id, operacio.nom_cat AS operacio_cat, operacio.nom_esp AS operacio_esp, operacio.nom_eng AS operacio_eng, categoria.nom_cat AS categoria_cat, categoria.nom_esp AS categoria_esp, categoria.nom_eng AS categoria_eng, poblacio.nom_cat AS poblacio, usuari.email, usuari.nom_cognoms, usuari.empresa, usuari.direccio, usuari.poblacio AS poblacio_usuari, usuari.codi_postal, usuari.telefon, usuari.web, usuari.logo, certificat.nom_cat AS certificat
+      FROM immoble
+      INNER JOIN poblacio
+          ON immoble.poblacio_id = poblacio.id
+      INNER JOIN operacio
+          ON immoble.operacio_id = operacio.id
+      INNER JOIN categoria
+          ON immoble.categoria_id = categoria.id
+      INNER JOIN usuari
+          ON immoble.usuari_id = usuari.id
+      INNER JOIN certificat
+          ON immoble.certificat_id = certificat.id
+      WHERE immoble.id = :id && immoble.activat = 1');
+      $this->db->bind(':id', $id);
+
+      $row = $this->db->single();
+
+      return $row;
+    }
+
     // Get immobles by admin
     public function getImmobles(){
       $this->db->query('SELECT immoble.id, immoble.titol_esp, immoble.referencia, operacio.nom_cat AS operacio, categoria.nom_cat AS categoria, poblacio.nom_cat AS poblacio, immoble.portada, immoble.activat, usuari.empresa AS usuari, usuari.nom_cognoms AS usuariNom
@@ -68,7 +89,7 @@
     // Get all about immobles by portada
     public function getInfoImmoblesPortada(){
       $this->db->query('SELECT * FROM immoble WHERE portada = 1');
-      $this->db->query('SELECT immoble.id, immoble.titol_cat, immoble.titol_esp, immoble.titol_eng, immoble.referencia, immoble.preu, immoble.habitacio, immoble.banys, immoble.tamany, operacio.nom_cat AS operacio_cat, operacio.nom_esp AS operacio_esp, operacio.nom_eng AS operacio_eng, categoria.nom_cat AS categoria_cat, categoria.nom_esp AS categoria_esp, categoria.nom_eng AS categoria_eng, poblacio.nom_cat AS poblacio, immoble.portada, immoble.activat
+      $this->db->query('SELECT immoble.id, immoble.titol_cat, immoble.titol_esp, immoble.titol_eng, immoble.referencia, immoble.preu, immoble.habitacio, immoble.banys, immoble.tamany, immoble.portada, immoble.activat, operacio.nom_cat AS operacio_cat, operacio.nom_esp AS operacio_esp, operacio.nom_eng AS operacio_eng, categoria.nom_cat AS categoria_cat, categoria.nom_esp AS categoria_esp, categoria.nom_eng AS categoria_eng, poblacio.nom_cat AS poblacio
       FROM immoble
       INNER JOIN poblacio
           ON immoble.poblacio_id = poblacio.id
@@ -76,9 +97,7 @@
           ON immoble.operacio_id = operacio.id
       INNER JOIN categoria
           ON immoble.categoria_id = categoria.id
-      INNER JOIN usuari
-          ON immoble.usuari_id = usuari.id
-      WHERE immoble.portada = 1
+      WHERE immoble.portada = 1 && immoble.activat = 1
       ORDER BY immoble.id ASC');
 
       $results = $this->db->resultSet();
