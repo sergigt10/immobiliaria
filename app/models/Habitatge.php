@@ -1,5 +1,5 @@
 <?php
-  class Immoble {
+  class Habitatge {
     private $db;
 
     public function __construct(){
@@ -68,7 +68,7 @@
     // Get all about immobles by portada
     public function getInfoImmoblesPortada(){
       $this->db->query('SELECT * FROM immoble WHERE portada = 1');
-      $this->db->query('SELECT immoble.titol_cat, immoble.titol_esp, immoble.titol_eng, immoble.referencia, immoble.preu, immoble.habitacio, immoble.banys, immoble.tamany, operacio.nom_cat AS operacio_cat, operacio.nom_esp AS operacio_esp, operacio.nom_eng AS operacio_eng, categoria.nom_cat AS categoria_cat, categoria.nom_esp AS categoria_esp, categoria.nom_eng AS categoria_eng, poblacio.nom_cat AS poblacio, immoble.portada, immoble.activat
+      $this->db->query('SELECT immoble.id, immoble.titol_cat, immoble.titol_esp, immoble.titol_eng, immoble.referencia, immoble.preu, immoble.habitacio, immoble.banys, immoble.tamany, operacio.nom_cat AS operacio_cat, operacio.nom_esp AS operacio_esp, operacio.nom_eng AS operacio_eng, categoria.nom_cat AS categoria_cat, categoria.nom_esp AS categoria_esp, categoria.nom_eng AS categoria_eng, poblacio.nom_cat AS poblacio, immoble.portada, immoble.activat
       FROM immoble
       INNER JOIN poblacio
           ON immoble.poblacio_id = poblacio.id

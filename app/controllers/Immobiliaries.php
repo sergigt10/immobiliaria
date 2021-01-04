@@ -1,12 +1,12 @@
 <?php
-  class Frontend extends Controller {
+  class Immobiliaries extends Controller {
     public function __construct(){
 
       $this->operacioModel = $this->model('Operacio');
       $this->categoriaModel = $this->model('Categoria');
       $this->provinciaModel = $this->model('Provincia');
       $this->poblacioModel = $this->model('Poblacio');
-      $this->immobleModel = $this->model('Immoble');
+      $this->immobleModel = $this->model('Habitatge');
       
     }
     
@@ -44,7 +44,7 @@
           'immoblesPortada' => $immoblesPortada
         ];
         
-        $this->view('frontend/index', $data);
+        $this->view('immobiliaries/index', $data);
       }
 
     }

@@ -2,7 +2,7 @@
   class Usuaris extends Controller {
     public function __construct(){
       $this->usuariModel = $this->model('Usuari');
-      $this->immobleModel = $this->model('Immoble');
+      $this->immobleModel = $this->model('Habitatge');
     }
 
     // Load usuaris

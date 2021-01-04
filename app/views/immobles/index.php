@@ -1,97 +1,240 @@
-<?php require APPROOT . '/views/inc/backend/header.php'; ?>
-  <div class="main-panel">
-    <div class="content-wrapper">
-      <div class="card">
-        <div class="card-body">
-          <?php flash('immoble_message'); ?>
-          <br>
-          <h2>Immobles</h2>
-          <br>
-          <div class="row">
-            <div class="col-12">
-              <button type="button" class="btn btn-info mb-3" onclick="location.href='<?php echo URLROOT; ?>/immobles/add'">+ Inserir</button>
-            </div>
-            <div class="col-12">
-              <div class="table-responsive">
-                <table id="order-listing" class="table table-hover table-bordered">
-                  <thead>
-                    <tr>
-                        <th>Títol</th>
-                        <th>Referencia</th>
-                        <th>Categoria</th>
-                        <th>Tipus d'operació</th>
-                        <th>Població</th>
-                        <?php if (isLoggedInAndAdmin()) { ?>
-                          <th>Venedor</th>
-                          <th data-orderable="false">Portada</th>
-                        <?php } ?>
-                        <th data-orderable="false">Estat</th>
-                        <th data-orderable="false">Editar</th>
-                        <th data-orderable="false">Eliminar</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php foreach($data['immobles'] as $immoble) : ?>
-                    <tr>
-                        <td><a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->titol_esp; ?></a></td>
-                        <td><a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->referencia; ?></a></td>
-                        <td><a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->categoria; ?></a></td>
-                        <td><a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->operacio; ?></a></td>
-                        <td><a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->poblacio; ?></a></td>
-                        <?php if (isLoggedInAndAdmin()) { ?>
-                          <td><a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->usuari; ?> - <?php echo $immoble->usuariNom; ?></a></td>
-                        <?php } ?>
-                        <?php if (isLoggedInAndAdmin()) { ?>
-                          <td>
-                            <a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;">
-                              <?php if($immoble->portada == 1) { ?>
-                                <i class="mdi mdi-check"></i>
-                              <?php } else { ?>
-                                <i class="mdi mdi-close"></i>
-                              <?php } ?>
-                            </a>
-                          </td>
-                        <?php } ?>
-                        <td>
-                          <a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;">
-                            <?php if($immoble->activat == 1) { ?>
-                              <i class="mdi mdi-check"></i>
-                            <?php } else { ?>
-                              <i class="mdi mdi-close"></i>
-                            <?php } ?>
-                          </a>
-                        </td>
-                        <td><a href="<?php echo URLROOT; ?>/immobles/edit/<?php echo $immoble->id; ?>" style="color: black;"><i class="mdi mdi-pencil menu-icon"></i></a></td>
-                        <td><a href="" style="color: black;" data-toggle="modal" data-target="#exampleModalCenter<?php echo $immoble->id ?>"><i class="mdi mdi-close-circle menu-icon"></i></a></td>
-                    </tr>
-                    <div class="modal fade" id="exampleModalCenter<?php echo $immoble->id?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Eliminar?</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            Segur que vols esborrar: <?php echo $immoble->titol_esp; ?>
-                          </div>
-                          <div class="modal-footer">
-                            <form class="pull-right" action="<?php echo URLROOT; ?>/immobles/delete/<?php echo $immoble->id ?>" method="post">
-                              <input type="submit" value="Esborrar" class="btn btn-danger">
-                            </form>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel·lar</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <?php endforeach; ?>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>        
-<?php require APPROOT . '/views/inc/backend/footer_table.php'; ?>
+<?php require APPROOT . '/views/inc/frontend/header.php'; ?>
+    <!-- Home Design -->
+	<section class="home-three bg-img3">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<div class="home3_home_content">
+						<h1>La vostra propietat, la nostra prioritat</h1>
+						<h4>Des de tan sols 40€ mensuals amb descomptes d’oferta en temps limitat</h4>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 d-flex justify-content-center">
+					<div class="home_adv_srch_opt home3">
+						<ul class="nav nav-pills" id="pills-tab" role="tablist" style="visibility: hidden">
+							<li class="nav-item">
+								Compra
+							</li>
+							<li class="nav-item">
+								Lloguer
+							</li>
+						</ul>
+						<div class="tab-content home1_adsrchfrm" id="pills-tabContent">
+							<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+								<form action="">
+									<div class="home1-advnc-search home3">
+										<ul class="h1ads_1st_list mb0">
+											<li class="list-inline-item">
+												<div class="search_option_two">
+													<div class="candidate_revew_select">
+														<select name="operacio" class="buscador" id="operacio" style="width: 190px">
+															<?php foreach($data['operacions'] as $operacio) : ?>
+																<option value="<?php echo $operacio->id; ?>" <?php echo (2) == $operacio->id ? 'selected' : ''; ?> ><?php echo $operacio->nom_cat; ?></option>
+															<?php endforeach; ?>
+														</select>
+													</div>
+												</div>
+											</li>
+											<li class="list-inline-item">
+												<div class="search_option_two">
+													<div class="candidate_revew_select">
+														<select name="categoria" class="buscador" id="categoria" style="width: 190px">
+															<?php foreach($data['categories'] as $categoria) : ?>
+																<option value="<?php echo $categoria->id; ?>" <?php echo (1) == $categoria->id ? 'selected' : ''; ?> ><?php echo $categoria->nom_cat; ?></option>
+															<?php endforeach; ?>
+														</select>
+													</div>
+												</div>
+											</li>
+											<li class="list-inline-item">
+												<div class="search_option_two">
+													<div class="candidate_revew_select">
+														<select name="provincia" class="buscador" id="provincia">
+															<?php foreach($data['provincies'] as $provincia) : ?>
+																<option value="<?php echo $provincia->id; ?>" <?php echo (8) == $provincia->id ? 'selected' : ''; ?> ><?php echo $provincia->nom_cat; ?></option>
+															<?php endforeach; ?>
+														</select>
+													</div>
+												</div>
+											</li>
+											<li class="list-inline-item">
+												<div class="search_option_two">
+													<div class="candidate_revew_select">
+														<select name="poblacio" class="buscador" id="poblacio">
+															<?php foreach($data['poblacions'] as $poblacio) : ?>
+																<option value="<?php echo $poblacio->id; ?>" <?php echo (881) == $poblacio->id ? 'selected' : ''; ?> ><?php echo $poblacio->nom_cat; ?></option>
+															<?php endforeach; ?>
+														</select>
+													</div>
+												</div>
+											</li>
+											<li class="list-inline-item">
+												<div class="search_option_button">
+													<button type="submit" class="btn btn-thm3">CERCAR</button>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</form>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Feature Properties -->
+	<section id="feature-property" class="feature-property mt80 pb50">
+		<div class="container-fluid ovh">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="main-title mb40">
+						<h2>Propietats destacades</h2>
+						<p>Propietats escollides pel nostre equip<a class="float-right" href="#">Veure tot <span class="flaticon-next"></span></a></p>
+					</div>
+				</div>
+				<div class="col-lg-12">
+					<div class="feature_property_home3_slider">
+						<?php foreach($data['immoblesPortada'] as $portada) : ?>
+							<div class="item">
+								<div class="feat_property home3">
+									<div class="thumb">
+										<img class="img-whp" src="<?php echo URLROOT; ?>/images/frontend/piso4.jpg" alt="fp1.jpg">
+										<div class="thmb_cntnt">
+											<ul class="tag mb0">
+												<li class="list-inline-item"><a href="#"><?php echo $portada->operacio_cat ?></a></li>
+												<li class="list-inline-item"><a href="#"><?php echo $portada->categoria_cat ?></a></li>
+											</ul>
+											<a class="fp_price" href="#">
+												<script>
+													correctPrice(<?php echo $portada->preu ?>);
+												</script>
+											</a>
+										</div>
+									</div>
+									<div class="details">
+										<div class="tc_content">
+											<h4><?php echo $portada->titol_cat ?></h4>
+											<p><span class="flaticon-placeholder"></span><?php echo $portada->poblacio ?></p>
+											<ul class="prop_details mb0">
+												<li class="list-inline-item"><a href="#"><?php echo ($portada->habitacio) == 0 ? " -" : $portada->habitacio ?> habitacions</a></li>
+												<li class="list-inline-item"><a href="#"><?php echo ($portada->banys) == 0 ? " -" : $portada->banys ?> banys</a></li>
+												<li class="list-inline-item"><a href="#"><?php echo ($portada->tamany) == 0 ? " -" : $portada->tamany ?> m²</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						<?php endforeach; ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Property Cities -->
+	
+
+	<!-- Property Search -->
+	<section id="property-search" class="property-search bg-img4">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 offset-lg-3">
+					<div class="search_smart_property text-center">
+						<h2>UNIR-ME A XARXES IMMOBILIARIES</h2>
+						<p>Si vols créixer més i estàs buscant un model de negoci que et permeti fer-ho.</p>
+						<button class="btn ssp_btn">UNIR-ME</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Property Cities -->
+	
+
+	<!-- Our Agents -->
+	<section id="our-agents" class="our-agents pt40 pb30">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="main-title">
+						<h2>Els nostres agents</h2>
+						<p>Col·laboració exclusiva per a agències afiliades<a class="float-right" href="#"></a></p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6 col-md-4 col-lg-4 col-xl-2">
+					<div class="our_agent">
+						<div class="thumb">
+							<img class="img-fluid w100" src="<?php echo URLROOT; ?>/images/frontend/team/5.jpg" alt="5.jpg">
+							
+						</div>
+						
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4 col-lg-4 col-xl-2">
+					<div class="our_agent">
+						<div class="thumb">
+							<img class="img-fluid w100" src="<?php echo URLROOT; ?>/images/frontend/team/4.jpg" alt="6.jpg">
+							
+						</div>
+						
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4 col-lg-4 col-xl-2">
+					<div class="our_agent">
+						<div class="thumb">
+							<img class="img-fluid w100" src="<?php echo URLROOT; ?>/images/frontend/team/7.jpg" alt="7.jpg">
+							
+						</div>
+						<div class="details">
+							<h4></h4>
+							<p> </p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4 col-lg-4 col-xl-2">
+					<div class="our_agent">
+						<div class="thumb">
+							<img class="img-fluid w100" src="<?php echo URLROOT; ?>/images/frontend/team/8.jpg" alt="8.jpg">
+							
+						</div>
+						<div class="details">
+							<h4></h4>
+							<p> </p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4 col-lg-4 col-xl-2">
+					<div class="our_agent">
+						<div class="thumb">
+							<img class="img-fluid w100" src="<?php echo URLROOT; ?>/images/frontend/team/9.jpg" alt="9.jpg">
+							
+						</div>
+						<div class="details">
+							<h4></h4>
+							<p> </p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4 col-lg-4 col-xl-2">
+					<div class="our_agent">
+						<div class="thumb">
+							<img class="img-fluid w100" src="<?php echo URLROOT; ?>/images/frontend/team/10.jpg" alt="10.jpg">
+							
+						</div>
+						<div class="details">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+<?php require APPROOT . '/views/inc/frontend/footer_portada.php'; ?>

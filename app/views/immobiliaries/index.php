@@ -100,16 +100,16 @@
 				<div class="col-lg-12">
 					<div class="feature_property_home3_slider">
 						<?php foreach($data['immoblesPortada'] as $portada) : ?>
-							<div class="item">
+							<div onclick="javascript:location.href='<?php echo URLROOT; ?>/immobles/detall/<?php echo $portada->id ?>'" class="item">
 								<div class="feat_property home3">
 									<div class="thumb">
-										<img class="img-whp" src="<?php echo URLROOT; ?>/images/frontend/piso4.jpg" alt="fp1.jpg">
+										<img class="img-whp" src="<?php echo URLROOT; ?>/images/frontend/piso4.jpg" alt="<?php echo $portada->titol_cat ?>">
 										<div class="thmb_cntnt">
 											<ul class="tag mb0">
-												<li class="list-inline-item"><a href="#"><?php echo $portada->operacio_cat ?></a></li>
-												<li class="list-inline-item"><a href="#"><?php echo $portada->categoria_cat ?></a></li>
+												<li class="list-inline-item"><a href="<?php echo URLROOT; ?>/immobles/detall/<?php echo $portada->id ?>'"><?php echo $portada->operacio_cat ?></a></li>
+												<li class="list-inline-item"><a href="<?php echo URLROOT; ?>/immobles/detall/<?php echo $portada->id ?>'"><?php echo $portada->categoria_cat ?></a></li>
 											</ul>
-											<a class="fp_price" href="#">
+											<a class="fp_price" href="<?php echo URLROOT; ?>/immobles/detall/<?php echo $portada->id ?>">
 												<script>
 													correctPrice(<?php echo $portada->preu ?>);
 												</script>
@@ -121,9 +121,9 @@
 											<h4><?php echo $portada->titol_cat ?></h4>
 											<p><span class="flaticon-placeholder"></span><?php echo $portada->poblacio ?></p>
 											<ul class="prop_details mb0">
-												<li class="list-inline-item"><a href="#"><?php echo ($portada->habitacio) == 0 ? " -" : $portada->habitacio ?> habitacions</a></li>
-												<li class="list-inline-item"><a href="#"><?php echo ($portada->banys) == 0 ? " -" : $portada->banys ?> banys</a></li>
-												<li class="list-inline-item"><a href="#"><?php echo ($portada->tamany) == 0 ? " -" : $portada->tamany ?> m²</a></li>
+												<li class="list-inline-item"><a href="<?php echo URLROOT; ?>/immobles/detall/<?php echo $portada->id ?>'"><?php echo ($portada->habitacio) == 0 ? " -" : $portada->habitacio ?> habitacions</a></li>
+												<li class="list-inline-item"><a href="<?php echo URLROOT; ?>/immobles/detall/<?php echo $portada->id ?>'"><?php echo ($portada->banys) == 0 ? " -" : $portada->banys ?> banys</a></li>
+												<li class="list-inline-item"><a href="<?php echo URLROOT; ?>/immobles/detall/<?php echo $portada->id ?>'"><?php echo ($portada->tamany) == 0 ? " -" : $portada->tamany ?> m²</a></li>
 											</ul>
 										</div>
 									</div>
