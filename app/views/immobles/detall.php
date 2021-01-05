@@ -26,7 +26,8 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="spls_style_two mb30-520">
-								<a class="popup-img" href="<?php echo URLROOT; ?>/images/frontend/property/1.jpg"><img class="img-fluid w100" src="<?php echo URLROOT; ?>/images/frontend/property/1.jpg" alt="1.jpg"></a>
+								<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_1'] ?>"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge_1'] ?>&size=746x450&crop=1&trim=1" alt="<?php echo $data['titol_cat']; ?>"></a>
+								<!-- img-fluid -->
 							</div>
 						</div>
 					</div>
@@ -35,35 +36,41 @@
 					<div class="row">
 						<div class="col-sm-6 col-lg-6">
 							<div class="spls_style_two mb30">
-								<a class="popup-img" href="<?php echo URLROOT; ?>/images/frontend/property/2.jpg"><img class="img-fluid w100" src="<?php echo URLROOT; ?>/images/frontend/property/2.jpg" alt="2.jpg"></a>
+								<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_2'] ?>"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge_2'] ?>&size=165x130&crop=1&trim=1" alt="<?php echo $data['titol_cat']; ?>"></a>
 							</div>
 						</div>
 						<div class="col-sm-6 col-lg-6">
 							<div class="spls_style_two mb30">
-								<a class="popup-img" href="<?php echo URLROOT; ?>/images/frontend/property/3.jpg"><img class="img-fluid w100" src="<?php echo URLROOT; ?>/images/frontend/property/3.jpg" alt="3.jpg"></a>
+								<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_3'] ?>"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge_3'] ?>&size=165x130&crop=1&trim=1" alt="<?php echo $data['titol_cat']; ?>"></a>
 							</div>
 						</div>
 						<div class="col-sm-6 col-lg-6">
 							<div class="spls_style_two mb30">
-								<a class="popup-img" href="<?php echo URLROOT; ?>/images/frontend/property/4.jpg"><img class="img-fluid w100" src="<?php echo URLROOT; ?>/images/frontend/property/4.jpg" alt="4.jpg"></a>
+								<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_4'] ?>"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge_4'] ?>&size=165x130&crop=1&trim=1" alt="<?php echo $data['titol_cat']; ?>"></a>
 							</div>
 						</div>
 						<div class="col-sm-6 col-lg-6">
 							<div class="spls_style_two mb30">
-								<a class="popup-img" href="<?php echo URLROOT; ?>/images/frontend/property/5.jpg"><img class="img-fluid w100" src="<?php echo URLROOT; ?>/images/frontend/property/5.jpg" alt="5.jpg"></a>
+								<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_5'] ?>"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge_5'] ?>&size=165x130&crop=1&trim=1" alt="<?php echo $data['titol_cat']; ?>"></a>
 							</div>
 						</div>
 						<div class="col-sm-6 col-lg-6">
 							<div class="spls_style_two mb30">
-								<a class="popup-img" href="<?php echo URLROOT; ?>/images/frontend/property/6.jpg"><img class="img-fluid w100" src="<?php echo URLROOT; ?>/images/frontend/property/6.jpg" alt="6.jpg"></a>
+								<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_6'] ?>"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge_6'] ?>&size=165x130&crop=1&trim=1" alt="<?php echo $data['titol_cat']; ?>"></a>
 							</div>
 						</div>
 						<div class="col-sm-6 col-lg-6">
 							<div class="spls_style_two mb30">
-								<a class="popup-img" href="<?php echo URLROOT; ?>/images/frontend/property/7.jpg"><img class="img-fluid w100" src="<?php echo URLROOT; ?>/images/frontend/property/7.jpg" alt="7.jpg"></a>
-								<div class="overlay popup-img">
-									<h3 class="title">+20</h3>
+								<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_7'] ?>"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge_7'] ?>&size=165x130&crop=1&trim=1" alt="<?php echo $data['titol_cat']; ?>"></a>
+								<div class="overlay popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_8'] ?>">
+									<h3 class="title">+3</h3>
 								</div>
+								<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_9'] ?>">
+								
+								</a>
+								<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_10'] ?>">
+								
+								</a>
 							</div>
 						</div>
 					</div>
@@ -88,7 +95,7 @@
 								</div>
 								<h4 class="mb30"><b>Descripció</b></h4>
 								<p class="mb25">
-									<?php echo $data['descripcio_cat']; ?>
+									<?php echo strip_tags($data['descripcio_cat']) ?>
 								</p>
 							</div>
 						</div>
@@ -105,9 +112,9 @@
 											<li><p>m²:</p></li>
 										</ul>
 										<ul class="list-inline-item">
-											<li><p><span><?php echo $data['habitacio']; ?></span></p></li>
-											<li><p><span><?php echo $data['banys']; ?></span></p></li>
-											<li><p><span><?php echo $data['tamany']; ?></span></p></li>
+											<li><p><span><?php echo ($data['habitacio']) == 0 ? "-" : $data['habitacio'] ?></span></p></li>
+											<li><p><span><?php echo ($data['banys']) == 0 ? "-" : $data['banys'] ?></span></p></li>
+											<li><p><span><?php echo ($data['tamany']) == 0 ? "-" : $data['tamany'] ?></span></p></li>
 										</ul>
 									</div>
 									<div class="col-md-6 col-lg-6 col-xl-4">
@@ -137,7 +144,7 @@
 							<div class="application_statics mt30">
 								<div class="row">
 									<div class="col-lg-12">
-										<h4 class="mb10">Característiques</h4>
+										<h4 class="mb10">Característiques <?php echo (($data['caracteristica_id']) === '[""]') ? "no disponibles" : "" ?></h4>
 									</div>
 									<?php
 										$numberOfColumns = 3;
@@ -314,7 +321,7 @@
 							<div class="sl_creator">
 								<h4 class="mb25"><b>Contacte</b></h4>
 								<div class="media">
-									<img class="mr-3" src="<?php echo URLROOT; ?>/images/frontend/team/lc1.png" alt="lc1.png">
+									<img class="mr-3" src="<?php echo URLROOT; ?>/public/images/img-xarxa/usuari/thumb_img/thumb.php?src=../<?php echo $data['logo'] ?>&size=90x90&crop=0&trim=0" alt="<?php echo $data['nom_cognoms']; ?>">
 									<div class="media-body">
 										<h5 class="mt-0 mb0"><?php echo $data['nom_cognoms']; ?></h5>
 										<h5 class="mt-0 mb0"><?php echo $data['empresa']; ?></h5>
@@ -344,7 +351,7 @@
 								</li>
 								<li class="search_area">
 									<div class="form-group">
-										<textarea id="form_message" name="form_message" class="form-control required" rows="5" required="required" placeholder="Número de referencia: <?php echo $data['referencia']; ?>"></textarea>
+										<textarea id="form_message" name="form_message" class="form-control required" rows="5" required="required" placeholder="Hola, "></textarea>
 									</div>
 								</li>
 								<li>
