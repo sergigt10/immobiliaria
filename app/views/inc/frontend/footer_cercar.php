@@ -92,7 +92,6 @@
 <script type="text/javascript" src="<?php echo URLROOT; ?>/js/frontend/jquery.mmenu.all.js"></script>
 <script type="text/javascript" src="<?php echo URLROOT; ?>/js/frontend/ace-responsive-menu.js"></script>
 <script type="text/javascript" src="<?php echo URLROOT; ?>/js/frontend/bootstrap-select.min.js"></script>
-<script type="text/javascript" src="<?php echo URLROOT; ?>/js/frontend/isotop.js"></script>
 <script type="text/javascript" src="<?php echo URLROOT; ?>/js/frontend/snackbar.min.js"></script>
 <script type="text/javascript" src="<?php echo URLROOT; ?>/js/frontend/simplebar.js"></script>
 <script type="text/javascript" src="<?php echo URLROOT; ?>/js/frontend/parallax.js"></script>
@@ -100,56 +99,11 @@
 <script type="text/javascript" src="<?php echo URLROOT; ?>/js/frontend/jquery-scrolltofixed-min.js"></script>
 <script type="text/javascript" src="<?php echo URLROOT; ?>/js/frontend/jquery.counterup.js"></script>
 <script type="text/javascript" src="<?php echo URLROOT; ?>/js/frontend/wow.min.js"></script>
+<script type="text/javascript" src="<?php echo URLROOT; ?>/js/frontend/progressbar.js"></script>
 <script type="text/javascript" src="<?php echo URLROOT; ?>/js/frontend/slider.js"></script>
 <script type="text/javascript" src="<?php echo URLROOT; ?>/js/frontend/timepicker.js"></script>
 <!-- Custom script for all pages --> 
 <script type="text/javascript" src="<?php echo URLROOT; ?>/js/frontend/script.js"></script>
-
-<link href="<?php echo URLROOT; ?>/css/frontend/select2.min.css" rel="stylesheet" />
-<script src="<?php echo URLROOT; ?>/js/frontend/select2.min.js"></script>
-
-<!-- AJAX POBLACIONS -->
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('.buscador').select2({
-			language: {
-				noResults: function() {
-					return " ... ";        
-				},
-				searching: function() {
-					return " ... ";
-				}
-			}
-		});
-	});
-	// Quan seleccionem una provincia
-	$("#provincia").change(function() {
-		// Obtenim id de la provincia
-		var provincia = jQuery("select#provincia option:selected").val();
-		// S'envia aquest valor per POST
-		var datastring = 'id_provincia='+provincia;
-
-		jQuery.ajax({
-			type: 'POST',
-			url: '<?php echo URLROOT; ?>/immobles/index/',
-			dataType: 'json',
-			data: datastring,
-				success: function(data){
-					let arrayPoblacions = "";
-
-					data['poblacions'].forEach(function(poblacio) {
-						arrayPoblacions += "<option value="+poblacio['id']+">"+poblacio['nom_cat']+"</option>";
-					});
-
-					jQuery('#poblacio').html('');
-					jQuery('#poblacio').html(arrayPoblacions);
-				},
-				error: function() {
-					alert('ERROR !');
-      			}
-		});
-	});
-</script>
 
 </body>
 </html>

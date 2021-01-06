@@ -45,7 +45,7 @@
                         <span class="icon-bar"></span>
                     </button>
                 </div>
-                <a href="#" class="navbar_brand float-left dn-smd">
+                <a href="<?php echo URLROOT; ?>/immobles/index" class="navbar_brand float-left dn-smd">
                     <img class="logo1 img-fluid" src="<?php echo URLROOT; ?>/images/frontend/header-logo2.png" alt="header-logo.png">
                     <img class="logo2 img-fluid" src="<?php echo URLROOT; ?>/images/frontend/header-logo2.png" alt="header-logo2.png">
                     <span></span>
@@ -54,7 +54,7 @@
                 <!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) -->
                 <ul id="respMenu" class="ace-responsive-menu text-right" data-menu-style="horizontal">
                     <li>
-                        <a href="#"><span class="title">INICI</span></a>
+                        <a href="<?php echo URLROOT; ?>/immobles/index"><span class="title">INICI</span></a>
                     </li>
                     <li>
                         <a href="#"><span class="title">QUI SOM</span></a>

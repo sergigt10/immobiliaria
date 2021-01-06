@@ -150,7 +150,7 @@ body.body_overlay{
   width: 100%;
 }
 body.body_overlay:before{
-  background-color: rgba(0,108,112,.5);
+  background-color: rgba(62,76,102,0.9);
   bottom: 0;
   content:"";
   left: 0;
@@ -14600,7 +14600,7 @@ section {
 }
 .preloader {
   background-color: #ffffff;
-  background-image: url("../images/preloader.gif");
+  background-image: url("../../images/frontend/preloader.gif");
   background-position: center center;
   background-repeat: no-repeat;
   height: 100%;
