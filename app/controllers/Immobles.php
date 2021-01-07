@@ -6,8 +6,8 @@
       $this->caracteristicaModel = $this->model('Caracteristica');
       $this->provinciaModel = $this->model('Provincia');
       $this->poblacioModel = $this->model('Poblacio');
+      $this->certificatModel = $this->model('Certificat');
       $this->immobleModel = $this->model('Habitatge');
-      
     }
 
     public function index(){
@@ -77,8 +77,20 @@
 
         $immobles = $this->immobleModel->getImmoblesCercar($data['operacio'], $data['categoria'], $data['poblacio']);
 
+        $operacions = $this->operacioModel->getOperacions();
+        $categories = $this->categoriaModel->getCategories();
+        $provincies = $this->provinciaModel->getProvincies();
+        $poblacions = $this->poblacioModel->getPoblacionsWithProvinciaId(8);
+        $certificats = $this->certificatModel->getCertificats();
+        $caracteristiques = $this->caracteristicaModel->getCaracteristiques();
+
         $data = [
-          'immobles' => $immobles
+          'immobles' => $immobles,
+          'operacions' => $operacions,
+          'provincies' => $provincies,
+          'poblacions' => $poblacions,
+          'certificats' => $certificats,
+          'caracteristiques' => $caracteristiques
         ];
 
         $this->view('immobles/cercar', $data);

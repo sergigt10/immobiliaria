@@ -10,7 +10,7 @@
 				</div>
 				<div class="col-sm-6 col-md-6 col-lg col-xl">
 					<div class="footer_qlink_widget home3">
-						<h4>Links ràpids</h4>
+						<h4>Informació</h4>
 						<ul class="list-unstyled">
 							<li><a href="#">Qui som</a></li>
 							<li><a href="#">Afiliats</a></li>

@@ -11,29 +11,11 @@
 								<div class="sidebar_advanced_search_widget">
 									<h4 class="mb25">Buscador avançat <a class="filter_closed_btn float-right" href="#"><small>Tancar</small> <span class="flaticon-close"></span></a></h4>
 									<ul class="sasw_list style2 mb0">
-                                        <li class="search_area">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="exampleInputName1" placeholder="keyword">
-                                                <label for="exampleInputEmail"><span class="flaticon-magnifying-glass"></span></label>
-                                            </div>
-                                        </li>
-                                        <li class="search_area">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="exampleInputEmail" placeholder="Location">
-                                                <label for="exampleInputEmail"><span class="flaticon-maps-and-flags"></span></label>
-                                            </div>
-                                        </li>
 										<li>
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
 													<select class="selectpicker w100 show-tick">
-														<option>Status</option>
-														<option>Apartment</option>
-														<option>Bungalow</option>
-														<option>Condo</option>
-														<option>House</option>
-														<option>Land</option>
-														<option>Single Family</option>
+														<option>Operació</option>
 													</select>
 												</div>
 											</div>
@@ -42,29 +24,8 @@
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
 													<select class="selectpicker w100 show-tick">
-														<option>Property Type</option>
-														<option>Apartment</option>
-														<option>Bungalow</option>
-														<option>Condo</option>
-														<option>House</option>
-														<option>Land</option>
-														<option>Single Family</option>
+														<option>Categoria</option>
 													</select>
-												</div>
-											</div>
-										</li>
-										<li>
-											<div class="small_dropdown2">
-												<div id="prncgs" class="btn dd_btn">
-													<span>Price</span>
-													<label for="exampleInputEmail2"><span class="fa fa-angle-down"></span></label>
-												</div>
-												<div class="dd_content2">
-													<div class="pricing_acontent">
-														<input type="text" class="amount" placeholder="$52,239"> 
-														<input type="text" class="amount2" placeholder="$985,14">
-														<div class="slider-range"></div>
-													</div>
 												</div>
 											</div>
 										</li>
@@ -72,7 +33,25 @@
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
 													<select class="selectpicker w100 show-tick">
-														<option>Bathrooms</option>
+														<option>Provincia</option>
+													</select>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="search_option_two">
+												<div class="candidate_revew_select">
+													<select class="selectpicker w100 show-tick">
+														<option>Població</option>
+													</select>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="search_option_two">
+												<div class="candidate_revew_select">
+													<select class="selectpicker w100 show-tick">
+														<option>Preu</option>
 														<option>1</option>
 														<option>2</option>
 														<option>3</option>
@@ -87,7 +66,7 @@
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
 													<select class="selectpicker w100 show-tick">
-														<option>Bedrooms</option>
+														<option>Habitacions</option>
 														<option>1</option>
 														<option>2</option>
 														<option>3</option>
@@ -102,10 +81,13 @@
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
 													<select class="selectpicker w100 show-tick">
-														<option>Garages</option>
-														<option>Yes</option>
-														<option>No</option>
-														<option>Others</option>
+														<option>Banys</option>
+														<option>1</option>
+														<option>2</option>
+														<option>3</option>
+														<option>4</option>
+														<option>5</option>
+														<option>6</option>
 													</select>
 												</div>
 											</div>
@@ -114,27 +96,18 @@
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
 													<select class="selectpicker w100 show-tick">
-														<option>Year built</option>
-														<option>2013</option>
-														<option>2014</option>
-														<option>2015</option>
-														<option>2016</option>
-														<option>2017</option>
-														<option>2018</option>
-														<option>2019</option>
-														<option>2020</option>
+														<option>m2</option>
 													</select>
 												</div>
 											</div>
 										</li>
-										<li class="min_area style2 list-inline-item">
-											<div class="form-group">
-												<input type="text" class="form-control" id="exampleInputName2" placeholder="Min Area">
-											</div>
-										</li>
-										<li class="max_area list-inline-item">
-											<div class="form-group">
-												<input type="text" class="form-control" id="exampleInputName3" placeholder="Max Area">
+										<li>
+											<div class="search_option_two">
+												<div class="candidate_revew_select">
+													<select class="selectpicker w100 show-tick">
+														<option>Certificat</option>
+													</select>
+												</div>
 											</div>
 										</li>
 										<li>
@@ -142,7 +115,7 @@
 												<div class="panel">
 													<div class="panel-heading">
 														<h4 class="panel-title">
-															<a href="#panelBodyRating" class="accordion-toggle link" data-toggle="collapse" data-parent="#accordion"><i class="flaticon-more"></i> Advanced features</a>
+															<a href="#panelBodyRating" class="accordion-toggle link" data-toggle="collapse" data-parent="#accordion"><i class="flaticon-more"></i>Caracteristiques</a>
 														</h4>
 													</div>
 													<div id="panelBodyRating" class="panel-collapse collapse">
@@ -250,7 +223,7 @@
 										</li>
 										<li>
 											<div class="search_option_button">
-												<button type="submit" class="btn btn-block btn-thm">Search</button>
+												<button type="submit" class="btn btn-block btn-thm">Cercar</button>
 											</div>
 										</li>
 									</ul>
@@ -273,7 +246,7 @@
 				<div class="col-md-4 col-lg-6">
 					<div class="sidebar_switch text-right">
 						<div id="main2">
-							<span id="open2" class="flaticon-filter-results-button filter_open_btn">Filtre</span>
+							<span id="open2" class="flaticon-filter-results-button filter_open_btn">FILTRAR</span>
 						</div>
 					</div>
 				</div>

@@ -78,12 +78,13 @@
 								</div>
 							</div>
 						<?php } ?>
-						<?php if( !empty($data['imatge_7']) || !empty($data['imatge_8']) || !empty($data['imatge_9']) || !empty($data['imatge_10']) ) { ?>
+						<?php if( !empty($data['imatge_7']) && file_exists( '../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge_7']) || !empty($data['imatge_8']) && file_exists( '../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge_8']) || !empty($data['imatge_9']) && file_exists( '../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge_9']) || !empty($data['imatge_10']) && file_exists( '../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge_10']) ) { ?>
 							<div class="col-sm-6 col-lg-6">
 								<div class="spls_style_two mb30">
 									<a href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/imatge-no-disponible.jpg"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../imatge-no-disponible.jpg&size=165x130&crop=1&trim=1" alt="<?php echo $data['titol_cat']; ?>"></a>
 
 									<?php 
+										$mesfotos = "";
 										if( !empty($data['imatge_7']) && file_exists( '../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge_7'] ) )
 										{ 
 											$mesfotos = $data['imatge_7'];
@@ -190,19 +191,31 @@
 							<div class="application_statics mt30">
 								<div class="row">
 									<div class="col-lg-12">
-										<h4 class="mb10">Característiques <?php echo (($data['caracteristica_id']) === '[""]') ? " - No disponible" : "" ?></h4>
+										<h4 class="mb10">Característiques</h4>
 									</div>
 									<?php
-										$numberOfColumns = 3;
-										$bootstrapColWidth = 12 / $numberOfColumns ;
+										if( ( $data['caracteristica_id']) !== '[""]' && !empty(json_decode($data['caracteristica_id'])) ){
+											$numberOfColumns = 3;
+											$bootstrapColWidth = 12 / $numberOfColumns ;
 
-										$arrayChunks = array_chunk($data['caracteristiques'], 5);
-										foreach($arrayChunks as $caracteristiques) {
-											echo '<div class="col-sm-6 col-md-6 col-lg-'.$bootstrapColWidth.'">';
+											$arrayChunks = array_chunk(json_decode($data['caracteristica_id']), 5);
+											foreach($arrayChunks as $caracteristiques) {
+												echo '<div class="col-sm-6 col-md-6 col-lg-'.$bootstrapColWidth.'">';
+													echo '<ul class="order_list list-inline-item">';
+														foreach($caracteristiques as $caracteristica) {
+															foreach($data['caracteristiques'] as $all_caracteristiques) {
+																if( $caracteristica === $all_caracteristiques->id ){
+																	echo '<li><a href="#"><span class="flaticon-tick"></span>'.$all_caracteristiques->nom_cat.'</a></li>';
+																}
+															}
+														}
+													echo '</ul>';
+												echo '</div>';
+											}
+										} else {
+											echo '<div class="col-sm-6 col-md-6 col-lg-4">';
 												echo '<ul class="order_list list-inline-item">';
-													foreach($caracteristiques as $caracteristica) {
-														echo ( !empty(json_decode($data['caracteristica_id'])) && in_array( $caracteristica->id, json_decode($data['caracteristica_id'])) ) ? '<li><a href="#"><span class="flaticon-tick"></span>'.$caracteristica->nom_cat.'</a></li>' : '';
-													}
+													echo "<p>No disponible</p>";
 												echo '</ul>';
 											echo '</div>';
 										}
