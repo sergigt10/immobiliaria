@@ -105,5 +105,98 @@
 <!-- Custom script for all pages --> 
 <script type="text/javascript" src="<?php echo URLROOT; ?>/js/frontend/script.js"></script>
 
+<link href="<?php echo URLROOT; ?>/css/frontend/select2.min.css" rel="stylesheet" />
+<script src="<?php echo URLROOT; ?>/js/frontend/select2.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.buscador').select2({
+			language: {
+				noResults: function() {
+					return " ... ";        
+				},
+				searching: function() {
+					return " ... ";
+				}
+			},
+		});
+		$(".buscador.preu_minim").select2({
+			placeholder: "Preu mínim",
+			allowClear: true
+		});
+		$(".buscador.preu_maxim").select2({
+			placeholder: "Preu màxim",
+			allowClear: true
+		});
+		$(".buscador.habitacio").select2({
+			placeholder: "Habitacions",
+			allowClear: true
+		});
+		$(".buscador.banys").select2({
+			placeholder: "Banys",
+			allowClear: true
+		});
+		$(".buscador.metres_minim").select2({
+			placeholder: "Superficie mínima",
+			allowClear: true
+		});
+		$(".buscador.metres_maxim").select2({
+			placeholder: "Superficie màxima",
+			allowClear: true
+		});
+		$(".buscador.certificat").select2({
+			placeholder: "Certificat energètic",
+			allowClear: true
+		});
+
+		// var selector = document.getElementById("preu_minim");
+		// var selector = document.getElementById("preu_maxim");
+		// https://pandagg.games/javascript/javascript-cargar-valores-de-una-funcion-de-js-a-un-select-en-html/
+
+		function cargarPreus(preuMaxMin) {
+			var preu = ["indiferent"];
+			for (i = 10000; i <= 4000000; i = i + 10000) {
+				preu.push(i);
+			}
+			addOptionsPrice(preuMaxMin, preu);
+		}
+
+		function addOptionsPrice( valueSelector , array) {
+			var selector = document.getElementById(valueSelector);
+			for (valor in array) {
+				var option = document.createElement("option");
+				option.value = array[valor]
+				option.text = array[valor] === "indiferent" ? "indiferent" : array[valor].toLocaleString('es-ES') + " €";
+				selector.add(option);
+			}
+		}
+
+		cargarPreus("preu_minim");
+		cargarPreus("preu_maxim");
+
+		function cargarMetres(metreMaxMin) {
+			var metre = ["indiferent"];
+			for (i = 50; i <= 600; i = i + 20) {
+				metre.push(i);
+			}
+			addOptionsPrice(metreMaxMin, metre);
+		}
+
+		function addOptionsMetre( valueSelector , array) {
+			var selector = document.getElementById(valueSelector);
+			for (valor in array) {
+				var option = document.createElement("option");
+				option.value = array[valor]
+				option.text = array[valor] === "indiferent" ? "indiferent" : array[valor]+" m";
+				selector.add(option);
+			}
+		}
+
+		addOptionsMetre("metres_minim");
+		addOptionsMetre("metres_maxim");
+
+	});
+</script>
+
 </body>
 </html>

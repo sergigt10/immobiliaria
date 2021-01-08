@@ -14,8 +14,10 @@
 										<li>
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
-													<select class="selectpicker w100 show-tick">
-														<option>Operació</option>
+													<select name="operacio" id="operacio" class="buscador w100">
+														<?php foreach($data['operacions'] as $operacio) : ?>
+															<option value="<?php echo $operacio->id; ?>" <?php echo (2) == $operacio->id ? 'selected' : ''; ?> ><?php echo $operacio->nom_cat; ?></option>
+														<?php endforeach; ?>
 													</select>
 												</div>
 											</div>
@@ -23,8 +25,10 @@
 										<li>
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
-													<select class="selectpicker w100 show-tick">
-														<option>Categoria</option>
+													<select name="categoria" id="categoria" class="buscador w100">
+														<?php foreach($data['categories'] as $categoria) : ?>
+															<option value="<?php echo $categoria->id; ?>" <?php echo (1) == $categoria->id ? 'selected' : ''; ?> ><?php echo $categoria->nom_cat; ?></option>
+														<?php endforeach; ?>
 													</select>
 												</div>
 											</div>
@@ -32,8 +36,10 @@
 										<li>
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
-													<select class="selectpicker w100 show-tick">
-														<option>Provincia</option>
+													<select name="provincia" id="provincia" class="buscador w100">
+														<?php foreach($data['provincies'] as $provincia) : ?>
+															<option value="<?php echo $provincia->id; ?>" <?php echo (8) == $provincia->id ? 'selected' : ''; ?> ><?php echo $provincia->nom_cat; ?></option>
+														<?php endforeach; ?>
 													</select>
 												</div>
 											</div>
@@ -41,8 +47,10 @@
 										<li>
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
-													<select class="selectpicker w100 show-tick">
-														<option>Població</option>
+													<select name="poblacio" id="poblacio" class="buscador w100">
+														<?php foreach($data['poblacions'] as $poblacio) : ?>
+															<option value="<?php echo $poblacio->id; ?>" <?php echo (881) == $poblacio->id ? 'selected' : ''; ?> ><?php echo $poblacio->nom_cat; ?></option>
+														<?php endforeach; ?>
 													</select>
 												</div>
 											</div>
@@ -50,14 +58,8 @@
 										<li>
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
-													<select class="selectpicker w100 show-tick">
-														<option>Preu</option>
-														<option>1</option>
-														<option>2</option>
-														<option>3</option>
-														<option>4</option>
-														<option>5</option>
-														<option>6</option>
+													<select id="preu_minim" class="buscador preu_minim w100">
+														<option></option>
 													</select>
 												</div>
 											</div>
@@ -65,14 +67,8 @@
 										<li>
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
-													<select class="selectpicker w100 show-tick">
-														<option>Habitacions</option>
-														<option>1</option>
-														<option>2</option>
-														<option>3</option>
-														<option>4</option>
-														<option>5</option>
-														<option>6</option>
+													<select id="preu_maxim" class="buscador preu_maxim w100">
+														<option></option>
 													</select>
 												</div>
 											</div>
@@ -80,14 +76,12 @@
 										<li>
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
-													<select class="selectpicker w100 show-tick">
-														<option>Banys</option>
-														<option>1</option>
-														<option>2</option>
-														<option>3</option>
-														<option>4</option>
-														<option>5</option>
-														<option>6</option>
+													<select name="habitacio" id="habitacio" class="buscador habitacio w100">
+														<option></option>
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">+ 4</option>
 													</select>
 												</div>
 											</div>
@@ -95,8 +89,12 @@
 										<li>
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
-													<select class="selectpicker w100 show-tick">
-														<option>m2</option>
+													<select name="banys" id="banys" class="buscador banys w100">
+														<option></option>
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">+ 4</option>
 													</select>
 												</div>
 											</div>
@@ -104,8 +102,29 @@
 										<li>
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
-													<select class="selectpicker w100 show-tick">
-														<option>Certificat</option>
+													<select id="metres_minim" class="buscador metres_minim w100">
+														<option></option>
+													</select>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="search_option_two">
+												<div class="candidate_revew_select">
+													<select id="metres_maxim" class="buscador metres_maxim w100">
+														<option></option>
+													</select>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="search_option_two">
+												<div class="candidate_revew_select">
+													<select name="certificat" id="certificat" class="buscador certificat w100">
+														<option></option>
+														<?php foreach($data['certificats'] as $certificat) : ?>
+															<option value="<?php echo $certificat->id; ?>"><?php echo $certificat->nom_cat; ?></option>
+														<?php endforeach; ?>
 													</select>
 												</div>
 											</div>
@@ -115,105 +134,19 @@
 												<div class="panel">
 													<div class="panel-heading">
 														<h4 class="panel-title">
-															<a href="#panelBodyRating" class="accordion-toggle link" data-toggle="collapse" data-parent="#accordion"><i class="flaticon-more"></i>Caracteristiques</a>
+															<a href="#panelBodyRating" class="accordion-toggle link" data-toggle="collapse" data-parent="#accordion"><i class="flaticon-more"></i>Característiques</a>
 														</h4>
 													</div>
 													<div id="panelBodyRating" class="panel-collapse collapse">
 														<div class="panel-body row">
 															<div class="col-lg-12">
 																<ul class="ui_kit_checkbox selectable-list float-left fn-400">
-																	<li>
+																	<?php foreach($data['caracteristiques'] as $caracteristica) : ?>
 																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck1">
-																			<label class="custom-control-label" for="customCheck1">Air Conditioning</label>
+																			<input type="checkbox" class="custom-control-input" id="customCheck1" name="caracteristica_id[]" value="<?php echo $caracteristica->id; ?>">
+																			<label class="custom-control-label" for="customCheck1"><?php echo $caracteristica->nom_cat ?></label>
 																		</div>
-																	</li>
-																	<li>
-																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck4">
-																			<label class="custom-control-label" for="customCheck4">Barbeque</label>
-																		</div>
-																	</li>
-																	<li>
-																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck10">
-																			<label class="custom-control-label" for="customCheck10">Gym</label>
-																		</div>
-																	</li>
-																	<li>
-																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck5">
-																			<label class="custom-control-label" for="customCheck5">Microwave</label>
-																		</div>
-																	</li>
-																	<li>
-																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck6">
-																			<label class="custom-control-label" for="customCheck6">TV Cable</label>
-																		</div>
-																	</li>
-																	<li>
-																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck2">
-																			<label class="custom-control-label" for="customCheck2">Lawn</label>
-																		</div>
-																	</li>
-																	<li>
-																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck11">
-																			<label class="custom-control-label" for="customCheck11">Refrigerator</label>
-																		</div>
-																	</li>
-																	<li>
-																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck3">
-																			<label class="custom-control-label" for="customCheck3">Swimming Pool</label>
-																		</div>
-																	</li>
-																</ul>
-																<ul class="ui_kit_checkbox selectable-list float-right fn-400">
-																	<li>
-																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck12">
-																			<label class="custom-control-label" for="customCheck12">WiFi</label>
-																		</div>
-																	</li>
-																	<li>
-																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck14">
-																			<label class="custom-control-label" for="customCheck14">Sauna</label>
-																		</div>
-																	</li>
-																	<li>
-																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck7">
-																			<label class="custom-control-label" for="customCheck7">Dryer</label>
-																		</div>
-																	</li>
-																	<li>
-																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck9">
-																			<label class="custom-control-label" for="customCheck9">Washer</label>
-																		</div>
-																	</li>
-																	<li>
-																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck13">
-																			<label class="custom-control-label" for="customCheck13">Laundry</label>
-																		</div>
-																	</li>
-																	<li>
-																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck8">
-																			<label class="custom-control-label" for="customCheck8">Outdoor Shower</label>
-																		</div>
-																	</li>
-																	<li>
-																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck15">
-																			<label class="custom-control-label" for="customCheck15">Window Coverings</label>
-																		</div>
-																	</li>
+																	<?php endforeach; ?>
 																</ul>
 															</div>
 														</div>
@@ -356,4 +289,4 @@
 			</div>
 		</div>
     </section>
-<?php require APPROOT . '/views/inc/frontend/footer.php'; ?>
+<?php require APPROOT . '/views/inc/frontend/footer_cercar.php'; ?>

@@ -87,6 +87,7 @@
         $data = [
           'immobles' => $immobles,
           'operacions' => $operacions,
+          'categories' => $categories,
           'provincies' => $provincies,
           'poblacions' => $poblacions,
           'certificats' => $certificats,
