@@ -60,7 +60,7 @@
                         <a href="#"><span class="title">QUI SOM</span></a>
                     </li>
                     <li>
-                        <a href="#"><span class="title">AFILIATS</span></a>
+                        <a href="/immobiliaries/llista"><span class="title">AFILIATS</span></a>
                         <!-- Level Two-->
                     </li>
                     
@@ -68,7 +68,7 @@
                         <a href="#"><span class="title">COMPRAR</span></a>
                         <ul>
                             <?php foreach ($data['categories'] as $categoria) : ?>
-                                <li><a href="<?php echo URLROOT; ?>/immoble/operacio/comprar/<?php echo mb_strtolower($categoria->nom_cat) ?>"><?php echo mb_strtoupper($categoria->nom_cat) ?></a></li>
+                                <li><a href="<?php echo URLROOT; ?>/immobles/operacio/2/<?php echo $categoria->id ?>"><?php echo mb_strtoupper($categoria->nom_cat) ?></a></li>
                             <?php endforeach; ?>
                         </ul>           
                     </li>
@@ -77,7 +77,7 @@
                         <a href="#"><span class="title">LLOGUER</span></a>
                         <ul>
                             <?php foreach ($data['categories'] as $categoria) : ?>
-                                <li><a href="<?php echo URLROOT; ?>/immoble/operacio/lloguer/<?php echo mb_strtolower($categoria->nom_cat) ?>"><?php echo mb_strtoupper($categoria->nom_cat) ?></a></li>
+                                <li><a href="<?php echo URLROOT; ?>/immobles/operacio/3/<?php echo $categoria->id ?>"><?php echo mb_strtoupper($categoria->nom_cat) ?></a></li>
                             <?php endforeach; ?>
                         </ul>
                     </li>
@@ -86,7 +86,7 @@
                         <a href="#"><span class="title">OBRA NOVA</span></a>
                         <ul>
                             <?php foreach ($data['categories'] as $categoria) : ?>
-                                <li><a href="<?php echo URLROOT; ?>/immoble/operacio/obra-nova/<?php echo mb_strtolower($categoria->nom_cat) ?>"><?php echo mb_strtoupper($categoria->nom_cat) ?></a></li>
+                                <li><a href="<?php echo URLROOT; ?>/immobles/operacio/4/<?php echo $categoria->id ?>"><?php echo mb_strtoupper($categoria->nom_cat) ?></a></li>
                             <?php endforeach; ?>
                         </ul>
                     </li>

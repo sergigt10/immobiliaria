@@ -283,9 +283,9 @@
 								<h4 class="mb25"><b>Contacte</b></h4>
 								<div class="media">
 									<?php if( !empty($data['logo']) && file_exists( '../../admin-web/public/images/img-xarxa/usuari/'.$data['logo'] ) ){ ?>
-										<img class="mr-3" src="<?php echo URLROOT; ?>/public/images/img-xarxa/usuari/thumb_img/thumb.php?src=../<?php echo $data['logo'] ?>&size=90x90&crop=0&trim=0" alt="<?php echo $data['nom_cognoms']; ?>">
+										<img class="mr-3" src="<?php echo URLROOT; ?>/public/images/img-xarxa/usuari/thumb_img/thumb.php?src=../<?php echo $data['logo'] ?>&size=90x90&crop=0&trim=0" alt="<?php echo $data['empresa']; ?>">
 									<?php } else { ?>
-										<img class="mr-3" src="<?php echo URLROOT; ?>/public/images/img-xarxa/usuari/thumb_img/thumb.php?src=../imatge-no-disponible.jpg&size=90x90&crop=0&trim=0" alt="<?php echo $data['nom_cognoms']; ?>">
+										<img class="mr-3" src="<?php echo URLROOT; ?>/public/images/img-xarxa/usuari/thumb_img/thumb.php?src=../imatge-no-disponible.jpg&size=90x90&crop=0&trim=0" alt="<?php echo $data['empresa']; ?>">
 									<?php } ?>
 									<div class="media-body">
 										<h5 class="mt-0 mb0"><?php echo $data['nom_cognoms']; ?></h5>

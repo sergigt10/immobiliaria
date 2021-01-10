@@ -79,6 +79,9 @@
         $immobles = $this->immobleModel->getImmoblesCercar($data['operacio'], $data['categoria'], $data['poblacio']);
 
         $operacions = $this->operacioModel->getOperacions();
+        $operacioCercada = $this->operacioModel->getOperacioById(intval($data['operacio']));
+        $categoriaCercada = $this->categoriaModel->getCategoriaById(intval($data['categoria']));
+        $poblacioCercada = $this->poblacioModel->getPoblacioById(intval($data['poblacio']));
         $provincies = $this->provinciaModel->getProvincies();
         $poblacions = $this->poblacioModel->getPoblacionsWithProvinciaId(8);
         $caracteristiques = $this->caracteristicaModel->getCaracteristiques();
@@ -86,6 +89,9 @@
         $data = [
           'immobles' => $immobles,
           'operacions' => $operacions,
+          'operacioCercada' => $operacioCercada->nom_cat,
+          'categoriaCercada' => $categoriaCercada->nom_cat,
+          'poblacioCercada' => $poblacioCercada->nom_cat,
           'categories' => $this->categories,
           'provincies' => $provincies,
           'poblacions' => $poblacions,
@@ -136,6 +142,9 @@
         }
 
         $operacions = $this->operacioModel->getOperacions();
+        $operacioCercada = $this->operacioModel->getOperacioById(intval($data['operacio']));
+        $categoriaCercada = $this->categoriaModel->getCategoriaById(intval($data['categoria']));
+        $poblacioCercada = $this->poblacioModel->getPoblacioById(intval($data['poblacio']));
         $provincies = $this->provinciaModel->getProvincies();
         $poblacions = $this->poblacioModel->getPoblacionsWithProvinciaId(8);
         $caracteristiques = $this->caracteristicaModel->getCaracteristiques();
@@ -143,6 +152,9 @@
         $data = [
           'immobles' => $immobles,
           'operacions' => $operacions,
+          'operacioCercada' => $operacioCercada->nom_cat,
+          'categoriaCercada' => $categoriaCercada->nom_cat,
+          'poblacioCercada' => $poblacioCercada->nom_cat,
           'categories' => $this->categories,
           'provincies' => $provincies,
           'poblacions' => $poblacions,
@@ -219,21 +231,43 @@
 
     }
 
-    public function operacio($operacio, $categoria) {
-
-      // Problems about expired document
-      header('Cache-Control: max-age=900');
-      // Check for POST
-      if($_SERVER['REQUEST_METHOD'] == 'POST'){
-
-
-      } else {
-        $data = [
-          'categories' => $this->categories
-        ];
-        $this->view('immobles/error', $data);
+    public function operacio($operacio = 3, $categoria = 1) {
+      switch (intval($operacio)) {
+        // Comprar
+        case 2:
+          $immobles = $this->immobleModel->getImmoblesOperacioCategoria(intval($operacio), intval($categoria));
+          break;
+        // Lloguer
+        case 3:
+          $immobles = $this->immobleModel->getImmoblesOperacioCategoria(intval($operacio), intval($categoria));
+          break;
+        // Obra nova
+        case 4:
+          $immobles = $this->immobleModel->getImmoblesOperacioCategoria(intval($operacio), intval($categoria));
+          break;
+        default:
+          // Lloguer i pis
+          $immobles = $this->immobleModel->getImmoblesOperacioCategoria(3, 1);
       }
 
+      $operacions = $this->operacioModel->getOperacions();
+      $operacioCercada = $this->operacioModel->getOperacioById(intval($operacio));
+      $categoriaCercada = $this->categoriaModel->getCategoriaById(intval($categoria));
+      $provincies = $this->provinciaModel->getProvincies();
+      $poblacions = $this->poblacioModel->getPoblacionsWithProvinciaId(8);
+      $caracteristiques = $this->caracteristicaModel->getCaracteristiques();
+
+      $data = [
+        'immobles' => $immobles,
+        'operacions' => $operacions,
+        'operacioCercada' => $operacioCercada->nom_cat,
+        'categoriaCercada' => $categoriaCercada->nom_cat,
+        'categories' => $this->categories,
+        'provincies' => $provincies,
+        'poblacions' => $poblacions,
+        'caracteristiques' => $caracteristiques
+      ];
+      $this->view('immobles/cercar', $data);
     }
 
     public function error() {

@@ -143,7 +143,7 @@
 																					foreach($caracteristiques as $caracteristica) {
 																						echo '<div class="custom-control custom-checkbox">
 																						<input type="checkbox" class="custom-control-input" id="customCheck'.$caracteristica->id .'" name="caracteristica_id[]" value="'. $caracteristica->id. '">
-																						<label class="custom-control-label" for="customCheck'. $caracteristica->id. '">'. $caracteristica->nom_cat. '</label>
+																						<label style="cursor: pointer;" class="custom-control-label" for="customCheck'. $caracteristica->id. '">'. $caracteristica->nom_cat. '</label>
 																					</div>';
 																					}
 																				echo '</ul>';
@@ -186,7 +186,8 @@
 							<li class="breadcrumb-item"><a href="<?php echo URLROOT; ?>/immobles/index">Inici</a></li>
 							<li class="breadcrumb-item active text-thm" aria-current="page">Immobles</li>
 						</ol>
-						<h2 class="breadcrumb_title">Resultats de la cerca: </h2>
+						<h3 class="breadcrumb_title"> Resultats de la cerca </h3>
+						<h4><?php echo isset($data['operacioCercada']) ? $data['operacioCercada'] : '' ?><?php echo isset($data['categoriaCercada']) ? ", ". $data['categoriaCercada'] : '' ?><?php echo isset($data['poblacioCercada']) ? ", ". $data['poblacioCercada'] : '' ?></h4>
 					</div>
 				</div>
 				<div class="col-md-4 col-lg-6">
