@@ -109,6 +109,123 @@
 <script src="<?php echo URLROOT; ?>/js/frontend/select2.min.js"></script>
 
 <script type="text/javascript">
+
+	// START PREUS OPTION
+
+	function carregarPreus(preuMaxMin, inicial, final, increment) {
+		let preu = ["Indiferent"];
+		for (i = inicial; i <= final; i = i + increment) {
+			if( inicial == 50000 && i == 1000000 ) {
+				increment = 1000000;
+			}
+			if( inicial == 400 && i == 1000 ) {
+				increment = 100;
+			}
+			preu.push(i);
+		}
+		addOptionsPreus(preuMaxMin, preu);
+	}
+
+	function addOptionsPreus( valueSelector , array) {
+		let selector = document.getElementById(valueSelector);
+		removeOptions(selector);
+
+		// Empty option
+		inicialOption(selector);
+
+		for (valor in array) {
+			let option = document.createElement("option");
+			option.value = array[valor] === "Indiferent" ? "Indiferent" : array[valor];
+			option.text = array[valor] === "Indiferent" ? "Indiferent" : array[valor].toLocaleString('es-ES') + " €";
+			selector.add(option);
+		}
+	}
+
+	function inicialOption(selector) {
+		let emptyOption = document.createElement("option");
+		emptyOption.value = "";
+		emptyOption.text = "";
+		selector.add(emptyOption);
+	}
+
+	function removeOptions(selectElement) {
+		var i, L = selectElement.options.length - 1;
+
+		for(i = L; i >= 0; i--) {
+			selectElement.remove(i);
+		}
+	}
+
+	// END PREUS OPTION
+
+	// START SUPERFICIES OPTION
+
+	function carregarSuperficies(superficieMaxMin) {
+		var superficie = ["Indiferent"];
+		var increment = 20;
+		for (i = 40; i <= 600; i = i + increment) {
+			if( i == 200 ) {
+				increment = 100;
+			}
+			superficie.push(i);
+		}
+		addOptionsSuperficies(superficieMaxMin, superficie);
+	}
+
+	function addOptionsSuperficies( valueSelector , array) {
+		var selector = document.getElementById(valueSelector);
+		for (valor in array) {
+			var option = document.createElement("option");
+			option.value = array[valor] === "Indiferent" ? "Indiferent" : array[valor];
+			option.text = array[valor] === "Indiferent" ? "Indiferent" : array[valor]+" m²";
+			selector.add(option);
+		}
+	}
+	
+	// END SUPERFICIES OPTION
+
+	// Quan seleccionem una provincia
+	$("#provincia").change(function() {
+		// Obtenim id de la provincia
+		var provincia = jQuery("select#provincia option:selected").val();
+		// S'envia aquest valor per POST
+		var datastring = 'id_provincia='+provincia;
+
+		jQuery.ajax({
+			type: 'POST',
+			url: '<?php echo URLROOT; ?>/immobles/index/',
+			dataType: 'json',
+			data: datastring,
+				success: function(data){
+					let arrayPoblacions = "";
+
+					data['poblacions'].forEach(function(poblacio) {
+						arrayPoblacions += "<option value="+poblacio['id']+">"+poblacio['nom_cat']+"</option>";
+					});
+
+					jQuery('#poblacio').html('');
+					jQuery('#poblacio').html(arrayPoblacions);
+				},
+				error: function() {
+					alert('ERROR !');
+      			}
+		});
+	});
+
+	$("#operacio").change(function() {
+		// Obtenim id de la provincia
+		var operacio = jQuery("select#operacio option:selected").text();
+
+		if (operacio === "Lloguer") {
+			carregarPreus("preu_minim", 400, 3000, 50);
+			carregarPreus("preu_maxim", 400, 3000, 50);
+		} else {
+			carregarPreus("preu_minim", 50000, 4000000, 50000);
+			carregarPreus("preu_maxim", 50000, 4000000, 50000);
+		}
+
+	});
+
 	$(document).ready(function() {
 		$('.buscador').select2({
 			language: {
@@ -128,7 +245,7 @@
 			placeholder: "Preu màxim",
 			allowClear: true
 		});
-		$(".buscador.habitacio").select2({
+		$(".buscador.habitacions").select2({
 			placeholder: "Habitacions",
 			allowClear: true
 		});
@@ -136,11 +253,11 @@
 			placeholder: "Banys",
 			allowClear: true
 		});
-		$(".buscador.metres_minim").select2({
+		$(".buscador.superficies_minim").select2({
 			placeholder: "Superficie mínima",
 			allowClear: true
 		});
-		$(".buscador.metres_maxim").select2({
+		$(".buscador.superficies_maxim").select2({
 			placeholder: "Superficie màxima",
 			allowClear: true
 		});
@@ -149,53 +266,16 @@
 			allowClear: true
 		});
 
-		// var selector = document.getElementById("preu_minim");
-		// var selector = document.getElementById("preu_maxim");
 		// https://pandagg.games/javascript/javascript-cargar-valores-de-una-funcion-de-js-a-un-select-en-html/
 
-		function cargarPreus(preuMaxMin) {
-			var preu = ["indiferent"];
-			for (i = 10000; i <= 4000000; i = i + 10000) {
-				preu.push(i);
-			}
-			addOptionsPrice(preuMaxMin, preu);
-		}
+		carregarPreus("preu_minim", 50000, 4000000, 50000);
+		carregarPreus("preu_maxim", 50000, 4000000, 50000);
 
-		function addOptionsPrice( valueSelector , array) {
-			var selector = document.getElementById(valueSelector);
-			for (valor in array) {
-				var option = document.createElement("option");
-				option.value = array[valor]
-				option.text = array[valor] === "indiferent" ? "indiferent" : array[valor].toLocaleString('es-ES') + " €";
-				selector.add(option);
-			}
-		}
-
-		cargarPreus("preu_minim");
-		cargarPreus("preu_maxim");
-
-		function cargarMetres(metreMaxMin) {
-			var metre = ["indiferent"];
-			for (i = 50; i <= 600; i = i + 20) {
-				metre.push(i);
-			}
-			addOptionsPrice(metreMaxMin, metre);
-		}
-
-		function addOptionsMetre( valueSelector , array) {
-			var selector = document.getElementById(valueSelector);
-			for (valor in array) {
-				var option = document.createElement("option");
-				option.value = array[valor]
-				option.text = array[valor] === "indiferent" ? "indiferent" : array[valor]+" m";
-				selector.add(option);
-			}
-		}
-
-		addOptionsMetre("metres_minim");
-		addOptionsMetre("metres_maxim");
+		carregarSuperficies("superficies_minim");
+		carregarSuperficies("superficies_maxim");
 
 	});
+
 </script>
 
 </body>

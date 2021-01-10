@@ -10,169 +10,156 @@
 							<div class="sidebar_listing_list style2 mb0">
 								<div class="sidebar_advanced_search_widget">
 									<h4 class="mb25">Buscador avançat <a class="filter_closed_btn float-right" href="#"><small>Tancar</small> <span class="flaticon-close"></span></a></h4>
-									<form method="post" action="<?php echo URLROOT; ?>/immobles/filtrar">
-										<ul class="sasw_list style2 mb0">
-											<li>
-												<div class="search_option_two">
-													<div class="candidate_revew_select">
-														<select name="operacio" id="operacio" class="buscador w100">
-															<?php foreach($data['operacions'] as $operacio) : ?>
-																<option value="<?php echo $operacio->id; ?>" <?php echo (2) == $operacio->id ? 'selected' : ''; ?> ><?php echo $operacio->nom_cat; ?></option>
-															<?php endforeach; ?>
-														</select>
-													</div>
+									<ul class="sasw_list style2 mb0">
+										<li>
+											<div class="search_option_two">
+												<div class="candidate_revew_select">
+													<select name="operacio" id="operacio" class="buscador w100">
+														<?php foreach($data['operacions'] as $operacio) : ?>
+															<option value="<?php echo $operacio->id; ?>" <?php echo (2) == $operacio->id ? 'selected' : ''; ?> ><?php echo $operacio->nom_cat; ?></option>
+														<?php endforeach; ?>
+													</select>
 												</div>
-											</li>
-											<li>
-												<div class="search_option_two">
-													<div class="candidate_revew_select">
-														<select name="categoria" id="categoria" class="buscador w100">
-															<?php foreach($data['categories'] as $categoria) : ?>
-																<option value="<?php echo $categoria->id; ?>" <?php echo (1) == $categoria->id ? 'selected' : ''; ?> ><?php echo $categoria->nom_cat; ?></option>
-															<?php endforeach; ?>
-														</select>
-													</div>
+											</div>
+										</li>
+										<li>
+											<div class="search_option_two">
+												<div class="candidate_revew_select">
+													<select name="categoria" id="categoria" class="buscador w100">
+														<?php foreach($data['categories'] as $categoria) : ?>
+															<option value="<?php echo $categoria->id; ?>" <?php echo (1) == $categoria->id ? 'selected' : ''; ?> ><?php echo $categoria->nom_cat; ?></option>
+														<?php endforeach; ?>
+													</select>
 												</div>
-											</li>
-											<li>
-												<div class="search_option_two">
-													<div class="candidate_revew_select">
-														<select name="provincia" id="provincia" class="buscador w100">
-															<?php foreach($data['provincies'] as $provincia) : ?>
-																<option value="<?php echo $provincia->id; ?>" <?php echo (8) == $provincia->id ? 'selected' : ''; ?> ><?php echo $provincia->nom_cat; ?></option>
-															<?php endforeach; ?>
-														</select>
-													</div>
+											</div>
+										</li>
+										<li>
+											<div class="search_option_two">
+												<div class="candidate_revew_select">
+													<select name="provincia" id="provincia" class="buscador w100">
+														<?php foreach($data['provincies'] as $provincia) : ?>
+															<option value="<?php echo $provincia->id; ?>" <?php echo (8) == $provincia->id ? 'selected' : ''; ?> ><?php echo $provincia->nom_cat; ?></option>
+														<?php endforeach; ?>
+													</select>
 												</div>
-											</li>
-											<li>
-												<div class="search_option_two">
-													<div class="candidate_revew_select">
-														<select name="poblacio" id="poblacio" class="buscador w100">
-															<?php foreach($data['poblacions'] as $poblacio) : ?>
-																<option value="<?php echo $poblacio->id; ?>" <?php echo (881) == $poblacio->id ? 'selected' : ''; ?> ><?php echo $poblacio->nom_cat; ?></option>
-															<?php endforeach; ?>
-														</select>
-													</div>
+											</div>
+										</li>
+										<li>
+											<div class="search_option_two">
+												<div class="candidate_revew_select">
+													<select name="poblacio" id="poblacio" class="buscador w100">
+														<?php foreach($data['poblacions'] as $poblacio) : ?>
+															<option value="<?php echo $poblacio->id; ?>" <?php echo (881) == $poblacio->id ? 'selected' : ''; ?> ><?php echo $poblacio->nom_cat; ?></option>
+														<?php endforeach; ?>
+													</select>
 												</div>
-											</li>
-											<li>
-												<div class="search_option_two">
-													<div class="candidate_revew_select">
-														<select name="preu_minim" id="preu_minim" class="buscador preu_minim w100">
-															<option></option>
-														</select>
-													</div>
+											</div>
+										</li>
+										<li>
+											<div class="search_option_two">
+												<div class="candidate_revew_select">
+													<select id="preu_minim" class="buscador preu_minim w100">
+														<option></option>
+													</select>
 												</div>
-											</li>
-											<li>
-												<div class="search_option_two">
-													<div class="candidate_revew_select">
-														<select name="preu_maxim" id="preu_maxim" class="buscador preu_maxim w100">
-															<option></option>
-														</select>
-													</div>
+											</div>
+										</li>
+										<li>
+											<div class="search_option_two">
+												<div class="candidate_revew_select">
+													<select id="preu_maxim" class="buscador preu_maxim w100">
+														<option></option>
+													</select>
 												</div>
-											</li>
-											<li>
-												<div class="search_option_two">
-													<div class="candidate_revew_select">
-														<select name="habitacions" id="habitacions" class="buscador habitacions w100">
-															<option></option>
-															<option value="Indiferent">Indiferent</option>
-															<option value="1">+ 1</option>
-															<option value="2">+ 2</option>
-															<option value="3">+ 3</option>
-															<option value="4">+ 4</option>
-														</select>
-													</div>
+											</div>
+										</li>
+										<li>
+											<div class="search_option_two">
+												<div class="candidate_revew_select">
+													<select name="habitacio" id="habitacio" class="buscador habitacio w100">
+														<option></option>
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="+">+ 4</option>
+													</select>
 												</div>
-											</li>
-											<li>
-												<div class="search_option_two">
-													<div class="candidate_revew_select">
-														<select name="banys" id="banys" class="buscador banys w100">
-															<option></option>
-															<option value="Indiferent">Indiferent</option>
-															<option value="1">+ 1</option>
-															<option value="2">+ 2</option>
-															<option value="3">+ 3</option>
-															<option value="4">+ 4</option>
-														</select>
-													</div>
+											</div>
+										</li>
+										<li>
+											<div class="search_option_two">
+												<div class="candidate_revew_select">
+													<select name="banys" id="banys" class="buscador banys w100">
+														<option></option>
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="+">+ 4</option>
+													</select>
 												</div>
-											</li>
-											<li>
-												<div class="search_option_two">
-													<div class="candidate_revew_select">
-														<select name="superficies_minim" id="superficies_minim" class="buscador superficies_minim w100">
-															<option></option>
-														</select>
-													</div>
+											</div>
+										</li>
+										<li>
+											<div class="search_option_two">
+												<div class="candidate_revew_select">
+													<select id="superficies_minim" class="buscador superficies_minim w100">
+														<option></option>
+													</select>
 												</div>
-											</li>
-											<li>
-												<div class="search_option_two">
-													<div class="candidate_revew_select">
-														<select name="superficies_maxim" id="superficies_maxim" class="buscador superficies_maxim w100">
-															<option></option>
-														</select>
-													</div>
+											</div>
+										</li>
+										<li>
+											<div class="search_option_two">
+												<div class="candidate_revew_select">
+													<select id="superficies_maxim" class="buscador superficies_maxim w100">
+														<option></option>
+													</select>
 												</div>
-											</li>
-											<li>
-												<div id="accordion" class="panel-group">
-													<div class="panel">
-														<div class="panel-heading">
-															<h4 class="panel-title">
-																<a href="#panelBodyRating" class="accordion-toggle link" data-toggle="collapse" data-parent="#accordion"><i class="flaticon-more"></i>Característiques</a>
-															</h4>
-														</div>
-														<div id="panelBodyRating" class="panel-collapse collapse">
-															<div class="panel-body row">
-																
-																<?php 
-																	if( !empty($data['caracteristiques']) ){
-																		$numberOfColumns = 2;
-																		$bootstrapColWidth = 12 / $numberOfColumns ;
-							
-																		$arrayChunks = array_chunk( $data['caracteristiques'] , 8);
-																		foreach($arrayChunks as $caracteristiques) {
-																			echo '<div class="col-sm-12 col-md-6 col-lg-'.$bootstrapColWidth.'">';
-																				echo '<ul class="ui_kit_checkbox selectable-list float-left fn-400">';
-																					foreach($caracteristiques as $caracteristica) {
-																						echo '<div class="custom-control custom-checkbox">
-																						<input type="checkbox" class="custom-control-input" id="customCheck'.$caracteristica->id .'" name="caracteristica_id[]" value="'. $caracteristica->id. '">
-																						<label class="custom-control-label" for="customCheck'. $caracteristica->id. '">'. $caracteristica->nom_cat. '</label>
-																					</div>';
-																					}
-																				echo '</ul>';
-																			echo '</div>';
-																		}
-																	}
-																?>
-
-																<!-- <ul class="ui_kit_checkbox selectable-list float-left fn-400">
+											</div>
+										</li>
+										<li>
+											<div class="search_option_two">
+												<div class="candidate_revew_select">
+													<select name="certificat" id="certificat" class="buscador certificat w100">
+														<option></option>
+														<?php foreach($data['certificats'] as $certificat) : ?>
+															<option value="<?php echo $certificat->id; ?>"><?php echo $certificat->nom_cat; ?></option>
+														<?php endforeach; ?>
+													</select>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div id="accordion" class="panel-group">
+												<div class="panel">
+													<div class="panel-heading">
+														<h4 class="panel-title">
+															<a href="#panelBodyRating" class="accordion-toggle link" data-toggle="collapse" data-parent="#accordion"><i class="flaticon-more"></i>Característiques</a>
+														</h4>
+													</div>
+													<div id="panelBodyRating" class="panel-collapse collapse">
+														<div class="panel-body row">
+															<div class="col-lg-12">
+																<ul class="ui_kit_checkbox selectable-list float-left fn-400">
 																	<?php foreach($data['caracteristiques'] as $caracteristica) : ?>
 																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck<?php echo $caracteristica->id; ?>" name="caracteristica_id[]" value="<?php echo $caracteristica->id; ?>">
-																			<label class="custom-control-label" for="customCheck<?php echo $caracteristica->id; ?>"><?php echo $caracteristica->nom_cat ?></label>
+																			<input type="checkbox" class="custom-control-input" id="customCheck1" name="caracteristica_id[]" value="<?php echo $caracteristica->id; ?>">
+																			<label class="custom-control-label" for="customCheck1"><?php echo $caracteristica->nom_cat ?></label>
 																		</div>
 																	<?php endforeach; ?>
-																</ul> -->
-
+																</ul>
 															</div>
 														</div>
 													</div>
 												</div>
-											</li>
-											<li>
-												<div class="search_option_button">
-													<button type="submit" class="btn btn-block btn-thm">Cercar</button>
-												</div>
-											</li>
-										</ul>
-									</form>
+											</div>
+										</li>
+										<li>
+											<div class="search_option_button">
+												<button type="submit" class="btn btn-block btn-thm">Cercar</button>
+											</div>
+										</li>
+									</ul>
 								</div>
 							</div>
 						</div>
@@ -201,9 +188,9 @@
 				<div class="col-lg-12">
 					<div class="row">
 						<div class="grid_list_search_result style2">
-							<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+							<div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
 								<div class="left_area">
-									<p><?php echo (sizeof($data['immobles']) == 0) ? "<h4>No s'ha trobat cap resultat</h4>" : '<h4>'.sizeof($data['immobles']). ' resultat/s </h4>'  ?> </p>
+									<p><?php echo sizeof($data['immobles']) ?> resultat/s</p>
 								</div>
 							</div>
 						</div>

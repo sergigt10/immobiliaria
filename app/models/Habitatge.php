@@ -134,6 +134,45 @@
     }
 
     // Get total immobles
+    public function getImmoblesFiltrar($idOperacio, $idCategoria, $idPoblacio, $preuMinim, $preuMaxim, $numHabitacions, $numBanys, $superficieMinima, $superficieMaxima){
+      $this->db->query('SELECT immoble.id as id_immoble, immoble.titol_cat, immoble.titol_esp, immoble.titol_eng, immoble.referencia, immoble.imatge_1, immoble.imatge_2, immoble.imatge_3, immoble.preu, immoble.habitacio, immoble.banys, immoble.tamany, immoble.activat, immoble.caracteristica_id, operacio.nom_cat AS operacio_cat, operacio.nom_esp AS operacio_esp, operacio.nom_eng AS operacio_eng, categoria.nom_cat AS categoria_cat, categoria.nom_esp AS categoria_esp, categoria.nom_eng AS categoria_eng, poblacio.nom_cat AS poblacio, provincia.nom_cat AS provincia, usuari.id as id_usuari, usuari.empresa, usuari.logo
+      FROM immoble
+      INNER JOIN poblacio
+          ON immoble.poblacio_id = poblacio.id
+      INNER JOIN provincia
+          ON poblacio.provincia_id = provincia.id
+      INNER JOIN operacio
+          ON immoble.operacio_id = operacio.id
+      INNER JOIN categoria
+          ON immoble.categoria_id = categoria.id
+      INNER JOIN usuari
+          ON immoble.usuari_id = usuari.id
+      WHERE immoble.operacio_id = :idOperacio && 
+            immoble.categoria_id = :idCategoria && 
+            immoble.poblacio_id = :idPoblacio &&
+            immoble.preu BETWEEN :preuMinim AND :preuMaxim &&
+            immoble.habitacio >= :numHabitacions &&
+            immoble.banys >= :numBanys &&
+            immoble.tamany BETWEEN :superficieMinima AND :superficieMaxima && 
+            immoble.activat = 1
+      ORDER BY immoble.id DESC');
+
+      $this->db->bind(':idOperacio', $idOperacio);
+      $this->db->bind(':idCategoria', $idCategoria);
+      $this->db->bind(':idPoblacio', $idPoblacio);
+      $this->db->bind(':preuMinim', $preuMinim);
+      $this->db->bind(':preuMaxim', $preuMaxim);
+      $this->db->bind(':numHabitacions', $numHabitacions);
+      $this->db->bind(':numBanys', $numBanys);
+      $this->db->bind(':superficieMinima', $superficieMinima);
+      $this->db->bind(':superficieMaxima', $superficieMaxima);
+
+      $results = $this->db->resultSet();
+
+      return $results;
+    }
+
+    // Get total immobles
     public function getTotalImmobles(){
       $this->db->query('SELECT COUNT(*) AS total FROM immoble WHERE activat = 1');
       $row = $this->db->single();

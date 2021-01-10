@@ -65,40 +65,32 @@
                     </li>
                     
                     <li>
-                        <a href="#"><span class="title">VENDA</span></a>
+                        <a href="#"><span class="title">COMPRAR</span></a>
                         <ul>
-                            <li><a href="page-blog-v1.html">PISOS</a></li>
-                            <li><a href="page-blog-grid.html">CASES</a></li>
-                            <li><a href="page-blog-single.html">CHALETS</a></li>
-                            <li><a href="page-blog-single.html">LOCALS</a></li>
-                            <li><a href="page-blog-single.html">GARATGES</a></li>
-                            <li><a href="page-blog-single.html">TARRENYS</a></li>
-                        </ul>
-                    </li>
-                    
-                        <li>
-                        <a href="#"><span class="title">COMPRA </span></a>
-                        <ul>
-                            <li><a href="page-blog-v1.html">PISOS</a></li>
-                            <li><a href="page-blog-grid.html">CASES</a></li>
-                            <li><a href="page-blog-single.html">CHALETS</a></li>
-                            <li><a href="page-blog-single.html">LOCALS</a></li>
-                            <li><a href="page-blog-single.html">GARATGES</a></li>
-                            <li><a href="page-blog-single.html">TARRENYS</a></li>
-                        </ul>
+                            <?php foreach ($data['categories'] as $categoria) : ?>
+                                <li><a href="<?php echo URLROOT; ?>/immoble/operacio/comprar/<?php echo mb_strtolower($categoria->nom_cat) ?>"><?php echo mb_strtoupper($categoria->nom_cat) ?></a></li>
+                            <?php endforeach; ?>
+                        </ul>           
                     </li>
                     
                     <li>
-                        <a href="#"><span class="title">LLOGUER </span></a>
+                        <a href="#"><span class="title">LLOGUER</span></a>
                         <ul>
-                            <li><a href="page-blog-v1.html">PISOS</a></li>
-                            <li><a href="page-blog-grid.html">CASES</a></li>
-                            <li><a href="page-blog-single.html">CHALETS</a></li>
-                            <li><a href="page-blog-single.html">LOCALS</a></li>
-                            <li><a href="page-blog-single.html">GARATGES</a></li>
-                            <li><a href="page-blog-single.html">TARRENYS</a></li>
+                            <?php foreach ($data['categories'] as $categoria) : ?>
+                                <li><a href="<?php echo URLROOT; ?>/immoble/operacio/lloguer/<?php echo mb_strtolower($categoria->nom_cat) ?>"><?php echo mb_strtoupper($categoria->nom_cat) ?></a></li>
+                            <?php endforeach; ?>
                         </ul>
                     </li>
+
+                    <li>
+                        <a href="#"><span class="title">OBRA NOVA</span></a>
+                        <ul>
+                            <?php foreach ($data['categories'] as $categoria) : ?>
+                                <li><a href="<?php echo URLROOT; ?>/immoble/operacio/obra-nova/<?php echo mb_strtolower($categoria->nom_cat) ?>"><?php echo mb_strtoupper($categoria->nom_cat) ?></a></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </li>
+
                     <li class="last">
                         <a href="page-contact.html"><span class="title">UNEIX-TE</span></a>
                     </li>

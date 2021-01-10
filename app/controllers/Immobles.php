@@ -8,6 +8,8 @@
       $this->poblacioModel = $this->model('Poblacio');
       $this->certificatModel = $this->model('Certificat');
       $this->immobleModel = $this->model('Habitatge');
+
+      $this->categories = $this->categoriaModel->getCategories();
     }
 
     public function index(){
@@ -31,14 +33,13 @@
 
       } else {
         $operacions = $this->operacioModel->getOperacions();
-        $categories = $this->categoriaModel->getCategories();
         $provincies = $this->provinciaModel->getProvincies();
         $poblacions = $this->poblacioModel->getPoblacionsWithProvinciaId(8);
         $immoblesPortada = $this->immobleModel->getInfoImmoblesPortada();
 
         $data = [
           'operacions' => $operacions,
-          'categories' => $categories,
+          'categories' => $this->categories,
           'provincies' => $provincies,
           'poblacions' => $poblacions,
           'immoblesPortada' => $immoblesPortada
@@ -78,19 +79,16 @@
         $immobles = $this->immobleModel->getImmoblesCercar($data['operacio'], $data['categoria'], $data['poblacio']);
 
         $operacions = $this->operacioModel->getOperacions();
-        $categories = $this->categoriaModel->getCategories();
         $provincies = $this->provinciaModel->getProvincies();
         $poblacions = $this->poblacioModel->getPoblacionsWithProvinciaId(8);
-        $certificats = $this->certificatModel->getCertificats();
         $caracteristiques = $this->caracteristicaModel->getCaracteristiques();
 
         $data = [
           'immobles' => $immobles,
           'operacions' => $operacions,
-          'categories' => $categories,
+          'categories' => $this->categories,
           'provincies' => $provincies,
           'poblacions' => $poblacions,
-          'certificats' => $certificats,
           'caracteristiques' => $caracteristiques
         ];
 
@@ -100,11 +98,70 @@
         $this->view('immobles/error');
       }
     }
+
+    public function filtrar(){
+      // Problems about expired document
+      header('Cache-Control: max-age=900');
+      // Check for POST
+      if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+        $data = [
+          'operacio' => !empty(trim($_POST['operacio'])) && is_numeric($_POST['operacio']) ? intval(trim($_POST['operacio'])) : 3, // Lloguer
+          'categoria' => !empty(trim($_POST['categoria'])) && is_numeric($_POST['categoria']) ? intval(trim($_POST['categoria'])) : 1, // Pis
+          'poblacio' => !empty(trim($_POST['poblacio'])) && is_numeric($_POST['poblacio']) ? intval(trim($_POST['poblacio'])) : 1158, // Població
+          'preu_minim' => !empty(trim($_POST['preu_minim'])) && trim($_POST['preu_minim']) !== 'Indiferent' && is_numeric($_POST['preu_minim']) ? intval(trim($_POST['preu_minim'])) : 0,
+          'preu_maxim' => !empty(trim($_POST['preu_maxim'])) && trim($_POST['preu_maxim']) !== 'Indiferent' && is_numeric($_POST['preu_maxim']) ? intval(trim($_POST['preu_maxim'])) : 4000000,
+          'habitacions' => !empty(trim($_POST['habitacions'])) && trim($_POST['habitacions']) !== 'Indiferent' && is_numeric($_POST['habitacions']) ? intval(trim($_POST['habitacions'])) : 0,
+          'banys' => !empty(trim($_POST['banys'])) && trim($_POST['banys']) !== 'Indiferent' && is_numeric($_POST['banys']) ? intval(trim($_POST['banys'])) : 0,
+          'superficies_minim' => !empty(trim($_POST['superficies_minim'])) && trim($_POST['superficies_minim']) !== 'Indiferent' && is_numeric($_POST['superficies_minim']) ? intval(trim($_POST['superficies_minim'])) : 0,
+          'superficies_maxim' => !empty(trim($_POST['superficies_maxim'])) && trim($_POST['superficies_maxim']) !== 'Indiferent' && is_numeric($_POST['superficies_maxim']) ? intval(trim($_POST['superficies_maxim'])) : 600,
+          'caracteristica_id' => !isset($_POST['caracteristica_id']) ? '[""]' : json_encode($_POST['caracteristica_id']),
+        ];
+
+        $immoblesFirst = $this->immobleModel->getImmoblesFiltrar($data['operacio'], $data['categoria'], $data['poblacio'], $data['preu_minim'], $data['preu_maxim'], $data['habitacions'], $data['banys'], $data['superficies_minim'], $data['superficies_maxim']);
+
+        if ( $data['caracteristica_id'] !== '[""]' ) {
+          $caracteristiquesFiltrar = json_decode($data['caracteristica_id']);
+
+          foreach ($immoblesFirst as $immoble) {
+            // $containsSearch = count(array_intersect($caracteristiques, $var)) == count($caracteristiques);
+            $caracteristiquesImmoble = json_decode($immoble->caracteristica_id);
+            if(!array_diff($caracteristiquesFiltrar, $caracteristiquesImmoble)) {
+              $immobles[] = $immoble;
+            }
+          }
+        } else {
+          $immobles = $immoblesFirst;
+        }
+
+        $operacions = $this->operacioModel->getOperacions();
+        $provincies = $this->provinciaModel->getProvincies();
+        $poblacions = $this->poblacioModel->getPoblacionsWithProvinciaId(8);
+        $caracteristiques = $this->caracteristicaModel->getCaracteristiques();
+
+        $data = [
+          'immobles' => $immobles,
+          'operacions' => $operacions,
+          'categories' => $this->categories,
+          'provincies' => $provincies,
+          'poblacions' => $poblacions,
+          'caracteristiques' => $caracteristiques
+        ];
+
+        $this->view('immobles/cercar', $data);
+
+      } else {
+        $data = [
+          'categories' => $this->categories
+        ];
+        $this->view('immobles/error', $data);
+      }
+    }
     
     public function detall($id){
 
       $operacions = $this->operacioModel->getOperacions();
-      $categories = $this->categoriaModel->getCategories();
       $caracteristiques = $this->caracteristicaModel->getCaracteristiques();
       $immobles = $this->immobleModel->getImmobleDetallById($id);
 
@@ -112,7 +169,7 @@
 
       $data = [
         'operacions' => $operacions,
-        'categories' => $categories,
+        'categories' => $this->categories,
         'recomendeds' => $recomendeds,
         'titol_cat' => $immobles->titol_cat,
         'titol_esp' => $immobles->titol_esp,
@@ -162,8 +219,28 @@
 
     }
 
+    public function operacio($operacio, $categoria) {
+
+      // Problems about expired document
+      header('Cache-Control: max-age=900');
+      // Check for POST
+      if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+
+      } else {
+        $data = [
+          'categories' => $this->categories
+        ];
+        $this->view('immobles/error', $data);
+      }
+
+    }
+
     public function error() {
-      $this->view('immobles/error');
+      $data = [
+        'categories' => $this->categories
+      ];
+      $this->view('immobles/error', $data);
     }
 
   }
