@@ -26,7 +26,7 @@
                     <div class="row">
                         <?php foreach($data['usuaris'] as $usuari) : ?>
                             <div class="col-md-4 col-lg-4">
-                                <div class="feat_property home7 agency">
+                                <div class="feat_property home7 agency" onclick="javascript:location.href='<?php echo URLROOT; ?>/immobiliaries/immobles/<?php echo $usuari->id?>'">
                                     <div class="thumb">
                                         <?php if( !empty($usuari->logo) && file_exists( '../../admin-web/public/images/img-xarxa/usuari/'.$usuari->logo ) ){ ?>
 										<img class="img-fluid" src="<?php echo URLROOT; ?>/public/images/img-xarxa/usuari/thumb_img/thumb.php?src=../<?php echo $usuari->logo ?>&size=338x201&crop=0&trim=1" alt="<?php echo $usuari->empresa ?>">
@@ -39,11 +39,11 @@
                                             <h4><?php echo $usuari->empresa ?></h4>
                                             <p class="text-thm"><?php echo $usuari->nom_cognoms ?></p>
                                             <ul class="prop_details mb0">
-                                                <li><a href="#"><?php echo $usuari->direccio ?></a></li>
-                                                <li><a href="#"><?php echo $usuari->poblacio ?> - <?php echo $usuari->codi_postal ?></a></li>
-                                                <li><a href="#"><?php echo $usuari->telefon ?></a></li>
-                                                <li><a href="#"><?php echo $usuari->email ?></a></li>
-                                                <li><a href="#"><?php echo $usuari->web ?></a></li>
+                                                <li><a href="<?php echo URLROOT; ?>/immobiliaries/immobles/<?php echo $usuari->id?>"><?php echo $usuari->direccio ?></a></li>
+                                                <li><a href="<?php echo URLROOT; ?>/immobiliaries/immobles/<?php echo $usuari->id?>"><?php echo $usuari->poblacio ?> - <?php echo $usuari->codi_postal ?></a></li>
+                                                <li><a href="<?php echo URLROOT; ?>/immobiliaries/immobles/<?php echo $usuari->id?>"><?php echo $usuari->telefon ?></a></li>
+                                                <li><a href="<?php echo URLROOT; ?>/immobiliaries/immobles/<?php echo $usuari->id?>"><?php echo $usuari->email ?></a></li>
+                                                <li><a href="<?php echo URLROOT; ?>/immobiliaries/immobles/<?php echo $usuari->id?>"><?php echo $usuari->web ?></a></li>
                                             </ul>
                                         </div>
                                         <div class="fp_footer">

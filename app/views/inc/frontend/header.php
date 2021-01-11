@@ -60,7 +60,7 @@
                         <a href="#"><span class="title">QUI SOM</span></a>
                     </li>
                     <li>
-                        <a href="/immobiliaries/llista"><span class="title">AFILIATS</span></a>
+                        <a href="<?php echo URLROOT; ?>/immobiliaries/llista"><span class="title">AFILIATS</span></a>
                         <!-- Level Two-->
                     </li>
                     

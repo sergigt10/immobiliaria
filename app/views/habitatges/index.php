@@ -33,17 +33,17 @@
                   <tbody>
                     <?php foreach($data['immobles'] as $immoble) : ?>
                     <tr>
-                        <td><a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->titol_esp; ?></a></td>
-                        <td><a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->referencia; ?></a></td>
-                        <td><a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->categoria; ?></a></td>
-                        <td><a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->operacio; ?></a></td>
-                        <td><a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->poblacio; ?></a></td>
+                        <td><a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id_immoble; ?>" style="color: black;"><?php echo $immoble->titol_esp; ?></a></td>
+                        <td><a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id_immoble; ?>" style="color: black;"><?php echo $immoble->referencia; ?></a></td>
+                        <td><a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id_immoble; ?>" style="color: black;"><?php echo $immoble->categoria; ?></a></td>
+                        <td><a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id_immoble; ?>" style="color: black;"><?php echo $immoble->operacio; ?></a></td>
+                        <td><a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id_immoble; ?>" style="color: black;"><?php echo $immoble->poblacio; ?></a></td>
                         <?php if (isLoggedInAndAdmin()) { ?>
-                          <td><a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id; ?>" style="color: black;"><?php echo $immoble->usuari; ?> - <?php echo $immoble->usuariNom; ?></a></td>
+                          <td><a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id_immoble; ?>" style="color: black;"><?php echo $immoble->usuari_empresa; ?> - <?php echo $immoble->usuari_nom; ?></a></td>
                         <?php } ?>
                         <?php if (isLoggedInAndAdmin()) { ?>
                           <td>
-                            <a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id; ?>" style="color: black;">
+                            <a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id_immoble; ?>" style="color: black;">
                               <?php if($immoble->portada == 1) { ?>
                                 <i class="mdi mdi-check"></i>
                               <?php } else { ?>
@@ -53,7 +53,7 @@
                           </td>
                         <?php } ?>
                         <td>
-                          <a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id; ?>" style="color: black;">
+                          <a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id_immoble; ?>" style="color: black;">
                             <?php if($immoble->activat == 1) { ?>
                               <i class="mdi mdi-check"></i>
                             <?php } else { ?>
@@ -61,10 +61,10 @@
                             <?php } ?>
                           </a>
                         </td>
-                        <td><a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id; ?>" style="color: black;"><i class="mdi mdi-pencil menu-icon"></i></a></td>
-                        <td><a href="" style="color: black;" data-toggle="modal" data-target="#exampleModalCenter<?php echo $immoble->id ?>"><i class="mdi mdi-close-circle menu-icon"></i></a></td>
+                        <td><a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id_immoble; ?>" style="color: black;"><i class="mdi mdi-pencil menu-icon"></i></a></td>
+                        <td><a href="" style="color: black;" data-toggle="modal" data-target="#exampleModalCenter<?php echo $immoble->id_immoble ?>"><i class="mdi mdi-close-circle menu-icon"></i></a></td>
                     </tr>
-                    <div class="modal fade" id="exampleModalCenter<?php echo $immoble->id?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal fade" id="exampleModalCenter<?php echo $immoble->id_immoble?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -77,7 +77,7 @@
                             Segur que vols esborrar: <?php echo $immoble->titol_esp; ?>
                           </div>
                           <div class="modal-footer">
-                            <form class="pull-right" action="<?php echo URLROOT; ?>/habitatges/delete/<?php echo $immoble->id ?>" method="post">
+                            <form class="pull-right" action="<?php echo URLROOT; ?>/habitatges/delete/<?php echo $immoble->id_immoble ?>" method="post">
                               <input type="submit" value="Esborrar" class="btn btn-danger">
                             </form>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel·lar</button>

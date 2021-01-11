@@ -535,7 +535,7 @@
             autoplayHoverPause:true,
             autoplay: true,
             singleItem: true,
-            smartSpeed: 1200,
+            smartSpeed: 4200,
             navText: [
               '<i class="flaticon-left-arrow"></i>',
               '<i class="flaticon-right-arrow"></i>'

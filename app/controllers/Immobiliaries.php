@@ -17,7 +17,7 @@
             $usuaris = $this->usuariModel->getUsuaris();
 
             $data=[
-                'operacions' => $operacions,
+                'categories' => $this->categories,
                 'usuaris' => $usuaris
             ];
 
@@ -27,21 +27,28 @@
 
         public function immobles($id){
 
-            $immobles = $this->usuariModel->getUsuaris();
+            $immobles = $this->immobleModel->getImmoblesByUsuari($id);
 
             // Pasar el nom de l'empresa
-            $empresa = $this->usuariModel->getUsuariById($id);
+            $empresaCercada = $this->usuariModel->getUsuariById($id);
+
+            $operacions = $this->operacioModel->getOperacions();
+            $provincies = $this->provinciaModel->getProvincies();
+            $poblacions = $this->poblacioModel->getPoblacionsWithProvinciaId(8);
+            $caracteristiques = $this->caracteristicaModel->getCaracteristiques();
 
             $data=[
+                'operacions' => $operacions,
                 'categories' => $this->categories,
                 'provincies' => $provincies,
                 'poblacions' => $poblacions,
                 'caracteristiques' => $caracteristiques,
-                'empresa' => $empresa,
+                'empresaCercada' => $empresaCercada->empresa,
+                'descripcioEmpresa' => $empresaCercada->descripcio_cat,
                 'immobles' => $immobles
             ];
 
-            $this->view('immobiliaries/cercar',$data);
+            $this->view('immobles/cercar',$data);
 
         }
 }

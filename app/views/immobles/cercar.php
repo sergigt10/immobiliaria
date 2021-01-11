@@ -187,7 +187,8 @@
 							<li class="breadcrumb-item active text-thm" aria-current="page">Immobles</li>
 						</ol>
 						<h3 class="breadcrumb_title"> Resultats de la cerca </h3>
-						<h4><?php echo isset($data['operacioCercada']) ? $data['operacioCercada'] : '' ?><?php echo isset($data['categoriaCercada']) ? ", ". $data['categoriaCercada'] : '' ?><?php echo isset($data['poblacioCercada']) ? ", ". $data['poblacioCercada'] : '' ?></h4>
+						<h4><?php echo isset($data['operacioCercada']) ? $data['operacioCercada'] : '' ?><?php echo isset($data['categoriaCercada']) ? ", ". $data['categoriaCercada'] : '' ?><?php echo isset($data['poblacioCercada']) ? ", ". $data['poblacioCercada'] : '' ?><?php echo isset($data['empresaCercada']) ? " ". $data['empresaCercada'] : '' ?></h4>
+						<?php echo isset($data['descripcioEmpresa']) ? $data['descripcioEmpresa'] : '' ?>
 					</div>
 				</div>
 				<div class="col-md-4 col-lg-6">
