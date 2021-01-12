@@ -30,6 +30,15 @@
       return $results;
     }
 
+    // Get all usuaris
+    public function getUsuarisActivats(){
+      $this->db->query('SELECT * FROM usuari WHERE activat = 1');
+      // Bind value
+      $results = $this->db->resultSet();
+
+      return $results;
+    }
+
     // Find usuari by username
     public function findUsuariByUsername($username){
       $this->db->query('SELECT * FROM usuari WHERE email = :nom_usuari');
@@ -60,6 +69,18 @@
       } else {
         return false;
       }
+    }
+
+    // Is activate by id
+    public function getIsActivateByIdFrontend($id){
+      $this->db->query('SELECT * FROM usuari WHERE id = :id && activat = 1');
+      // Bind value
+      $this->db->bind(':id', $id);
+
+      $row = $this->db->single();
+
+      return $row;
+
     }
 
     // Get usuari by id

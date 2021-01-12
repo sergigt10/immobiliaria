@@ -14,7 +14,7 @@
 
         public function llista(){
 
-            $usuaris = $this->usuariModel->getUsuaris();
+            $usuaris = $this->usuariModel->getUsuarisActivats();
 
             $data=[
                 'categories' => $this->categories,
@@ -27,10 +27,10 @@
 
         public function immobles($id){
 
-            $immobles = $this->immobleModel->getImmoblesByUsuari($id);
+            $immobles = $this->immobleModel->getImmoblesActivatByUsuari($id);
 
             // Pasar el nom de l'empresa
-            $empresaCercada = $this->usuariModel->getUsuariById($id);
+            $empresaCercada = $this->usuariModel->getIsActivateByIdFrontend($id);
 
             $operacions = $this->operacioModel->getOperacions();
             $provincies = $this->provinciaModel->getProvincies();

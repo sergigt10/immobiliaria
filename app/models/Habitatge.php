@@ -82,6 +82,29 @@
       return $results;
     }
 
+    // Get immobles by user
+    public function getImmoblesActivatByUsuari($id){
+      $this->db->query('SELECT immoble.id as id_immoble, immoble.titol_cat, immoble.titol_esp, immoble.titol_eng, immoble.referencia, immoble.imatge_1, immoble.imatge_2, immoble.imatge_3, immoble.preu, immoble.habitacio, immoble.banys, immoble.tamany, immoble.portada, immoble.activat, operacio.nom_cat AS operacio_cat, operacio.nom_esp AS operacio_esp, operacio.nom_eng AS operacio_eng, categoria.nom_cat AS categoria_cat, categoria.nom_esp AS categoria_esp, categoria.nom_eng AS categoria_eng, poblacio.nom_cat AS poblacio, provincia.nom_cat AS provincia, usuari.id as id_usuari, usuari.empresa, usuari.logo
+      FROM immoble
+      INNER JOIN poblacio
+          ON immoble.poblacio_id = poblacio.id
+      INNER JOIN provincia
+          ON poblacio.provincia_id = provincia.id
+      INNER JOIN operacio
+          ON immoble.operacio_id = operacio.id
+      INNER JOIN categoria
+          ON immoble.categoria_id = categoria.id
+      INNER JOIN usuari
+          ON immoble.usuari_id = usuari.id
+      WHERE immoble.usuari_id = :id && immoble.activat = 1
+      ORDER BY immoble.id DESC');
+      $this->db->bind(':id', $id);
+      // Devuelve más de una fila
+      $results = $this->db->resultSet();
+
+      return $results;
+    }
+
     // Get immobles portada
     public function getTotalImmoblesPortada(){
       $this->db->query('SELECT COUNT(id) AS total_portada FROM immoble WHERE portada = 1');

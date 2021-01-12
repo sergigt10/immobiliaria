@@ -205,7 +205,7 @@
 						<div class="grid_list_search_result style2">
 							<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
 								<div class="left_area">
-									<p><?php echo (sizeof($data['immobles']) == 0) ? "<h4>No s'ha trobat cap resultat</h4>" : '<h4>'.sizeof($data['immobles']). ' resultat/s </h4>'  ?> </p>
+									<p><?php echo (sizeof($data['immobles']) == 0) ? "<h5>No s'ha trobat cap resultat</h5>" : '<h5>'.sizeof($data['immobles']). ' resultat/s </h5>'  ?> </p>
 								</div>
 							</div>
 						</div>
