@@ -14,6 +14,7 @@
                 <?php echo (!empty($data['contrasenya_err'])) ? '<div class="alert alert-danger" role="alert">'.$data['contrasenya_err'].'</div>' : ''; ?>
                 <?php echo (!empty($data['confirm_password_err'])) ? '<div class="alert alert-danger" role="alert">'.$data['confirm_password_err'].'</div>' : ''; ?>
                 <?php echo (!empty($data['nom_cognoms_err'])) ? '<div class="alert alert-danger" role="alert">'.$data['nom_cognoms_err'].'</div>' : ''; ?>
+                <?php echo (!empty($data['empresa_err'])) ? '<div class="alert alert-danger" role="alert">'.$data['empresa_err'].'</div>' : ''; ?>
                 
                 <div class="form-group">
                   <label for="exampleInputEmail3">Correu electrònic *:</label>
@@ -40,7 +41,7 @@
                   </div>
 
                   <div class="form-group col-md-6">
-                    <label for="exampleInputEmail3">Empresa:</label>
+                    <label for="exampleInputEmail3">Empresa *:</label>
                     <input name="empresa" type="text" class="form-control" id="exampleInputEmail3" placeholder="Empresa" value="<?php echo $data['empresa']; ?>">
                   </div>
                 </div>

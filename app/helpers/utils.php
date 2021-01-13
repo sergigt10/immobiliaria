@@ -20,3 +20,14 @@
     $url = preg_replace ($find, $repl, $url);
     return $url;
   }
+
+  function limitar_cadena($cadena, $limite, $sufijo){
+    // Si la longitud es mayor que el límite...
+    if(strlen($cadena) > $limite){
+      // Entonces corta la cadena y ponle el sufijo
+      return mb_substr(trim($cadena), 0, $limite) . $sufijo;
+    }
+    
+    // Si no, entonces devuelve la cadena normal
+    return $cadena;
+  }

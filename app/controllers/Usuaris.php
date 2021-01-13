@@ -126,8 +126,9 @@
           'activat' => trim($_POST['activat']),
           'email_err' => '',
           'contrasenya_err' => '',
+          'confirm_password_err' => '',
           'nom_cognoms_err' => '',
-          'confirm_password_err' => ''
+          'empresa_err' => ''
         ];
 
         // Validate Email
@@ -161,8 +162,12 @@
           $data['nom_cognoms_err'] = 'Introduïu un nom i cognom';
         }
 
+        if(empty($data['empresa'])){
+          $data['empresa_err'] = 'Introduïu el nom d\'empresa';
+        }
+
         // Make sure errors are empty
-        if(empty($data['email_err']) && empty($data['nom_cognoms_err']) && empty($data['contrasenya_err']) && empty($data['confirm_password_err'])){
+        if(empty($data['email_err']) && empty($data['nom_cognoms_err']) && empty($data['empresa_err']) && empty($data['contrasenya_err']) && empty($data['confirm_password_err'])){
           // Validated
           
           // Pujada d'imatges
@@ -263,10 +268,7 @@
           'logo' => '',
           'max_immobles' => '',
           'max_fotos' => '',
-          'activat' => '',
-          'email_err' => '',
-          'contrasenya_err' => '',
-          'confirm_password_err' => ''
+          'activat' => ''
         ];
 
         // Load view
@@ -312,8 +314,9 @@
           'activat' => (isLoggedInAndAdmin()) ? trim($_POST['activat']) : $usuari->activat,
           'email_err' => '',
           'contrasenya_err' => '',
+          'confirm_password_err' => '',
           'nom_cognoms_err' => '',
-          'confirm_password_err' => ''
+          'empresa_err' => ''
         ];
 
         $del_img1 = (!empty($_POST["del_img1"])) ? '1' : '0';
@@ -352,8 +355,13 @@
           $data['nom_cognoms_err'] = 'Introduïu un nom i cognom';
         }
 
+        // Validate Name
+        if(empty($data['empresa'])){
+          $data['empresa_err'] = 'Introduïu un nom d\'empresa';
+        }
+
         // Make sure errors are empty
-        if(empty($data['email_err']) && empty($data['nom_cognoms_err']) && empty($data['contrasenya_err']) && empty($data['confirm_password_err'])){
+        if(empty($data['email_err']) && empty($data['nom_cognoms_err']) && empty($data['empresa_err']) && empty($data['contrasenya_err']) && empty($data['confirm_password_err'])){
 
           // Eliminar imatges
           if($del_img1 == "1"){

@@ -33,7 +33,7 @@
                   <tbody>
                     <?php foreach($data['immobles'] as $immoble) : ?>
                     <tr>
-                        <td><a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id_immoble; ?>" style="color: black;"><?php echo $immoble->titol_esp; ?></a></td>
+                        <td><a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id_immoble; ?>" style="color: black;"><?php echo limitar_cadena($immoble->titol_esp, 60, "..."); ?></a></td>
                         <td><a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id_immoble; ?>" style="color: black;"><?php echo $immoble->referencia; ?></a></td>
                         <td><a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id_immoble; ?>" style="color: black;"><?php echo $immoble->categoria; ?></a></td>
                         <td><a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id_immoble; ?>" style="color: black;"><?php echo $immoble->operacio; ?></a></td>

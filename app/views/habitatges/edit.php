@@ -58,7 +58,7 @@
                       </div>
                       <input type="number" name="preu" min="0" class="form-control" placeholder="Preu" aria-label="Preu" aria-describedby="basic-addon1" value="<?php echo $data['preu']; ?>">
                     </div>
-                    <h5 style="color:red">No s'ha d'afegir el simbol €. Si el camp no s'omple, per defecte és 0.</h5>
+                    <h5 style="color:red"><u>No s'ha d'afegir decimals, tampoc el símbol €.</u> Si el camp no s'omple, per defecte és 0.</h5>
                   </div>
 
                   <div class="form-group col-md-3">
@@ -76,7 +76,7 @@
                       </div>
                       <input type="number" name="tamany" min="0" step="any" class="form-control" placeholder="Tamany" aria-label="Tamany" aria-describedby="basic-addon1" value="<?php echo $data['tamany']; ?>">
                     </div>
-                    <h5 style="color:red">No s'ha d'afegir el simbol m². Si el camp no s'omple, per defecte és 0.</h5>
+                    <h5 style="color:red">No s'ha d'afegir el símbol m². Si el camp no s'omple, per defecte és 0.</h5>
                   </div>
 
                   <div class="form-group col-md-3">
@@ -127,14 +127,28 @@
 
                 <div class="form-group">
                   <label for="exampleInputName1">Característiques:</label><br>
-                  <?php foreach($data['caracteristiques'] as $caracteristica) : ?>
-                    <div class="form-check">
-                      <label class="form-check-label">
-                        <input class="checkbox" type="checkbox" <?php echo ( !empty(json_decode($data['caracteristica_id'])) && in_array( $caracteristica->id, json_decode($data['caracteristica_id'])) ) ? 'checked' : '' ?> name="caracteristica_id[]" value="<?php echo $caracteristica->id; ?>">
-                        <?php echo $caracteristica->nom_cat; ?>
-                      </label>
-                    </div>
-                  <?php endforeach; ?>
+                  <div class="row">
+                    <?php
+                      $numberOfColumns = 4;
+                      $bootstrapColWidth = 12 / $numberOfColumns ;
+                      $arrayChunks = array_chunk($data['caracteristiques'], 10);
+
+                      foreach($arrayChunks as $caracteristiques) {
+                        echo '<div class="col-sm-12 col-md-12 col-lg-'.$bootstrapColWidth.'">';
+                        foreach($caracteristiques as $caracteristica) {
+                    ?>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="checkbox" type="checkbox" <?php echo ( !empty(json_decode($data['caracteristica_id'])) && in_array( $caracteristica->id, json_decode($data['caracteristica_id'])) ) ? 'checked' : '' ?> name="caracteristica_id[]" value="<?php echo $caracteristica->id; ?>">
+                              <?php echo $caracteristica->nom_cat; ?>
+                            </label>
+                          </div>
+                    <?php
+                        }
+                        echo '</div>';
+                      }
+                    ?>
+                  </div>
                 </div>
 
                 <div class="row grid-margin">
