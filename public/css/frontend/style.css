@@ -206,19 +206,19 @@ iframe {
   border: none; }
 
 ::selection {
-  background: #222222;
+  background:#3e4c66;
   color: #ffffff;
   text-shadow: none; }
 
 ::-moz-selection {
   /* Firefox */
-  background: #222222;
+  background: #3e4c66;
   color: #ffffff;
   text-shadow: none; }
 
 ::-webkit-selection {
   /* Safari */
-  background: #222222;
+  background: #3e4c66;
   color: #ffffff;
   text-shadow: none; }
 
@@ -1322,6 +1322,7 @@ header.header-nav.menu_style_home_one .ace-responsive-menu li ul.sub-menu li ul.
   color: #3e4c66;
   padding-left: 20px;
   box-shadow: none !important;
+  font-weight: bold;
 }
 header.header-nav.menu_style_home_one ul.sign_up_btn{
   margin-right: 35px;
@@ -1391,8 +1392,11 @@ header.header-nav.menu_style_home_one.style2.home10 .ace-responsive-menu > li > 
 header.header-nav.menu_style_home_one.style2 .ace-responsive-menu li a{
   font-size: 16px;
   font-family: "Nunito";
-  color: #484848;
+  color: #3e4c66;
   line-height: 1.2;
+}
+header.header-nav.menu_style_home_one.style2 .ace-responsive-menu li a:hover{
+  color: #777777;
 }
 header.header-nav.menu_style_home_one.style2 ul.ace-responsive-menu li.list_s{
   position: relative;

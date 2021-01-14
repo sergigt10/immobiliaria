@@ -2,12 +2,16 @@
     <section class="about-section">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-6 offset-lg-3">
-					<div class="main-title text-center">
-						<h2 class="mt0">Qui som?</h2>
-					</div>
-				</div>
-			</div>
+                <div class="col-lg-6">
+                    <div class="breadcrumb_content style2 mb0-991">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="<?php echo URLROOT; ?>/immobles/index">Inici</a></li>
+                            <li class="breadcrumb-item active text-thm" aria-current="page">Qui som</li>
+                        </ol>
+                        <h3 class="breadcrumb_title">Qui som</h3>
+                    </div>
+                </div>
+            </div>
 			<div class="row">
 				<div class="col-lg-8 col-xl-7">
 					<div class="about_content">

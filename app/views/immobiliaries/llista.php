@@ -6,9 +6,9 @@
                     <div class="breadcrumb_content style2 mb0-991">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo URLROOT; ?>/immobles/index">Inici</a></li>
-                            <li class="breadcrumb-item active text-thm" aria-current="page">Detall</li>
+                            <li class="breadcrumb-item active text-thm" aria-current="page">Llistat d'afiliats</li>
                         </ol>
-                        <h2 class="breadcrumb_title">Els nostres afiliats</h2>
+                        <h3 class="breadcrumb_title">Els nostres afiliats</h3>
                     </div>
                 </div>
             </div>
@@ -18,7 +18,7 @@
                         <div class="grid_list_search_result style2">
                             <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
                                 <div class="left_area">
-                                    <p><?php echo (sizeof($data['usuaris']) == 0) ? "<h4>No s'ha trobat cap resultat</h4>" : '<h4>'.sizeof($data['usuaris']). ' resultat/s </h4>'  ?> </p>
+                                    <p><?php echo (sizeof($data['usuaris']) == 0) ? "<h5>No s'ha trobat cap resultat</h5>" : '<h5>'.sizeof($data['usuaris']). ' resultat/s </h5>'  ?> </p>
                                 </div>
                             </div>
                         </div>

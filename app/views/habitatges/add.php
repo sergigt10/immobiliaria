@@ -32,7 +32,7 @@
 
                 <div class="form-group">
                   <label for="exampleInputEmail3">Referencia *:</label>
-                  <input name="referencia" type="text" class="form-control" id="exampleInputEmail3" placeholder="Referencia" value="<?php echo $data['referencia']; ?>">
+                  <input name="referencia" type="text" class="form-control" id="exampleInputEmail3" placeholder="Número de referencia" value="<?php echo $data['referencia']; ?>">
                 </div>
 
                 <div class="form-group">
@@ -64,41 +64,51 @@
 
                   <div class="form-group col-md-3">
                     <label for="exampleInputEmail3">Habitacions:</label>
-                    <input name="habitacio" min="0" type="number" class="form-control" id="exampleInputEmail3" placeholder="Habitació" value="<?php echo $data['habitacio']; ?>">
+                    <input name="habitacio" min="0" type="number" class="form-control" id="exampleInputEmail3" placeholder="Núm. habitacions" value="<?php echo $data['habitacio']; ?>">
                     <br>
                     <h5 style="color:red">Si el camp no s'omple, per defecte és 0.</h5>
                   </div>
 
                   <div class="form-group col-md-3">
-                  <label for="exampleInputEmail3">Tamany:</label>
+                  <label for="exampleInputEmail3">Superfície:</label>
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1">m²</span>
                       </div>
-                      <input type="number" name="tamany" min="0" step="any" class="form-control" placeholder="Tamany" aria-label="Tamany" aria-describedby="basic-addon1" value="<?php echo $data['tamany']; ?>">
+                      <input type="number" name="tamany" min="0" step="any" class="form-control" placeholder="Superfície" aria-label="Tamany" aria-describedby="basic-addon1" value="<?php echo $data['tamany']; ?>">
                     </div>
                     <h5 style="color:red">No s'ha d'afegir el símbol m². Si el camp no s'omple, per defecte és 0.</h5>
                   </div>
 
                   <div class="form-group col-md-3">
                     <label for="exampleInputEmail3">Banys:</label>
-                    <input name="banys" min="0" type="number" class="form-control" id="exampleInputEmail3" placeholder="Banys" value="<?php echo $data['banys']; ?>">
+                    <input name="banys" min="0" type="number" class="form-control" id="exampleInputEmail3" placeholder="Núm. banys" value="<?php echo $data['banys']; ?>">
                     <br>
                     <h5 style="color:red">Si el camp no s'omple, per defecte és 0.</h5>
                   </div>
                 </div>
 
                 <div class="form-row">
+
                   <div class="form-group col-md-3">
-                    <label for="exampleInputName1">Població:</label>
-                    <select name="poblacio_id" class="js-example-basic-single w-100">
-                      <?php foreach($data['poblacions'] as $poblacio) : ?>
-                        <option value="<?php echo $poblacio->id; ?>"><?php echo $poblacio->poblacio; ?></option>
+                    <label for="exampleInputName1">Provincia:</label>
+                    <select name="provincia_id" id="provincia" class="js-example-basic-single w-100">
+                      <?php foreach($data['provincies'] as $provincia) : ?>
+                        <option value="<?php echo $provincia->id; ?>" <?php echo (8) == $provincia->id ? 'selected' : ''; ?> ><?php echo $provincia->nom_cat; ?></option>
                       <?php endforeach; ?>
                     </select>
                   </div>
 
                   <div class="form-group col-md-3">
+                    <label for="exampleInputName1">Població:</label>
+                    <select name="poblacio_id" id="poblacio" class="js-example-basic-single w-100">
+                      <?php foreach($data['poblacions'] as $poblacio) : ?>
+                        <option value="<?php echo $poblacio->id; ?>"><?php echo $poblacio->nom_cat; ?></option>
+                      <?php endforeach; ?>
+                    </select>
+                  </div>
+
+                  <div class="form-group col-md-2">
                     <label for="exampleInputName1">Tipus d'operació:</label>
                     <select name="operacio_id" class="form-control" id="exampleSelectGender">
                       <?php foreach($data['operacions'] as $operacio) : ?>
@@ -107,7 +117,7 @@
                     </select>
                   </div>
 
-                  <div class="form-group col-md-3">
+                  <div class="form-group col-md-2">
                     <label for="exampleInputName1">Categoria de l'immoble:</label>
                     <select name="categoria_id" class="form-control" id="exampleSelectGender">
                       <?php foreach($data['categories'] as $categoria) : 
@@ -121,7 +131,7 @@
                     </select>
                   </div>
 
-                  <div class="form-group col-md-3">
+                  <div class="form-group col-md-2">
                     <label for="exampleInputName1">Eficiencia energètica:</label>
                     <select name="certificat_id" class="form-control" id="exampleSelectGender">
                       <?php foreach($data['certificats'] as $certificat) : ?>

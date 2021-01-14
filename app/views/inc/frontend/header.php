@@ -18,7 +18,7 @@
 <link href="<?php echo URLROOT; ?>/images/frontend/favicon.ico" sizes="128x128" rel="shortcut icon" type="image/x-icon" />
 <link href="<?php echo URLROOT; ?>/images/frontend/favicon.ico" sizes="128x128" rel="shortcut icon" />
 
-<script type="text/javascript" src="<?php echo URLROOT; ?>/js/all/correct-price.js"></script>
+<script type="text/javascript" src="<?php echo URLROOT; ?>/js/all/helper.js"></script>
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

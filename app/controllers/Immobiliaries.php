@@ -32,7 +32,7 @@
             // Pasar el nom de l'empresa
             $empresaCercada = $this->usuariModel->getIsActivateByIdFrontend(intval($id));
 
-            if( !$empresaCercada || !$immobles ) {
+            if( !$empresaCercada ) {
                 redirect('immobiliaries/llista');
                 return false;
             }

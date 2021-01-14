@@ -94,7 +94,6 @@
 				<div class="col-lg-12">
 					<div class="main-title mb40">
 						<h2>Propietats destacades</h2>
-						<p>Propietats escollides pel nostre equip</p>
 					</div>
 				</div>
 				<div class="col-lg-12">
@@ -122,7 +121,7 @@
 									</div>
 									<div class="details">
 										<div class="tc_content">
-											<h4><?php echo $portada->titol_cat ?></h4>
+											<h4><script>document.write(tallarText("<?php echo $portada->titol_cat ?>", 50))</script></h4>
 											<p><span class="flaticon-placeholder"></span><?php echo $portada->poblacio ?>, <?php echo $portada->provincia ?></p>
 											<ul class="prop_details mb0">
 												<li class="list-inline-item"><a href="<?php echo URLROOT; ?>/immobles/detall/<?php echo $portada->id ?>"><?php echo ($portada->habitacio) == 0 ? " -" : $portada->habitacio ?> habitacions</a></li>
@@ -150,7 +149,7 @@
 				<div class="col-lg-6 offset-lg-3">
 					<div class="search_smart_property text-center">
 						<h2>UNIR-ME A XARXES IMMOBILIARIES</h2>
-						<p>Si vols créixer més i estàs buscant un model de negoci que et permeti fer-ho, aqui tens la resposta.</p>
+						<p>Si vols créixer més i estàs buscant un model de negoci que et permeti fer-ho, aqui tens la teva resposta.</p>
 						<button class="btn ssp_btn" onclick="location.href='<?php echo URLROOT; ?>/immobles/unirme'">UNIR-ME</button>
 					</div>
 				</div>

@@ -4,7 +4,7 @@
 			<div class="row mb5">
 				<div class="col-lg-7 col-xl-8">
 					<div class="single_property_title mt30-767">
-						<h2><?php echo $data['titol_cat']; ?></h2>
+						<h2><script>document.write(tallarText("<?php echo $data['titol_cat'] ?>", 50))</script></h2>
 						<p><span class="flaticon-placeholder"></span> <?php echo $data['poblacio']; ?>, <?php echo $data['provincia']; ?></p>
 						<div class="lsd_list">
 							<ul class="mb0">
@@ -21,7 +21,7 @@
 									correctPrice(<?php echo $data['preu']; ?>);
 								</script>
 							</h2>
-							<?php echo $data['tamany']; ?> m²
+							<?php echo $data['tamany'] == 0 ? ' - ' : $data['tamany'] ?> m²
 						</div>
 					</div>
 				</div>
@@ -142,7 +142,7 @@
 								</div>
 								<h4 class="mb30"><b>Descripció</b></h4>
 								<p class="mb25">
-									<?php echo strip_tags($data['descripcio_cat']) ?>
+									<?php echo !empty($data['descripcio_cat']) ? '<script>document.write(tallarText("'.strip_tags($data['descripcio_cat']).'", 800))</script>'  : 'No disponible'  ?>
 								</p>
 							</div>
 						</div>
@@ -249,7 +249,7 @@
 									</div>
 									<div class="details">
 										<div class="tc_content" onclick="javascript:location.href='<?php echo URLROOT; ?>/immobles/detall/<?php echo $recomended->id_immoble ?>'">
-											<h4><?php echo $recomended->titol_cat ?></h4>
+											<h4><script>document.write(tallarText("<?php echo $recomended->titol_cat ?>", 50))</script></h4>
 											<p><span class="flaticon-placeholder"></span><?php echo $recomended->poblacio ?>, <?php echo $recomended->provincia ?></p>
 											<ul class="prop_details mb0">
 												<li class="list-inline-item"><a href="<?php echo URLROOT; ?>/immobles/detall/<?php echo $recomended->id_immoble ?>'"><?php echo ($recomended->habitacio) == 0 ? " -" : $recomended->habitacio ?> habitacions</a></li>

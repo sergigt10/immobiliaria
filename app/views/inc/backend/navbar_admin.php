@@ -38,7 +38,7 @@
         </ul>
       </div>
     </li>
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#ui-basic-1" <?php echo (strpos($_SERVER['REQUEST_URI'] ,"operacions") !== false) ? 'aria-expanded="true"' : 'aria-expanded="false"'; ?> aria-controls="ui-basic-1">
         <i class="mdi mdi-table-edit  menu-icon"></i>
         <span class="menu-title">Tipus d'operacions</span>
@@ -52,7 +52,7 @@
           <li class="nav-item"> <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'] ,"operacions/index") !== false OR strpos($_SERVER['REQUEST_URI'] ,"operacions/edit") !== false) ? 'active' : ''; ?>" href="<?php echo URLROOT; ?>/operacions/index">Modificar</a></li>
         </ul>
       </div>
-    </li>
+    </li> -->
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#general-pages-3" <?php echo (strpos($_SERVER['REQUEST_URI'] ,"caracteristiques") !== false) ? 'aria-expanded="true"' : 'aria-expanded="false"'; ?> aria-controls="general-pages-3">
         <i class="mdi mdi-table-edit  menu-icon"></i>

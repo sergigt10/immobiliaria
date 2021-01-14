@@ -28,7 +28,7 @@
     }
 
     public function getPoblacionsWithProvinciaId($id){
-      $this->db->query('SELECT poblacio.id, poblacio.nom_cat
+      $this->db->query('SELECT poblacio.id, poblacio.nom_cat, poblacio.provincia_id
       FROM poblacio
       WHERE poblacio.activat = 1 && poblacio.provincia_id = :id
       ORDER BY poblacio.nom_cat ASC');

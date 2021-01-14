@@ -67,6 +67,34 @@
       ],
       content_css: []
     });
+
+    // Quan seleccionem una provincia
+    $("#provincia").change(function() {
+      // Obtenim id de la provincia
+      var provincia = jQuery("select#provincia option:selected").val();
+      // S'envia aquest valor per POST
+      var datastring = 'id_provincia='+provincia;
+
+      jQuery.ajax({
+        type: 'POST',
+        url: '<?php echo URLROOT; ?>/habitatges/carregar_poblacions/',
+        dataType: 'json',
+        data: datastring,
+          success: function(data){
+            let arrayPoblacions = "";
+
+            data['poblacions'].forEach(function(poblacio) {
+              arrayPoblacions += "<option value="+poblacio['id']+">"+poblacio['nom_cat']+"</option>";
+            });
+
+            jQuery('#poblacio').html('');
+            jQuery('#poblacio').html(arrayPoblacions);
+          },
+          error: function() {
+            alert('ERROR !');
+          }
+      });
+    });
   </script>
 </body>
 </html>

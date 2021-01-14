@@ -9,6 +9,7 @@
       }
       // Import models
       $this->immobleModel = $this->model('Habitatge');
+      $this->provinciaModel = $this->model('Provincia');
       $this->poblacioModel = $this->model('Poblacio');
       $this->caracteristicaModel = $this->model('Caracteristica');
       $this->categoriaModel = $this->model('Categoria');
@@ -51,7 +52,8 @@
         return false;
       }
 
-      $poblacions = $this->poblacioModel->getPoblacionsWithProvincies();
+      $provincies = $this->provinciaModel->getProvincies();
+      $poblacions = $this->poblacioModel->getPoblacionsWithProvinciaId(8);
       $caracteristiques = $this->caracteristicaModel->getCaracteristiquesActivat() ;
       $categories = $this->categoriaModel->getCategoriesActives();
       $certificats = $this->certificatModel->getCertificatsActivats();
@@ -98,6 +100,7 @@
           'usuari_id' => $_SESSION['usuari_id'],
           'titol_esp_err' => '',
           'referencia_err' => '',
+          'provincies' => $provincies,
           'poblacions' => $poblacions,
           'caracteristiques' => $caracteristiques,
           'categories' => $categories,
@@ -788,6 +791,7 @@
           'categoria_id' => '',
           'caracteristica_id' => '',
           'certificat_id' => '',
+          'provincies' => $provincies,
           'poblacions' => $poblacions,
           'caracteristiques' => $caracteristiques,
           'categories' => $categories,
@@ -803,14 +807,20 @@
     // Edit immoble
     public function edit($id){
 
+      // Get existing immoble from model
+      $immoble = $this->immobleModel->getImmobleById(intval($id));
+
       // Control of parameter
-      if( !$this->immobleModel->getImmobleById(intval($id)) ) {
+      if( !$immoble ) {
         flash('immoble_message', 'Aquest immoble no existeix', 'alert alert-danger');
         redirect('habitatges/index');
         return false;
       }
 
-      $poblacions = $this->poblacioModel->getPoblacionsWithProvincies();
+      $provincies = $this->provinciaModel->getProvincies();
+      $idProvinciaByPoblacio = $this->poblacioModel->getPoblacioById($immoble->poblacio_id);
+      $poblacions = $this->poblacioModel->getPoblacionsWithProvinciaId($idProvinciaByPoblacio->provincia_id);
+      
       $caracteristiques = $this->caracteristicaModel->getCaracteristiquesActivat() ;
       $categories = $this->categoriaModel->getCategoriesActives();
       $certificats = $this->certificatModel->getCertificatsActivats();
@@ -858,6 +868,8 @@
           'titol_cat_err' => '',
           'titol_esp_err' => '',
           'titol_eng_err' => '',
+          'provincies' => $provincies,
+          'idProvinciaByPoblacio' => $idProvinciaByPoblacio->provincia_id,
           'poblacions' => $poblacions,
           'caracteristiques' => $caracteristiques,
           'categories' => $categories,
@@ -1706,9 +1718,6 @@
         }
 
       } else {
-        
-        // Get existing immoble from model
-        $immoble = $this->immobleModel->getImmobleById($id);
 
         // Check owner
         if(!isLoggedInAndAdmin()){
@@ -1748,6 +1757,8 @@
           'categoria_id' => $immoble->categoria_id,
           'caracteristica_id' => $immoble->caracteristica_id,
           'certificat_id' => $immoble->certificat_id,
+          'provincies' => $provincies,
+          'idProvinciaByPoblacio' => $idProvinciaByPoblacio->provincia_id,
           'poblacions' => $poblacions,
           'caracteristiques' => $caracteristiques,
           'categories' => $categories,
@@ -1758,6 +1769,36 @@
 
         $this->view('habitatges/edit', $data);
       }
+    }
+
+    public function carregar_poblacions(){
+
+      // If we select a new provincia then get only their poblacions
+      if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        // Sanitize POST array
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+        // Default 8 = Barcelona
+        $idProvincia = empty(trim($_POST['id_provincia'])) ? 8 : trim(intval($_POST['id_provincia']));
+
+        $poblacions = $this->poblacioModel->getPoblacionsWithProvinciaId(intval($idProvincia));
+
+        if(!$poblacions) {
+          redirect('habitatges/index');
+          return false;
+        }
+
+        $data = [
+          'poblacions' => $poblacions
+        ];
+
+        // Send by JSON
+        echo json_encode($data);
+
+      } else {
+        redirect('habitatges/index');
+      }
+
     }
 
     // Delete immoble

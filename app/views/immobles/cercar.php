@@ -188,7 +188,7 @@
 						</ol>
 						<h3 class="breadcrumb_title"> Resultats de la cerca </h3>
 						<h4><?php echo isset($data['operacioCercada']) ? $data['operacioCercada'] : '' ?><?php echo isset($data['categoriaCercada']) ? ", ". $data['categoriaCercada'] : '' ?><?php echo isset($data['poblacioCercada']) ? ", ". $data['poblacioCercada'] : '' ?><?php echo isset($data['empresaCercada']) ? " ". $data['empresaCercada'] : '' ?></h4>
-						<?php echo isset($data['descripcioEmpresa']) ? $data['descripcioEmpresa'] : '' ?><br>
+						<?php echo isset($data['descripcioEmpresa']) ? '<script>document.write(tallarText("'.$data['descripcioEmpresa'].'", 800))</script>' : '' ?><br>
 						<p><?php echo isset($data['telefonEmpresa']) ? 'Telf: '.$data['telefonEmpresa'] : '' ?></p>
 						<p><?php echo isset($data['emailEmpresa']) ? 'Email: '.$data['emailEmpresa'] : '' ?></p>
 					</div>
@@ -258,7 +258,7 @@
                                     </div>
                                     <div class="details">
                                         <div class="tc_content" onclick="javascript:location.href='<?php echo URLROOT; ?>/immobles/detall/<?php echo $immoble->id_immoble ?>'">
-                                            <h4><?php echo $immoble->titol_cat ?></h4>
+                                            <h4><script>document.write(tallarText("<?php echo $immoble->titol_cat ?>", 50))</script></h4>
                                             <p><span class="flaticon-placeholder"></span> <?php echo $immoble->poblacio ?>, <?php echo $immoble->provincia ?></p>
                                             <ul class="prop_details mb0">
                                                 <li class="list-inline-item"><a href="<?php echo URLROOT; ?>/immobles/detall/<?php echo $immoble->id_immoble ?>"><?php echo ($immoble->habitacio) == 0 ? " -" : $immoble->habitacio ?> habitacions</a></li>
