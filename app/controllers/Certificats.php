@@ -4,6 +4,7 @@
     public function __construct(){
       if(!isLoggedInAndAdmin()){
         redirect('usuaris/login');
+        return false;
       }
       $this->certificatModel = $this->model('Certificat');
     }
@@ -44,6 +45,7 @@
           if($this->certificatModel->add($data)){
             flash('certificat_message', 'Certificat afegit correctament');
             redirect('certificats/index');
+            return false;
           } else {
             die('Something went wrong');
           }
@@ -62,7 +64,18 @@
     }
 
     // Editar certificats
-    public function edit($id){
+    public function edit($id = 0){
+
+      // Get existing certificat from model
+      $certificat = $this->certificatModel->getCertificatById(intval($id));
+
+      // Control of parameter
+      if( !$certificat ) {
+        flash('certificat_message', 'Aquest certificat no existeix', 'alert alert-danger');
+        redirect('certificats/index');
+        return false;
+      }
+
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Sanitize POST array
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -84,6 +97,7 @@
           if($this->certificatModel->update($data)){
             flash('certificat_message', 'Certificat actualitzat correctament');
             redirect('certificats/index');
+            return false;
           } else {
             die('Something went wrong');
           }
@@ -93,9 +107,6 @@
         }
 
       } else {
-
-        // Get existing certificat from model
-        $certificat = $this->certificatModel->getCertificatById($id);
 
         $data = [
           'id' => $id,
@@ -113,11 +124,13 @@
         if($this->certificatModel->delete($id)){
           flash('certificat_message', 'Certificat eliminat correctament');
           redirect('certificats/index');
+          return false;
         } else {
           die('Something went wrong');
         }
       } else {
         redirect('certificats/index');
+        return false;
       }
     }
 

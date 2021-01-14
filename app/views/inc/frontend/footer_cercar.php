@@ -4,20 +4,19 @@
 			<div class="row">
 				<div class="col-sm-6 col-md-6 col-lg col-xl">
 					<div class="footer_about_widget home3">
-						<h4>La nostra missió</h4>
-						<p>Facilitem als i les agents eines de gestió, legals, tecnològiques, administratives i de màrqueting perquè puguin col·laborar amb altres/as agents de la seva zona.</p>
+						<h4>La nostra misió</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac leo ut purus consectetur finibus. Aliquam tincidunt metus consectetur nisi tincidunt, at sollicitudin ante dapibus.</p>
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-6 col-lg col-xl">
 					<div class="footer_qlink_widget home3">
 						<h4>Informació</h4>
 						<ul class="list-unstyled">
-							<li><a href="#">Qui som</a></li>
-							<li><a href="#">Afiliats</a></li>
-							<li><a href="#">Venda d'immobles</a></li>
-							<li><a href="#">Compra d'immobles</a></li>
-							<li><a href="#">Uneix-te</a></li>
-							<li><a href="#">Contacte</a></li>
+							<li><a href="<?php echo URLROOT; ?>/immobles/index">Inici</a></li>
+							<li><a href="<?php echo URLROOT; ?>/immobles/nosaltres">Qui som</a></li>
+							<li><a href="<?php echo URLROOT; ?>/immobiliaries/llista">Afiliats</a></li>
+							<li><a href="<?php echo URLROOT; ?>/immobles/unirme">Uneix-te</a></li>
+							<li><a href="<?php echo URLROOT; ?>/immobles/contacte">Contacte</a></li>
 						</ul>
 					</div>
 				</div>
@@ -25,10 +24,10 @@
 					<div class="footer_contact_widget home3">
 						<h4>Contacte</h4>
 						<ul class="list-unstyled">
-							<li><a href="#">08500 Vic - Barcelona</a></li>
-							<li><a href="#">699 475 902</a></li>
-							<li><a href="#">info@immobiliariesenxarxa.net</a></li>
-							<li><a href="#">www.immobiliariesenxarxa.net</a></li>
+							<li><a href="<?php echo URLROOT; ?>/immobles/contacte">08500 Vic - Barcelona</a></li>
+							<li><a href="<?php echo URLROOT; ?>/immobles/contacte">699 475 902</a></li>
+							<li><a href="<?php echo URLROOT; ?>/immobles/contacte">info@immobiliariesenxarxa.net</a></li>
+							<li><a href="<?php echo URLROOT; ?>/immobles/contacte">www.immobiliariesenxarxa.net</a></li>
 						</ul>
 					</div>
 				</div>

@@ -227,9 +227,9 @@
 							<h4 class="mt30 mb30"><?php echo (!empty($data['recomendeds'])) ? "També et pot interessar" : "" ?></h4>
 						</div>
 						<?php foreach($data['recomendeds'] as $recomended) : ?>
-							<div onclick="javascript:location.href='<?php echo URLROOT; ?>/immobles/detall/<?php echo $recomended->id_immoble ?>'" class="col-lg-6">
+							<div class="col-lg-6">
 								<div class="feat_property">
-									<div class="thumb">
+									<div class="thumb" onclick="javascript:location.href='<?php echo URLROOT; ?>/immobles/detall/<?php echo $recomended->id_immoble ?>'">
 										<?php if( !empty($recomended->imatge_1) && file_exists( '../../admin-web/public/images/img-xarxa/immoble/'.$recomended->imatge_1 ) ){ ?>
 											<img class="img-whp" src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $recomended->imatge_1 ?>&size=360x230&crop=1&trim=1" alt="<?php echo $recomended->titol_cat ?>">
 										<?php } else { ?>
@@ -248,7 +248,7 @@
 										</div>
 									</div>
 									<div class="details">
-										<div class="tc_content">
+										<div class="tc_content" onclick="javascript:location.href='<?php echo URLROOT; ?>/immobles/detall/<?php echo $recomended->id_immoble ?>'">
 											<h4><?php echo $recomended->titol_cat ?></h4>
 											<p><span class="flaticon-placeholder"></span><?php echo $recomended->poblacio ?>, <?php echo $recomended->provincia ?></p>
 											<ul class="prop_details mb0">
@@ -257,7 +257,7 @@
 												<li class="list-inline-item"><a href="<?php echo URLROOT; ?>/immobles/detall/<?php echo $recomended->id_immoble ?>'"><?php echo ($recomended->tamany) == 0 ? " -" : $recomended->tamany ?> m²</a></li>
 											</ul>
 										</div>
-										<div class="fp_footer">
+										<div class="fp_footer" onclick="javascript:location.href='<?php echo URLROOT; ?>/immobiliaries/immobles/<?php echo $recomended->id_usuari?>'">
 											<ul class="fp_meta float-left mb0">
 												<li class="list-inline-item">
 													<?php if( !empty($recomended->logo) && file_exists( '../../admin-web/public/images/img-xarxa/usuari/'.$recomended->logo ) ){ ?>
@@ -266,7 +266,7 @@
 														<img class="mr-3" src="<?php echo URLROOT; ?>/public/images/img-xarxa/usuari/thumb_img/thumb.php?src=../imatge-no-disponible.jpg&size=40x40&crop=0&trim=0" alt="<?php echo $recomended->empresa ?>">
 													<?php } ?>
 												</li>
-												<li class="list-inline-item"><a href="#"><?php echo $recomended->empresa ?></a></li>
+												<li class="list-inline-item"><a href="<?php echo URLROOT; ?>/immobiliaries/immobles/<?php echo $recomended->id_usuari?>"><?php echo $recomended->empresa ?></a></li>
 											</ul>
 										</div>
 									</div>

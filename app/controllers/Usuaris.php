@@ -11,8 +11,10 @@
       // Check if we are logged
       if(!isLoggedIn()){
         redirect('usuaris/login');
+        return false;
       } else if(!$this->usuariModel->getIsActivateById($_SESSION['usuari_id'])) {
         redirect('usuaris/logout');
+        return false;
       }
 
       // Upload info usuaris by role
@@ -99,6 +101,7 @@
 
       if(!isLoggedInAndAdmin()){
         redirect('usuaris/login');
+        return false;
       }
 
       // Check for POST
@@ -240,6 +243,7 @@
           if($this->usuariModel->add($data)){
             flash('register_success', 'L\'usuari s\'ha creat correctament');
             redirect('usuaris/index');
+            return false;
           } else {
             die('Error !');
           }
@@ -281,12 +285,20 @@
 
       if(!isLoggedIn()){
         redirect('usuaris/login');
+        return false;
       } else if(!$this->usuariModel->getIsActivateById($_SESSION['usuari_id'])) {
         redirect('usuaris/logout');
+        return false;
       }
 
       // Get existing usuari from model
-      $usuari = $this->usuariModel->getUsuariById($id);
+      $usuari = $this->usuariModel->getUsuariById(intval($id));
+      
+      if( !$usuari ) {
+        flash('usuari_message', 'Aquest usuari no existeix', 'alert alert-danger');
+        redirect('usuaris/index');
+        return false;
+      }
 
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
@@ -459,6 +471,7 @@
 
             flash('usuari_message', 'Usuari actualitzat correctament');
             redirect('usuaris/index');
+            return false;
           } else {
             die('Error!');
           }
@@ -476,6 +489,7 @@
         if(!isLoggedInAndAdmin()){
           if($usuari->id != $_SESSION['usuari_id']){
             redirect('usuaris');
+            return false;
           }
         }
         
@@ -511,6 +525,7 @@
 
         if(!isLoggedInAndAdmin()){
           redirect('usuaris/index');
+          return false;
         }
 
         $usuari = $this->usuariModel->getUsuariById($id);
@@ -571,12 +586,14 @@
         if($this->usuariModel->delete($id)){
           flash('usuari_message', 'Usuari eliminat correctament');
           redirect('usuaris/index');
+          return false;
         } else {
           die('Error delete');
         }
 
       } else {
         redirect('usuaris/index');
+        return false;
       }
 
     }

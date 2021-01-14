@@ -5,6 +5,7 @@
       // If not registered
       if(!isLoggedIn()){
         redirect('usuaris/login');
+        return false;
       }
       // Import models
       $this->immobleModel = $this->model('Habitatge');
@@ -17,6 +18,7 @@
       // If not activated
       if(!$this->usuariModel->getIsActivateById($_SESSION['usuari_id'])) {
         redirect('usuaris/logout');
+        return false;
       }
     }
 
@@ -46,6 +48,7 @@
       if( $totalImmoblesByUser->total_immobles >= $MaxImmobleByUser->total_max_immobles ){
         flash('immoble_message', 'Has superat el límit d\'immobles permesos. Contacte amb l\'administrador.', 'alert alert-danger');
         redirect('habitatges/index');
+        return false;
       }
 
       $poblacions = $this->poblacioModel->getPoblacionsWithProvincies();
@@ -746,6 +749,7 @@
           if($this->immobleModel->add($data)){
             flash('immoble_message', 'Immoble creat correctament');
             redirect('habitatges/index');
+            return false;
           } else {
             die('Error add');
           }
@@ -798,6 +802,13 @@
 
     // Edit immoble
     public function edit($id){
+
+      // Control of parameter
+      if( !$this->immobleModel->getImmobleById(intval($id)) ) {
+        flash('immoble_message', 'Aquest immoble no existeix', 'alert alert-danger');
+        redirect('habitatges/index');
+        return false;
+      }
 
       $poblacions = $this->poblacioModel->getPoblacionsWithProvincies();
       $caracteristiques = $this->caracteristicaModel->getCaracteristiquesActivat() ;
@@ -1674,6 +1685,7 @@
           if($this->immobleModel->update($data)){
             flash('immoble_message', 'Immoble actualitzat correctament');
             redirect('habitatges/index');
+            return false;
           } else {
             die('Error update');
           }
@@ -1702,6 +1714,7 @@
         if(!isLoggedInAndAdmin()){
           if($immoble->usuari_id != $_SESSION['usuari_id']){
             redirect('habitatges/index');
+            return false;
           }
         }
 
@@ -1759,6 +1772,7 @@
         if(!isLoggedInAndAdmin()){
           if($immoble->usuari_id != $_SESSION['usuari_id']){
             redirect('habitatges/index');
+            return false;
           }
         }
         
@@ -1810,11 +1824,13 @@
         if($this->immobleModel->delete($id)){
           flash('immoble_message', 'Immoble eliminat correctament');
           redirect('habitatges/index');
+          return false;
         } else {
           die('Error delete');
         }
       } else {
         redirect('habitatges/index');
+        return false;
       }
     }
   }

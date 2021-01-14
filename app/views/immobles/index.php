@@ -94,7 +94,7 @@
 				<div class="col-lg-12">
 					<div class="main-title mb40">
 						<h2>Propietats destacades</h2>
-						<p>Propietats escollides pel nostre equip<a class="float-right" href="#">Veure tot <span class="flaticon-next"></span></a></p>
+						<p>Propietats escollides pel nostre equip</p>
 					</div>
 				</div>
 				<div class="col-lg-12">
@@ -150,8 +150,8 @@
 				<div class="col-lg-6 offset-lg-3">
 					<div class="search_smart_property text-center">
 						<h2>UNIR-ME A XARXES IMMOBILIARIES</h2>
-						<p>Si vols créixer més i estàs buscant un model de negoci que et permeti fer-ho.</p>
-						<button class="btn ssp_btn">UNIR-ME</button>
+						<p>Si vols créixer més i estàs buscant un model de negoci que et permeti fer-ho, aqui tens la resposta.</p>
+						<button class="btn ssp_btn" onclick="location.href='<?php echo URLROOT; ?>/immobles/unirme'">UNIR-ME</button>
 					</div>
 				</div>
 			</div>

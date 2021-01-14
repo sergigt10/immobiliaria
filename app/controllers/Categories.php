@@ -4,6 +4,7 @@
     public function __construct(){
       if(!isLoggedInAndAdmin()){
         redirect('usuaris/login');
+        return false;
       }
       $this->categoriaModel = $this->model('Categoria');
     }
@@ -54,6 +55,7 @@
           if($this->categoriaModel->add($data)){
             flash('categoria_message', 'Categoria afegida correctament');
             redirect('categories/index');
+            return false;
           } else {
             die('Something went wrong');
           }
@@ -75,6 +77,17 @@
 
     // Editar categoria
     public function edit($id){
+
+      // Get existing característica from model
+      $categoria = $this->categoriaModel->getCategoriaById(intval($id));
+
+      // Control of parameter
+      if( !$categoria ) {
+        flash('categoria_message', 'Aquesta categoria no existeix', 'alert alert-danger');
+        redirect('categories/index');
+        return false;
+      }
+
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Sanitize POST array
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -106,6 +119,7 @@
           if($this->categoriaModel->update($data)){
             flash('categoria_message', 'Categoria actualitzada correctament');
             redirect('categories/index');
+            return false;
           } else {
             die('Something went wrong');
           }
@@ -115,9 +129,6 @@
         }
 
       } else {
-
-        // Get existing característica from model
-        $categoria = $this->categoriaModel->getCategoriaById($id);
 
         $data = [
           'id' => $id,
@@ -137,11 +148,13 @@
         if($this->categoriaModel->delete($id)){
           flash('categoria_message', 'Categoria eliminada correctament');
           redirect('categories/index');
+          return false;
         } else {
           die('Something went wrong');
         }
       } else {
         redirect('categories/index');
+        return false;
       }
     }
 

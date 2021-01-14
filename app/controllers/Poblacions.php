@@ -4,6 +4,7 @@
     public function __construct(){
       if(!isLoggedInAndAdmin()){
         redirect('usuaris/login');
+        return false;
       }
       $this->poblacioModel = $this->model('Poblacio');
       $this->provinciaModel = $this->model('Provincia');
@@ -49,6 +50,7 @@
           if($this->poblacioModel->add($data)){
             flash('poblacio_message', 'Població afegida correctament');
             redirect('poblacions/index');
+            return false;
           } else {
             die('Something went wrong');
           }
@@ -71,6 +73,16 @@
 
     // Editar poblacio
     public function edit($id){
+
+      // Get existing poblacio from model
+      $poblacio = $this->poblacioModel->getPoblacioById(intval($id));
+
+      // Control of parameter
+      if( !$poblacio ) {
+        flash('poblacio_message', 'Aquesta població no existeix', 'alert alert-danger');
+        redirect('poblacions/index');
+        return false;
+      }
 
       $provincies = $this->provinciaModel->getProvinciesActivats();
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -96,6 +108,7 @@
           if($this->poblacioModel->update($data)){
             flash('poblacio_message', 'Població actualitzada correctament');
             redirect('poblacions/index');
+            return false;
           } else {
             die('Something went wrong');
           }
@@ -105,9 +118,6 @@
         }
 
       } else {
-
-        // Get existing poblacio from model
-        $poblacio = $this->poblacioModel->getPoblacioById($id);
 
         $data = [
           'id' => $id,
@@ -127,11 +137,13 @@
         if($this->poblacioModel->delete($id)){
           flash('poblacio_message', 'Població eliminada correctament');
           redirect('poblacions/index');
+          return false;
         } else {
           die('Something went wrong');
         }
       } else {
         redirect('poblacions/index');
+        return false;
       }
     }
 

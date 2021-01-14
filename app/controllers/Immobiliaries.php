@@ -27,10 +27,15 @@
 
         public function immobles($id){
 
-            $immobles = $this->immobleModel->getImmoblesActivatByUsuari($id);
+            $immobles = $this->immobleModel->getImmoblesActivatByUsuari(intval($id));
 
             // Pasar el nom de l'empresa
-            $empresaCercada = $this->usuariModel->getIsActivateByIdFrontend($id);
+            $empresaCercada = $this->usuariModel->getIsActivateByIdFrontend(intval($id));
+
+            if( !$empresaCercada || !$immobles ) {
+                redirect('immobiliaries/llista');
+                return false;
+            }
 
             $operacions = $this->operacioModel->getOperacions();
             $provincies = $this->provinciaModel->getProvincies();
@@ -45,6 +50,8 @@
                 'caracteristiques' => $caracteristiques,
                 'empresaCercada' => $empresaCercada->empresa,
                 'descripcioEmpresa' => $empresaCercada->descripcio_cat,
+                'telefonEmpresa' => $empresaCercada->telefon,
+                'emailEmpresa' => $empresaCercada->email,
                 'immobles' => $immobles
             ];
 

@@ -20,9 +20,14 @@
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
         // Default 8 = Barcelona
-        $idProvincia = empty(trim($_POST['id_provincia'])) ? 8 : trim($_POST['id_provincia']);
+        $idProvincia = empty(trim($_POST['id_provincia'])) ? 8 : trim(intval($_POST['id_provincia']));
 
-        $poblacions = $this->poblacioModel->getPoblacionsWithProvinciaId($idProvincia);
+        $poblacions = $this->poblacioModel->getPoblacionsWithProvinciaId(intval($idProvincia));
+
+        if(!$poblacions) {
+          redirect('immobles/index');
+          return false;
+        }
 
         $data = [
           'poblacions' => $poblacions
@@ -59,9 +64,9 @@
 
         // Init data
         $data =[
-          'operacio' => trim(($_POST['operacio'])),
-          'categoria' => trim($_POST['categoria']),
-          'poblacio' => trim($_POST['poblacio'])
+          'operacio' => trim(intval($_POST['operacio'])),
+          'categoria' => trim(intval($_POST['categoria'])),
+          'poblacio' => trim(intval($_POST['poblacio']))
         ];
 
         if(empty($data['operacio'])){
@@ -79,9 +84,9 @@
         $immobles = $this->immobleModel->getImmoblesCercar($data['operacio'], $data['categoria'], $data['poblacio']);
 
         $operacions = $this->operacioModel->getOperacions();
-        $operacioCercada = $this->operacioModel->getOperacioById(intval($data['operacio']));
-        $categoriaCercada = $this->categoriaModel->getCategoriaById(intval($data['categoria']));
-        $poblacioCercada = $this->poblacioModel->getPoblacioById(intval($data['poblacio']));
+        $operacioCercada = $this->operacioModel->getOperacioById($data['operacio']);
+        $categoriaCercada = $this->categoriaModel->getCategoriaById($data['categoria']);
+        $poblacioCercada = $this->poblacioModel->getPoblacioById($data['poblacio']);
         $provincies = $this->provinciaModel->getProvincies();
         $poblacions = $this->poblacioModel->getPoblacionsWithProvinciaId(8);
         $caracteristiques = $this->caracteristicaModel->getCaracteristiques();
@@ -101,7 +106,7 @@
         $this->view('immobles/cercar', $data);
 
       } else {
-        $this->view('immobles/error');
+        redirect('immobles/error');
       }
     }
 
@@ -142,9 +147,9 @@
         }
 
         $operacions = $this->operacioModel->getOperacions();
-        $operacioCercada = $this->operacioModel->getOperacioById(intval($data['operacio']));
-        $categoriaCercada = $this->categoriaModel->getCategoriaById(intval($data['categoria']));
-        $poblacioCercada = $this->poblacioModel->getPoblacioById(intval($data['poblacio']));
+        $operacioCercada = $this->operacioModel->getOperacioById($data['operacio']);
+        $categoriaCercada = $this->categoriaModel->getCategoriaById($data['categoria']);
+        $poblacioCercada = $this->poblacioModel->getPoblacioById($data['poblacio']);
         $provincies = $this->provinciaModel->getProvincies();
         $poblacions = $this->poblacioModel->getPoblacionsWithProvinciaId(8);
         $caracteristiques = $this->caracteristicaModel->getCaracteristiques();
@@ -164,10 +169,7 @@
         $this->view('immobles/cercar', $data);
 
       } else {
-        $data = [
-          'categories' => $this->categories
-        ];
-        $this->view('immobles/error', $data);
+        redirect('immobles/error');
       }
     }
     
@@ -175,7 +177,12 @@
 
       $operacions = $this->operacioModel->getOperacions();
       $caracteristiques = $this->caracteristicaModel->getCaracteristiques();
-      $immobles = $this->immobleModel->getImmobleDetallById($id);
+      $immobles = $this->immobleModel->getImmobleDetallById(intval($id));
+
+      if( !$immobles ) {
+        redirect('immobles/index');
+        return false;
+      }
 
       $recomendeds = $this->immobleModel->getRecomendedImmobles($immobles->id_immoble, $immobles->operacio_id, $immobles->categoria_id, $immobles->poblacio_id,);
 
@@ -270,6 +277,28 @@
       $this->view('immobles/cercar', $data);
     }
 
+    public function nosaltres() {
+      $data = [
+        'categories' => $this->categories
+      ];
+      $this->view('immobles/nosaltres', $data);
+    }
+
+    public function contacte() {
+      $data = [
+        'categories' => $this->categories
+      ];
+      $this->view('immobles/contacte', $data);
+    }
+
+    public function unirme() {
+      $data = [
+        'categories' => $this->categories
+      ];
+      $this->view('immobles/unirme', $data);
+    }
+
+    // Error 404
     public function error() {
       $data = [
         'categories' => $this->categories

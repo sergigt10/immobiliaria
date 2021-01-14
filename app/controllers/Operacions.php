@@ -4,6 +4,7 @@
     public function __construct(){
       if(!isLoggedInAndAdmin()){
         redirect('usuaris/login');
+        return false;
       }
       $this->operacioModel = $this->model('Operacio');
     }
@@ -54,6 +55,7 @@
           if($this->operacioModel->add($data)){
             flash('operacio_message', 'Tipus d\'operació afegida correctament');
             redirect('operacions/index');
+            return false;
           } else {
             die('Something went wrong');
           }
@@ -75,6 +77,17 @@
 
     // Editar operacio
     public function edit($id){
+
+      // Get existing característica from model
+      $operacio = $this->operacioModel->getOperacioById(intval($id));
+
+      // Control of parameter
+      if( !$operacio ) {
+        flash('operacio_message', 'Aquesta operació no existeix', 'alert alert-danger');
+        redirect('operacions/index');
+        return false;
+      }
+
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Sanitize POST array
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -106,6 +119,7 @@
           if($this->operacioModel->update($data)){
             flash('operacio_message', 'Tipus d\'operació actualitzada correctament');
             redirect('operacions/index');
+            return false;
           } else {
             die('Something went wrong');
           }
@@ -115,9 +129,6 @@
         }
 
       } else {
-
-        // Get existing característica from model
-        $operacio = $this->operacioModel->getOperacioById($id);
 
         $data = [
           'id' => $id,
@@ -137,11 +148,13 @@
         if($this->operacioModel->delete($id)){
           flash('operacio_message', 'Tipus d\'operació eliminada correctament');
           redirect('operacions/index');
+          return false;
         } else {
           die('Something went wrong');
         }
       } else {
         redirect('operacions/index');
+        return false;
       }
     }
 

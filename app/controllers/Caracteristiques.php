@@ -4,6 +4,7 @@
     public function __construct(){
       if(!isLoggedInAndAdmin()){
         redirect('usuaris/login');
+        return false;
       }
       $this->caracteristicaModel = $this->model('Caracteristica');
     }
@@ -54,6 +55,7 @@
           if($this->caracteristicaModel->add($data)){
             flash('caracteristica_message', 'Característica afegida correctament');
             redirect('caracteristiques/index');
+            return false;
           } else {
             die('Something went wrong');
           }
@@ -75,6 +77,17 @@
 
     // Editar característica
     public function edit($id){
+
+      // Get existing característica from model
+      $caracteristica = $this->caracteristicaModel->getCaracteristicaById(intval($id));
+
+      // Control of parameter
+      if( !$caracteristica ) {
+        flash('caracteristica_message', 'Aquesta característica no existeix', 'alert alert-danger');
+        redirect('caracteristiques/index');
+        return false;
+      }
+
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Sanitize POST array
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -106,6 +119,7 @@
           if($this->caracteristicaModel->update($data)){
             flash('caracteristica_message', 'Característica actualitzada correctament');
             redirect('caracteristiques/index');
+            return false;
           } else {
             die('Something went wrong');
           }
@@ -115,9 +129,6 @@
         }
 
       } else {
-
-        // Get existing característica from model
-        $caracteristica = $this->caracteristicaModel->getCaracteristicaById($id);
 
         $data = [
           'id' => $id,
@@ -137,11 +148,13 @@
         if($this->caracteristicaModel->delete($id)){
           flash('caracteristica_message', 'Característica eliminada correctament');
           redirect('caracteristiques/index');
+          return false;
         } else {
           die('Something went wrong');
         }
       } else {
         redirect('caracteristiques/index');
+        return false;
       }
     }
 

@@ -188,7 +188,9 @@
 						</ol>
 						<h3 class="breadcrumb_title"> Resultats de la cerca </h3>
 						<h4><?php echo isset($data['operacioCercada']) ? $data['operacioCercada'] : '' ?><?php echo isset($data['categoriaCercada']) ? ", ". $data['categoriaCercada'] : '' ?><?php echo isset($data['poblacioCercada']) ? ", ". $data['poblacioCercada'] : '' ?><?php echo isset($data['empresaCercada']) ? " ". $data['empresaCercada'] : '' ?></h4>
-						<?php echo isset($data['descripcioEmpresa']) ? $data['descripcioEmpresa'] : '' ?>
+						<?php echo isset($data['descripcioEmpresa']) ? $data['descripcioEmpresa'] : '' ?><br>
+						<p><?php echo isset($data['telefonEmpresa']) ? 'Telf: '.$data['telefonEmpresa'] : '' ?></p>
+						<p><?php echo isset($data['emailEmpresa']) ? 'Email: '.$data['emailEmpresa'] : '' ?></p>
 					</div>
 				</div>
 				<div class="col-md-4 col-lg-6">
@@ -264,7 +266,7 @@
 												<li class="list-inline-item"><a href="<?php echo URLROOT; ?>/immobles/detall/<?php echo $immoble->id_immoble ?>"><?php echo ($immoble->tamany) == 0 ? " -" : $immoble->tamany ?> m²</a></li>
                                             </ul>
                                         </div>
-                                        <div class="fp_footer">
+                                        <div class="fp_footer" onclick="javascript:location.href='<?php echo URLROOT; ?>/immobiliaries/immobles/<?php echo $immoble->id_usuari?>'">
                                             <ul class="fp_meta float-left mb0">
 												<li class="list-inline-item">
 													<?php if( !empty($immoble->logo) && file_exists( '../../admin-web/public/images/img-xarxa/usuari/'.$immoble->logo ) ){ ?>
@@ -273,7 +275,7 @@
 														<img class="mr-3" src="<?php echo URLROOT; ?>/public/images/img-xarxa/usuari/thumb_img/thumb.php?src=../imatge-no-disponible.jpg&size=40x40&crop=0&trim=0" alt="<?php echo $immoble->empresa ?>">
 													<?php } ?>
 												</li>
-												<li class="list-inline-item"><a href="#"><?php echo $immoble->empresa ?></a></li>
+												<li class="list-inline-item"><a href="<?php echo URLROOT; ?>/immobiliaries/immobles/<?php echo $immoble->id_usuari?>"><?php echo $immoble->empresa ?></a></li>
 											</ul>
                                         </div>
                                     </div>

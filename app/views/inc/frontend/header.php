@@ -57,7 +57,7 @@
                         <a href="<?php echo URLROOT; ?>/immobles/index"><span class="title">INICI</span></a>
                     </li>
                     <li>
-                        <a href="#"><span class="title">QUI SOM</span></a>
+                        <a href="<?php echo URLROOT; ?>/immobles/nosaltres"><span class="title">QUI SOM</span></a>
                     </li>
                     <li>
                         <a href="<?php echo URLROOT; ?>/immobiliaries/llista"><span class="title">AFILIATS</span></a>
@@ -92,10 +92,10 @@
                     </li>
 
                     <li class="last">
-                        <a href="page-contact.html"><span class="title">UNEIX-TE</span></a>
+                        <a href="<?php echo URLROOT; ?>/immobles/unirme"><span class="title">UNEIX-TE</span></a>
                     </li>
                     <li class="last">
-                        <a href="page-contact.html"><span class="title">CONTACTE</span></a>
+                        <a href="<?php echo URLROOT; ?>/immobles/contacte"><span class="title">CONTACTE</span></a>
                     </li>
                 </ul>
             </nav>

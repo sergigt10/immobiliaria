@@ -4,6 +4,7 @@
     public function __construct(){
       if(!isLoggedInAndAdmin()){
         redirect('usuaris/login');
+        return false;
       }
       $this->provinciaModel = $this->model('Provincia');
     }
@@ -44,6 +45,7 @@
           if($this->provinciaModel->add($data)){
             flash('provincia_message', 'Província afegida correctament');
             redirect('provincies/index');
+            return false;
           } else {
             die('Something went wrong');
           }
@@ -63,6 +65,17 @@
 
     // Editar provincia
     public function edit($id){
+
+      // Get existing provincia from model
+      $provincia = $this->provinciaModel->getProvinciaById(intval($id));
+
+      // Control of parameter
+      if( !$provincia ) {
+        flash('provincia_message', 'Aquesta provincia no existeix', 'alert alert-danger');
+        redirect('provincies/index');
+        return false;
+      }
+
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Sanitize POST array
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -75,15 +88,16 @@
 
         // Validate data
         if(empty($data['nom_cat'])){
-          $data['nom_cat_err'] = 'Introduïr el nom de la població';
+          $data['nom_cat_err'] = 'Introduïr el nom de la provincia';
         }
 
         // Make sure no errors
         if(empty($data['nom_cat_err'])){
           // Validated
           if($this->provinciaModel->update($data)){
-            flash('provincia_message', 'Població actualitzada correctament');
+            flash('provincia_message', 'Provincia actualitzada correctament');
             redirect('provincies/index');
+            return false;
           } else {
             die('Something went wrong');
           }
@@ -93,9 +107,6 @@
         }
 
       } else {
-
-        // Get existing provincia from model
-        $provincia = $this->provinciaModel->getProvinciaById($id);
 
         $data = [
           'id' => $id,
@@ -113,11 +124,13 @@
         if($this->provinciaModel->delete($id)){
           flash('provincia_message', 'Província eliminada correctament');
           redirect('provincies/index');
+          return false;
         } else {
           die('Something went wrong');
         }
       } else {
         redirect('provincies/index');
+        return false;
       }
     }
 
