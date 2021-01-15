@@ -29594,4 +29594,10 @@ select.form-control, select.asColorPicker-input, .dataTables_wrapper select, .js
     color: black;
 }
 
+.select2-container--default .select2-search--dropdown .select2-search__field {
+  border-radius: 8px;
+  background: url(select2.png) right top no-repeat;
+  background-position: right -26px;
+}
+
 /*# sourceMappingURL=../maps/vertical-layout-light/style.css.map */

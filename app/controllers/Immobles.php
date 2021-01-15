@@ -184,7 +184,7 @@
         return false;
       }
 
-      $recomendeds = $this->immobleModel->getRecomendedImmobles($immobles->id_immoble, $immobles->operacio_id, $immobles->categoria_id, $immobles->poblacio_id,);
+      $recomendeds = $this->immobleModel->getRecomendedImmobles($immobles->id_immoble, $immobles->operacio_id, $immobles->categoria_id, $immobles->poblacio_id);
 
       $data = [
         'operacions' => $operacions,
