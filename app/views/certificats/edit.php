@@ -6,6 +6,7 @@
           <div class="card">
             <div class="card-body">
               <h2>Modificar certificat</h2>
+              <p><b>* Camps obligatoris</b></p>
               <br>
               <form class="forms-sample" method="post" action="<?php echo URLROOT; ?>/certificats/edit/<?php echo $data['id']; ?>" enctype="multipart/form-data">
 

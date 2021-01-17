@@ -26,7 +26,7 @@
     // Add new poblacio
     public function add(){
 
-      $provincies = $this->provinciaModel->getProvinciesActivats();
+      $provincies = $this->provinciaModel->getProvinciesActives();
       // POST
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Sanitize POST array
@@ -84,7 +84,7 @@
         return false;
       }
 
-      $provincies = $this->provinciaModel->getProvinciesActivats();
+      $provincies = $this->provinciaModel->getProvinciesActives();
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Sanitize POST array
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);

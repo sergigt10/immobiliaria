@@ -303,7 +303,7 @@
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         // Sanitize POST array
-        $_POST = filter_input_array(INPUT_POST);
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
         $data = [
           'id' => $id,

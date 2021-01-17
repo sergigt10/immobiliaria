@@ -6,7 +6,7 @@
           <div class="card">
             <div class="card-body">
               <h2>Crear un nou usuari</h2>
-              <p> * Camps obligatoris </p>
+              <p><b>* Camps obligatoris</b></p>
               <br>
               <form class="forms-sample" method="post" action="<?php echo URLROOT; ?>/usuaris/add" enctype="multipart/form-data">
 

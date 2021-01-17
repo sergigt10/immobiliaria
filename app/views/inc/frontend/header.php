@@ -94,9 +94,6 @@
                     <li class="last">
                         <a href="<?php echo URLROOT; ?>/immobles/unirme"><span class="title">UNEIX-TE</span></a>
                     </li>
-                    <!-- <li class="last">
-                        <a href="<?php echo URLROOT; ?>/immobles/contacte"><span class="title">CONTACTE</span></a>
-                    </li> -->
                 </ul>
             </nav>
         </div>
@@ -168,9 +165,6 @@
                     <a href="page-contact.html"><span class="title">UNEIX-TE</span></a>
                 </li>
 
-                <li class="last">
-                    <a href="page-contact.html"><span class="title">CONTACTE</span></a>
-                </li>
 			</ul>
 		</nav>
 	</div>

@@ -6,6 +6,7 @@
           <div class="card">
             <div class="card-body">
               <h2>Afegir una nou certificat</h2>
+              <p><b>* Camps obligatoris</b></p>
               <br>
               <form class="forms-sample" method="post" action="<?php echo URLROOT; ?>/certificats/add" enctype="multipart/form-data">
 

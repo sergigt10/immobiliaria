@@ -6,6 +6,7 @@
           <div class="card">
             <div class="card-body">
               <h2>Afegir una nova província</h2>
+              <p><b>* Camps obligatoris</b></p>
               <br>
               <form class="forms-sample" method="post" action="<?php echo URLROOT; ?>/provincies/add" enctype="multipart/form-data">
 

@@ -54,8 +54,8 @@
 
       $provincies = $this->provinciaModel->getProvincies();
       $poblacions = $this->poblacioModel->getPoblacionsWithProvinciaId(8);
-      $caracteristiques = $this->caracteristicaModel->getCaracteristiquesActivat() ;
-      $categories = $this->categoriaModel->getCategoriesActives();
+      $caracteristiques = $this->caracteristicaModel->getCaracteristiquesActivades() ;
+      $categories = $this->categoriaModel->getCategoriesActivades();
       $certificats = $this->certificatModel->getCertificatsActivats();
       $operacions = $this->operacioModel->getOperacionsActives();
       $totalPortada = $this->immobleModel->getTotalImmoblesPortada();
@@ -63,7 +63,7 @@
       // Si viene de un POST
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Sanitize POST array
-        $_POST = filter_input_array(INPUT_POST);
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
         $data = [
           'titol_cat' => trim($_POST['titol_cat']),
@@ -821,15 +821,15 @@
       $idProvinciaByPoblacio = $this->poblacioModel->getPoblacioById($immoble->poblacio_id);
       $poblacions = $this->poblacioModel->getPoblacionsWithProvinciaId($idProvinciaByPoblacio->provincia_id);
       
-      $caracteristiques = $this->caracteristicaModel->getCaracteristiquesActivat() ;
-      $categories = $this->categoriaModel->getCategoriesActives();
+      $caracteristiques = $this->caracteristicaModel->getCaracteristiquesActivades() ;
+      $categories = $this->categoriaModel->getCategoriesActivades();
       $certificats = $this->certificatModel->getCertificatsActivats();
       $operacions = $this->operacioModel->getOperacionsActives();
       $totalPortada = $this->immobleModel->getTotalImmoblesPortada();
       
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Sanitize POST array
-        $_POST = filter_input_array(INPUT_POST);
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
         $data = [
           'id' => $id,

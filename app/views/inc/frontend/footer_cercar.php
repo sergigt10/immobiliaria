@@ -4,7 +4,7 @@
 			<div class="row">
 				<div class="col-sm-6 col-md-6 col-lg col-xl">
 					<div class="footer_about_widget home3">
-						<h4>La nostra misió</h4>
+						<h4>La nostra missió</h4>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac leo ut purus consectetur finibus. Aliquam tincidunt metus consectetur nisi tincidunt, at sollicitudin ante dapibus.</p>
 					</div>
 				</div>
@@ -16,7 +16,6 @@
 							<li><a href="<?php echo URLROOT; ?>/immobles/nosaltres">Qui som</a></li>
 							<li><a href="<?php echo URLROOT; ?>/immobiliaries/llista">Afiliats</a></li>
 							<li><a href="<?php echo URLROOT; ?>/immobles/unirme">Uneix-te</a></li>
-							<li><a href="<?php echo URLROOT; ?>/immobles/contacte">Contacte</a></li>
 						</ul>
 					</div>
 				</div>
@@ -24,10 +23,10 @@
 					<div class="footer_contact_widget home3">
 						<h4>Contacte</h4>
 						<ul class="list-unstyled">
-							<li><a href="<?php echo URLROOT; ?>/immobles/contacte">08500 Vic - Barcelona</a></li>
-							<li><a href="<?php echo URLROOT; ?>/immobles/contacte">699 475 902</a></li>
-							<li><a href="<?php echo URLROOT; ?>/immobles/contacte">info@immobiliariesenxarxa.net</a></li>
-							<li><a href="<?php echo URLROOT; ?>/immobles/contacte">www.immobiliariesenxarxa.net</a></li>
+							<li><p>08500 Vic - Barcelona</p></li>
+							<li><p>699 475 902</p></li>
+							<li><p>info@immobiliariesenxarxa.net</p></li>
+							<li><p>www.immobiliariesenxarxa.net</p></li>
 						</ul>
 					</div>
 				</div>
@@ -192,7 +191,7 @@
 
 		jQuery.ajax({
 			type: 'POST',
-			url: '<?php echo URLROOT; ?>/immobles/index/',
+			url: '<?php echo URLROOT; ?>/immobles/carregar_poblacions_frontend/',
 			dataType: 'json',
 			data: datastring,
 				success: function(data){
@@ -264,8 +263,6 @@
 			placeholder: "Certificat energètic",
 			allowClear: true
 		});
-
-		// https://pandagg.games/javascript/javascript-cargar-valores-de-una-funcion-de-js-a-un-select-en-html/
 
 		carregarPreus("preu_minim", 50000, 4000000, 50000);
 		carregarPreus("preu_maxim", 50000, 4000000, 50000);

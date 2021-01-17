@@ -6,6 +6,7 @@
           <div class="card">
             <div class="card-body">
               <h2>Modificar immoble</h2>
+              <p><b>* Camps obligatoris</b></p>
               <br>
               <form class="forms-sample" method="post" action="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $data['id'];?>" enctype="multipart/form-data">
 

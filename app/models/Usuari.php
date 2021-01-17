@@ -30,13 +30,24 @@
       return $results;
     }
 
-    // Get all usuaris
-    public function getUsuarisActivats(){
-      $this->db->query('SELECT * FROM usuari WHERE activat = 1');
+    // Get all usuaris activats
+    public function getUsuarisActivats($paginationStart, $limitPage){
+      $this->db->query('SELECT * FROM usuari WHERE activat = 1 ORDER BY id ASC LIMIT :paginationStart, :limitPage');
+      $this->db->bind(':paginationStart', $paginationStart);
+      $this->db->bind(':limitPage', $limitPage);
       // Bind value
       $results = $this->db->resultSet();
 
       return $results;
+    }
+
+    // Get total all usuaris activats
+    public function getTotalUsuarisActivats(){
+      $this->db->query('SELECT count(id) as total FROM usuari WHERE activat = 1');
+      // Bind value
+      $row = $this->db->single();
+
+      return $row;
     }
 
     // Find usuari by username

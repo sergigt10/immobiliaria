@@ -6,7 +6,7 @@
           <div class="card">
             <div class="card-body">
               <h2>Modificar categoria</h2>
-              <p> * Camps obligatoris </p>
+              <p><b>* Camps obligatoris</b></p>
               <br>
               <form class="forms-sample" method="post" action="<?php echo URLROOT; ?>/categories/edit/<?php echo $data['id']; ?>" enctype="multipart/form-data">
 

@@ -14,7 +14,7 @@
       return $results;
     }
 
-    public function getProvinciesActivats(){
+    public function getProvinciesActives(){
       $this->db->query('SELECT * FROM provincia WHERE activat = 1 ORDER BY id ASC');
       // Devuelve más de una fila
       $results = $this->db->resultSet();

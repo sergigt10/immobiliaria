@@ -10,10 +10,10 @@
 					<div class="breadcrumb_content style2">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="<?php echo URLROOT; ?>/immobles/index">Inici</a></li>
-							<li class="breadcrumb-item active text-thm" aria-current="page">Immobles</li>
+							<li class="breadcrumb-item active text-thm" aria-current="page">Operacions</li>
 						</ol>
-						<h3 class="breadcrumb_title"> Resultats de la cerca </h3>
-						<h4><?php echo isset($data['operacioCercada']) ? $data['operacioCercada'] : '' ?><?php echo isset($data['categoriaCercada']) ? ", ". $data['categoriaCercada'] : '' ?><?php echo isset($data['poblacioCercada']) ? ", ". $data['poblacioCercada'] : '' ?></h4>
+						<h3 class="breadcrumb_title"><?php echo isset($data['operacioCercada']) ? $data['operacioCercada'] : '' ?></h3>
+						<h4><?php echo isset($data['categoriaCercada']) ? $data['categoriaCercada'] : '' ?></h4>
 					</div>
 				</div>
 				<div class="col-md-4 col-lg-6">
@@ -40,7 +40,7 @@
                         <?php require APPROOT . '/views/inc/frontend/cerca.php'; ?>
 						<!-- -->
 						<!-- Paginació -->
-						<?php require APPROOT . '/views/inc/frontend/paginacio.php'; ?>
+						<?php require APPROOT . '/views/inc/frontend/paginacio_operacio.php'; ?>
 						<!-- -->
 					</div>
 				</div>

@@ -52,8 +52,8 @@
         'insertdatetime media nonbreaking save table directionality',
         'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc help'
       ],
-      toolbar1: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link',
-      toolbar2: 'print preview media | forecolor backcolor | removeformat',
+      toolbar1: 'undo redo',
+      toolbar2: '',
       paste_as_text: true,
       image_advtab: true,
       templates: [{

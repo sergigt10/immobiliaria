@@ -6,7 +6,7 @@
           <div class="card">
             <div class="card-body">
               <h2>Afegir nou tipus d'operació</h2>
-              <p> * Camps obligatoris </p>
+              <p><b>* Camps obligatoris</b></p>
               <br>
               <form class="forms-sample" method="post" action="<?php echo URLROOT; ?>/operacions/add" enctype="multipart/form-data">
 

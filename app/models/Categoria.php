@@ -14,7 +14,7 @@
       return $results;
     }
 
-    public function getCategoriesActives(){
+    public function getCategoriesActivades(){
       $this->db->query('SELECT * FROM categoria WHERE activat = 1 ORDER BY id ASC');
       // Devuelve más de una fila
       $results = $this->db->resultSet();

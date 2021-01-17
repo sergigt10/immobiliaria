@@ -8,9 +8,9 @@
   // App Root
   define('APPROOT', dirname(dirname(__FILE__)));
   // URL Root
-  define('URLROOT', 'http://localhost/admin-web');
+  define('URLROOT', 'http://localhost:8080/admin-web');
   // Site Name
-  define('SITENAME', 'Immobiliaries en xarxa');
+  define('SITENAME', 'Immobiliàries en xarxa');
   // App Version
   define('APPVERSION', 'v1.0.0');
   // Max portada

@@ -142,7 +142,7 @@
 								</div>
 								<h4 class="mb30"><b>Descripció</b></h4>
 								<p class="mb25">
-									<?php echo !empty($data['descripcio_cat']) ? '<script>document.write(tallarText("'.strip_tags($data['descripcio_cat']).'", 800))</script>'  : 'No disponible'  ?>
+									<?php echo !empty($data['descripcio_cat']) ? '<script>document.write(tallarText("'.strip_tags($data['descripcio_cat']).'", 1000))</script>'  : 'No disponible'  ?>
 								</p>
 							</div>
 						</div>
@@ -295,36 +295,49 @@
 										<p class="mb0"><?php echo $data['telefon']; ?></p>
 										<p class="mb0"><?php echo $data['email']; ?></p>
 										<p class="mb0"><?php echo $data['web']; ?></p>
-								  	</div>
+									</div>
 								</div>
 							</div>
-							<ul class="sasw_list mb0">
-								<li class="search_area">
-									<div class="form-group">
-										<input type="text" class="form-control" id="exampleInputName1" placeholder="Nom i cognoms *" required>
-									</div>
-								</li>
-								<li class="search_area">
-									<div class="form-group">
-										<input type="number" class="form-control" id="exampleInputName2" placeholder="Telèfon *" required>
-									</div>
-								</li>
-								<li class="search_area">
-									<div class="form-group">
-										<input type="email" class="form-control" id="exampleInputEmail" placeholder="Email *" required>
-									</div>
-								</li>
-								<li class="search_area">
-									<div class="form-group">
-										<textarea id="form_message" name="form_message" class="form-control required" rows="5" required="required" placeholder="Hola, "></textarea>
-									</div>
-								</li>
-								<li>
-									<div class="search_option_button">
-										<button type="submit" class="btn btn-block btn-thm">Enviar</button>
-									</div>
-								</li>
-							</ul>
+							<form method="post" action="<?php echo URLROOT; ?>/immobles/correu/informacio" >
+								<p>* Camps obligatoris</p>
+								<ul class="sasw_list mb0">
+									<li class="search_area">
+										<div class="form-group">
+											<input type="text" name="nom" class="form-control" id="exampleInputName1" placeholder="Nom i cognoms *" required>
+										</div>
+									</li>
+									<li class="search_area">
+										<div class="form-group">
+											<input type="number" name="telefon" class="form-control" id="exampleInputName2" placeholder="Telèfon *" required>
+										</div>
+									</li>
+									<li class="search_area" style="display:none">
+										<div class="form-group">
+											<input type="number" name="referencia" class="form-control" id="exampleInputName2" value="<?php echo $data['referencia']; ?>" required>
+										</div>
+									</li>
+									<li class="search_area" style="display:none">
+										<div class="form-group">
+											<input type="email" name="email_venedor" class="form-control" id="exampleInputName2" value="phxhollow13@hotmail.com" required>
+										</div>
+									</li>
+									<li class="search_area">
+										<div class="form-group">
+											<input type="email" name="email" class="form-control" id="exampleInputEmail" placeholder="Correu electrònic *" required>
+										</div>
+									</li>
+									<li class="search_area">
+										<div class="form-group">
+											<textarea name="missatge" class="form-control" rows="5" placeholder="Comentari * " required></textarea>
+										</div>
+									</li>
+									<li>
+										<div class="search_option_button">
+											<button type="submit" class="btn btn-block btn-thm">Enviar</button>
+										</div>
+									</li>
+								</ul>
+							</form>
 						</div>
 					</div>
 				</div>

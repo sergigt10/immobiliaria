@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Zona restringida - Administració de la web</title>
+  <title>Zona restringida - Immobiliàries en xarxa</title>
   <link rel="stylesheet" href="<?php echo URLROOT; ?>/vendors/iconfonts/mdi/font/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?php echo URLROOT; ?>/vendors/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="<?php echo URLROOT; ?>/vendors/css/vendor.bundle.addons.css">

@@ -2,7 +2,7 @@
 	<!-- Listing Grid View -->
 	<section class="our-listing pb30-991">
 		<div class="container">
-			<!-- filtrar -->
+            <!-- filtrar -->
             <?php require APPROOT . '/views/inc/frontend/filtrar.php'; ?>
             <!-- -->
 			<div class="row">
@@ -12,8 +12,10 @@
 							<li class="breadcrumb-item"><a href="<?php echo URLROOT; ?>/immobles/index">Inici</a></li>
 							<li class="breadcrumb-item active text-thm" aria-current="page">Immobles</li>
 						</ol>
-						<h3 class="breadcrumb_title"> Resultats de la cerca </h3>
-						<h4><?php echo isset($data['operacioCercada']) ? $data['operacioCercada'] : '' ?><?php echo isset($data['categoriaCercada']) ? ", ". $data['categoriaCercada'] : '' ?><?php echo isset($data['poblacioCercada']) ? ", ". $data['poblacioCercada'] : '' ?></h4>
+						<h3 class="breadcrumb_title"><?php echo isset($data['empresaCercada']) ? " ". $data['empresaCercada'] : '' ?></h3>
+						<p><?php echo isset($data['descripcioEmpresa']) ? '<script>document.write(tallarText("'.$data['descripcioEmpresa'].'", 800))</script>' : '' ?></p>
+						<p><?php echo isset($data['telefonEmpresa']) ? '<span class="fa fa-phone"></span> '.$data['telefonEmpresa'] : '' ?></p>
+						<p><?php echo isset($data['emailEmpresa']) ? '<span class="fa fa-envelope"></span> '.$data['emailEmpresa'] : '' ?></p>
 					</div>
 				</div>
 				<div class="col-md-4 col-lg-6">
@@ -40,7 +42,7 @@
                         <?php require APPROOT . '/views/inc/frontend/cerca.php'; ?>
 						<!-- -->
 						<!-- Paginació -->
-						<?php require APPROOT . '/views/inc/frontend/paginacio.php'; ?>
+                        <?php require APPROOT . '/views/inc/frontend/paginacio_immobiliaries_immobles.php'; ?>
 						<!-- -->
 					</div>
 				</div>

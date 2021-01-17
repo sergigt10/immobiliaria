@@ -6,7 +6,7 @@
           <div class="card">
             <div class="card-body">
               <h2>Afegir un nou immoble</h2>
-              <p> * Camps obligatoris </p>
+              <p><b>* Camps obligatoris</b></p>
               <br>
               <form class="forms-sample" method="post" action="<?php echo URLROOT; ?>/habitatges/add" enctype="multipart/form-data">
 

@@ -12,22 +12,54 @@
             $this->categories = $this->categoriaModel->getCategories();
         }
 
-        public function llista(){
+        public function llista( $paginaParametre = '' ){
 
-            $usuaris = $this->usuariModel->getUsuarisActivats();
+            $limitPage = 1;
+            $page = ( isset($paginaParametre) && is_numeric($paginaParametre) ) ? intval($paginaParametre) : 1;
+            $paginationStart = ($page - 1) * $limitPage;
+
+            $usuaris = $this->usuariModel->getUsuarisActivats($paginationStart, $limitPage);
+            $usuarisTotal = $this->usuariModel->getTotalUsuarisActivats();
+
+            // Calculate total pages
+            // $immoblesTotal->total
+            $totalPages = ceil($usuarisTotal->total / $limitPage);
+
+            // Prev + Next
+            $prev = $page - 1;
+            $next = $page + 1;
+
+            // How many adjacent pages should be shown on each side?
+            $adjacents = 3;
+
+            //last page minus 1
+            $totalPagesMinus1 = $totalPages - 1; 
 
             $data=[
                 'categories' => $this->categories,
-                'usuaris' => $usuaris
+                'usuaris' => $usuaris,
+                'usuarisTotal' => $usuarisTotal->total,
+                'page' => $page,
+                'totalPages' => $totalPages,
+                'prev' => $prev,
+                'next' => $next,
+                'adjacents' => $adjacents,
+                'totalPagesMinus1' => $totalPagesMinus1,
+                'nomPagina' => 'llista'
             ];
 
             $this->view('immobiliaries/llista',$data);
 
         }
 
-        public function immobles($id){
+        public function immobles($id, $paginaParametre = ''){
 
-            $immobles = $this->immobleModel->getImmoblesActivatByUsuari(intval($id));
+            $limitPage = 5;
+            $page = ( isset($paginaParametre) && is_numeric($paginaParametre) ) ? intval($paginaParametre) : 1;
+            $paginationStart = ($page - 1) * $limitPage;
+
+            $immobles = $this->immobleModel->getImmoblesActivatsByUsuariPaginacio(intval($id), $paginationStart, $limitPage);
+            $immoblesTotal = $this->immobleModel->getTotalImmoblesActivatsByUsuari(intval($id));
 
             // Pasar el nom de l'empresa
             $empresaCercada = $this->usuariModel->getIsActivateByIdFrontend(intval($id));
@@ -36,6 +68,20 @@
                 redirect('immobiliaries/llista');
                 return false;
             }
+
+            // Calculate total pages
+            // $immoblesTotal->total
+            $totalPages = ceil($immoblesTotal->total / $limitPage);
+
+            // Prev + Next
+            $prev = $page - 1;
+            $next = $page + 1;
+
+            // How many adjacent pages should be shown on each side?
+            $adjacents = 3;
+
+            //last page minus 1
+            $totalPagesMinus1 = $totalPages - 1; 
 
             $operacions = $this->operacioModel->getOperacions();
             $provincies = $this->provinciaModel->getProvincies();
@@ -49,13 +95,22 @@
                 'poblacions' => $poblacions,
                 'caracteristiques' => $caracteristiques,
                 'empresaCercada' => $empresaCercada->empresa,
+                'idEmpresaCercada' => $empresaCercada->id,
                 'descripcioEmpresa' => $empresaCercada->descripcio_cat,
                 'telefonEmpresa' => $empresaCercada->telefon,
                 'emailEmpresa' => $empresaCercada->email,
-                'immobles' => $immobles
+                'immobles' => $immobles,
+                'immoblesTotal' => $immoblesTotal->total,
+                'page' => $page,
+                'totalPages' => $totalPages,
+                'prev' => $prev,
+                'next' => $next,
+                'adjacents' => $adjacents,
+                'totalPagesMinus1' => $totalPagesMinus1,
+                'nomPagina' => 'immobles'
             ];
 
-            $this->view('immobles/cercar',$data);
+            $this->view('immobiliaries/immobles',$data);
 
         }
 }

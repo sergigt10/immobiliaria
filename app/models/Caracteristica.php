@@ -14,7 +14,7 @@
       return $results;
     }
 
-    public function getCaracteristiquesActivat(){
+    public function getCaracteristiquesActivades(){
       $this->db->query('SELECT * FROM caracteristica WHERE activat = 1 ORDER BY id ASC');
       // Devuelve más de una fila
       $results = $this->db->resultSet();

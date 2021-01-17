@@ -10,10 +10,27 @@
       $this->immobleModel = $this->model('Habitatge');
 
       $this->categories = $this->categoriaModel->getCategories();
+
     }
 
     public function index(){
+      $operacions = $this->operacioModel->getOperacions();
+      $provincies = $this->provinciaModel->getProvincies();
+      $poblacions = $this->poblacioModel->getPoblacionsWithProvinciaId(8);
+      $immoblesPortada = $this->immobleModel->getInfoImmoblesPortada();
 
+      $data = [
+        'operacions' => $operacions,
+        'categories' => $this->categories,
+        'provincies' => $provincies,
+        'poblacions' => $poblacions,
+        'immoblesPortada' => $immoblesPortada
+      ];
+      
+      $this->view('immobles/index', $data);
+    }
+
+    public function carregar_poblacions_frontend(){
       // If we select a new provincia then get only their poblacions
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Sanitize POST array
@@ -35,64 +52,81 @@
 
         // Send by JSON
         echo json_encode($data);
-
-      } else {
-        $operacions = $this->operacioModel->getOperacions();
-        $provincies = $this->provinciaModel->getProvincies();
-        $poblacions = $this->poblacioModel->getPoblacionsWithProvinciaId(8);
-        $immoblesPortada = $this->immobleModel->getInfoImmoblesPortada();
-
-        $data = [
-          'operacions' => $operacions,
-          'categories' => $this->categories,
-          'provincies' => $provincies,
-          'poblacions' => $poblacions,
-          'immoblesPortada' => $immoblesPortada
-        ];
-        
-        $this->view('immobles/index', $data);
       }
-
     }
 
-    public function cercar(){
+    public function cercar( $paginaParametre = '' ){
+
       // Problems about expired document
       header('Cache-Control: max-age=900');
+
       // Check for POST
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
+        
         // Init data
-        $data =[
+        $dataPOST =[
           'operacio' => trim(intval($_POST['operacio'])),
           'categoria' => trim(intval($_POST['categoria'])),
           'poblacio' => trim(intval($_POST['poblacio']))
         ];
 
-        if(empty($data['operacio'])){
-          redirect('immobles/index');
+        if(empty($dataPOST['operacio'])){
+          redirect('immobles/error');
+          return false;
+        } else {
+          $_SESSION["operacio_cercar"] = $dataPOST['operacio'];
         }
 
-        if(empty($data['categoria'])){
-          redirect('immobles/index');
+        if(empty($dataPOST['categoria'])){
+          redirect('immobles/error');
+          return false;
+        } else {
+          $_SESSION["categoria_cercar"] = $dataPOST['categoria'];
         }
 
-        if(empty($data['poblacio'])){
-          redirect('poblacio/index');
+        if(empty($dataPOST['poblacio'])){
+          redirect('poblacio/error');
+          return false;
+        } else {
+          $_SESSION["poblacio_cercar"] = $dataPOST['poblacio'];
         }
 
-        $immobles = $this->immobleModel->getImmoblesCercar($data['operacio'], $data['categoria'], $data['poblacio']);
+      }
+
+      if( !empty($_SESSION["operacio_cercar"]) && !empty($_SESSION["categoria_cercar"]) && !empty($_SESSION["poblacio_cercar"]) ) {
+        $limitPage = 1;
+        $page = ( isset($paginaParametre) && is_numeric($paginaParametre) ) ? intval($paginaParametre) : 1;
+        $paginationStart = ($page - 1) * $limitPage;
+
+        $immobles = $this->immobleModel->getImmoblesCercar($_SESSION["operacio_cercar"], $_SESSION["categoria_cercar"], $_SESSION["poblacio_cercar"], $paginationStart, $limitPage);
+        $immoblesTotal = $this->immobleModel->getImmoblesTotalCercar($_SESSION["operacio_cercar"], $_SESSION["categoria_cercar"], $_SESSION["poblacio_cercar"]);
+
+        // Calculate total pages
+        // $immoblesTotal->total
+        $totalPages = ceil($immoblesTotal->total / $limitPage);
+
+        // Prev + Next
+        $prev = $page - 1;
+        $next = $page + 1;
+
+        // How many adjacent pages should be shown on each side?
+        $adjacents = 3;
+
+        //last page minus 1
+        $totalPagesMinus1 = $totalPages - 1; 
 
         $operacions = $this->operacioModel->getOperacions();
-        $operacioCercada = $this->operacioModel->getOperacioById($data['operacio']);
-        $categoriaCercada = $this->categoriaModel->getCategoriaById($data['categoria']);
-        $poblacioCercada = $this->poblacioModel->getPoblacioById($data['poblacio']);
+        $operacioCercada = $this->operacioModel->getOperacioById($_SESSION["operacio_cercar"]);
+        $categoriaCercada = $this->categoriaModel->getCategoriaById($_SESSION["categoria_cercar"]);
+        $poblacioCercada = $this->poblacioModel->getPoblacioById($_SESSION["poblacio_cercar"]);
         $provincies = $this->provinciaModel->getProvincies();
         $poblacions = $this->poblacioModel->getPoblacionsWithProvinciaId(8);
         $caracteristiques = $this->caracteristicaModel->getCaracteristiques();
 
         $data = [
           'immobles' => $immobles,
+          'immoblesTotal' => $immoblesTotal->total,
           'operacions' => $operacions,
           'operacioCercada' => $operacioCercada->nom_cat,
           'categoriaCercada' => $categoriaCercada->nom_cat,
@@ -100,7 +134,14 @@
           'categories' => $this->categories,
           'provincies' => $provincies,
           'poblacions' => $poblacions,
-          'caracteristiques' => $caracteristiques
+          'caracteristiques' => $caracteristiques,
+          'page' => $page,
+          'totalPages' => $totalPages,
+          'prev' => $prev,
+          'next' => $next,
+          'adjacents' => $adjacents,
+          'totalPagesMinus1' => $totalPagesMinus1,
+          'nomPagina' => 'cercar'
         ];
 
         $this->view('immobles/cercar', $data);
@@ -108,16 +149,18 @@
       } else {
         redirect('immobles/error');
       }
+
     }
 
-    public function filtrar(){
+    public function filtrar( $paginaParametre = '' ){
       // Problems about expired document
       header('Cache-Control: max-age=900');
+
       // Check for POST
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-        $data = [
+        $dataPOST = [
           'operacio' => !empty(trim($_POST['operacio'])) && is_numeric($_POST['operacio']) ? intval(trim($_POST['operacio'])) : 3, // Lloguer
           'categoria' => !empty(trim($_POST['categoria'])) && is_numeric($_POST['categoria']) ? intval(trim($_POST['categoria'])) : 1, // Pis
           'poblacio' => !empty(trim($_POST['poblacio'])) && is_numeric($_POST['poblacio']) ? intval(trim($_POST['poblacio'])) : 1158, // Població
@@ -130,11 +173,32 @@
           'caracteristica_id' => !isset($_POST['caracteristica_id']) ? '[""]' : json_encode($_POST['caracteristica_id']),
         ];
 
-        $immoblesFirst = $this->immobleModel->getImmoblesFiltrar($data['operacio'], $data['categoria'], $data['poblacio'], $data['preu_minim'], $data['preu_maxim'], $data['habitacions'], $data['banys'], $data['superficies_minim'], $data['superficies_maxim']);
+        $_SESSION["operacio_filtrar"] = $dataPOST['operacio'];
+        $_SESSION["categoria_filtrar"] = $dataPOST['categoria'];
+        $_SESSION["poblacio_filtrar"] = $dataPOST['poblacio'];
+        $_SESSION["preu_minim_filtrar"] = $dataPOST['preu_minim'];
+        $_SESSION["preu_maxim_filtrar"] = $dataPOST['preu_maxim'];
+        $_SESSION["habitacions_filtrar"] = $dataPOST['habitacions'];
+        $_SESSION["banys_filtrar"] = $dataPOST['banys'];
+        $_SESSION["superficies_minim_filtrar"] = $dataPOST['superficies_minim'];
+        $_SESSION["superficies_maxim_filtrar"] = $dataPOST['superficies_maxim'];
+        $_SESSION["caracteristica_id_filtrar"] = $dataPOST['caracteristica_id'];
 
-        if ( $data['caracteristica_id'] !== '[""]' ) {
-          $caracteristiquesFiltrar = json_decode($data['caracteristica_id']);
+      }
 
+      if( !empty($_SESSION["operacio_filtrar"]) && !empty($_SESSION["categoria_filtrar"]) && !empty($_SESSION["poblacio_filtrar"]) ) {
+
+        $limitPage = 1;
+        $page = ( isset($paginaParametre) && is_numeric($paginaParametre) ) ? intval($paginaParametre) : 1;
+        $paginationStart = ($page - 1) * $limitPage;
+
+        $immoblesFirst = $this->immobleModel->getImmoblesFiltrar($_SESSION["operacio_filtrar"], $_SESSION["categoria_filtrar"], $_SESSION["poblacio_filtrar"], $_SESSION["preu_minim_filtrar"], $_SESSION["preu_maxim_filtrar"], $_SESSION["habitacions_filtrar"], $_SESSION["banys_filtrar"], $_SESSION["superficies_minim_filtrar"], $_SESSION["superficies_maxim_filtrar"], $paginationStart, $limitPage);
+        $immoblesFirstSensePaginacio = $this->immobleModel->getImmoblesFiltrarSensePaginacio($_SESSION["operacio_filtrar"], $_SESSION["categoria_filtrar"], $_SESSION["poblacio_filtrar"], $_SESSION["preu_minim_filtrar"], $_SESSION["preu_maxim_filtrar"], $_SESSION["habitacions_filtrar"], $_SESSION["banys_filtrar"], $_SESSION["superficies_minim_filtrar"], $_SESSION["superficies_maxim_filtrar"]);
+
+        if ( $_SESSION["caracteristica_id_filtrar"] !== '[""]' ) {
+          $caracteristiquesFiltrar = json_decode($_SESSION["caracteristica_id_filtrar"]);
+
+          // Paginar immobles
           foreach ($immoblesFirst as $immoble) {
             // $containsSearch = count(array_intersect($caracteristiques, $var)) == count($caracteristiques);
             $caracteristiquesImmoble = json_decode($immoble->caracteristica_id);
@@ -142,20 +206,56 @@
               $immobles[] = $immoble;
             }
           }
+
+          if(empty($immobles)){
+            $immobles = array();
+          }
+
+          // Sense paginar immobles
+          foreach ($immoblesFirstSensePaginacio as $immoble) {
+            // $containsSearch = count(array_intersect($caracteristiques, $var)) == count($caracteristiques);
+            $caracteristiquesImmoble = json_decode($immoble->caracteristica_id);
+            if(!array_diff($caracteristiquesFiltrar, $caracteristiquesImmoble)) {
+              $immoblesSensePaginar[] = $immoble;
+            }
+          }
+
+          if(!empty($immoblesSensePaginar)) {
+            $immoblesTotal = sizeof($immoblesSensePaginar);
+          } else {
+            $immoblesTotal = 0;
+          }
+          
         } else {
           $immobles = $immoblesFirst;
+          $immoblesTotal = sizeof($immoblesFirstSensePaginacio);
         }
 
+        // Calculate total pages
+        // $immoblesTotal->total
+        $totalPages = ceil($immoblesTotal / $limitPage);
+
+        // Prev + Next
+        $prev = $page - 1;
+        $next = $page + 1;
+
+        // How many adjacent pages should be shown on each side?
+        $adjacents = 3;
+
+        //last page minus 1
+        $totalPagesMinus1 = $totalPages - 1; 
+
         $operacions = $this->operacioModel->getOperacions();
-        $operacioCercada = $this->operacioModel->getOperacioById($data['operacio']);
-        $categoriaCercada = $this->categoriaModel->getCategoriaById($data['categoria']);
-        $poblacioCercada = $this->poblacioModel->getPoblacioById($data['poblacio']);
+        $operacioCercada = $this->operacioModel->getOperacioById($_SESSION["operacio_filtrar"]);
+        $categoriaCercada = $this->categoriaModel->getCategoriaById($_SESSION["categoria_filtrar"]);
+        $poblacioCercada = $this->poblacioModel->getPoblacioById($_SESSION["poblacio_filtrar"]);
         $provincies = $this->provinciaModel->getProvincies();
         $poblacions = $this->poblacioModel->getPoblacionsWithProvinciaId(8);
         $caracteristiques = $this->caracteristicaModel->getCaracteristiques();
 
         $data = [
           'immobles' => $immobles,
+          'immoblesTotal' => $immoblesTotal,
           'operacions' => $operacions,
           'operacioCercada' => $operacioCercada->nom_cat,
           'categoriaCercada' => $categoriaCercada->nom_cat,
@@ -163,7 +263,14 @@
           'categories' => $this->categories,
           'provincies' => $provincies,
           'poblacions' => $poblacions,
-          'caracteristiques' => $caracteristiques
+          'caracteristiques' => $caracteristiques,
+          'page' => $page,
+          'totalPages' => $totalPages,
+          'prev' => $prev,
+          'next' => $next,
+          'adjacents' => $adjacents,
+          'totalPagesMinus1' => $totalPagesMinus1,
+          'nomPagina' => 'filtrar'
         ];
 
         $this->view('immobles/cercar', $data);
@@ -173,6 +280,70 @@
       }
     }
     
+    public function operacio($operacio = 3, $categoria = 1, $paginaParametre = '') {
+
+      $limitPage = 1;
+      $page = ( isset($paginaParametre) && is_numeric($paginaParametre) ) ? intval($paginaParametre) : 1;
+      $paginationStart = ($page - 1) * $limitPage;
+
+      switch (intval($operacio)) {
+        // Comprar, lloguer, obra nova
+        case 2:
+        case 3:
+        case 4:
+          $immobles = $this->immobleModel->getImmoblesOperacioCategoria(intval($operacio), intval($categoria), $paginationStart, $limitPage);
+          $immoblesTotal = $this->immobleModel->getImmoblesTotalOperacioCategoria(intval($operacio), intval($categoria));
+          break;
+        default:
+          // Lloguer i pis
+          $immobles = $this->immobleModel->getImmoblesOperacioCategoria(3, 1, $paginationStart, $limitPage);
+          $immoblesTotal = $this->immobleModel->getImmoblesTotalOperacioCategoria(intval($operacio), intval($categoria));
+      }
+
+      // Calculate total pages
+      // $immoblesTotal->total
+      $totalPages = ceil($immoblesTotal->total / $limitPage);
+
+      // Prev + Next
+      $prev = $page - 1;
+      $next = $page + 1;
+
+      // How many adjacent pages should be shown on each side?
+      $adjacents = 3;
+
+      //last page minus 1
+      $totalPagesMinus1 = $totalPages - 1; 
+
+      $operacions = $this->operacioModel->getOperacions();
+      $operacioCercada = $this->operacioModel->getOperacioById(intval($operacio));
+      $categoriaCercada = $this->categoriaModel->getCategoriaById(intval($categoria));
+      $provincies = $this->provinciaModel->getProvincies();
+      $poblacions = $this->poblacioModel->getPoblacionsWithProvinciaId(8);
+      $caracteristiques = $this->caracteristicaModel->getCaracteristiques();
+
+      $data = [
+        'immobles' => $immobles,
+        'immoblesTotal' => $immoblesTotal->total,
+        'operacions' => $operacions,
+        'operacioCercada' => $operacioCercada->nom_cat,
+        'idOperacioCercada' => $operacioCercada->id,
+        'categoriaCercada' => $categoriaCercada->nom_cat,
+        'idCategoriaCercada' => $categoriaCercada->id,
+        'categories' => $this->categories,
+        'provincies' => $provincies,
+        'poblacions' => $poblacions,
+        'caracteristiques' => $caracteristiques,
+        'page' => $page,
+        'totalPages' => $totalPages,
+        'prev' => $prev,
+        'next' => $next,
+        'adjacents' => $adjacents,
+        'totalPagesMinus1' => $totalPagesMinus1,
+        'nomPagina' => 'operacio'
+      ];
+      $this->view('immobles/operacions', $data);
+    }
+
     public function detall($id){
 
       $operacions = $this->operacioModel->getOperacions();
@@ -238,45 +409,6 @@
 
     }
 
-    public function operacio($operacio = 3, $categoria = 1) {
-      switch (intval($operacio)) {
-        // Comprar
-        case 2:
-          $immobles = $this->immobleModel->getImmoblesOperacioCategoria(intval($operacio), intval($categoria));
-          break;
-        // Lloguer
-        case 3:
-          $immobles = $this->immobleModel->getImmoblesOperacioCategoria(intval($operacio), intval($categoria));
-          break;
-        // Obra nova
-        case 4:
-          $immobles = $this->immobleModel->getImmoblesOperacioCategoria(intval($operacio), intval($categoria));
-          break;
-        default:
-          // Lloguer i pis
-          $immobles = $this->immobleModel->getImmoblesOperacioCategoria(3, 1);
-      }
-
-      $operacions = $this->operacioModel->getOperacions();
-      $operacioCercada = $this->operacioModel->getOperacioById(intval($operacio));
-      $categoriaCercada = $this->categoriaModel->getCategoriaById(intval($categoria));
-      $provincies = $this->provinciaModel->getProvincies();
-      $poblacions = $this->poblacioModel->getPoblacionsWithProvinciaId(8);
-      $caracteristiques = $this->caracteristicaModel->getCaracteristiques();
-
-      $data = [
-        'immobles' => $immobles,
-        'operacions' => $operacions,
-        'operacioCercada' => $operacioCercada->nom_cat,
-        'categoriaCercada' => $categoriaCercada->nom_cat,
-        'categories' => $this->categories,
-        'provincies' => $provincies,
-        'poblacions' => $poblacions,
-        'caracteristiques' => $caracteristiques
-      ];
-      $this->view('immobles/cercar', $data);
-    }
-
     public function nosaltres() {
       $data = [
         'categories' => $this->categories
@@ -284,18 +416,57 @@
       $this->view('immobles/nosaltres', $data);
     }
 
-    public function contacte() {
-      $data = [
-        'categories' => $this->categories
-      ];
-      $this->view('immobles/contacte', $data);
-    }
-
     public function unirme() {
       $data = [
         'categories' => $this->categories
       ];
       $this->view('immobles/unirme', $data);
+    }
+
+    public function correu($tipusCorreu) {
+      if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+          switch (htmlspecialchars($tipusCorreu)) {
+            // Informació
+            case "informacio":
+              $AdminMessage = "Formulari de contacte IMMOBILIARIES EN XARXA\n\n";
+
+              $AdminMessage .= "Nom i cognoms: ".utf8_decode($_POST['nom'])."\n";
+              $AdminMessage .= "Correu: ".utf8_decode($_POST['email'])."\n";
+              $AdminMessage .= "Ref. immoble: ".utf8_decode($_POST['referencia'])."\n";
+              $AdminMessage .= "Tlf: ".utf8_decode($_POST['telefon'])."\n";
+              $AdminMessage .= "Comentaris: ".utf8_decode($_POST['missatge'])."\n";
+
+              mail(utf8_decode($_POST['email_venedor']), "Formulari de contacte IMMOBILIARIES EN XARXA", $AdminMessage, "From: ".$_POST['email']);
+              redirect('immobles/gracies');
+              break;
+            // Uneix-te
+            case "unirme":
+              $AdminMessage = "Formulari de contacte UNEIX-TE - IMMOBILIARIES EN XARXA\n\n";
+
+              $AdminMessage .= "Nom i cognoms: ".utf8_decode($_POST['nom'])."\n";
+              $AdminMessage .= "Correu: ".utf8_decode($_POST['email'])."\n";
+              $AdminMessage .= "Empresa: ".utf8_decode($_POST['empresa'])."\n";
+              $AdminMessage .= "Tlf: ".utf8_decode($_POST['telefon'])."\n";
+              $AdminMessage .= "Comentaris: ".utf8_decode($_POST['missatge'])."\n";
+
+              mail("phxhollow13@hotmail.com", "Formulari de contacte UNEIX-TE - IMMOBILIARIES EN XARXA", $AdminMessage, "From: ".$_POST['email']);
+              redirect('immobles/gracies');
+              break;
+            default:
+              redirect('immobles/error');
+          }
+      } else {
+        redirect('immobles/error');
+      }
+    }
+
+    // Gràcies
+    public function gracies() {
+      $data = [
+        'categories' => $this->categories
+      ];
+      $this->view('immobles/gracies', $data);
     }
 
     // Error 404

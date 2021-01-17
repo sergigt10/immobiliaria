@@ -23,34 +23,34 @@
                         - Si tens molts potencials compradors i vols ampliar la teva cartera d'immobles per poder atendre les seves necessitats.<br>
                         - Si vols créixer més i estàs buscant un model de negoci que et permeti fer-ho.</p>
                         <p>Deixa'ns les teves dades i ens posarem en contacte per donar-te més informació dels nostres serveis.</p>
-                        <form class="contact_form" id="contact_form" name="contact_form" action="#" method="post" novalidate="novalidate">
+                        <form class="contact_form" method="post" action="<?php echo URLROOT; ?>/immobles/correu/unirme" >
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input id="form_name" name="form_name" class="form-control" required="required" type="text" placeholder="Nom i cognoms *">
+                                        <input name="nom" class="form-control" required="required" type="text" placeholder="Nom i cognoms *">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input id="form_email" name="form_email" class="form-control required email" required="required" type="email" placeholder="Correu electrònic *">
+                                        <input name="email" class="form-control" required="required" type="email" placeholder="Correu electrònic *">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input id="form_phone" name="form_phone" class="form-control required phone" required="required" type="phone" placeholder="Telèfon *">
+                                        <input name="telefon" class="form-control" required="required" type="phone" placeholder="Telèfon *">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input id="form_subject" name="form_subject" class="form-control required" required="required" type="text" placeholder="Empresa *">
+                                        <input name="empresa" class="form-control" required="required" type="text" placeholder="Empresa *">
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                        <textarea id="form_message" name="form_message" class="form-control required" rows="8" required="required" placeholder="Comentari *"></textarea>
+                                        <textarea name="missatge" class="form-control" rows="8" required="required" placeholder="Comentari *"></textarea>
                                     </div>
                                     <div class="form-group mb0">
-                                        <button type="button" class="btn btn-lg btn-thm">Enviar missatge</button>
+                                        <button type="button" class="btn btn-lg btn-thm">Enviar</button>
                                     </div>
                                 </div>
                             </div>
