@@ -1,7 +1,5 @@
-<!-- META TAGS -->
-<?php define('TITLE', 'Immobiliàries en xarxa'); ?>
-<?php define('DESCRIPTION', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non accumsan mi. Quisque sed nunc nec risus vestibulum porta. Praesent venenatis dignissim sem id commodo."'); ?>
-<?php define('KEYWORDS', '"Immobiliàries en xarxa"'); ?> 
+<!-- META TAGS title, desc., keyword -->
+<?php meta_tags($data['titol_cat'],'"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non accumsan mi. Quisque sed nunc nec risus vestibulum porta. Praesent venenatis dignissim sem id commodo."','"Immobiliàries en xarxa"') ?>
 <!-- -->
 <?php require APPROOT . '/views/inc/frontend/header.php'; ?>
 	<section class="listing-title-area">
@@ -297,7 +295,7 @@
 										<h5 class="mt-0 mb0"><?php echo $data['empresa']; ?></h5>
 										<p class="mt-0 mb0"><?php echo $data['direccio']; ?></p>
 										<p class="mt-0 mb0"><?php echo $data['poblacio_usuari']; ?> - <?php echo $data['codi_postal']; ?> </p>
-										<p class="mb0"><?php echo $data['telefon']; ?></p>
+										<p class="mb0">T: <?php echo $data['telefon']; ?></p>
 										<p class="mb0"><?php echo $data['email']; ?></p>
 										<p class="mb0"><?php echo $data['web']; ?></p>
 									</div>

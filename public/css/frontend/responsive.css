@@ -800,7 +800,7 @@
 	.db-520{display: block !important;}
 	.dn-520{display: none !important;}
 	/* ExTra Class End*/
-	.home1_adsrchfrm{padding: 30px 15px;}
+	.home1_adsrchfrm{padding: 30px 15px; text-align: center;}
 	.small_dropdown2 .dd_btn{width: 120px;}
 	.home1-advnc-search .search_option_two{margin-bottom: 10px;}
 	.home1-advnc-search .search_option_two,
@@ -1043,7 +1043,7 @@
 	.footer_apps_widget.home4 .mailchimp_form .form-control{margin-left: 0;width: 100%;}
 	.list-style-type-bullet li{margin-left: 50px;}
 	.home_adv_srch_opt .nav-pills{margin: 0;}
-	.home3_home_content h1{display: none;}
+	.home3_home_content h1{font-size: 19px;}
 	.home_adv_srch_opt.home4{margin-top: 30px;}
 	.home_content.home6{padding: 150px 0 0 0 !important;}
 	.home_adv_srch_opt.home6{margin-top: 20px;}

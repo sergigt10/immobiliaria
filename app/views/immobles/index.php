@@ -1,7 +1,5 @@
-<!-- META TAGS -->
-<?php define('TITLE', 'Immobiliàries en xarxa'); ?>
-<?php define('DESCRIPTION', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non accumsan mi. Quisque sed nunc nec risus vestibulum porta. Praesent venenatis dignissim sem id commodo."'); ?>
-<?php define('KEYWORDS', '"Immobiliàries en xarxa"'); ?> 
+<!-- META TAGS title, desc., keyword -->
+<?php meta_tags('Immobiliàries en xarxa','"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non accumsan mi. Quisque sed nunc nec risus vestibulum porta. Praesent venenatis dignissim sem id commodo."','"Immobiliàries en xarxa"') ?>
 <!-- -->
 <?php require APPROOT . '/views/inc/frontend/header.php'; ?>
     <!-- Home Design -->
@@ -9,7 +7,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					<div class="home3_home_content">
+					<div class="home3_home_content text-center">
 						<h1>La vostra propietat, la nostra prioritat</h1>
 					</div>
 				</div>

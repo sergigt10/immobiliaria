@@ -52,7 +52,7 @@
                 </a>
                 <!-- Responsive Menu Structure-->
                 <!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) -->
-                <ul id="respMenu" class="ace-responsive-menu text-right" data-menu-style="horizontal">
+                <ul id="respMenu" class="ace-responsive-menu text-left" data-menu-style="horizontal">
                     <li>
                         <a href="<?php echo URLROOT; ?>/immobles/index"><span class="title">INICI</span></a>
                     </li>
@@ -92,6 +92,17 @@
 
                     <li class="last">
                         <a href="<?php echo URLROOT; ?>/immobles/unirme"><span class="title">UNEIX-TE</span></a>
+                    </li>
+
+                    <li class="list-inline-item list_s">
+                        <a href="#" class="btn" data-toggle="modal" data-target=".bd-example-modal-lg"> 
+                            <span class="dn-lg text-thm3">CAT</span>
+                        </a>
+                        <ul class="text-center">
+                            <li><a href="#"><span class="fa fa-globe"></span> Català</a></li>
+                            <li><a href="#"><span class="fa fa-globe"></span> Español</a></li>
+                            <li><a href="#"><span class="fa fa-globe"></span> English</a></li>
+                        </ul>
                     </li>
                 </ul>
             </nav>

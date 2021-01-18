@@ -1,7 +1,5 @@
-<!-- META TAGS -->
-<?php define('TITLE', 'Immobiliàries en xarxa'); ?>
-<?php define('DESCRIPTION', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non accumsan mi. Quisque sed nunc nec risus vestibulum porta. Praesent venenatis dignissim sem id commodo."'); ?>
-<?php define('KEYWORDS', '"Immobiliàries en xarxa"'); ?> 
+<!-- META TAGS title, desc., keyword -->
+<?php meta_tags('Immobiliàries en xarxa','"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non accumsan mi. Quisque sed nunc nec risus vestibulum porta. Praesent venenatis dignissim sem id commodo."','"Immobiliàries en xarxa"') ?>
 <!-- -->
 <?php require APPROOT . '/views/inc/frontend/header.php'; ?>
     <section class="our-listing pb30-991">
@@ -46,7 +44,7 @@
                                             <ul class="prop_details mb0">
                                                 <li><a href="<?php echo URLROOT; ?>/immobiliaries/immobles/<?php echo $usuari->id?>"><?php echo $usuari->direccio ?></a></li>
                                                 <li><a href="<?php echo URLROOT; ?>/immobiliaries/immobles/<?php echo $usuari->id?>"><?php echo $usuari->poblacio ?> - <?php echo $usuari->codi_postal ?></a></li>
-                                                <li><a href="<?php echo URLROOT; ?>/immobiliaries/immobles/<?php echo $usuari->id?>"><?php echo $usuari->telefon ?></a></li>
+                                                <li><a href="<?php echo URLROOT; ?>/immobiliaries/immobles/<?php echo $usuari->id?>">T: <?php echo $usuari->telefon ?></a></li>
                                                 <li><a href="<?php echo URLROOT; ?>/immobiliaries/immobles/<?php echo $usuari->id?>"><?php echo $usuari->email ?></a></li>
                                                 <li><a href="<?php echo URLROOT; ?>/immobiliaries/immobles/<?php echo $usuari->id?>"><?php echo $usuari->web ?></a></li>
                                             </ul>

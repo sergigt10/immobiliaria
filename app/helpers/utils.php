@@ -31,3 +31,9 @@
     // Si no, entonces devuelve la cadena normal
     return $cadena;
   }
+
+  function meta_tags($title, $description, $keywords){
+    define('TITLE', $title);
+    define('DESCRIPTION', $description);
+    define('KEYWORDS', $keywords);
+  }

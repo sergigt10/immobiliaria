@@ -10,12 +10,14 @@
               <br>
               <form class="forms-sample" method="post" action="<?php echo URLROOT; ?>/habitatges/add" enctype="multipart/form-data">
 
+                <?php echo (!empty($data['titol_cat_err'])) ? "<div class='alert alert-danger' role='alert'>* ".$data['titol_cat_err']."</div>" : ' '; ?>
                 <?php echo (!empty($data['titol_esp_err'])) ? "<div class='alert alert-danger' role='alert'>* ".$data['titol_esp_err']."</div>" : ' '; ?>
+                <?php echo (!empty($data['titol_eng_err'])) ? "<div class='alert alert-danger' role='alert'>* ".$data['titol_eng_err']."</div>" : ' '; ?>
                 <?php echo (!empty($data['referencia_err'])) ? "<div class='alert alert-danger' role='alert'>* ".$data['referencia_err']."</div>" : ' '; ?>
 
                 <div class="form-row">
                   <div class="form-group col-md-4">
-                    <label for="exampleInputEmail3">Títol CAT:</label>
+                    <label for="exampleInputEmail3">Títol CAT *:</label>
                     <input name="titol_cat" type="text" class="form-control" id="exampleInputEmail3" placeholder="Títol CAT" value="<?php echo $data['titol_cat']; ?>">
                   </div>
 
@@ -25,7 +27,7 @@
                   </div>
 
                   <div class="form-group col-md-4">
-                    <label for="exampleInputEmail3">Títol ENG:</label>
+                    <label for="exampleInputEmail3">Títol ENG *:</label>
                     <input name="titol_eng" type="text" class="form-control" id="exampleInputEmail3" placeholder="Títol ENG" value="<?php echo $data['titol_eng']; ?>">
                   </div>
                 </div>

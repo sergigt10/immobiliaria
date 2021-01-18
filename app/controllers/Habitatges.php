@@ -111,7 +111,7 @@
 
         // Validate data
         if(empty($data['titol_cat'])){
-          // $data['titol_cat_err'] = 'Introduïr títol en català';
+          $data['titol_cat_err'] = 'Introduïr títol en català';
         } else {
           $data['slug_cat'] = urls_amigables($data['titol_cat']);
         }
@@ -125,7 +125,7 @@
 
         // Validate data
         if(empty($data['titol_eng'])){
-          // $data['titol_eng_err'] = 'Introduïr títol en anglès';
+          $data['titol_eng_err'] = 'Introduïr títol en anglès';
         } else {
           $data['slug_eng'] = urls_amigables($data['titol_eng']);
         }
@@ -135,7 +135,7 @@
         }
 
         // Make sure no errors
-        if(empty($data['titol_esp_err']) && empty($data['referencia_err'])){
+        if(empty($data['titol_cat_err']) && empty($data['titol_esp_err']) && empty($data['titol_eng_err']) && empty($data['referencia_err'])){
           // Validated
 
           // Pujada d'imatges
@@ -891,7 +891,7 @@
 
         // Validate data
         if(empty($data['titol_cat'])){
-          // $data['titol_cat_err'] = 'Introduïr títol en català';
+          $data['titol_cat_err'] = 'Introduïr títol en català';
         } else {
           $data['slug_cat'] = urls_amigables($data['titol_cat']);
         }
@@ -905,7 +905,7 @@
 
         // Validate data
         if(empty($data['titol_eng'])){
-          // $data['titol_eng_err'] = 'Introduïr títol en anglès';
+          $data['titol_eng_err'] = 'Introduïr títol en anglès';
         } else {
           $data['slug_eng'] = urls_amigables($data['titol_eng']);
         }
@@ -915,7 +915,7 @@
         }
 
         // Make sure no errors
-        if(empty($data['titol_esp_err']) && empty($data['referencia_err'])){
+        if(empty($data['titol_cat_err']) && empty($data['titol_esp_err']) && empty($data['titol_eng_err']) && empty($data['referencia_err'])){
           
           // Eliminar imatges
           if($del_img1 == "1"){
