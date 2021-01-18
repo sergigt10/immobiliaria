@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="keywords" content="">
-<meta name="description" content="">
+<meta name="keywords" content=<?php echo KEYWORDS; ?> >
+<meta name="description" content=<?php echo DESCRIPTION; ?> >
 <meta name="CreativeLayers" content="ATFN">
 <!-- css file -->
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/frontend/bootstrap.min.css">
@@ -13,7 +13,7 @@
 <!-- Responsive stylesheet -->
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/frontend/responsive.css">
 <!-- Title -->
-<title>Immobiliàries en xarxa</title>
+<title><?php echo TITLE; ?></title>
 <!-- Favicon -->
 <link href="<?php echo URLROOT; ?>/images/frontend/favicon.ico" sizes="128x128" rel="shortcut icon" type="image/x-icon" />
 <link href="<?php echo URLROOT; ?>/images/frontend/favicon.ico" sizes="128x128" rel="shortcut icon" />
@@ -61,7 +61,6 @@
                     </li>
                     <li>
                         <a href="<?php echo URLROOT; ?>/immobiliaries/llista"><span class="title">AFILIATS</span></a>
-                        <!-- Level Two-->
                     </li>
                     
                     <li>
@@ -107,7 +106,7 @@
                     <img class="nav_logo_img img-fluid mt20" src="<?php echo URLROOT; ?>/images/frontend/header-logo2.png" alt="header-logo2.png">  
 				</div>
 				<ul class="menu_bar_home2">
-                    <li class="list-inline-item list_s"><a href="page-register.html"></a></li>
+                    <li class="list-inline-item list_s"><a href="<?php echo URLROOT; ?>/immobles/index"></a></li>
 					<li class="list-inline-item"><a href="#menu"><span></span></a></li>
 				</ul>
 			</div>
@@ -115,54 +114,45 @@
 		<nav id="menu" class="stylehome1">
 			<ul>
                 <li>
-                    <a href="#"><span class="title">INICI</span></a>
+                    <a href="<?php echo URLROOT; ?>/immobles/index"><span class="title">INICI</span></a>
                 </li>
                 
                 <li>
-                    <a href="#"><span class="title">QUI SOM</span></a>
+                    <a href="<?php echo URLROOT; ?>/immobles/nosaltres"><span class="title">QUI SOM</span></a>
                 </li>
                 <li>
-                    <a href="#"><span class="title">AFILIATS</span></a>
+                    <a href="<?php echo URLROOT; ?>/immobiliaries/llista"><span class="title">AFILIATS</span></a>
                 </li>
 
                 <li>
-                    <a href="#"><span class="title">VENDA</span></a>
+                    <a href="#"><span class="title">COMPRAR</span></a>
                     <ul>
-                        <li><a href="page-blog-v1.html">PISOS</a></li>
-                        <li><a href="page-blog-grid.html">CASES</a></li>
-                        <li><a href="page-blog-single.html">CHALETS</a></li>
-                        <li><a href="page-blog-single.html">LOCALS</a></li>
-                        <li><a href="page-blog-single.html">GARATGES</a></li>
-                        <li><a href="page-blog-single.html">TARRENYS</a></li>
-                    </ul>
-                </li>
-                
-                <li>
-                    <a href="#"><span class="title">COMPRA</span></a>
-                    <ul>
-                        <li><a href="page-blog-v1.html">PISOS</a></li>
-                        <li><a href="page-blog-grid.html">CASES</a></li>
-                        <li><a href="page-blog-single.html">CHALETS</a></li>
-                        <li><a href="page-blog-single.html">LOCALS</a></li>
-                        <li><a href="page-blog-single.html">GARATGES</a></li>
-                        <li><a href="page-blog-single.html">TARRENYS</a></li>
+                        <?php foreach ($data['categories'] as $categoria) : ?>
+                            <li><a href="<?php echo URLROOT; ?>/immobles/operacio/2/<?php echo $categoria->id ?>"><?php echo mb_strtoupper($categoria->nom_cat) ?></a></li>
+                        <?php endforeach; ?>
                     </ul>
                 </li>
                 
                 <li>
                     <a href="#"><span class="title">LLOGUER</span></a>
                     <ul>
-                        <li><a href="page-blog-v1.html">PISOS</a></li>
-                        <li><a href="page-blog-grid.html">CASES</a></li>
-                        <li><a href="page-blog-single.html">CHALETS</a></li>
-                        <li><a href="page-blog-single.html">LOCALS</a></li>
-                        <li><a href="page-blog-single.html">GARATGES</a></li>
-                        <li><a href="page-blog-single.html">TARRENYS</a></li>
+                        <?php foreach ($data['categories'] as $categoria) : ?>
+                            <li><a href="<?php echo URLROOT; ?>/immobles/operacio/3/<?php echo $categoria->id ?>"><?php echo mb_strtoupper($categoria->nom_cat) ?></a></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><span class="title">OBRA NOVA</span></a>
+                    <ul>
+                        <?php foreach ($data['categories'] as $categoria) : ?>
+                            <li><a href="<?php echo URLROOT; ?>/immobles/operacio/4/<?php echo $categoria->id ?>"><?php echo mb_strtoupper($categoria->nom_cat) ?></a></li>
+                        <?php endforeach; ?>
                     </ul>
                 </li>
 
                 <li class="last">
-                    <a href="page-contact.html"><span class="title">UNEIX-TE</span></a>
+                    <a href="<?php echo URLROOT; ?>/immobles/unirme"><span class="title">UNEIX-TE</span></a>
                 </li>
 
 			</ul>

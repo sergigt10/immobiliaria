@@ -1,3 +1,8 @@
+<!-- META TAGS -->
+<?php define('TITLE', 'Immobiliàries en xarxa'); ?>
+<?php define('DESCRIPTION', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non accumsan mi. Quisque sed nunc nec risus vestibulum porta. Praesent venenatis dignissim sem id commodo."'); ?>
+<?php define('KEYWORDS', '"Immobiliàries en xarxa"'); ?> 
+<!-- -->
 <?php require APPROOT . '/views/inc/frontend/header.php'; ?>
 	<section class="listing-title-area">
 		<div class="container">
@@ -137,7 +142,7 @@
 							<div class="listing_single_description">
 								<div class="lsd_list">
 									<ul class="mb0">
-										<li class="list-inline-item"><a href="#">Referencia: <?php echo $data['referencia']; ?></a></li>
+										<li class="list-inline-item"><p style="font-size: 14px">Referencia: <?php echo $data['referencia']; ?></p></li>
 									</ul>
 								</div>
 								<h4 class="mb30"><b>Descripció</b></h4>
@@ -318,7 +323,7 @@
 									</li>
 									<li class="search_area" style="display:none">
 										<div class="form-group">
-											<input type="email" name="email_venedor" class="form-control" id="exampleInputName2" value="phxhollow13@hotmail.com" required>
+											<input type="email" name="email_venedor" class="form-control" id="exampleInputName2" value="<?php echo $data['email']; ?>" required>
 										</div>
 									</li>
 									<li class="search_area">

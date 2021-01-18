@@ -3377,11 +3377,12 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   position: relative;
 }
 .home3_home_content h1{
-  font-size: 42px;
+  font-size: 50px;
   font-family: "Nunito";
   color: #ffffff;
   font-weight: bold;
   line-height: 1.2;
+  text-align: center;
 }
 .home3_home_content h4{
   font-size: 18px;
@@ -5203,7 +5204,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   color: #484848;
   font-weight: bold;
   line-height: 1.2;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.5);
 }
 .search_smart_property p{
   font-size: 16px;
@@ -5211,7 +5212,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   color: #484848;
   line-height: 1.875;
   margin-bottom: 30px;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.5);
 }
 .search_smart_property button.ssp_btn{
   background-color: #ffffff;
@@ -5502,7 +5503,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 .lsd_list li{
   border-radius: 8px;
   background-color: rgb(247, 247, 247);
-  height: 40px;
+  height: 35px;
   padding: 6px 25px;
   text-align: center;
 }

@@ -1,3 +1,8 @@
+<!-- META TAGS -->
+<?php define('TITLE', 'Immobiliàries en xarxa'); ?>
+<?php define('DESCRIPTION', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non accumsan mi. Quisque sed nunc nec risus vestibulum porta. Praesent venenatis dignissim sem id commodo."'); ?>
+<?php define('KEYWORDS', '"Immobiliàries en xarxa"'); ?> 
+<!-- -->
 <?php require APPROOT . '/views/inc/frontend/header.php'; ?>
 
     <section class="our-contact pb0">
@@ -50,7 +55,7 @@
                                         <textarea name="missatge" class="form-control" rows="8" required="required" placeholder="Comentari *"></textarea>
                                     </div>
                                     <div class="form-group mb0">
-                                        <button type="button" class="btn btn-lg btn-thm">Enviar</button>
+                                        <button type="submit" class="btn btn-lg btn-thm">Enviar</button>
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +71,7 @@
 						</div>
 						<div class="content_list">
 							<h5>Telèfon</h5>
-							<p>699 475 902</p>
+							<p>93 883 59 31</p>
 						</div>
 						<div class="content_list">
 							<h5>Correu electrònic</h5>

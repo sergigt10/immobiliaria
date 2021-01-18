@@ -1,3 +1,8 @@
+<!-- META TAGS -->
+<?php define('TITLE', 'Nosaltres'); ?>
+<?php define('DESCRIPTION', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non accumsan mi. Quisque sed nunc nec risus vestibulum porta. Praesent venenatis dignissim sem id commodo."'); ?>
+<?php define('KEYWORDS', '"Immobiliàries en xarxa"'); ?> 
+<!-- -->
 <?php require APPROOT . '/views/inc/frontend/header.php'; ?>
     <section class="about-section">
 		<div class="container">

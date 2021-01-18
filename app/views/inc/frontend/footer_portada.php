@@ -24,7 +24,7 @@
 						<h4>Contacte</h4>
 						<ul class="list-unstyled">
 							<li><p>08500 Vic - Barcelona</p></li>
-							<li><p>699 475 902</p></li>
+							<li><p>93 883 59 31</p></li>
 							<li><p>info@immobiliariesenxarxa.net</p></li>
 							<li><p>www.immobiliariesenxarxa.net</p></li>
 						</ul>

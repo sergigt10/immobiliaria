@@ -1,12 +1,16 @@
+<!-- META TAGS -->
+<?php define('TITLE', 'Immobiliàries en xarxa'); ?>
+<?php define('DESCRIPTION', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non accumsan mi. Quisque sed nunc nec risus vestibulum porta. Praesent venenatis dignissim sem id commodo."'); ?>
+<?php define('KEYWORDS', '"Immobiliàries en xarxa"'); ?> 
+<!-- -->
 <?php require APPROOT . '/views/inc/frontend/header.php'; ?>
     <!-- Home Design -->
 	<section class="home-three bg-img3">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-8">
+				<div class="col-lg-12">
 					<div class="home3_home_content">
 						<h1>La vostra propietat, la nostra prioritat</h1>
-						<h4>Des de tan sols 40€ mensuals amb descomptes d’oferta en temps limitat</h4>
 					</div>
 				</div>
 			</div>
@@ -148,9 +152,9 @@
 			<div class="row">
 				<div class="col-lg-6 offset-lg-3">
 					<div class="search_smart_property text-center">
-						<h2>UNIR-ME A XARXES IMMOBILIARIES</h2>
+						<h2>VOLS FORMAR PART D'IMMOBILIÀRIES EN XARXA?</h2>
 						<p>Si vols créixer més i estàs buscant un model de negoci que et permeti fer-ho, aqui tens la teva resposta.</p>
-						<button class="btn ssp_btn" onclick="location.href='<?php echo URLROOT; ?>/immobles/unirme'">UNIR-ME</button>
+						<button class="btn ssp_btn" onclick="location.href='<?php echo URLROOT; ?>/immobles/unirme'">UNIR-ME ARA!</button>
 					</div>
 				</div>
 			</div>

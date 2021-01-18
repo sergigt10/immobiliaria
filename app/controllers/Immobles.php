@@ -429,7 +429,7 @@
           switch (htmlspecialchars($tipusCorreu)) {
             // Informació
             case "informacio":
-              $AdminMessage = "Formulari de contacte IMMOBILIARIES EN XARXA\n\n";
+              $AdminMessage = "Formulari de contacte - IMMOBILIARIES EN XARXA\n\n";
 
               $AdminMessage .= "Nom i cognoms: ".utf8_decode($_POST['nom'])."\n";
               $AdminMessage .= "Correu: ".utf8_decode($_POST['email'])."\n";
@@ -437,12 +437,12 @@
               $AdminMessage .= "Tlf: ".utf8_decode($_POST['telefon'])."\n";
               $AdminMessage .= "Comentaris: ".utf8_decode($_POST['missatge'])."\n";
 
-              mail(utf8_decode($_POST['email_venedor']), "Formulari de contacte IMMOBILIARIES EN XARXA", $AdminMessage, "From: ".$_POST['email']);
+              mail(utf8_decode($_POST['email_venedor']), "Formulari de contacte - IMMOBILIARIES EN XARXA", $AdminMessage, "From: ".$_POST['email']);
               redirect('immobles/gracies');
               break;
             // Uneix-te
             case "unirme":
-              $AdminMessage = "Formulari de contacte UNEIX-TE - IMMOBILIARIES EN XARXA\n\n";
+              $AdminMessage = "Formulari de contacte - UNEIX-TE - IMMOBILIARIES EN XARXA\n\n";
 
               $AdminMessage .= "Nom i cognoms: ".utf8_decode($_POST['nom'])."\n";
               $AdminMessage .= "Correu: ".utf8_decode($_POST['email'])."\n";
@@ -450,7 +450,7 @@
               $AdminMessage .= "Tlf: ".utf8_decode($_POST['telefon'])."\n";
               $AdminMessage .= "Comentaris: ".utf8_decode($_POST['missatge'])."\n";
 
-              mail("phxhollow13@hotmail.com", "Formulari de contacte UNEIX-TE - IMMOBILIARIES EN XARXA", $AdminMessage, "From: ".$_POST['email']);
+              mail("info@immobiliariesenxarxa.net", "Formulari de contacte - UNEIX-TE - IMMOBILIARIES EN XARXA", $AdminMessage, "From: ".$_POST['email']);
               redirect('immobles/gracies');
               break;
             default:
