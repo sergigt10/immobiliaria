@@ -8,10 +8,10 @@
                 <div class="col-lg-6">
                     <div class="breadcrumb_content style2 mb0-991">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?php echo URLROOT; ?>/immobles/index">Inici</a></li>
-                            <li class="breadcrumb-item active text-thm" aria-current="page">Llistat d'afiliats</li>
+                            <li class="breadcrumb-item"><a href="<?php echo URLROOT; ?>/immobles/index"><?php echo BREADCRUMB_1_AFILIATS; ?></a></li>
+                            <li class="breadcrumb-item active text-thm" aria-current="page"><?php echo BREADCRUMB_2_AFILIATS; ?></li>
                         </ol>
-                        <h3 class="breadcrumb_title">Els nostres afiliats</h3>
+                        <h3 class="breadcrumb_title"><?php echo BREADCRUMB_TITLE_AFILIATS; ?></h3>
                     </div>
                 </div>
             </div>
@@ -21,7 +21,7 @@
                         <div class="grid_list_search_result style2">
                             <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
                                 <div class="left_area">
-                                    <p><?php echo ($data['usuarisTotal'] == 0) ? "<h5>No s'ha trobat cap resultat</h5>" : '<h5>'.$data['usuarisTotal']. ' resultat/s </h5>'  ?> </p>
+                                    <p><?php echo ($data['usuarisTotal'] == 0) ? '<h5>'. NO_RESULTATS .'</h5>' : '<h5>'.$data['usuarisTotal'].' '. RESULTATS .'</h5>' ?> </p>
                                 </div>
                             </div>
                         </div>
@@ -50,7 +50,7 @@
                                             </ul>
                                         </div>
                                         <div class="fp_footer">
-                                            <div class="fp_pdate float-right text-thm"> Veure immobles <i class="fa fa-angle-right"></i></div>
+                                            <div class="fp_pdate float-right text-thm"> <?php echo VEURE_IMMOBLES_AFILIATS; ?> <i class="fa fa-angle-right"></i></div>
                                         </div>
                                     </div>
                                 </div>

@@ -31,7 +31,7 @@
       $this->view('immobles/index', $data);
     }
 
-    public function idioma($idioma = 'CAT') {
+    public function idioma($idioma = 'cat') {
       switch (htmlspecialchars($idioma)) {
         // Idioma
         case "cat":
@@ -144,8 +144,12 @@
           'immobles' => $immobles,
           'immoblesTotal' => $immoblesTotal->total,
           'operacions' => $operacions,
-          'operacioCercada' => $operacioCercada->nom_cat,
-          'categoriaCercada' => $categoriaCercada->nom_cat,
+          'operacioCercadaCat' => $operacioCercada->nom_cat,
+          'operacioCercadaEsp' => $operacioCercada->nom_esp,
+          'operacioCercadaEng' => $operacioCercada->nom_eng,
+          'categoriaCercadaCat' => $categoriaCercada->nom_cat,
+          'categoriaCercadaEsp' => $categoriaCercada->nom_esp,
+          'categoriaCercadaEng' => $categoriaCercada->nom_eng,
           'poblacioCercada' => $poblacioCercada->nom_cat,
           'categories' => $this->categories,
           'provincies' => $provincies,
@@ -215,7 +219,7 @@
         if ( $_SESSION["caracteristica_id_filtrar"] !== '[""]' ) {
           $caracteristiquesFiltrar = json_decode($_SESSION["caracteristica_id_filtrar"]);
 
-          // Primer mirem sense paginar immobles
+          // Mirem sense paginar immobles
           foreach ($immoblesSensePaginar as $immoble) {
             $caracteristiquesImmoble = json_decode($immoble->caracteristica_id);
             if(!array_diff($caracteristiquesFiltrar, $caracteristiquesImmoble)) {
@@ -264,8 +268,12 @@
           'immobles' => $immobles,
           'immoblesTotal' => $immoblesTotal,
           'operacions' => $operacions,
-          'operacioCercada' => $operacioCercada->nom_cat,
-          'categoriaCercada' => $categoriaCercada->nom_cat,
+          'operacioCercadaCat' => $operacioCercada->nom_cat,
+          'operacioCercadaEsp' => $operacioCercada->nom_esp,
+          'operacioCercadaEng' => $operacioCercada->nom_eng,
+          'categoriaCercadaCat' => $categoriaCercada->nom_cat,
+          'categoriaCercadaEsp' => $categoriaCercada->nom_esp,
+          'categoriaCercadaEng' => $categoriaCercada->nom_eng,
           'poblacioCercada' => $poblacioCercada->nom_cat,
           'categories' => $this->categories,
           'provincies' => $provincies,
@@ -332,9 +340,13 @@
         'immobles' => $immobles,
         'immoblesTotal' => $immoblesTotal->total,
         'operacions' => $operacions,
-        'operacioCercada' => $operacioCercada->nom_cat,
+        'operacioCercadaCat' => $operacioCercada->nom_cat,
+        'operacioCercadaEsp' => $operacioCercada->nom_esp,
+        'operacioCercadaEng' => $operacioCercada->nom_eng,
+        'categoriaCercadaCat' => $categoriaCercada->nom_cat,
+        'categoriaCercadaEsp' => $categoriaCercada->nom_esp,
+        'categoriaCercadaEng' => $categoriaCercada->nom_eng,
         'idOperacioCercada' => $operacioCercada->id,
-        'categoriaCercada' => $categoriaCercada->nom_cat,
         'idCategoriaCercada' => $categoriaCercada->id,
         'categories' => $this->categories,
         'provincies' => $provincies,

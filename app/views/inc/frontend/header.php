@@ -1,10 +1,10 @@
 <!-- IDIOMES -->
 <?php 
-    isset($_SESSION["idioma"]) ? $_SESSION["idioma"] : $_SESSION["idioma"] = 'CAT';
+    isset($_SESSION["idioma"]) ? $_SESSION["idioma"] : $_SESSION["idioma"] = 'cat';
     require APPROOT . '/views/inc/frontend/lang/'. $_SESSION['idioma'] .'.php';
 
+    // Nom categoria
     $nom = "nom_".$_SESSION["idioma"];
-
 
 ?>
 <!-- -->
@@ -87,7 +87,7 @@
                         <a href="#"><span class="title"><?php echo LLOGUER; ?></span></a>
                         <ul>
                             <?php foreach ($data['categories'] as $categoria) : ?>
-                                <li><a href="<?php echo URLROOT; ?>/immobles/operacio/3/<?php echo $categoria->id ?>"><?php echo mb_strtoupper($categoria->nom_cat) ?></a></li>
+                                <li><a href="<?php echo URLROOT; ?>/immobles/operacio/3/<?php echo $categoria->id ?>"><?php echo mb_strtoupper($categoria->$nom) ?></a></li>
                             <?php endforeach; ?>
                         </ul>
                     </li>
@@ -96,7 +96,7 @@
                         <a href="#"><span class="title"><?php echo OBRA_NOVA; ?></span></a>
                         <ul>
                             <?php foreach ($data['categories'] as $categoria) : ?>
-                                <li><a href="<?php echo URLROOT; ?>/immobles/operacio/4/<?php echo $categoria->id ?>"><?php echo mb_strtoupper($categoria->nom_cat) ?></a></li>
+                                <li><a href="<?php echo URLROOT; ?>/immobles/operacio/4/<?php echo $categoria->id ?>"><?php echo mb_strtoupper($categoria->$nom) ?></a></li>
                             <?php endforeach; ?>
                         </ul>
                     </li>
@@ -159,7 +159,7 @@
                     <a href="#"><span class="title"><?php echo LLOGUER; ?></span></a>
                     <ul>
                         <?php foreach ($data['categories'] as $categoria) : ?>
-                            <li><a href="<?php echo URLROOT; ?>/immobles/operacio/3/<?php echo $categoria->id ?>"><?php echo mb_strtoupper($categoria->nom_cat) ?></a></li>
+                            <li><a href="<?php echo URLROOT; ?>/immobles/operacio/3/<?php echo $categoria->id ?>"><?php echo mb_strtoupper($categoria->$nom) ?></a></li>
                         <?php endforeach; ?>
                     </ul>
                 </li>
@@ -168,7 +168,7 @@
                     <a href="#"><span class="title"><?php echo OBRA_NOVA; ?></span></a>
                     <ul>
                         <?php foreach ($data['categories'] as $categoria) : ?>
-                            <li><a href="<?php echo URLROOT; ?>/immobles/operacio/4/<?php echo $categoria->id ?>"><?php echo mb_strtoupper($categoria->nom_cat) ?></a></li>
+                            <li><a href="<?php echo URLROOT; ?>/immobles/operacio/4/<?php echo $categoria->id ?>"><?php echo mb_strtoupper($categoria->$nom) ?></a></li>
                         <?php endforeach; ?>
                     </ul>
                 </li>

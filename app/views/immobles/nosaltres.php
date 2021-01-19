@@ -10,10 +10,10 @@
                 <div class="col-lg-6">
                     <div class="breadcrumb_content style2 mb0-991">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?php echo URLROOT; ?>/immobles/index">Inici</a></li>
-                            <li class="breadcrumb-item active text-thm" aria-current="page">Qui som</li>
+                            <li class="breadcrumb-item"><a href="<?php echo URLROOT; ?>/immobles/index"><?php echo BREADCRUMB_1_QUI_SOM; ?></a></li>
+                            <li class="breadcrumb-item active text-thm" aria-current="page"><?php echo BREADCRUMB_2_QUI_SOM; ?></li>
                         </ol>
-                        <h3 class="breadcrumb_title">Qui som</h3>
+                        <h3 class="breadcrumb_title"><?php echo BREADCRUMB_TITLE_QUI_SOM; ?></h3>
                     </div>
                 </div>
             </div>
@@ -197,12 +197,12 @@
 			<div class="row">
 				<div class="col-lg-8">
 					<div class="start_partner tac-smd">
-						<h2>Vols formar part del nostre grup?</h2>
+						<h2><?php echo FORMAR_PART_QUI_SOM; ?></h2>
 					</div>
 				</div>
 				<div class="col-lg-4">
 					<div class="parner_reg_btn text-right tac-smd">
-						<a class="btn btn-thm2" href="<?php echo URLROOT; ?>/immobles/unirme">+ Informació</a>
+						<a class="btn btn-thm2" href="<?php echo URLROOT; ?>/immobles/unirme"><?php echo MES_INFORMACIO; ?></a>
 					</div>
 				</div>
 			</div>

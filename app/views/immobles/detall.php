@@ -1,17 +1,17 @@
 <!-- META TAGS title, desc., keyword -->
 <?php meta_tags($data['titol_cat'],'"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non accumsan mi. Quisque sed nunc nec risus vestibulum porta. Praesent venenatis dignissim sem id commodo."','"Immobiliàries en xarxa"') ?>
 <!-- -->
-<?php require APPROOT . '/views/inc/frontend/header.php'; ?>
+	<?php require APPROOT . '/views/inc/frontend/header.php'; ?>
 	<section class="listing-title-area">
 		<div class="container">
 			<div class="row mb5">
 				<div class="col-lg-7 col-xl-8">
 					<div class="single_property_title mt30-767">
-						<h2><script>document.write(tallarText("<?php echo $data['titol_cat'] ?>", 50))</script></h2>
+						<h2><script>document.write(tallarText("<?php echo $data[$titolImmoble] ?>", 50))</script></h2>
 						<p><span class="flaticon-placeholder"></span> <?php echo $data['poblacio']; ?>, <?php echo $data['provincia']; ?></p>
 						<div class="lsd_list">
 							<ul class="mb0">
-								<li class="list-inline-item"><p style="font-size: 14px"><?php echo $data['operacio_cat']; ?>, <?php echo $data['categoria_cat']; ?></p></li>
+								<li class="list-inline-item"><p style="font-size: 14px"><?php echo $data[$operacioImmoble]; ?>, <?php echo $data[$categoriaImmoble]; ?></p></li>
 							</ul>
 						</div>
 					</div>
@@ -36,9 +36,9 @@
 							<div class="spls_style_two mb30-520 text-center">
 								<!-- img-fluid -->
 								<?php if( !empty($data['imatge_1']) && file_exists( '../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge_1'] ) ){ ?>
-									<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_1'] ?>"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge_1'] ?>&size=746x450&crop=1&trim=1" alt="<?php echo $data['titol_cat']; ?>"></a>
+									<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_1'] ?>"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge_1'] ?>&size=746x450&crop=1&trim=1" alt="<?php echo $data[$titolImmoble]; ?>"></a>
 								<?php } else { ?>
-									<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/imatge-no-disponible.jpg"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../imatge-no-disponible.jpg&size=746x450&crop=1&trim=1" alt="<?php echo $data['titol_cat']; ?>"></a>
+									<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/imatge-no-disponible.jpg"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../imatge-no-disponible.jpg&size=746x450&crop=1&trim=1" alt="<?php echo $data[$titolImmoble]; ?>"></a>
 								<?php } ?>
 							</div>
 						</div>
@@ -49,42 +49,42 @@
 						<?php if( !empty($data['imatge_2']) && file_exists( '../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge_2'] ) ){ ?>
 							<div class="col-sm-6 col-lg-6">
 								<div class="spls_style_two mb30">
-									<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_2'] ?>"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge_2'] ?>&size=165x130&crop=1&trim=1" alt="<?php echo $data['titol_cat']; ?>"></a>
+									<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_2'] ?>"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge_2'] ?>&size=165x130&crop=1&trim=1" alt="<?php echo $data[$titolImmoble]; ?>"></a>
 								</div>
 							</div>
 						<?php } ?>
 						<?php if( !empty($data['imatge_3']) && file_exists( '../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge_3'] ) ){ ?>
 							<div class="col-sm-6 col-lg-6">
 								<div class="spls_style_two mb30">
-									<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_3'] ?>"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge_3'] ?>&size=165x130&crop=1&trim=1" alt="<?php echo $data['titol_cat']; ?>"></a>
+									<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_3'] ?>"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge_3'] ?>&size=165x130&crop=1&trim=1" alt="<?php echo $data[$titolImmoble]; ?>"></a>
 								</div>
 							</div>
 						<?php } ?>
 						<?php if( !empty($data['imatge_4']) && file_exists( '../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge_4'] ) ){ ?>
 							<div class="col-sm-6 col-lg-6">
 								<div class="spls_style_two mb30">
-									<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_4'] ?>"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge_4'] ?>&size=165x130&crop=1&trim=1" alt="<?php echo $data['titol_cat']; ?>"></a>
+									<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_4'] ?>"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge_4'] ?>&size=165x130&crop=1&trim=1" alt="<?php echo $data[$titolImmoble]; ?>"></a>
 								</div>
 							</div>
 						<?php } ?>
 						<?php if( !empty($data['imatge_5']) && file_exists( '../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge_5'] ) ){ ?>
 							<div class="col-sm-6 col-lg-6">
 								<div class="spls_style_two mb30">
-									<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_5'] ?>"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge_5'] ?>&size=165x130&crop=1&trim=1" alt="<?php echo $data['titol_cat']; ?>"></a>
+									<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_5'] ?>"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge_5'] ?>&size=165x130&crop=1&trim=1" alt="<?php echo $data[$titolImmoble]; ?>"></a>
 								</div>
 							</div>
 						<?php } ?>
 						<?php if( !empty($data['imatge_6']) && file_exists( '../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge_6'] ) ){ ?>
 							<div class="col-sm-6 col-lg-6">
 								<div class="spls_style_two mb30">
-									<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_6'] ?>"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge_6'] ?>&size=165x130&crop=1&trim=1" alt="<?php echo $data['titol_cat']; ?>"></a>
+									<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_6'] ?>"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge_6'] ?>&size=165x130&crop=1&trim=1" alt="<?php echo $data[$titolImmoble]; ?>"></a>
 								</div>
 							</div>
 						<?php } ?>
 						<?php if( !empty($data['imatge_7']) && file_exists( '../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge_7']) || !empty($data['imatge_8']) && file_exists( '../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge_8']) || !empty($data['imatge_9']) && file_exists( '../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge_9']) || !empty($data['imatge_10']) && file_exists( '../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge_10']) ) { ?>
 							<div class="col-sm-6 col-lg-6">
 								<div class="spls_style_two mb30">
-									<a href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/imatge-no-disponible.jpg"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../imatge-no-disponible.jpg&size=165x130&crop=1&trim=1" alt="<?php echo $data['titol_cat']; ?>"></a>
+									<a href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/imatge-no-disponible.jpg"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../imatge-no-disponible.jpg&size=165x130&crop=1&trim=1" alt="<?php echo $data[$titolImmoble]; ?>"></a>
 
 									<?php 
 										$mesfotos = "";
@@ -104,7 +104,7 @@
 									?>
 
 									<div class="overlay popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $mesfotos ?>">
-										<h3 class="title">+ fotos</h3>
+										<h3 class="title"><span class="flaticon-plus"></span></h3>
 
 										<?php if( $mesfotos != $data['imatge_7'] && !empty($data['imatge_7']) && file_exists( '../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge_7'] ) ){ ?>
 											<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_7'] ?>"></a>
@@ -140,12 +140,12 @@
 							<div class="listing_single_description">
 								<div class="lsd_list">
 									<ul class="mb0">
-										<li class="list-inline-item"><p style="font-size: 14px">Referencia: <?php echo $data['referencia']; ?></p></li>
+										<li class="list-inline-item"><p style="font-size: 14px"><?php echo REFERENCIA_DETALL; ?> <?php echo $data['referencia']; ?></p></li>
 									</ul>
 								</div>
-								<h4 class="mb30"><b>Descripció</b></h4>
-								<p class="mb25">
-									<?php echo !empty($data['descripcio_cat']) ? '<script>document.write(tallarText("'.strip_tags($data['descripcio_cat']).'", 1000))</script>'  : 'No disponible'  ?>
+								<h4 class="mb30"><b><?php echo DESCRIPCIO_DETALL; ?></b></h4>
+								<p class="mb25 text-justify">
+									<?php echo !empty($data[$descripcioImmoble]) ? '<script>document.write(tallarText("'.strip_tags($data[$descripcioImmoble]).'", 1200))</script>'  : NO_DISPONIBLE_DETALL ?>
 								</p>
 							</div>
 						</div>
@@ -153,12 +153,12 @@
 							<div class="additional_details">
 								<div class="row">
 									<div class="col-lg-12">
-										<h4 class="mb15"><b>Informació</b></h4>
+										<h4 class="mb15"><b><?php echo INFORMACIO_DETALL; ?></b></h4>
 									</div>
 									<div class="col-md-6 col-lg-6 col-xl-4">
 										<ul class="list-inline-item">
-											<li><p>Habitacions:</p></li>
-											<li><p>Banys:</p></li>
+											<li><p><?php echo HABITACIONS_DETALL; ?></p></li>
+											<li><p><?php echo BANYS_DETALL; ?></p></li>
 											<li><p>m²:</p></li>
 										</ul>
 										<ul class="list-inline-item">
@@ -169,9 +169,9 @@
 									</div>
 									<div class="col-md-6 col-lg-6 col-xl-4">
 										<ul class="list-inline-item">
-											<li><p>Certificat energètic:</p></li>
-											<li><p>Referencia:</p></li>
-											<li><p>Preu:</p></li>
+											<li><p><?php echo CERTIFICAT_DETALL; ?></p></li>
+											<li><p><?php echo REFERENCIA_DETALL; ?></p></li>
+											<li><p><?php echo PREU_DETALL; ?></p></li>
 										</ul>
 										<ul class="list-inline-item">
 											<li><p><span><?php echo $data['certificat']; ?></span></p></li>
@@ -194,7 +194,7 @@
 							<div class="application_statics mt30">
 								<div class="row">
 									<div class="col-lg-12">
-										<h4 class="mb10">Característiques</h4>
+										<h4 class="mb10"><?php echo CARACTERISTIQUES_DETALL; ?></h4>
 									</div>
 									<?php
 										if( ( $data['caracteristica_id']) !== '[""]' && !empty(json_decode($data['caracteristica_id'])) ){
@@ -208,7 +208,7 @@
 														foreach($caracteristiques as $caracteristica) {
 															foreach($data['caracteristiques'] as $all_caracteristiques) {
 																if( $caracteristica === $all_caracteristiques->id ){
-																	echo '<li><a href="#"><span class="flaticon-tick"></span>'.$all_caracteristiques->nom_cat.'</a></li>';
+																	echo '<li><a href="#"><span class="flaticon-tick"></span>'.$all_caracteristiques->$nom.'</a></li>';
 																}
 															}
 														}
@@ -218,7 +218,7 @@
 										} else {
 											echo '<div class="col-sm-6 col-md-6 col-lg-4">';
 												echo '<ul class="order_list list-inline-item">';
-													echo "<p>No disponible</p>";
+													echo "<p>".NO_DISPONIBLE_DETALL."</p>";
 												echo '</ul>';
 											echo '</div>';
 										}
@@ -227,21 +227,21 @@
 							</div>
 						</div>
 						<div class="col-lg-12">
-							<h4 class="mt30 mb30"><?php echo (!empty($data['recomendeds'])) ? "També et pot interessar" : "" ?></h4>
+							<h4 class="mt30 mb30"><?php echo (!empty($data['recomendeds'])) ? INTERESSAR_DETALL : "" ?></h4>
 						</div>
 						<?php foreach($data['recomendeds'] as $recomended) : ?>
 							<div class="col-lg-6">
 								<div class="feat_property">
 									<div class="thumb" onclick="javascript:location.href='<?php echo URLROOT; ?>/immobles/detall/<?php echo $recomended->id_immoble ?>'">
 										<?php if( !empty($recomended->imatge_1) && file_exists( '../../admin-web/public/images/img-xarxa/immoble/'.$recomended->imatge_1 ) ){ ?>
-											<img class="img-whp" src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $recomended->imatge_1 ?>&size=360x230&crop=1&trim=1" alt="<?php echo $recomended->titol_cat ?>">
+											<img class="img-whp" src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $recomended->imatge_1 ?>&size=360x230&crop=1&trim=1" alt="<?php echo $recomended->$titolImmoble ?>">
 										<?php } else { ?>
-											<img class="img-whp" src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../imatge-no-disponible.jpg&size=360x230&crop=1&trim=1" alt="<?php echo $recomended->titol_cat ?>">
+											<img class="img-whp" src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../imatge-no-disponible.jpg&size=360x230&crop=1&trim=1" alt="<?php echo $recomended->$titolImmoble ?>">
 										<?php } ?>
 										<div class="thmb_cntnt">
 											<ul class="tag mb0">
-												<li class="list-inline-item"><a href="<?php echo URLROOT; ?>/immobles/detall/<?php echo $recomended->id_immoble ?>'"><?php echo $recomended->operacio_cat ?></a></li>
-												<li class="list-inline-item"><a href="<?php echo URLROOT; ?>/immobles/detall/<?php echo $recomended->id_immoble ?>'"><?php echo $recomended->categoria_cat ?></a></li>
+												<li class="list-inline-item"><a href="<?php echo URLROOT; ?>/immobles/detall/<?php echo $recomended->id_immoble ?>'"><?php echo $recomended->$operacioImmoble ?></a></li>
+												<li class="list-inline-item"><a href="<?php echo URLROOT; ?>/immobles/detall/<?php echo $recomended->id_immoble ?>'"><?php echo $recomended->$categoriaImmoble ?></a></li>
 											</ul>
 											<a class="fp_price" href="<?php echo URLROOT; ?>/immobles/detall/<?php echo $recomended->id_immoble ?>">
 												<script>
@@ -252,11 +252,11 @@
 									</div>
 									<div class="details">
 										<div class="tc_content" onclick="javascript:location.href='<?php echo URLROOT; ?>/immobles/detall/<?php echo $recomended->id_immoble ?>'">
-											<h4><script>document.write(tallarText("<?php echo $recomended->titol_cat ?>", 50))</script></h4>
-											<p><span class="flaticon-placeholder"></span><?php echo $recomended->poblacio ?>, <?php echo $recomended->provincia ?></p>
+											<h4><script>document.write(tallarText("<?php echo $recomended->$titolImmoble ?>", 50))</script></h4>
+											<p><span class="flaticon-placeholder"></span> <?php echo $recomended->poblacio ?>, <?php echo $recomended->provincia ?></p>
 											<ul class="prop_details mb0">
-												<li class="list-inline-item"><a href="<?php echo URLROOT; ?>/immobles/detall/<?php echo $recomended->id_immoble ?>'"><?php echo ($recomended->habitacio) == 0 ? " -" : $recomended->habitacio ?> habitacions</a></li>
-												<li class="list-inline-item"><a href="<?php echo URLROOT; ?>/immobles/detall/<?php echo $recomended->id_immoble ?>'"><?php echo ($recomended->banys) == 0 ? " -" : $recomended->banys ?> banys</a></li>
+												<li class="list-inline-item"><a href="<?php echo URLROOT; ?>/immobles/detall/<?php echo $recomended->id_immoble ?>'"><?php echo ($recomended->habitacio) == 0 ? " -" : $recomended->habitacio ?> <?php echo HABITACIONS; ?></a></li>
+												<li class="list-inline-item"><a href="<?php echo URLROOT; ?>/immobles/detall/<?php echo $recomended->id_immoble ?>'"><?php echo ($recomended->banys) == 0 ? " -" : $recomended->banys ?> <?php echo BANYS; ?></a></li>
 												<li class="list-inline-item"><a href="<?php echo URLROOT; ?>/immobles/detall/<?php echo $recomended->id_immoble ?>'"><?php echo ($recomended->tamany) == 0 ? " -" : $recomended->tamany ?> m²</a></li>
 											</ul>
 										</div>
@@ -283,7 +283,7 @@
 					<div class="sidebar_listing_list">
 						<div class="sidebar_advanced_search_widget">
 							<div class="sl_creator">
-								<h4 class="mb25"><b>Contacte</b></h4>
+								<h4 class="mb25"><b><?php echo CONTACTE_DETALL; ?></b></h4>
 								<div class="media">
 									<?php if( !empty($data['logo']) && file_exists( '../../admin-web/public/images/img-xarxa/usuari/'.$data['logo'] ) ){ ?>
 										<img class="mr-3" src="<?php echo URLROOT; ?>/public/images/img-xarxa/usuari/thumb_img/thumb.php?src=../<?php echo $data['logo'] ?>&size=90x90&crop=0&trim=0" alt="<?php echo $data['empresa']; ?>">
@@ -302,16 +302,16 @@
 								</div>
 							</div>
 							<form method="post" action="<?php echo URLROOT; ?>/immobles/correu/informacio" >
-								<p>* Camps obligatoris</p>
+								<p><?php echo CAMPS_OBLIGATORIS_DETALL; ?></p>
 								<ul class="sasw_list mb0">
 									<li class="search_area">
 										<div class="form-group">
-											<input type="text" name="nom" class="form-control" id="exampleInputName1" placeholder="Nom i cognoms *" required>
+											<input type="text" name="nom" class="form-control" id="exampleInputName1" placeholder="<?php echo NOM_COGNOMS_DETALL; ?>" required>
 										</div>
 									</li>
 									<li class="search_area">
 										<div class="form-group">
-											<input type="number" name="telefon" class="form-control" id="exampleInputName2" placeholder="Telèfon *" required>
+											<input type="number" name="telefon" class="form-control" id="exampleInputName2" placeholder="<?php echo TELEFON_DETALL; ?>" required>
 										</div>
 									</li>
 									<li class="search_area" style="display:none">
@@ -326,17 +326,17 @@
 									</li>
 									<li class="search_area">
 										<div class="form-group">
-											<input type="email" name="email" class="form-control" id="exampleInputEmail" placeholder="Correu electrònic *" required>
+											<input type="email" name="email" class="form-control" id="exampleInputEmail" placeholder="<?php echo CORREU_DETALL; ?>" required>
 										</div>
 									</li>
 									<li class="search_area">
 										<div class="form-group">
-											<textarea name="missatge" class="form-control" rows="5" placeholder="Comentari * " required></textarea>
+											<textarea name="missatge" class="form-control" rows="5" placeholder="<?php echo COMENTARI_DETALL; ?>" required></textarea>
 										</div>
 									</li>
 									<li>
 										<div class="search_option_button">
-											<button type="submit" class="btn btn-block btn-thm">Enviar</button>
+											<button type="submit" class="btn btn-block btn-thm"><?php echo ENVIAR_DETALL; ?></button>
 										</div>
 									</li>
 								</ul>

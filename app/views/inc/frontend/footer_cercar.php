@@ -1,27 +1,27 @@
-    <!-- Our Footer -->
+    <!-- Footer -->
     <section class="footer_one home3">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-sm-6 col-md-6 col-lg col-xl">
 					<div class="footer_about_widget home3">
-						<h4>La nostra missió</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac leo ut purus consectetur finibus. Aliquam tincidunt metus consectetur nisi tincidunt, at sollicitudin ante dapibus.</p>
+						<h4><?php echo FOOTER_1_TITLE_1; ?></h4>
+						<p><?php echo FOOTER_1_TITLE_2; ?></p>
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-6 col-lg col-xl">
 					<div class="footer_qlink_widget home3">
-						<h4>Informació</h4>
+						<h4><?php echo FOOTER_2_TITLE_1; ?></h4>
 						<ul class="list-unstyled">
-							<li><a href="<?php echo URLROOT; ?>/immobles/index">Inici</a></li>
-							<li><a href="<?php echo URLROOT; ?>/immobles/nosaltres">Qui som</a></li>
-							<li><a href="<?php echo URLROOT; ?>/immobiliaries/llista">Afiliats</a></li>
-							<li><a href="<?php echo URLROOT; ?>/immobles/unirme">Uneix-te</a></li>
+							<li><a href="<?php echo URLROOT; ?>/immobles/index"><?php echo FOOTER_2_TITLE_2; ?></a></li>
+							<li><a href="<?php echo URLROOT; ?>/immobles/nosaltres"><?php echo FOOTER_2_TITLE_3; ?></a></li>
+							<li><a href="<?php echo URLROOT; ?>/immobiliaries/llista"><?php echo FOOTER_2_TITLE_4; ?></a></li>
+							<li><a href="<?php echo URLROOT; ?>/immobles/unirme"><?php echo FOOTER_2_TITLE_5; ?></a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-6 col-lg col-xl">
 					<div class="footer_contact_widget home3">
-						<h4>Contacte</h4>
+						<h4><?php echo FOOTER_3_TITLE_1; ?></h4>
 						<ul class="list-unstyled">
 							<li><p>08500 Vic - Barcelona</p></li>
 							<li><p>93 883 59 31</p></li>
@@ -32,7 +32,7 @@
 				</div>
 				<div class="col-sm-6 col-md-6 col-lg col-xl">
 					<div class="footer_social_widget home3">
-						<h4>Segueix-nos</h4>
+						<h4><?php echo FOOTER_4_TITLE_1; ?></h4>
 						<ul class="mb30">
 							<li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
 							<li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -42,11 +42,11 @@
 				</div>
 				<div class="col-sm-6 col-md-6 col-lg col-xl">
 					<div class="footer_social_widget home3">
-						<h4>Subscriu-te</h4>
+						<h4><?php echo FOOTER_5_TITLE_1; ?></h4>
 						<form class="footer_mailchimp_form home3">
 						 	<div class="form-row align-items-center">
                                 <div class="col-auto">
-                                    <input type="email" class="form-control mb-2" id="inlineFormInput" placeholder="El teu email">
+                                    <input type="email" class="form-control mb-2" id="inlineFormInput" placeholder="Email">
                                 </div>
                                 <div class="col-auto">
                                     <button type="submit" class="btn btn-primary mb-2"><i class="fa fa-angle-right"></i></button>
@@ -59,22 +59,22 @@
 		</div>
 	</section>
 
-	<!-- Our Footer Bottom Area -->
+	<!-- Footer Bottom -->
 	<section class="footer_middle_area home3 pt30 pb30">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-lg-6 col-xl-6">
 					<div class="footer_menu_widget home3">
 						<ul>
-							<li class="list-inline-item"><a href="#">Avís legal</a></li>
-							<li class="list-inline-item"><a href="#">Política de privacitat</a></li>
-							<li class="list-inline-item"><a href="#">Política cookies</a></li>
+							<li class="list-inline-item"><a href="#"><?php echo FOOTER_6_TITLE_1; ?></a></li>
+							<li class="list-inline-item"><a href="#"><?php echo FOOTER_6_TITLE_2; ?></a></li>
+							<li class="list-inline-item"><a href="#"><?php echo FOOTER_6_TITLE_3; ?></a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-6 col-xl-6">
 					<div class="copyright-widget home3 text-right">
-						<p>© 2020 IMMOBILIARIES EN XARXA</p>
+						<p>© 2020 IMMOBILIÀRIES EN XARXA</p>
 					</div>
 				</div>
 			</div>
@@ -111,7 +111,7 @@
 	// START PREUS OPTION
 
 	function carregarPreus(preuMaxMin, inicial, final, increment) {
-		let preu = ["Indiferent"];
+		let preu = ["<?php echo INDIFERENT_FILTRE; ?>"];
 		for (i = inicial; i <= final; i = i + increment) {
 			if( inicial == 50000 && i == 1000000 ) {
 				increment = 1000000;
@@ -133,8 +133,8 @@
 
 		for (valor in array) {
 			let option = document.createElement("option");
-			option.value = array[valor] === "Indiferent" ? "Indiferent" : array[valor];
-			option.text = array[valor] === "Indiferent" ? "Indiferent" : array[valor].toLocaleString('es-ES') + " €";
+			option.value = array[valor] === "<?php echo INDIFERENT_FILTRE; ?>" ? "<?php echo INDIFERENT_FILTRE; ?>" : array[valor];
+			option.text = array[valor] === "<?php echo INDIFERENT_FILTRE; ?>" ? "<?php echo INDIFERENT_FILTRE; ?>" : array[valor].toLocaleString('es-ES') + " €";
 			selector.add(option);
 		}
 	}
@@ -159,7 +159,7 @@
 	// START SUPERFICIES OPTION
 
 	function carregarSuperficies(superficieMaxMin) {
-		var superficie = ["Indiferent"];
+		var superficie = ["<?php echo INDIFERENT_FILTRE; ?>"];
 		var increment = 20;
 		for (i = 40; i <= 600; i = i + increment) {
 			if( i == 200 ) {
@@ -174,8 +174,8 @@
 		var selector = document.getElementById(valueSelector);
 		for (valor in array) {
 			var option = document.createElement("option");
-			option.value = array[valor] === "Indiferent" ? "Indiferent" : array[valor];
-			option.text = array[valor] === "Indiferent" ? "Indiferent" : array[valor]+" m²";
+			option.value = array[valor] === "<?php echo INDIFERENT_FILTRE; ?>" ? "<?php echo INDIFERENT_FILTRE; ?>" : array[valor];
+			option.text = array[valor] === "<?php echo INDIFERENT_FILTRE; ?>" ? "<?php echo INDIFERENT_FILTRE; ?>" : array[valor]+" m²";
 			selector.add(option);
 		}
 	}
@@ -214,7 +214,7 @@
 		// Obtenim id de la provincia
 		var operacio = jQuery("select#operacio option:selected").text();
 
-		if (operacio === "Lloguer") {
+		if (operacio === "<?php echo LLOGUER_FILTRE; ?>") {
 			carregarPreus("preu_minim", 400, 3000, 50);
 			carregarPreus("preu_maxim", 400, 3000, 50);
 		} else {
@@ -236,31 +236,31 @@
 			},
 		});
 		$(".buscador.preu_minim").select2({
-			placeholder: "Preu mínim",
+			placeholder: "<?php echo PREU_MINIM_FILTRE; ?>",
 			allowClear: true
 		});
 		$(".buscador.preu_maxim").select2({
-			placeholder: "Preu màxim",
+			placeholder: "<?php echo PREU_MAXIM_FILTRE; ?>",
 			allowClear: true
 		});
 		$(".buscador.habitacions").select2({
-			placeholder: "Habitacions",
+			placeholder: "<?php echo HABITACIONS_FILTRE; ?>",
 			allowClear: true
 		});
 		$(".buscador.banys").select2({
-			placeholder: "Banys",
+			placeholder: "<?php echo BANYS_FILTRE; ?>",
 			allowClear: true
 		});
 		$(".buscador.superficies_minim").select2({
-			placeholder: "Superficie mínima",
+			placeholder: "<?php echo SUPERFICIE_MINIMA_FILTRE; ?>",
 			allowClear: true
 		});
 		$(".buscador.superficies_maxim").select2({
-			placeholder: "Superficie màxima",
+			placeholder: "<?php echo SUPERFICIE_MAXIMA_FILTRE; ?>",
 			allowClear: true
 		});
 		$(".buscador.certificat").select2({
-			placeholder: "Certificat energètic",
+			placeholder: "<?php echo CERTIFICAT_ENERGETIC_FILTRE; ?>",
 			allowClear: true
 		});
 
