@@ -1,5 +1,7 @@
-<!-- META TAGS title, desc., keyword -->
-<?php meta_tags('Immobiliàries en xarxa','"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non accumsan mi. Quisque sed nunc nec risus vestibulum porta. Praesent venenatis dignissim sem id commodo."','"Immobiliàries en xarxa"') ?>
+<!-- META TAGS -->
+<?php define('TITLE', 'Immobiliàries en xarxa'); ?>
+<?php define('DESCRIPTION', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non accumsan mi. Quisque sed nunc nec risus vestibulum porta. Praesent venenatis dignissim sem id commodo."'); ?>
+<?php define('KEYWORDS', '"Immobiliàries en xarxa"'); ?> 
 <!-- -->
 <?php require APPROOT . '/views/inc/frontend/header.php'; ?>
     <!-- Home Design -->
@@ -8,7 +10,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="home3_home_content text-center">
-						<h1>La vostra propietat, la nostra prioritat</h1>
+						<h1><?php echo TITLE_SLIDE; ?></h1>
 					</div>
 				</div>
 			</div>
@@ -147,12 +149,12 @@
 	<!-- Property Search -->
 	<section id="property-search" class="property-search bg-img4">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 offset-lg-3">
-					<div class="search_smart_property text-center">
-						<h2>VOLS FORMAR PART D'IMMOBILIÀRIES EN XARXA?</h2>
+			<div class="row justify-content-end">
+				<div class="col-lg-6">
+					<div class="modern_apertment mt30">
+						<h2 class="title">VOLS FORMAR PART D'IMMOBILIÀRIES EN XARXA?</h2>
 						<p>Si vols créixer més i estàs buscant un model de negoci que et permeti fer-ho, aqui tens la teva resposta.</p>
-						<button class="btn ssp_btn" onclick="location.href='<?php echo URLROOT; ?>/immobles/unirme'">UNIR-ME ARA!</button>
+						<a class="btn booking_btn btn-thm" href="<?php echo URLROOT; ?>/immobles/unirme">UNIR-ME ARA!</a>
 					</div>
 				</div>
 			</div>

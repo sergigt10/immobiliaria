@@ -28,13 +28,21 @@
       // Get all immobles or only immobles by usuari
       if(!isLoggedInAndAdmin()){
         $immobles = $this->immobleModel->getImmoblesByUsuari($_SESSION['usuari_id']);
+
+        $data = [
+          'immobles' => $immobles
+        ];
       } else {
         $immobles = $this->immobleModel->getImmobles();
+        $totalPortada = $this->immobleModel->getTotalImmoblesPortada();
+
+        $data = [
+          'immobles' => $immobles,
+          'totalPortada' => $totalPortada->total_portada
+        ];
       }
 
-      $data = [
-        'immobles' => $immobles
-      ];
+      
 
       $this->view('habitatges/index', $data);
     }

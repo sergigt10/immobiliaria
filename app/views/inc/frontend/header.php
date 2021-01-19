@@ -1,3 +1,14 @@
+<!-- IDIOMES -->
+<?php 
+    isset($_SESSION["idioma"]) ? $_SESSION["idioma"] : $_SESSION["idioma"] = 'CAT';
+    require APPROOT . '/views/inc/frontend/lang/'. $_SESSION['idioma'] .'.php';
+
+    $nom = "nom_".$_SESSION["idioma"];
+
+
+?>
+<!-- -->
+
 <!DOCTYPE html>
 <html dir="ltr" lang="ca">
 <head>
@@ -54,26 +65,26 @@
                 <!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) -->
                 <ul id="respMenu" class="ace-responsive-menu text-left" data-menu-style="horizontal">
                     <li>
-                        <a href="<?php echo URLROOT; ?>/immobles/index"><span class="title">INICI</span></a>
+                        <a href="<?php echo URLROOT; ?>/immobles/index"><span class="title"><?php echo INICI; ?></span></a>
                     </li>
                     <li>
-                        <a href="<?php echo URLROOT; ?>/immobles/nosaltres"><span class="title">QUI SOM</span></a>
+                        <a href="<?php echo URLROOT; ?>/immobles/nosaltres"><span class="title"><?php echo QUI_SOM; ?></span></a>
                     </li>
                     <li>
-                        <a href="<?php echo URLROOT; ?>/immobiliaries/llista"><span class="title">AFILIATS</span></a>
+                        <a href="<?php echo URLROOT; ?>/immobiliaries/llista"><span class="title"><?php echo AFILIATS; ?></span></a>
                     </li>
                     
                     <li>
-                        <a href="#"><span class="title">COMPRAR</span></a>
+                        <a href="#"><span class="title"><?php echo COMPRAR; ?></span></a>
                         <ul>
                             <?php foreach ($data['categories'] as $categoria) : ?>
-                                <li><a href="<?php echo URLROOT; ?>/immobles/operacio/2/<?php echo $categoria->id ?>"><?php echo mb_strtoupper($categoria->nom_cat) ?></a></li>
+                                <li><a href="<?php echo URLROOT; ?>/immobles/operacio/2/<?php echo $categoria->id ?>"><?php echo mb_strtoupper($categoria->$nom) ?></a></li>
                             <?php endforeach; ?>
                         </ul>           
                     </li>
                     
                     <li>
-                        <a href="#"><span class="title">LLOGUER</span></a>
+                        <a href="#"><span class="title"><?php echo LLOGUER; ?></span></a>
                         <ul>
                             <?php foreach ($data['categories'] as $categoria) : ?>
                                 <li><a href="<?php echo URLROOT; ?>/immobles/operacio/3/<?php echo $categoria->id ?>"><?php echo mb_strtoupper($categoria->nom_cat) ?></a></li>
@@ -82,7 +93,7 @@
                     </li>
 
                     <li>
-                        <a href="#"><span class="title">OBRA NOVA</span></a>
+                        <a href="#"><span class="title"><?php echo OBRA_NOVA; ?></span></a>
                         <ul>
                             <?php foreach ($data['categories'] as $categoria) : ?>
                                 <li><a href="<?php echo URLROOT; ?>/immobles/operacio/4/<?php echo $categoria->id ?>"><?php echo mb_strtoupper($categoria->nom_cat) ?></a></li>
@@ -91,17 +102,17 @@
                     </li>
 
                     <li class="last">
-                        <a href="<?php echo URLROOT; ?>/immobles/unirme"><span class="title">UNEIX-TE</span></a>
+                        <a href="<?php echo URLROOT; ?>/immobles/unirme"><span class="title"><?php echo UNEIX_TE; ?></span></a>
                     </li>
 
                     <li class="list-inline-item list_s">
-                        <a href="#" class="btn" data-toggle="modal" data-target=".bd-example-modal-lg"> 
-                            <span class="dn-lg text-thm3">CAT</span>
+                        <a href="#" class="btn" data-toggle="modal" data-target=".bd-example-modal-lg">
+                            <span style="font-weight: bold" class="dn-lg text-thm3"><?php echo mb_strtoupper($_SESSION["idioma"]) ?></span>
                         </a>
                         <ul class="text-center">
-                            <li><a href="#"><span class="fa fa-globe"></span> Català</a></li>
-                            <li><a href="#"><span class="fa fa-globe"></span> Español</a></li>
-                            <li><a href="#"><span class="fa fa-globe"></span> English</a></li>
+                            <li><a href="<?php echo URLROOT; ?>/immobles/idioma/cat"><span class="fa fa-globe"></span> CATALÀ</a></li>
+                            <li><a href="<?php echo URLROOT; ?>/immobles/idioma/esp"><span class="fa fa-globe"></span> ESPAÑOL</a></li>
+                            <li><a href="<?php echo URLROOT; ?>/immobles/idioma/eng"><span class="fa fa-globe"></span> ENGLISH</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -125,27 +136,27 @@
 		<nav id="menu" class="stylehome1">
 			<ul>
                 <li>
-                    <a href="<?php echo URLROOT; ?>/immobles/index"><span class="title">INICI</span></a>
+                    <a href="<?php echo URLROOT; ?>/immobles/index"><span class="title"><?php echo INICI; ?></span></a>
                 </li>
                 
                 <li>
-                    <a href="<?php echo URLROOT; ?>/immobles/nosaltres"><span class="title">QUI SOM</span></a>
+                    <a href="<?php echo URLROOT; ?>/immobles/nosaltres"><span class="title"><?php echo QUI_SOM; ?></span></a>
                 </li>
                 <li>
-                    <a href="<?php echo URLROOT; ?>/immobiliaries/llista"><span class="title">AFILIATS</span></a>
+                    <a href="<?php echo URLROOT; ?>/immobiliaries/llista"><span class="title"><?php echo AFILIATS; ?></span></a>
                 </li>
 
                 <li>
-                    <a href="#"><span class="title">COMPRAR</span></a>
+                    <a href="#"><span class="title"><?php echo COMPRAR; ?></span></a>
                     <ul>
                         <?php foreach ($data['categories'] as $categoria) : ?>
-                            <li><a href="<?php echo URLROOT; ?>/immobles/operacio/2/<?php echo $categoria->id ?>"><?php echo mb_strtoupper($categoria->nom_cat) ?></a></li>
+                            <li><a href="<?php echo URLROOT; ?>/immobles/operacio/2/<?php echo $categoria->id ?>"><?php echo mb_strtoupper($categoria->$nom) ?></a></li>
                         <?php endforeach; ?>
                     </ul>
                 </li>
                 
                 <li>
-                    <a href="#"><span class="title">LLOGUER</span></a>
+                    <a href="#"><span class="title"><?php echo LLOGUER; ?></span></a>
                     <ul>
                         <?php foreach ($data['categories'] as $categoria) : ?>
                             <li><a href="<?php echo URLROOT; ?>/immobles/operacio/3/<?php echo $categoria->id ?>"><?php echo mb_strtoupper($categoria->nom_cat) ?></a></li>
@@ -154,7 +165,7 @@
                 </li>
 
                 <li>
-                    <a href="#"><span class="title">OBRA NOVA</span></a>
+                    <a href="#"><span class="title"><?php echo OBRA_NOVA; ?></span></a>
                     <ul>
                         <?php foreach ($data['categories'] as $categoria) : ?>
                             <li><a href="<?php echo URLROOT; ?>/immobles/operacio/4/<?php echo $categoria->id ?>"><?php echo mb_strtoupper($categoria->nom_cat) ?></a></li>
@@ -162,10 +173,22 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="<?php echo URLROOT; ?>/immobles/unirme"><span class="title"><?php echo UNEIX_TE; ?></span></a>
+                </li>
+
+                <li>
+                    <a href="<?php echo URLROOT; ?>/immobles/idioma/cat"><span class="fa fa-globe"></span> CATALÀ</a>
+                </li>
+
+                <li>
+                    <a href="<?php echo URLROOT; ?>/immobles/idioma/esp"><span class="fa fa-globe"></span> ESPAÑOL</a>
+                </li>
+
                 <li class="last">
-                    <a href="<?php echo URLROOT; ?>/immobles/unirme"><span class="title">UNEIX-TE</span></a>
+                    <a href="<?php echo URLROOT; ?>/immobles/idioma/eng"><span class="fa fa-globe"></span> ENGLISH</a>
                 </li>
 
 			</ul>
 		</nav>
-	</div>
+    </div>

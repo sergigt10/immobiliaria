@@ -277,7 +277,7 @@
     }
 
     // Get total immobles filtrar
-    public function getImmoblesFiltrarSensePaginacio($idOperacio, $idCategoria, $idPoblacio, $preuMinim, $preuMaxim, $numHabitacions, $numBanys, $superficieMinima, $superficieMaxima){
+    public function getImmoblesFiltrarSensePaginar($idOperacio, $idCategoria, $idPoblacio, $preuMinim, $preuMaxim, $numHabitacions, $numBanys, $superficieMinima, $superficieMaxima){
       $this->db->query('SELECT immoble.id as id_immoble, immoble.titol_cat, immoble.titol_esp, immoble.titol_eng, immoble.referencia, immoble.imatge_1, immoble.imatge_2, immoble.imatge_3, immoble.preu, immoble.habitacio, immoble.banys, immoble.tamany, immoble.activat, immoble.caracteristica_id, operacio.nom_cat AS operacio_cat, operacio.nom_esp AS operacio_esp, operacio.nom_eng AS operacio_eng, categoria.nom_cat AS categoria_cat, categoria.nom_esp AS categoria_esp, categoria.nom_eng AS categoria_eng, poblacio.nom_cat AS poblacio, provincia.nom_cat AS provincia, usuari.id as id_usuari, usuari.empresa, usuari.logo
       FROM immoble
       INNER JOIN poblacio

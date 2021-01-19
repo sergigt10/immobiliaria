@@ -12,6 +12,12 @@
               <button type="button" class="btn btn-info mb-3" onclick="location.href='<?php echo URLROOT; ?>/habitatges/add'">+ Inserir</button>
             </div>
             <div class="col-12">
+              <?php 
+                if (isLoggedInAndAdmin()) {
+                  echo '<b>'.$data['totalPortada']." / ".MAXPORTADA. " productes a la portada de la web</b>";
+                } 
+                echo "<br><br>";
+              ?>
               <div class="table-responsive">
                 <table id="order-listing" class="table table-hover table-bordered">
                   <thead>

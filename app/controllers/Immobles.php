@@ -14,6 +14,7 @@
     }
 
     public function index(){
+
       $operacions = $this->operacioModel->getOperacions();
       $provincies = $this->provinciaModel->getProvincies();
       $poblacions = $this->poblacioModel->getPoblacionsWithProvinciaId(8);
@@ -28,6 +29,21 @@
       ];
       
       $this->view('immobles/index', $data);
+    }
+
+    public function idioma($idioma = 'CAT') {
+      switch (htmlspecialchars($idioma)) {
+        // Idioma
+        case "cat":
+        case "esp":
+        case "eng":
+          $_SESSION["idioma"] = $idioma;
+          break;
+        default:
+          $_SESSION["idioma"] = 'cat';
+      }
+
+      redirect('immobles/index');
     }
 
     public function carregar_poblacions_frontend(){
@@ -192,43 +208,34 @@
         $page = ( isset($paginaParametre) && is_numeric($paginaParametre) ) ? intval($paginaParametre) : 1;
         $paginationStart = ($page - 1) * $limitPage;
 
-        $immoblesFirst = $this->immobleModel->getImmoblesFiltrar($_SESSION["operacio_filtrar"], $_SESSION["categoria_filtrar"], $_SESSION["poblacio_filtrar"], $_SESSION["preu_minim_filtrar"], $_SESSION["preu_maxim_filtrar"], $_SESSION["habitacions_filtrar"], $_SESSION["banys_filtrar"], $_SESSION["superficies_minim_filtrar"], $_SESSION["superficies_maxim_filtrar"], $paginationStart, $limitPage);
-        $immoblesFirstSensePaginacio = $this->immobleModel->getImmoblesFiltrarSensePaginacio($_SESSION["operacio_filtrar"], $_SESSION["categoria_filtrar"], $_SESSION["poblacio_filtrar"], $_SESSION["preu_minim_filtrar"], $_SESSION["preu_maxim_filtrar"], $_SESSION["habitacions_filtrar"], $_SESSION["banys_filtrar"], $_SESSION["superficies_minim_filtrar"], $_SESSION["superficies_maxim_filtrar"]);
+        $immoblesPaginar = $this->immobleModel->getImmoblesFiltrar($_SESSION["operacio_filtrar"], $_SESSION["categoria_filtrar"], $_SESSION["poblacio_filtrar"], $_SESSION["preu_minim_filtrar"], $_SESSION["preu_maxim_filtrar"], $_SESSION["habitacions_filtrar"], $_SESSION["banys_filtrar"], $_SESSION["superficies_minim_filtrar"], $_SESSION["superficies_maxim_filtrar"], $paginationStart, $limitPage);
+        $immoblesSensePaginar = $this->immobleModel->getImmoblesFiltrarSensePaginar($_SESSION["operacio_filtrar"], $_SESSION["categoria_filtrar"], $_SESSION["poblacio_filtrar"], $_SESSION["preu_minim_filtrar"], $_SESSION["preu_maxim_filtrar"], $_SESSION["habitacions_filtrar"], $_SESSION["banys_filtrar"], $_SESSION["superficies_minim_filtrar"], $_SESSION["superficies_maxim_filtrar"]);
 
+        // Si tenim caracteristica per filtrar
         if ( $_SESSION["caracteristica_id_filtrar"] !== '[""]' ) {
           $caracteristiquesFiltrar = json_decode($_SESSION["caracteristica_id_filtrar"]);
 
-          // Paginar immobles
-          foreach ($immoblesFirst as $immoble) {
-            // $containsSearch = count(array_intersect($caracteristiques, $var)) == count($caracteristiques);
+          // Primer mirem sense paginar immobles
+          foreach ($immoblesSensePaginar as $immoble) {
             $caracteristiquesImmoble = json_decode($immoble->caracteristica_id);
             if(!array_diff($caracteristiquesFiltrar, $caracteristiquesImmoble)) {
-              $immobles[] = $immoble;
+              $llistaImmoblesSensePaginar[] = $immoble;
             }
           }
 
-          if(empty($immobles)){
-            $immobles = array();
-          }
-
-          // Sense paginar immobles
-          foreach ($immoblesFirstSensePaginacio as $immoble) {
-            // $containsSearch = count(array_intersect($caracteristiques, $var)) == count($caracteristiques);
-            $caracteristiquesImmoble = json_decode($immoble->caracteristica_id);
-            if(!array_diff($caracteristiquesFiltrar, $caracteristiquesImmoble)) {
-              $immoblesSensePaginar[] = $immoble;
-            }
-          }
-
-          if(!empty($immoblesSensePaginar)) {
-            $immoblesTotal = sizeof($immoblesSensePaginar);
+          // Si tenim immobles sense paginar que tenen característiques iguales les ratellem com si fos una consulta a la base de dades amb $paginationStart i $limitPage
+          if(!empty($llistaImmoblesSensePaginar)) {
+            $immoblesTotal = sizeof($llistaImmoblesSensePaginar);
+            // Retall
+            $immobles = array_slice($llistaImmoblesSensePaginar, $paginationStart, $limitPage);
           } else {
             $immoblesTotal = 0;
+            $immobles = array();
           }
           
         } else {
-          $immobles = $immoblesFirst;
-          $immoblesTotal = sizeof($immoblesFirstSensePaginacio);
+          $immobles = $immoblesPaginar;
+          $immoblesTotal = sizeof($immoblesSensePaginar);
         }
 
         // Calculate total pages
