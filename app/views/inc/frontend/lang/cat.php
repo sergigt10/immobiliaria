@@ -15,6 +15,8 @@
     $operacioCercada = "operacioCercadaCat";
     // Operació cercada
     $categoriaCercada = "categoriaCercadaCat";
+    // Descripció empresa
+    $descripcioEmpresa = "descripcioEmpresaCat";
 
     /* GLOBALS */
     define('NO_RESULTATS', 'No s\'ha trobat cap resultat');
@@ -80,7 +82,7 @@
     define('BUSCADOR_FILTRE', 'Buscador avançat');
     define('BUSCADOR_TANCAT_FILTRE', 'Tancar');
     define('INDIFERENT_FILTRE', 'Indiferent');
-    define('LLOGUER_FILTRE', 'LLOGUER');
+    define('LLOGUER_FILTRE', 'Lloguer');
     define('CARACTERISTIQUES_FILTRE', 'Característiques');
     define('PREU_MINIM_FILTRE', 'Preu mínim');
     define('PREU_MAXIM_FILTRE', 'Preu màxim');
@@ -91,9 +93,9 @@
     define('CERTIFICAT_ENERGETIC_FILTRE', 'Certificat energètic');
 
     /* DETALL */
-    define('REFERENCIA_DETALL', 'Referencia:');
+    define('REFERENCIA_DETALL', 'Referència:');
     define('DESCRIPCIO_DETALL', 'Descripció');
-    define('NO_DISPONIBLE_DETALL', 'No disponible:');
+    define('NO_DISPONIBLE_DETALL', 'No disponible');
     define('INFORMACIO_DETALL', 'Informació');
     define('HABITACIONS_DETALL', 'Habitacions:');
     define('BANYS_DETALL', 'Banys:');
@@ -112,7 +114,6 @@
     /* OPERACIONS */
     define('BREADCRUMB_1_OPERACIONS', 'Inici');
     define('BREADCRUMB_2_OPERACIONS', 'Operacions');
-    define('BREADCRUMB_TITLE_OPERACIONS', 'Els nostres afiliats');
 
     /* CERCAR */
     define('BREADCRUMB_1_CERCAR', 'Inici');
@@ -130,3 +131,19 @@
     define('INICI_GRACIES', 'INICI');
 
     /* UNIRME */ 
+    define('BREADCRUMB_1_UNIRME', 'Inici');
+    define('BREADCRUMB_2_UNIRME', 'Unir-me');
+    define('BREADCRUMB_TITLE_UNIRME', 'Guanya visibilitat');
+    define('TITLE_1_UNIRME', 'Unir-me al grup d\'Immobiliàries en xarxa');
+    define('SUBTITLE_1_UNIRME', 'Creiem que Immobiliàries en xarxa pot ajudar a qualsevol agent a impulsar el seu negoci, especialment:');
+    define('PARA_1_UNIRME', '- Si t\'agradaria comptar amb una força de vendes molt potent sense necessitat d\'ampliar l\'estructura de la teva agència.');
+    define('PARA_2_UNIRME', '- Si t\'agradaria ampliar la difusió dels teus immobles.');
+    define('PARA_3_UNIRME', '- Si tens molts potencials compradors i vols ampliar la teva cartera d\'immobles per poder atendre les seves necessitats.');
+    define('PARA_4_UNIRME', '- Si vols créixer més i estàs buscant un model de negoci que et permeti fer-ho.');
+    define('PARA_5_UNIRME', '- Deixa\'ns les teves dades i ens posarem en contacte per donar-te més informació dels nostres serveis.');
+    define('EMPRESA_UNIRME', 'Empresa *');
+    define('CONTACTE_UNIRME', 'Contacte');
+    define('DIRECCIO_UNIRME', 'Direcció');
+    define('TELEFON_UNIRME', 'Telèfon');
+    define('EMAIL_UNIRME', 'Correu electrònic');
+    

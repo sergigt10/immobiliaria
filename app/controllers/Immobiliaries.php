@@ -14,7 +14,7 @@
 
         public function llista( $paginaParametre = '' ){
 
-            $limitPage = 1;
+            $limitPage = 9;
             $page = ( isset($paginaParametre) && is_numeric($paginaParametre) ) ? intval($paginaParametre) : 1;
             $paginationStart = ($page - 1) * $limitPage;
 
@@ -54,7 +54,7 @@
 
         public function immobles($id, $paginaParametre = ''){
 
-            $limitPage = 5;
+            $limitPage = 9;
             $page = ( isset($paginaParametre) && is_numeric($paginaParametre) ) ? intval($paginaParametre) : 1;
             $paginationStart = ($page - 1) * $limitPage;
 
@@ -96,7 +96,9 @@
                 'caracteristiques' => $caracteristiques,
                 'empresaCercada' => $empresaCercada->empresa,
                 'idEmpresaCercada' => $empresaCercada->id,
-                'descripcioEmpresa' => $empresaCercada->descripcio_cat,
+                'descripcioEmpresaCat' => $empresaCercada->descripcio_cat,
+                'descripcioEmpresaEsp' => $empresaCercada->descripcio_esp,
+                'descripcioEmpresaEng' => $empresaCercada->descripcio_eng,
                 'telefonEmpresa' => $empresaCercada->telefon,
                 'emailEmpresa' => $empresaCercada->email,
                 'immobles' => $immobles,

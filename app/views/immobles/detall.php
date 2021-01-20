@@ -143,7 +143,7 @@
 										<li class="list-inline-item"><p style="font-size: 14px"><?php echo REFERENCIA_DETALL; ?> <?php echo $data['referencia']; ?></p></li>
 									</ul>
 								</div>
-								<h4 class="mb30"><b><?php echo DESCRIPCIO_DETALL; ?></b></h4>
+								<h4 class="mb15"><b><?php echo DESCRIPCIO_DETALL; ?></b></h4>
 								<p class="mb25 text-justify">
 									<?php echo !empty($data[$descripcioImmoble]) ? '<script>document.write(tallarText("'.strip_tags($data[$descripcioImmoble]).'", 1200))</script>'  : NO_DISPONIBLE_DETALL ?>
 								</p>

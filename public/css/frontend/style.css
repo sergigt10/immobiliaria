@@ -7880,7 +7880,7 @@ ul.ab_counting li:last-child{
   margin-bottom: 0;
 }
 .our_agent .thumb .overylay{
-  background-color: rgba(8, 15, 29, .8);
+  background-color: rgba(8, 15, 29, .1);
   border-radius: 8px;
   bottom: 0;
   left: 0;

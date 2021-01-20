@@ -50,6 +50,15 @@
       return $row;
     }
 
+    // Get all usuaris activats portada
+    public function getUsuarisActivatsPortada(){
+      $this->db->query('SELECT * FROM usuari WHERE activat = 1 ORDER BY id ASC LIMIT 6');
+      // Bind value
+      $results = $this->db->resultSet();
+
+      return $results;
+    }
+
     // Find usuari by username
     public function findUsuariByUsername($username){
       $this->db->query('SELECT * FROM usuari WHERE email = :nom_usuari');

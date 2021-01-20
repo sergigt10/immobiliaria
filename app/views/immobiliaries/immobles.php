@@ -16,7 +16,7 @@
 							<li class="breadcrumb-item active text-thm" aria-current="page"><?php echo BREADCRUMB_2_IMMOBLES_AFILIATS; ?></li>
 						</ol>
 						<h3 class="breadcrumb_title"><?php echo isset($data['empresaCercada']) ? " ". $data['empresaCercada'] : '' ?></h3>
-						<p><?php echo isset($data['descripcioEmpresa']) ? '<script>document.write(tallarText("'.$data['descripcioEmpresa'].'", 800))</script>' : '' ?></p>
+						<p><?php echo isset($data[$descripcioEmpresa]) ? '<script>document.write(tallarText("'.$data[$descripcioEmpresa].'", 800))</script>' : '' ?></p>
 						<p><?php echo isset($data['telefonEmpresa']) ? '<span class="fa fa-phone"></span> '.$data['telefonEmpresa'] : '' ?></p>
 						<p><?php echo isset($data['emailEmpresa']) ? '<span class="fa fa-envelope"></span> '.$data['emailEmpresa'] : '' ?></p>
 					</div>

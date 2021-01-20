@@ -32,9 +32,9 @@
                                 <div class="feat_property home7 agency" onclick="javascript:location.href='<?php echo URLROOT; ?>/immobiliaries/immobles/<?php echo $usuari->id?>'">
                                     <div class="thumb">
                                         <?php if( !empty($usuari->logo) && file_exists( '../../admin-web/public/images/img-xarxa/usuari/'.$usuari->logo ) ){ ?>
-                                            <img class="img-whp" src="<?php echo URLROOT; ?>/public/images/img-xarxa/usuari/thumb_img/thumb.php?src=../<?php echo $usuari->logo ?>&size=360x230&crop=1&trim=1" alt="<?php echo $usuari->empresa ?>">
+                                            <img class="img-whp" src="<?php echo URLROOT; ?>/public/images/img-xarxa/usuari/thumb_img/thumb.php?src=../<?php echo $usuari->logo ?>&size=360x230&crop=1&trim=0" alt="<?php echo $usuari->empresa ?>">
                                         <?php } else { ?>
-                                            <img class="img-whp" src="<?php echo URLROOT; ?>/public/images/img-xarxa/usuari/thumb_img/thumb.php?src=../imatge-no-disponible.jpg&size=360x230&crop=1&trim=1" alt="<?php echo $usuari->empresa ?>">
+                                            <img class="img-whp" src="<?php echo URLROOT; ?>/public/images/img-xarxa/usuari/thumb_img/thumb.php?src=../imatge-no-disponible.jpg&size=360x230&crop=1&trim=0" alt="<?php echo $usuari->empresa ?>">
                                         <?php } ?>
                                     </div>
                                     <div class="details">

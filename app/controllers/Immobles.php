@@ -1,6 +1,7 @@
 <?php
   class Immobles extends Controller {
     public function __construct(){
+      $this->usuariModel = $this->model('Usuari');
       $this->operacioModel = $this->model('Operacio');
       $this->categoriaModel = $this->model('Categoria');
       $this->caracteristicaModel = $this->model('Caracteristica');
@@ -19,13 +20,15 @@
       $provincies = $this->provinciaModel->getProvincies();
       $poblacions = $this->poblacioModel->getPoblacionsWithProvinciaId(8);
       $immoblesPortada = $this->immobleModel->getInfoImmoblesPortada();
+      $usuarisPortada = $this->usuariModel->getUsuarisActivatsPortada();
 
       $data = [
         'operacions' => $operacions,
         'categories' => $this->categories,
         'provincies' => $provincies,
         'poblacions' => $poblacions,
-        'immoblesPortada' => $immoblesPortada
+        'immoblesPortada' => $immoblesPortada,
+        'usuarisPortada' => $usuarisPortada
       ];
       
       $this->view('immobles/index', $data);
@@ -111,7 +114,7 @@
       }
 
       if( !empty($_SESSION["operacio_cercar"]) && !empty($_SESSION["categoria_cercar"]) && !empty($_SESSION["poblacio_cercar"]) ) {
-        $limitPage = 1;
+        $limitPage = 9;
         $page = ( isset($paginaParametre) && is_numeric($paginaParametre) ) ? intval($paginaParametre) : 1;
         $paginationStart = ($page - 1) * $limitPage;
 
@@ -208,7 +211,7 @@
 
       if( !empty($_SESSION["operacio_filtrar"]) && !empty($_SESSION["categoria_filtrar"]) && !empty($_SESSION["poblacio_filtrar"]) ) {
 
-        $limitPage = 1;
+        $limitPage = 9;
         $page = ( isset($paginaParametre) && is_numeric($paginaParametre) ) ? intval($paginaParametre) : 1;
         $paginationStart = ($page - 1) * $limitPage;
 
@@ -297,7 +300,7 @@
     
     public function operacio($operacio = 3, $categoria = 1, $paginaParametre = '') {
 
-      $limitPage = 1;
+      $limitPage = 9;
       $page = ( isset($paginaParametre) && is_numeric($paginaParametre) ) ? intval($paginaParametre) : 1;
       $paginationStart = ($page - 1) * $limitPage;
 

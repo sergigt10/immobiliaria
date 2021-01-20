@@ -2,20 +2,22 @@
 
     /* VARIABLES PHP */
     // Nom operacions, categories
-    $nom = "nom_cat";
+    $nom = "nom_eng";
     // Nom operació immoble
-    $operacioImmoble = "operacio_cat";
+    $operacioImmoble = "operacio_eng";
     // Nom categoria immoble
-    $categoriaImmoble = "categoria_cat";
+    $categoriaImmoble = "categoria_eng";
     // Títol de l'immoble
-    $titolImmoble = "titol_cat";
+    $titolImmoble = "titol_eng";
     // Descripció de l'immoble
-    $descripcioImmoble = "descripcio_cat";
+    $descripcioImmoble = "descripcio_eng";
     // Operació cercada
-    $operacioCercada = "operacioCercadaCat";
+    $operacioCercada = "operacioCercadaEng";
     // Operació cercada
-    $categoriaCercada = "categoriaCercadaCat";
-    
+    $categoriaCercada = "categoriaCercadaEng";
+    // Descripció empresa
+    $descripcioEmpresa = "descripcioEmpresaEng";
+
     /* GLOBALS */
     define('NO_RESULTATS', 'No s\'ha trobat cap resultat');
     define('RESULTATS', 'resultat/s');
@@ -54,8 +56,8 @@
     define('UNEIX_TE_TITLE_1', 'VOLS FORMAR PART D\'IMMOBILIÀRIES EN XARXA?');
     define('UNEIX_TE_TITLE_2', 'Si vols créixer més i estàs buscant un model de negoci que et permeti fer-ho, aqui tens la teva resposta.');
     define('UNEIX_TE_BOTO', 'UNIR-ME ARA!');
-    define('AGENTS_TITLE_1', 'Els nostres agents');
-    define('AGENTS_TITLE_2', 'Col·laboració exclusiva per a agències afiliades');
+    define('AGENTS_TITLE_1', 'Els nostres agents immobiliaris');
+    define('AGENTS_TITLE_2', 'Col·laboració exclusiva per agències afiliades');
     define('VEURE_AGENTS', 'Veure tots els agents');
 
     /* QUI SOM */
@@ -80,7 +82,7 @@
     define('BUSCADOR_FILTRE', 'Buscador avançat');
     define('BUSCADOR_TANCAT_FILTRE', 'Tancar');
     define('INDIFERENT_FILTRE', 'Indiferent');
-    define('LLOGUER_FILTRE', 'LLOGUER');
+    define('LLOGUER_FILTRE', 'Lloguer');
     define('CARACTERISTIQUES_FILTRE', 'Característiques');
     define('PREU_MINIM_FILTRE', 'Preu mínim');
     define('PREU_MAXIM_FILTRE', 'Preu màxim');
@@ -93,7 +95,7 @@
     /* DETALL */
     define('REFERENCIA_DETALL', 'Referencia:');
     define('DESCRIPCIO_DETALL', 'Descripció');
-    define('NO_DISPONIBLE_DETALL', 'No disponible:');
+    define('NO_DISPONIBLE_DETALL', 'No disponible');
     define('INFORMACIO_DETALL', 'Informació');
     define('HABITACIONS_DETALL', 'Habitacions:');
     define('BANYS_DETALL', 'Banys:');
@@ -130,5 +132,19 @@
     define('INICI_GRACIES', 'INICI');
 
     /* UNIRME */ 
-
-    /* OPERACIONS */
+    define('BREADCRUMB_1_UNIRME', 'Inici');
+    define('BREADCRUMB_2_UNIRME', 'Unir-me');
+    define('BREADCRUMB_TITLE_UNIRME', 'Guanya visibilitat');
+    define('TITLE_1_UNIRME', 'Unir-me al grup d\'Immobiliàries en xarxa');
+    define('SUBTITLE_1_UNIRME', 'Creiem que Immobiliàries en xarxa pot ajudar a qualsevol agent a impulsar el seu negoci, especialment:');
+    define('PARA_1_UNIRME', '- Si t\'agradaria comptar amb una força de vendes molt potent sense necessitat d\'ampliar l\'estructura de la teva agència.');
+    define('PARA_2_UNIRME', '- Si t\'agradaria ampliar la difusió dels teus immobles.');
+    define('PARA_3_UNIRME', '- Si tens molts potencials compradors i vols ampliar la teva cartera d\'immobles per poder atendre les seves necessitats.');
+    define('PARA_4_UNIRME', '- Si vols créixer més i estàs buscant un model de negoci que et permeti fer-ho.');
+    define('PARA_5_UNIRME', '- Deixa\'ns les teves dades i ens posarem en contacte per donar-te més informació dels nostres serveis.');
+    define('EMPRESA_UNIRME', 'Empresa *');
+    define('CONTACTE_UNIRME', 'Contacte');
+    define('DIRECCIO_UNIRME', 'Direcció');
+    define('TELEFON_UNIRME', 'Telèfon');
+    define('EMAIL_UNIRME', 'Correu electrònic');
+    

@@ -42,17 +42,7 @@
 				</div>
 				<div class="col-sm-6 col-md-6 col-lg col-xl">
 					<div class="footer_social_widget home3">
-						<h4><?php echo FOOTER_5_TITLE_1; ?></h4>
-						<form class="footer_mailchimp_form home3">
-						 	<div class="form-row align-items-center">
-                                <div class="col-auto">
-                                    <input type="email" class="form-control mb-2" id="inlineFormInput" placeholder="Email">
-                                </div>
-                                <div class="col-auto">
-                                    <button type="submit" class="btn btn-primary mb-2"><i class="fa fa-angle-right"></i></button>
-                                </div>
-						  	</div>
-						</form>
+						<img class="nav_logo_img img-fluid" src="<?php echo URLROOT; ?>/images/frontend/logo-vertical.jpg" alt="immobiliàries en xarxa">
 					</div>
 				</div>
 			</div>

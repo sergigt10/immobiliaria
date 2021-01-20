@@ -171,48 +171,24 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-sm-6 col-md-4 col-lg-4 col-xl-2">
-					<div class="our_agent">
-						<div class="thumb">
-							<img class="img-fluid w100" src="<?php echo URLROOT; ?>/images/frontend/team/5.jpg" alt="5.jpg">
+				<?php foreach($data['usuarisPortada'] as $usuari) : ?>
+					<div class="col-sm-6 col-md-4 col-lg-4 col-xl-2">
+						<div class="our_agent" onclick="javascript:location.href='<?php echo URLROOT; ?>/immobiliaries/immobles/<?php echo $usuari->id?>'">
+							<div class="thumb">
+								<?php if( !empty($usuari->logo) && file_exists( '../../admin-web/public/images/img-xarxa/usuari/'.$usuari->logo ) ){ ?>
+									<img style="max-width: none;" src="<?php echo URLROOT; ?>/public/images/img-xarxa/usuari/thumb_img/thumb.php?src=../<?php echo $usuari->logo ?>&size=240x300&crop=0&trim=0" alt="<?php echo $usuari->empresa ?>">
+								<?php } else { ?>
+									<img class="img-whp" src="<?php echo URLROOT; ?>/public/images/img-xarxa/usuari/thumb_img/thumb.php?src=../imatge-no-disponible.jpg&size=240x300&crop=0&trim=0" alt="<?php echo $usuari->empresa ?>">
+								<?php } ?>
+								<div class="overylay">
+									<ul class="social_icon">
+										<li class="list-inline-item"><a href="<?php echo URLROOT; ?>/immobiliaries/immobles/<?php echo $usuari->id?>"><span class="flaticon-magnifying-glass"></span></a></li>
+									</ul>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-sm-6 col-md-4 col-lg-4 col-xl-2">
-					<div class="our_agent">
-						<div class="thumb">
-							<img class="img-fluid w100" src="<?php echo URLROOT; ?>/images/frontend/team/4.jpg" alt="6.jpg">
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-4 col-lg-4 col-xl-2">
-					<div class="our_agent">
-						<div class="thumb">
-							<img class="img-fluid w100" src="<?php echo URLROOT; ?>/images/frontend/team/7.jpg" alt="7.jpg">
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-4 col-lg-4 col-xl-2">
-					<div class="our_agent">
-						<div class="thumb">
-							<img class="img-fluid w100" src="<?php echo URLROOT; ?>/images/frontend/team/8.jpg" alt="8.jpg">
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-4 col-lg-4 col-xl-2">
-					<div class="our_agent">
-						<div class="thumb">
-							<img class="img-fluid w100" src="<?php echo URLROOT; ?>/images/frontend/team/9.jpg" alt="9.jpg">
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-4 col-lg-4 col-xl-2">
-					<div class="our_agent">
-						<div class="thumb">
-							<img class="img-fluid w100" src="<?php echo URLROOT; ?>/images/frontend/team/10.jpg" alt="10.jpg">
-						</div>
-					</div>
-				</div>
+				<?php endforeach; ?>
 			</div>
 		</div>
 	</section>

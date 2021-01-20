@@ -33,8 +33,8 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="exampleInputEmail3">Referencia *:</label>
-                  <input name="referencia" type="text" class="form-control" id="exampleInputEmail3" placeholder="Número de referencia" value="<?php echo $data['referencia']; ?>">
+                  <label for="exampleInputEmail3">Referència *:</label>
+                  <input name="referencia" type="text" class="form-control" id="exampleInputEmail3" placeholder="Número de referència" value="<?php echo $data['referencia']; ?>">
                 </div>
 
                 <div class="form-group">

@@ -23,7 +23,7 @@
                   <thead>
                     <tr>
                         <th>Títol</th>
-                        <th>Referencia</th>
+                        <th>Referència</th>
                         <th>Categoria</th>
                         <th>Tipus d'operació</th>
                         <th>Població</th>

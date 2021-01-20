@@ -139,7 +139,7 @@
         }
 
         if(empty($data['referencia'])){
-          $data['referencia_err'] = 'Introduïr referencia de l\'immoble';
+          $data['referencia_err'] = 'Introduïr referència de l\'immoble';
         }
 
         // Make sure no errors
