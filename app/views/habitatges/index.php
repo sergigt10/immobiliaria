@@ -14,7 +14,7 @@
             <div class="col-12">
               <?php 
                 if (isLoggedInAndAdmin()) {
-                  echo '<b>'.$data['totalPortada']." / ".MAXPORTADA. " productes a la portada de la web</b>";
+                  echo '<b>'.$data['totalPortada']." / ".MAXPORTADA. " immobles a la portada de la web</b>";
                 } 
                 echo "<br><br>";
               ?>

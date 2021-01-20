@@ -187,7 +187,7 @@
                               <div class="form-check form-check-danger" style="float:right;">
                                 <label class="form-check-label">
                                   <input type="checkbox" class="form-check-input" name="del_img1" value="1">
-                                  Eliminar logo?
+                                  Eliminar imatge 1?
                                   <i class="input-helper"></i></label>
                                   <br>
                                   <?php if(!empty($data['imatge1']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge1'])){ ?>
@@ -214,7 +214,7 @@
                               <div class="form-check form-check-danger" style="float:right;">
                                 <label class="form-check-label">
                                   <input type="checkbox" class="form-check-input" name="del_img2" value="2">
-                                  Eliminar logo?
+                                  Eliminar imatge 2?
                                   <i class="input-helper"></i></label>
                                   <br>
                                   <?php if(!empty($data['imatge2']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge2'])){ ?>
@@ -241,7 +241,7 @@
                               <div class="form-check form-check-danger" style="float:right;">
                                 <label class="form-check-label">
                                   <input type="checkbox" class="form-check-input" name="del_img3" value="3">
-                                  Eliminar logo?
+                                  Eliminar imatge 3?
                                   <i class="input-helper"></i></label>
                                   <br>
                                   <?php if(!empty($data['imatge3']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge3'])){ ?>
@@ -268,7 +268,7 @@
                               <div class="form-check form-check-danger" style="float:right;">
                                 <label class="form-check-label">
                                   <input type="checkbox" class="form-check-input" name="del_img4" value="4">
-                                  Eliminar logo?
+                                  Eliminar imatge 4?
                                   <i class="input-helper"></i></label>
                                   <br>
                                   <?php if(!empty($data['imatge4']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge4'])){ ?>
@@ -295,7 +295,7 @@
                               <div class="form-check form-check-danger" style="float:right;">
                                 <label class="form-check-label">
                                   <input type="checkbox" class="form-check-input" name="del_img5" value="5">
-                                  Eliminar logo?
+                                  Eliminar imatge 5?
                                   <i class="input-helper"></i></label>
                                   <br>
                                   <?php if(!empty($data['imatge5']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge5'])){ ?>
@@ -322,7 +322,7 @@
                               <div class="form-check form-check-danger" style="float:right;">
                                 <label class="form-check-label">
                                   <input type="checkbox" class="form-check-input" name="del_img6" value="6">
-                                  Eliminar logo?
+                                  Eliminar imatge 6?
                                   <i class="input-helper"></i></label>
                                   <br>
                                   <?php if(!empty($data['imatge6']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge6'])){ ?>
@@ -349,7 +349,7 @@
                               <div class="form-check form-check-danger" style="float:right;">
                                 <label class="form-check-label">
                                   <input type="checkbox" class="form-check-input" name="del_img7" value="7">
-                                  Eliminar logo?
+                                  Eliminar imatge 7?
                                   <i class="input-helper"></i></label>
                                   <br>
                                   <?php if(!empty($data['imatge7']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge7'])){ ?>
@@ -376,7 +376,7 @@
                               <div class="form-check form-check-danger" style="float:right;">
                                 <label class="form-check-label">
                                   <input type="checkbox" class="form-check-input" name="del_img8" value="8">
-                                  Eliminar logo?
+                                  Eliminar imatge 8?
                                   <i class="input-helper"></i></label>
                                   <br>
                                   <?php if(!empty($data['imatge8']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge8'])){ ?>
@@ -403,7 +403,7 @@
                               <div class="form-check form-check-danger" style="float:right;">
                                 <label class="form-check-label">
                                   <input type="checkbox" class="form-check-input" name="del_img9" value="9">
-                                  Eliminar logo?
+                                  Eliminar imatge 9?
                                   <i class="input-helper"></i></label>
                                   <br>
                                   <?php if(!empty($data['imatge9']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge9'])){ ?>
@@ -430,7 +430,7 @@
                               <div class="form-check form-check-danger" style="float:right;">
                                 <label class="form-check-label">
                                   <input type="checkbox" class="form-check-input" name="del_img10" value="10">
-                                  Eliminar logo?
+                                  Eliminar imatge 10?
                                   <i class="input-helper"></i></label>
                                   <br>
                                   <?php if(!empty($data['imatge10']) && file_exists('../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge10'])){ ?>
