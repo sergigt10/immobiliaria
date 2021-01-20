@@ -9,7 +9,7 @@
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-6 col-lg col-xl">
-					<div class="footer_qlink_widget home3">
+					<div class="footer_about_widget home3">
 						<h4><?php echo FOOTER_2_TITLE_1; ?></h4>
 						<ul class="list-unstyled">
 							<li><a href="<?php echo URLROOT; ?>/immobles/index"><?php echo FOOTER_2_TITLE_2; ?></a></li>
@@ -20,7 +20,7 @@
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-6 col-lg col-xl">
-					<div class="footer_contact_widget home3">
+					<div class="footer_about_widget home3">
 						<h4><?php echo FOOTER_3_TITLE_1; ?></h4>
 						<ul class="list-unstyled">
 							<li><p>08500 Vic - Barcelona</p></li>
@@ -31,7 +31,7 @@
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-6 col-lg col-xl">
-					<div class="footer_social_widget home3">
+					<div class="footer_about_widget home3">
 						<h4><?php echo FOOTER_4_TITLE_1; ?></h4>
 						<ul class="mb30">
 							<li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -41,7 +41,7 @@
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-6 col-lg col-xl">
-					<div class="footer_social_widget home3">
+					<div class="footer_about_widget home3 text-center">
 						<img class="nav_logo_img img-fluid" src="<?php echo URLROOT; ?>/images/frontend/logo-vertical.jpg" alt="immobiliàries en xarxa">
 					</div>
 				</div>
@@ -59,12 +59,13 @@
 							<li class="list-inline-item"><a href="#"><?php echo FOOTER_6_TITLE_1; ?></a></li>
 							<li class="list-inline-item"><a href="#"><?php echo FOOTER_6_TITLE_2; ?></a></li>
 							<li class="list-inline-item"><a href="#"><?php echo FOOTER_6_TITLE_3; ?></a></li>
+							<li class="list-inline-item"><a href="https://www.webmastervic.com/" target="_blank">Disseny web Webmastervic</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-6 col-xl-6">
 					<div class="copyright-widget home3 text-right">
-						<p>© 2020 IMMOBILIÀRIES EN XARXA</p>
+						<p>© 2021 IMMOBILIÀRIES EN XARXA</p>
 					</div>
 				</div>
 			</div>

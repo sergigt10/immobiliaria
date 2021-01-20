@@ -53,7 +53,7 @@
     /* INDEX */
     define('TITLE_SLIDE', 'Su propiedad, nuestra prioridad');
     define('DESTACATS', 'Propiedades destacadas');
-    define('UNEIX_TE_TITLE_1', 'QUIERES FORMAR PARTE DE IMMOBILIÀRIES EN XARXA?');
+    define('UNEIX_TE_TITLE_1', '¿QUIERES FORMAR PARTE DE IMMOBILIÀRIES EN XARXA?');
     define('UNEIX_TE_TITLE_2', 'Si quieres crecer más y estás buscando un modelo de negocio que te permita hacerlo, aquí tienes tu respuesta.');
     define('UNEIX_TE_BOTO', '¡UNIRSE AHORA!');
     define('AGENTS_TITLE_1', 'Nuestros agentes inmobiliarios');
@@ -127,7 +127,7 @@
 
     /* GRÀCIES */
     define('GRACIES', '¡Mensaje enviado correctamente!');
-    define('EN_BREU_GRACIES', 'En breve nos pondremos en contacto con usted. gracias');
+    define('EN_BREU_GRACIES', 'En breve nos pondremos en contacto con usted. Gracias');
     define('INICI_GRACIES', 'INICIO');
 
     /* UNIRME */ 

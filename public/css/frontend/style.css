@@ -5147,6 +5147,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   background-color: #ffffff;
   padding: 55px 15px 50px 45px;
   position: relative;
+  margin-top: 30px;
 }
 .modern_apertment .title{
   font-family: "Nunito";
@@ -7020,6 +7021,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 }
 .footer_one.home3{
   background-color: #ffffff;
+  border-top: 1px solid #e8eef2;
   border-bottom: 1px solid #e8eef2;
 }
 .footer_middle_area.home3{
@@ -7423,7 +7425,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   text-transform: capitalize;
 }
 .breadcrumb_content.style2{
-  margin-bottom: 55px;
+  margin-bottom: 60px;
 }
 .breadcrumb_content.style2 ol.breadcrumb{
   background-color: transparent;

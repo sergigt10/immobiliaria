@@ -149,7 +149,7 @@
 		<div class="container">
 			<div class="row justify-content-end">
 				<div class="col-lg-6">
-					<div class="modern_apertment mt30">
+					<div class="modern_apertment">
 						<h2 class="title"><?php echo UNEIX_TE_TITLE_1; ?></h2>
 						<p><?php echo UNEIX_TE_TITLE_2; ?></p>
 						<a class="btn booking_btn btn-thm" href="<?php echo URLROOT; ?>/immobles/unirme"><?php echo UNEIX_TE_BOTO; ?></a>
@@ -165,7 +165,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="main-title">
-						<h2><span class="flaticon-street-view"></span> <?php echo AGENTS_TITLE_1; ?></h2>
+						<h2><span class="flaticon-user-1"></span> <?php echo AGENTS_TITLE_1; ?></h2>
 						<p><?php echo AGENTS_TITLE_2; ?> <a class="float-right" href="<?php echo URLROOT; ?>/immobiliaries/llista"><?php echo VEURE_AGENTS; ?> <span class="flaticon-next"></span></a></p>
 					</div>
 				</div>
@@ -174,7 +174,7 @@
 				<?php foreach($data['usuarisPortada'] as $usuari) : ?>
 					<div class="col-sm-6 col-md-4 col-lg-4 col-xl-2">
 						<div class="our_agent" onclick="javascript:location.href='<?php echo URLROOT; ?>/immobiliaries/immobles/<?php echo $usuari->id?>'">
-							<div class="thumb">
+							<div class="thumb text-center">
 								<?php if( !empty($usuari->logo) && file_exists( '../../admin-web/public/images/img-xarxa/usuari/'.$usuari->logo ) ){ ?>
 									<img style="max-width: none;" src="<?php echo URLROOT; ?>/public/images/img-xarxa/usuari/thumb_img/thumb.php?src=../<?php echo $usuari->logo ?>&size=240x300&crop=0&trim=0" alt="<?php echo $usuari->empresa ?>">
 								<?php } else { ?>

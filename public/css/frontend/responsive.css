@@ -957,7 +957,8 @@
 @media only screen and (max-width:479px){
     .ulockd-mrgn1225 {margin-top: inherit !important;}
     .footer_menu_widget ul li{padding-right: 5px;}
-    .logo-widget.home8{margin-left: 55px;}
+	.logo-widget.home8{margin-left: 55px;}
+	.modern_apertment{margin-top: -25px !important;}
 }
 @media only screen and (max-width:414px){
 	.mt10-414{margin-top: 10px;}

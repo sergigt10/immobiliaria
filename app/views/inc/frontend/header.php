@@ -2,10 +2,6 @@
 <?php 
     isset($_SESSION["idioma"]) ? $_SESSION["idioma"] : $_SESSION["idioma"] = 'cat';
     require APPROOT . '/views/inc/frontend/lang/'. $_SESSION['idioma'] .'.php';
-
-    // Nom categoria
-    $nom = "nom_".$_SESSION["idioma"];
-
 ?>
 <!-- -->
 

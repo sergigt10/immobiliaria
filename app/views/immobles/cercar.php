@@ -16,7 +16,7 @@
 							<li class="breadcrumb-item active text-thm" aria-current="page"><?php echo BREADCRUMB_2_CERCAR; ?></li>
 						</ol>
 						<h3 class="breadcrumb_title"> <?php echo BREADCRUMB_TITLE_CERCAR; ?> </h3>
-						<h4><?php echo isset($data[$operacioCercada]) ? $data[$operacioCercada] : '' ?><?php echo isset($data[$categoriaCercada]) ? ", ". $data[$categoriaCercada] : '' ?><?php echo isset($data['poblacioCercada']) ? ", ". $data['poblacioCercada'] : '' ?></h4>
+						<h4><span class="flaticon-home"></span> <?php echo isset($data[$operacioCercada]) ? $data[$operacioCercada] : '' ?><?php echo isset($data[$categoriaCercada]) ? ", ". $data[$categoriaCercada] : '' ?><?php echo isset($data['poblacioCercada']) ? ", ". $data['poblacioCercada'] : '' ?></h4>
 					</div>
 				</div>
 				<div class="col-md-4 col-lg-6">

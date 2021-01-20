@@ -47,42 +47,42 @@
 				<div class="col-sm-5 col-lg-4">
 					<div class="row">
 						<?php if( !empty($data['imatge_2']) && file_exists( '../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge_2'] ) ){ ?>
-							<div class="col-sm-6 col-lg-6">
+							<div class="col-sm-6 col-lg-6" style="width: auto">
 								<div class="spls_style_two mb30">
 									<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_2'] ?>"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge_2'] ?>&size=165x130&crop=1&trim=1" alt="<?php echo $data[$titolImmoble]; ?>"></a>
 								</div>
 							</div>
 						<?php } ?>
 						<?php if( !empty($data['imatge_3']) && file_exists( '../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge_3'] ) ){ ?>
-							<div class="col-sm-6 col-lg-6">
+							<div class="col-sm-6 col-lg-6" style="width: auto">
 								<div class="spls_style_two mb30">
 									<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_3'] ?>"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge_3'] ?>&size=165x130&crop=1&trim=1" alt="<?php echo $data[$titolImmoble]; ?>"></a>
 								</div>
 							</div>
 						<?php } ?>
 						<?php if( !empty($data['imatge_4']) && file_exists( '../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge_4'] ) ){ ?>
-							<div class="col-sm-6 col-lg-6">
+							<div class="col-sm-6 col-lg-6" style="width: auto">
 								<div class="spls_style_two mb30">
 									<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_4'] ?>"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge_4'] ?>&size=165x130&crop=1&trim=1" alt="<?php echo $data[$titolImmoble]; ?>"></a>
 								</div>
 							</div>
 						<?php } ?>
 						<?php if( !empty($data['imatge_5']) && file_exists( '../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge_5'] ) ){ ?>
-							<div class="col-sm-6 col-lg-6">
+							<div class="col-sm-6 col-lg-6" style="width: auto">
 								<div class="spls_style_two mb30">
 									<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_5'] ?>"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge_5'] ?>&size=165x130&crop=1&trim=1" alt="<?php echo $data[$titolImmoble]; ?>"></a>
 								</div>
 							</div>
 						<?php } ?>
 						<?php if( !empty($data['imatge_6']) && file_exists( '../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge_6'] ) ){ ?>
-							<div class="col-sm-6 col-lg-6">
+							<div class="col-sm-6 col-lg-6" style="width: auto">
 								<div class="spls_style_two mb30">
 									<a class="popup-img" href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/<?php echo $data['imatge_6'] ?>"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../<?php echo $data['imatge_6'] ?>&size=165x130&crop=1&trim=1" alt="<?php echo $data[$titolImmoble]; ?>"></a>
 								</div>
 							</div>
 						<?php } ?>
 						<?php if( !empty($data['imatge_7']) && file_exists( '../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge_7']) || !empty($data['imatge_8']) && file_exists( '../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge_8']) || !empty($data['imatge_9']) && file_exists( '../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge_9']) || !empty($data['imatge_10']) && file_exists( '../../admin-web/public/images/img-xarxa/immoble/'.$data['imatge_10']) ) { ?>
-							<div class="col-sm-6 col-lg-6">
+							<div class="col-sm-6 col-lg-6" style="width: auto">
 								<div class="spls_style_two mb30">
 									<a href="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/imatge-no-disponible.jpg"><img src="<?php echo URLROOT; ?>/public/images/img-xarxa/immoble/thumb_img/thumb.php?src=../imatge-no-disponible.jpg&size=165x130&crop=1&trim=1" alt="<?php echo $data[$titolImmoble]; ?>"></a>
 
@@ -167,7 +167,7 @@
 											<li><p><span><?php echo ($data['tamany']) == 0 ? "-" : $data['tamany'] ?></span></p></li>
 										</ul>
 									</div>
-									<div class="col-md-6 col-lg-6 col-xl-4">
+									<div class="col-md-6 col-lg-6 col-xl-8">
 										<ul class="list-inline-item">
 											<li><p><?php echo CERTIFICAT_DETALL; ?></p></li>
 											<li><p><?php echo REFERENCIA_DETALL; ?></p></li>

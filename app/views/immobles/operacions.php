@@ -16,7 +16,7 @@
 							<li class="breadcrumb-item active text-thm" aria-current="page"><?php echo BREADCRUMB_2_OPERACIONS; ?></li>
 						</ol>
 						<h3 class="breadcrumb_title"><?php echo isset($data[$operacioCercada]) ? $data[$operacioCercada] : '' ?></h3>
-						<h4><?php echo isset($data[$categoriaCercada]) ? $data[$categoriaCercada] : '' ?></h4>
+						<h4><span class="flaticon-home"></span> <?php echo isset($data[$categoriaCercada]) ? $data[$categoriaCercada] : '' ?></h4>
 					</div>
 				</div>
 				<div class="col-md-4 col-lg-6">
