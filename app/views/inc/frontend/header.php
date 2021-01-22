@@ -102,12 +102,12 @@
 
                     <li class="list-inline-item list_s">
                         <a href="#" class="btn" data-toggle="modal" data-target=".bd-example-modal-lg">
-                            <span style="font-weight: bold" class="dn-lg text-thm3"><?php echo mb_strtoupper($_SESSION["idioma"]) ?></span>
+                            <span style="font-weight: bold" class="dn-lg text-thm3"><span class="fa fa-globe"></span> <?php echo mb_strtoupper($_SESSION["idioma"]) ?></span>
                         </a>
                         <ul class="text-center">
-                            <li><a href="<?php echo URLROOT; ?>/immobles/idioma/cat"><span class="fa fa-globe"></span> CATALÀ</a></li>
-                            <li><a href="<?php echo URLROOT; ?>/immobles/idioma/esp"><span class="fa fa-globe"></span> ESPAÑOL</a></li>
-                            <li><a href="<?php echo URLROOT; ?>/immobles/idioma/eng"><span class="fa fa-globe"></span> ENGLISH</a></li>
+                            <li><a href="<?php echo URLROOT; ?>/immobles/idioma/cat">CATALÀ</a></li>
+                            <li><a href="<?php echo URLROOT; ?>/immobles/idioma/esp">ESPAÑOL</a></li>
+                            <li><a href="<?php echo URLROOT; ?>/immobles/idioma/eng">ENGLISH</a></li>
                         </ul>
                     </li>
                 </ul>
