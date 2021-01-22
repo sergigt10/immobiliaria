@@ -41,8 +41,8 @@
                     <tr>
                         <td><a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id_immoble; ?>" style="color: black;"><?php echo limitar_cadena($immoble->titol_esp, 35, "..."); ?></a></td>
                         <td><a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id_immoble; ?>" style="color: black;"><?php echo $immoble->referencia; ?></a></td>
-                        <td><a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id_immoble; ?>" style="color: black;"><?php echo $immoble->categoria; ?></a></td>
-                        <td><a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id_immoble; ?>" style="color: black;"><?php echo $immoble->operacio; ?></a></td>
+                        <td><a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id_immoble; ?>" style="color: black;"><?php echo $immoble->categoria_cat; ?></a></td>
+                        <td><a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id_immoble; ?>" style="color: black;"><?php echo $immoble->operacio_cat; ?></a></td>
                         <td><a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id_immoble; ?>" style="color: black;"><?php echo $immoble->poblacio; ?></a></td>
                         <?php if (isLoggedInAndAdmin()) { ?>
                           <td><a href="<?php echo URLROOT; ?>/habitatges/edit/<?php echo $immoble->id_immoble; ?>" style="color: black;"><?php echo $immoble->usuari_empresa; ?> - <?php echo $immoble->usuari_nom; ?></a></td>

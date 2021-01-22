@@ -120,7 +120,7 @@
 		<div class="mobile-menu">
 			<div class="header stylehome1">
 				<div class="main_logo_home2 text-center" onclick="javascript:location.href='<?php echo URLROOT; ?>/immobles/index'">
-                    <img class="nav_logo_img img-fluid mt20" src="<?php echo URLROOT; ?>/images/frontend/header-logo2.png" alt="immobiliàries en xarxa">  
+                    <img class="nav_logo_img img-fluid mt15" src="<?php echo URLROOT; ?>/images/frontend/header-logo2.png" alt="immobiliàries en xarxa">  
 				</div>
 				<ul class="menu_bar_home2">
                     <li class="list-inline-item list_s"><a href="<?php echo URLROOT; ?>/immobles/index"></a></li>

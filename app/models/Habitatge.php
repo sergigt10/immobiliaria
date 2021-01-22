@@ -18,7 +18,7 @@
 
     // Get immobles by admin
     public function getImmobles(){
-      $this->db->query('SELECT immoble.id as id_immoble, immoble.titol_esp, immoble.referencia, operacio.nom_cat AS operacio, categoria.nom_cat AS categoria, poblacio.nom_cat AS poblacio, immoble.portada, immoble.activat, usuari.empresa AS usuari_empresa, usuari.nom_cognoms AS usuari_nom
+      $this->db->query('SELECT immoble.id as id_immoble, immoble.titol_esp, immoble.referencia, operacio.nom_cat AS operacio_cat, categoria.nom_cat AS categoria_cat, poblacio.nom_cat AS poblacio, immoble.portada, immoble.activat, usuari.empresa AS usuari_empresa, usuari.nom_cognoms AS usuari_nom
       FROM immoble
       INNER JOIN poblacio
           ON immoble.poblacio_id = poblacio.id

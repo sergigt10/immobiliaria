@@ -40,7 +40,7 @@
 						</ul>
 					</div>
 				</div>
-				<div class="col-sm-6 col-md-6 col-lg col-xl">
+				<div class="col-sm-6 col-md-12 col-lg col-xl">
 					<div class="footer_about_widget home3 text-center">
 						<img class="nav_logo_img img-fluid" src="<?php echo URLROOT; ?>/images/frontend/logo-vertical.jpg" alt="immobiliàries en xarxa">
 					</div>

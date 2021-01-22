@@ -169,7 +169,7 @@ img {
   max-width: 100%;}
 
 p {
-  font-size: 14px;
+  font-size: 15px;
   color: #484848;
   font-weight: 400;}
 
@@ -372,7 +372,7 @@ address {
 }
 .cart > li {
   cursor: pointer;
-  font-size: 14px;
+  font-size: 15px;
   flex-grow: 1;
   flex-shrink: 0;
   position: relative;
@@ -431,7 +431,7 @@ address {
 .dropdown_content > li {
   border-bottom: 1px solid #dedede;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 15px;
   padding: 20px 0;
 }
 .dropdown_content > li:last-child{
@@ -447,7 +447,7 @@ address {
   margin: 0;
 }
 .dropdown_content .list_content a small{
-  font-size: 14px;
+  font-size: 15px;
   margin: 0;
 }
 .dropdown_content .list_content a .close_icon{
@@ -716,7 +716,7 @@ address {
 ul.sign_up_btn.home4 li a,
 ul.sign_up_btn.home6 a{
   font-family: 'Nunito', sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   line-height: initial;
 }
 .header_top.home6{
@@ -740,7 +740,7 @@ ul.sign_up_btn.home6 a{
   z-index: 9;
 }
 .header_top.home7 .header_top_lang_widget_home6 button.btn.dropdown-toggle{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: rgba(255, 255, 255, 0.502);
   height: auto;
@@ -750,7 +750,7 @@ ul.sign_up_btn.home6 a{
   margin-top: 5px;
 }
 ul.sign_up_btn.home7 a{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
 }
 .light_white,
@@ -767,7 +767,7 @@ ul.sign_up_btn.home7 a{
   width: 350px;
 }
 .header_search_widget .mailchimp_form input[type="text"].form-control::-webkit-input-placeholder{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.2;
@@ -818,7 +818,7 @@ ul.sign_up_btn.home7 a{
 .ht_right_widget a.btn.cart_btn,
 .header_top_lang_widget ul li .btn.cart_btn{
   color: #a4a4a4;
-  font-size: 14px;
+  font-size: 15px;
 }
 .ht_right_widget ul li a,
 .home3_header_top_contact li a{
@@ -872,7 +872,7 @@ header.header-nav.menu_style_home_three.navbar-scrolltofixed .ht_left_widget.hom
   color: #ffffff;
   line-height: inherit;
   width: 90px;
-  font-size: 14px;
+  font-size: 15px;
 }
 .header_top_lang_widget_home6 .dropdown.bootstrap-select.show-tick.show .dropdown-menu{
   display: inline;
@@ -1481,7 +1481,7 @@ header.header-nav.home2.style_one ul.sign_up_btn li:first-child:before{
 header.header-nav.home2.style_one ul.sign_up_btn li a{
   color: #a4a4a4;
   font-family: "Nunito";
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.2;
 }
 header.header-nav.home2.style_one ul.sign_up_btn li a:hover{
@@ -1606,7 +1606,7 @@ header.header-nav.menu_style_home_three a.navbar_brand:before{
 }
 .sign_up_btn.home3 .btn{
   font-family: "Nunito";
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.2;
 }
 .sign_up_btn.home3 .btn i{
@@ -1891,7 +1891,7 @@ header.header-nav.menu_style_home_five .header_search_widget .mailchimp_form .fo
   border: 1px solid #edeff7;
   border-radius: 25px;
   color: #555555;
-  font-size: 14px;
+  font-size: 15px;
   height: 45px;
   margin-top: 5px;
   padding-left: 30px;
@@ -2350,7 +2350,7 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last{
   background-color: #ffffff;
   border: 1px solid #ebebeb;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 15px;
   color: #484848;
   line-height: 1.2;
   height: 50px;
@@ -2374,7 +2374,7 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last{
 .home1-advnc-search ul li:first-child input[type="text"].form-control::-webkit-input-placeholder{
   background-color: #ffffff;
   color: #484848;
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   line-height: 1.2;
 }
@@ -2387,7 +2387,7 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last{
 .home1-advnc-search.home9 ul li:first-child input[type="text"].form-control::-webkit-input-placeholder,
 .home5_advanced_search_form .form-group input[type="text"].form-control::-webkit-input-placeholder{
   color: #006c70;
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   line-height: 1.2;
 }
@@ -2428,7 +2428,7 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last{
   border: 1px solid #ebebeb;
   border-radius: 8px;
   background-color: #ffffff;
-  font-size: 14px;
+  font-size: 15px;
   height: 50px;
   width: 190px;
 }
@@ -2642,11 +2642,11 @@ input.amount4:focus{
   border: 1px solid #ebebeb;
   height: 50px;
   line-height: 40px;
-  font-size: 14px;
+  font-size: 15px;
   width: 190px;
 }
 .home1-advnc-search .search_option_two .dropdown.bootstrap-select .dropdown-toggle .filter-option{
-  font-size: 14px;
+  font-size: 15px;
   color: #484848;  
 }
 .home1-advnc-search .search_option_two .dropdown.bootstrap-select>.dropdown-toggle:focus, 
@@ -2678,7 +2678,7 @@ input.amount4:focus{
 }
 .home1-advnc-search .search_option_two ul.dropdown-menu.inner.show li,
 .home1-advnc-search ul.dropdown-menu.inner.show li{
-  font-size: 14px;
+  font-size: 15px;
   margin-right: 0 !important;
 }
 .home1-advnc-search .search_option_two .dropdown-menu{
@@ -2691,7 +2691,7 @@ form.home5_advanced_search_form .search_option_two .dropdown-menu{
   top: 35px !important;
 }
 .home1-advnc-search .search_option_two .dropdown-menu button.btn{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.2;
@@ -2717,7 +2717,7 @@ form.home5_advanced_search_form .search_option_two .dropdown-menu{
 }
 .home1-advnc-search .bootstrap-select .dropdown-menu li a{
   color: #484848;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 2;
   width: 250px;
 }
@@ -2762,7 +2762,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   border: 1px solid #ebebeb;
   border-radius: 8px;
   color: #484848;
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   height: 50px;
   line-height: 2.5;
@@ -2774,7 +2774,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   border: 1px solid #ebebeb;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 15px;
   color: #484848;
   height: 50px;
   line-height: 2.5;
@@ -2888,7 +2888,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 .mega-dropdown .dropbtn {
   color: #484848;
   border: none;
-  font-size: 14px;  
+  font-size: 15px;  
   margin: 0;
   outline: none;
   position: relative;
@@ -3102,7 +3102,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-size: 14px;
+  font-size: 15px;
   height: 82px;
   width: 42px;
   line-height: 82px;
@@ -3184,7 +3184,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   line-height: 1.2;
 }
 .banner-style-one .banner_top_title small{
-  font-size: 14px;
+  font-size: 15px;
   color: #ffffff;
 }
 .banner-style-one .banner-title{
@@ -3924,7 +3924,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   line-height: 2.2;
 }
 .cs_row_one .cs_review_seller li:last-child a{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Open Sans";
   color: rgb(126, 126, 126);
   line-height: 1.2;
@@ -3936,7 +3936,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   margin-right: 15px;
 }
 .cs_row_one .cs_review_enroll li a{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Open Sans";
   color: rgb(126, 126, 126);
   line-height: 1.2;
@@ -4144,7 +4144,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   max-width: 200px;
 }
 .cs_row_six .sfeedbacks .sspd_review_liked a{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Open Sans";
   line-height: 2.714;
 }
@@ -4173,7 +4173,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   line-height: 1.5;
 }
 .cs_row_four .about_ins_container .details .subtitle{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Open Sans";
   color: rgb(137, 137, 137);
   margin-bottom: 15px;
@@ -4217,7 +4217,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   line-height: 1.2;
 }
 .cs_row_four .about_ins_container .details .about_info_list li{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Open Sans";
   color: rgb(126, 126, 126);
   line-height: 1.2;
@@ -4239,7 +4239,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 }
 .cs_row_five .student_feedback_container .s_feeback_content ul.skills li{
   color: rgb(79, 79, 79);
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Open Sans";
   float: left;
   line-height: 1.2;
@@ -4371,7 +4371,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   border-radius: 3px;
   color: rgb(254, 254, 254);
   font-family: "Nunito";
-  font-size: 14px;
+  font-size: 15px;
   height: 25px;
   line-height: 25px;
   left: 10px;
@@ -4564,7 +4564,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 .status_tag.badge{
   border-radius: 3px;
   background-color: rgb(255, 90, 95);
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: rgb(254, 254, 254);
   height: 25px;
@@ -4575,7 +4575,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 .status_tag.badge2{
   border-radius: 3px;
   background-color: rgb(57, 218, 138);
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: rgb(254, 254, 254);
   height: 25px;
@@ -4586,7 +4586,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 .status_tag.badge3{
   border-radius: 3px;
   background-color: rgb(253, 57, 122);
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: rgb(254, 254, 254);
   height: 25px;
@@ -4634,7 +4634,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   position: relative;
 }
 .feat_property .thumb .thmb_cntnt a.fp_price small{
-  font-size: 14px;
+  font-size: 15px;
 }
 .feat_property .details{
   position: relative;
@@ -4643,7 +4643,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   padding: 20px;
 }
 .feat_property .details .tc_content p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.2;
@@ -4665,7 +4665,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   margin-right: 30px;
 }
 .feat_property .details .tc_content .prop_details li a{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.2;
@@ -4696,7 +4696,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   margin-right: 0;
 }
 .feat_property .details .fp_footer .fp_meta li a {
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #777777;
   line-height: 1.2;
@@ -4708,7 +4708,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   margin-right: 30px;
 }
 .feat_property .details .fp_footer .fp_pdate{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #777777;
   line-height: 1.2;
@@ -4966,13 +4966,13 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   margin-bottom: 0;
 }
 .for_blog.feat_property .details .tc_content .bpg_meta li a{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: rgb(119, 119, 119);
   line-height: 1.2;
 }
 .for_blog.feat_property .details .tc_content p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.714;
@@ -5084,7 +5084,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   text-align: left;
 } 
 .properti_city .overlay .details p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #ffffff;
   line-height: 1.2;
@@ -5163,7 +5163,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   margin-bottom: 15px;
 }
 .modern_apertment p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.429;
@@ -5188,7 +5188,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   padding-top: 20px;
 }
 .properti_city.home7 .details p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: rgba(119, 119, 119, 0.8);
   line-height: 1.2;
@@ -5295,7 +5295,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   color: rgb(72, 72, 72);
   cursor: pointer;
   display: block;
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   height: 45px;
   line-height: 2.1;
@@ -5346,7 +5346,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   cursor: pointer;
 }
 .spss ul li a{
-  font-size: 14px;
+  font-size: 15px;
   color: #ffffff;
 }
 .spss.style2 ul li{
@@ -5365,7 +5365,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   cursor: pointer;
   left: 0;
   margin-bottom: 0;
-  padding-top: 35%;
+  padding-top: 32%;
   position: absolute;
   right: 0;
   text-align: center;
@@ -5509,7 +5509,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 }
 .lsd_list li a{
   color: #484848;
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: rgb(72, 72, 72);
   line-height: 1.2;
@@ -5568,14 +5568,14 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   position: relative;  
 }
 .additional_details ul li p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: rgb(72, 72, 72);
   line-height: 2.857;
   margin-bottom: 0;
 }
 .additional_details ul li p span{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: rgb(72, 72, 72);
   font-weight: bold;
@@ -5630,14 +5630,14 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   margin-bottom: 0;
 }
 .icon_box_area .details p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: rgb(72, 72, 72);
   margin-bottom: 0;
 }
 .walkscore_area .more_info{
   color: rgb(72, 72, 72);
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   line-height: 1.714;
   text-decoration: underline;
@@ -5674,7 +5674,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 }
 .single_line .para{
   color: rgb(72, 72, 72);
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   float: left;
   line-height: 2.143;
@@ -5697,13 +5697,13 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   color: #e1e1e1;
 }
 .single_line .review span.total_rive_count{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: rgb(118, 118, 118);
   line-height: 2.143;
 }
 .single_line .review li a{
-  font-size: 14px;
+  font-size: 15px;
   color: rgb(188, 197, 42);
   line-height: 2.143;
 }
@@ -5830,7 +5830,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   color: #484848;
 }
 .listing_single_property_compare ul li p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: rgb(72, 72, 72);
   line-height: 1.857;
@@ -5888,7 +5888,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   font-weight: bold;
 }
 .why_chose_us .details p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   line-height: 1.714;
 }
@@ -6140,7 +6140,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   margin-bottom: 0;
 }
 .testimonial_grid .details p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #ffffff;
   line-height: 1.429;
@@ -6408,7 +6408,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   color: rgb(199, 85, 51);
 }
 .my_course_content_list .mc_content_list .details .mc_footer ul.mc_review li:nth-child(6) a{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Open Sans";
   color: rgb(126, 126, 126);
   line-height: 1.2;
@@ -6449,7 +6449,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   line-height: 2.2;
 }
 .my_course_content_list .mc_content_list .details .mc_content p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Open Sans";
   color: rgb(126, 126, 126);
   line-height: 1.714;
@@ -6485,7 +6485,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   padding-left: 20px;
 }
 .my_profile_setting_input .form-control::placeholder{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: rgb(72, 72, 72);
   line-height: 1.2;
@@ -6557,7 +6557,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   background-color: #ffffff;
 }
 .my_profile_setting_input2 label{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Open Sans";
   color: rgb(10, 10, 10);
   line-height: 1.2;
@@ -6639,7 +6639,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   box-shadow: none;
 }
 .courses_list_content .feat_property.list .details .tc_content p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Open Sans";
   color: rgb(126, 126, 126);
   line-height: 1.714;
@@ -6771,7 +6771,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 }
 .hvr_img_box_container .overlay .details a {
   color: #192675;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 24px;
 }
 .hvr_img_box_container .overlay .details a span.span{
@@ -7009,7 +7009,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   background-color: #484848;
 }
 .copyright-widget p {
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #8a99b3;
   line-height: 2.143;
@@ -7066,7 +7066,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 }
 /*== Footer Widget ==*/
 .footer_about_widget p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #8a99b3;
   line-height: 2.143;
@@ -7134,7 +7134,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 .footer_about_widget li a,
 .footer_qlink_widget li a,
 .footer_contact_widget li a{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #8a99b3;
   line-height: 2.429;
@@ -7233,7 +7233,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   vertical-align: middle;
 }
 .footer_menu_widget ul li a{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #8a99b3;
   line-height: 2.143;
@@ -7442,7 +7442,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   margin-bottom: 45px;
 }
 .about_content p{
-  font-size: 14px;
+  font-size: 15px;
   color: #484848;
   line-height: 1.714;
   margin-bottom: 40px;
@@ -7476,7 +7476,7 @@ ul.ab_counting li:last-child{
   margin-bottom: 0;
 }
 .about_counting .details p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
 }
@@ -7663,7 +7663,7 @@ ul.ab_counting li:last-child{
   width: 150px;
 }
 .instructor_col .details p{
-  font-size: 14px;
+  font-size: 15px;
   margin-bottom: 0;
 }
 .instructor_col .details ul {
@@ -7825,7 +7825,7 @@ ul.ab_counting li:last-child{
   padding: 20px 0 5px;
 }
 .team_member .details p{
-  font-size: 14px;
+  font-size: 15px;
   color: rgba(72, 72, 72, 0.8);
   line-height: 1.2;
   margin-bottom: 0;
@@ -7864,7 +7864,7 @@ ul.ab_counting li:last-child{
   padding-right: 10px;
 }
 .team_member .tm_footer ul li a{
-  font-size: 14px;
+  font-size: 15px;
 }
 .our-agents{
   border-bottom: 1px solid #e8eef2;
@@ -7927,7 +7927,7 @@ ul.ab_counting li:last-child{
   line-height: 1.5;
 }
 .testimonial_item .details p {
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: rgb(119, 119, 119);
   font-style: italic;
@@ -8082,7 +8082,7 @@ li.slick-slide.slick-active:nth-child(8) img{
   font-size: 30px;
 }
 .testimonial_post .details p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.714;
@@ -8157,7 +8157,7 @@ li.slick-slide.slick-active:nth-child(8) img{
 }
 .becomea_instructor a{
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 15px;
   padding: 20px 25px 20px 40px;
   -webkit-box-shadow:0px 1px 4px 0px rgba(36, 65, 231, 0.3);
   -moz-box-shadow:0px 1px 4px 0px rgba(36, 65, 231, 0.3);
@@ -8189,7 +8189,7 @@ li.slick-slide.slick-active:nth-child(8) img{
 .becomea_instructor_home3 a{
   border: none;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 15px;
   height: 50px;
   line-height: 35px;
   margin-top: 20px;
@@ -8275,7 +8275,7 @@ li.slick-slide.slick-active:nth-child(8) img{
 }
 .blog_post .thumb .post_date{
   color: rgba(255,255,255, .8);
-  font-size: 14px;
+  font-size: 15px;
   left: 30px;
   position: absolute;
   top: 30px;
@@ -8311,7 +8311,7 @@ li.slick-slide.slick-active:nth-child(8) img{
 }
 .blog_post.one .details .post_meta ul li a{
   color: #ffffff;
-  font-size: 14px;
+  font-size: 15px;
 }
 .blog_post.one .details .post_meta ul li a i {
   font-size: 16px;
@@ -8333,7 +8333,7 @@ li.slick-slide.slick-active:nth-child(8) img{
 }
 .blog_post .details h5{
   color: rgba(255,255,255, .8);
-  font-size: 14px;
+  font-size: 15px;
 }
 .read_more_home a{
   color: #c75533;
@@ -8656,7 +8656,7 @@ ul.mc_parent_list .membership_header .details{
   padding-top: 12px;
 }
 ul.mc_parent_list .membership_header .details p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #3e4c66;
   line-height: 1.2;
@@ -8748,7 +8748,7 @@ ul.mc_parent_list ul.mc_child_list .membership_header h4{
   box-shadow:0px 1px 4px 0px rgba(0, 0, 0, 0.09);
 }
 .footer_apps_widget_home1 button.btn{
-  font-size: 14px;
+  font-size: 15px;
   height: 50px;
   margin-left: -15px;
   width: 150px;
@@ -8782,7 +8782,7 @@ ul.mc_parent_list ul.mc_child_list .membership_header h4{
   margin-bottom: 25px;
 }
 .error_page.footer_apps_widget p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.714;
@@ -8879,7 +8879,7 @@ a.btn.btn_error{
   line-height: 1.444;
 }
 .pricing_table .pricing_content ul li{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 3.571;
@@ -8926,7 +8926,7 @@ a.btn.btn_error{
   bottom: 0;
   color: #006c70;
   content: "Or";
-  font-size: 14px;
+  font-size: 15px;
   position: absolute;
   left: 0;
   margin: 0 auto;
@@ -8947,12 +8947,12 @@ a.btn.btn_error{
 }
 .login_form .form-group .custom-control-label,
 .sign_up_form .form-group .custom-control-label{
-  font-size: 14px;
+  font-size: 15px;
   padding-top: 2px;
 }
 .login_form .btn-fpswd{
   color: #8b91dd;
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   line-height: 2.214;
 }
@@ -8996,7 +8996,7 @@ a.btn.btn_error{
   border: 1px solid #506dab;
   border-radius: 8px;
   color: #506dab;
-  font-size: 14px;
+  font-size: 15px;
   height: 52px;
   margin-bottom: 20px;
   padding-left: 20px;
@@ -9013,7 +9013,7 @@ a.btn.btn_error{
   border: 1px solid #dd4b39;
   border-radius: 8px;
   color: #dd4b39;
-  font-size: 14px;
+  font-size: 15px;
   height: 52px;
   margin-bottom: 10px;
   padding-left: 20px;
@@ -9034,7 +9034,7 @@ a.btn.btn_error{
   outline: none;
 }
 .sign_up_form .bootstrap-select .dropdown-toggle .filter-option-inner-inner{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 3;
@@ -9061,7 +9061,7 @@ a.btn.btn_error{
   border: 1px solid #ebebeb;
   border-radius: 8px;
   color: #484848;
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   height: 52px;
   line-height: 1.2;
@@ -9072,7 +9072,7 @@ a.btn.btn_error{
 }
 .login_form .form-check-label{
   color: #484848;
-  font-size: 14px;
+  font-size: 15px;
   padding-left: 8px;
 }
 .login_form .btn-log {
@@ -9122,7 +9122,7 @@ a.btn.btn_error{
 }
 .sign_up_form .form-check-label{
   color: #484848;
-  font-size: 14px;
+  font-size: 15px;
   padding-left: 7px;
 }
 .sign_up_form button {
@@ -9274,14 +9274,14 @@ a.btn.btn_error{
   transition: all 0.2s ease-in;
 }
 .faq_according .accordion .card .card-body{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.714;
   padding: 10px 0 30px;
 }
 .faq_according .accordion .card .card-body p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.714;
@@ -9298,7 +9298,7 @@ a.btn.btn_error{
   margin-bottom: 25px;
 }
 .terms_condition_grid .grids p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.714;
@@ -9318,7 +9318,7 @@ a.btn.btn_error{
   margin-bottom: 0;
 }
 .terms_condition_widget ul li a{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 2.857;
@@ -9374,7 +9374,7 @@ a.btn.btn_error{
   padding: 35px 0;
 }
 .ui_kit_tab .tab-content .tab-pane p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.857;
@@ -9518,7 +9518,7 @@ a.btn.btn_error{
 }
 .ui_kit_radiobox .radio label {
   cursor: pointer;
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.714;
@@ -9560,7 +9560,7 @@ a.btn.btn_error{
 }
 .ui_kit_radiobox label span, legend span {
   font-weight: 400;
-  font-size: 14px;
+  font-size: 15px;
   color: #444;
 }
 .ui_kit_radiobox .radio-label:before {
@@ -9627,7 +9627,7 @@ a.btn.btn_error{
 }
 .ui_kit_checkbox .custom-control-label {
   color: #4f4f4f;
-  font-size: 14px;
+  font-size: 15px;
   justify-content: left;
   line-height: 28px;
   margin: 0 0 10px;
@@ -9638,14 +9638,14 @@ a.btn.btn_error{
 }
 .ui_kit_checkbox .custom-control-label span{
   color: #c1c1c1;
-  font-size: 14px;
+  font-size: 15px;
 }
 .ui_kit_checkbox .custom-control-input:focus~.custom-control-label::before {
   box-shadow: none;
 }
 /*== SwithcBox Widget UI Page ==*/
 .ui_kit_whitchbox .custom-control-label {
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.714;
@@ -9712,7 +9712,7 @@ a.btn.btn_error{
   line-height: 0.333;
 }
 .ui_page_heading .blockquote p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   font-style: italic;
@@ -9731,7 +9731,7 @@ a.btn.btn_error{
   position: absolute;
 }
 .order_list li a{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 2.857;
@@ -9804,7 +9804,7 @@ a.btn.btn_error{
   box-shadow: 0px 0px 50px 0px rgba(19, 19, 28, 0.12);
 }
 .ui_kit_multi_select_box .bootstrap-select.show-tick .dropdown-menu li a span.text{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 2.5;
@@ -9817,7 +9817,7 @@ a.btn.btn_error{
   box-shadow: 0px 0px 50px 0px rgba(19, 19, 28, 0.12);
 }
 .ui_kit_select_search .bootstrap-select .dropdown-menu li a span.text{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 2.5;
@@ -9876,7 +9876,7 @@ a.btn.btn_error{
   width: 110px;
 }
 .blog_sp_tag a{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #fefefe;
   line-height: 1.2;
@@ -9909,7 +9909,7 @@ a.btn.btn_error{
   padding-top: 30px;
 }
 .main_blog_post_content .mbp_thumb_post .details p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.714;
@@ -9942,7 +9942,7 @@ a.btn.btn_error{
   background-color: #ffffff;
   border: 1px solid #ebebeb;
   border-radius: 50%;
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #777777;
   line-height: 1.2;
@@ -10019,7 +10019,7 @@ a.btn.btn_error{
   width: 100%;
 }
 .blog_grid_post .thumb .tag{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Open Sans";
   color: rgb(250, 250, 250);
   line-height: 1.2;
@@ -10138,7 +10138,7 @@ a.btn.btn_error{
   margin-bottom: 0;
 }
 .blog_grid_post.style2.event_lists .details ul li a{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Open Sans";
   color: rgb(126, 126, 126);
   line-height: 1.2;
@@ -10221,7 +10221,7 @@ a.btn.btn_error{
   line-height: 1.2;
 }
 .sidebar_feature_listing .media .media-body ul li{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.2;
@@ -10314,7 +10314,7 @@ a.btn.btn_error{
   margin-bottom: 0;
 }
 .event_details_widget ul li{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Open Sans";
   color: rgb(126, 126, 126);
   line-height: 1.5;
@@ -10341,7 +10341,7 @@ a.btn.btn_error{
 }
 .category_sidebar_widget .category_list li a span{
   font-family: "Open Sans";
-  font-size: 14px;
+  font-size: 15px;
   color: rgb(193, 193, 193);
   line-height: 2.857;
 }
@@ -10406,7 +10406,7 @@ a.btn.btn_error{
   line-height: 2.667;
 }
 .instructor_pricing_widget .price small{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Open Sans";
   color: rgb(193, 193, 193);
   line-height: 2.857;
@@ -10497,7 +10497,7 @@ a.btn.btn_error{
   margin-bottom: 0;
 }
 .blog_recent_post_widget .media-body a{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Open Sans";
   color: rgb(123, 123, 123);
   line-height: 1.2;
@@ -10529,7 +10529,7 @@ a.btn.btn_error{
   cursor: pointer;
 }
 .blog_tag_widget .tag_list li a{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.2;
@@ -10558,7 +10558,7 @@ a.btn.btn_error{
   line-height: 0.333;
 }
 .mbp_blockquote .blockquote em{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   font-style: italic;
@@ -10595,7 +10595,7 @@ a.btn.btn_error{
   cursor: pointer;
 }
 .blog_post_share li a{
-  font-size: 14px;
+  font-size: 15px;
   color: #484848;
   line-height: 1.2;
 }
@@ -10645,7 +10645,7 @@ a.btn.btn_error{
 .mbp_pagination_tab .pag_prev a span,
 .mbp_pagination_tab .pag_next a span{
   color: #ffffff;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.2;
   -moz-transform: matrix( 0,-1,1,0,0,0);
   -webkit-transform: matrix( 0,-1,1,0,0,0);
@@ -10679,7 +10679,7 @@ a.btn.btn_error{
 }
 .mbp_pagination_tab .pag_prev .detls p,
 .mbp_pagination_tab .pag_next .detls p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.714;
@@ -10723,7 +10723,7 @@ a.btn.btn_error{
   padding: 30px 30px;
 }
 .mbp_pagination_comments .mbp_first.media .media-body p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.714;
@@ -10747,18 +10747,18 @@ a.btn.btn_error{
   margin-bottom: 0;
 }
 .mbp_pagination_comments .review_star_list li i{
-  font-size: 14px;
+  font-size: 15px;
   color: #bcc52a;
 }
 .mbp_pagination_comments a.write_review{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: rgb(255, 90, 95);
   position: absolute;
   right: 30px;
 }
 .mbp_pagination_comments .tr_outoff{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: rgb(118, 118, 118);
 }
@@ -10919,7 +10919,7 @@ a.btn.btn_error{
   margin-bottom: 0;
 }
 .my_dashboard_review .review_content .review_date{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: rgb(118, 118, 118);
   line-height: 2.143;
@@ -10931,7 +10931,7 @@ a.btn.btn_error{
   margin-right: 3px;
 }
 .my_dashboard_review .review_content .sspd_review ul li a{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "FontAwesome";
   color: rgb(188, 197, 42);
   line-height: 2.143;
@@ -10973,7 +10973,7 @@ a.btn.btn_error{
 }
 .savesearched_table td.para,
 .property_table td.para{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
 }
@@ -11245,7 +11245,7 @@ a.btn.btn_error{
   line-height: 1.2;
 }
 .user_setting .dropdown-menu .user_set_header p span{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Open Sans";
   color: rgb(126, 126, 126);
   line-height: 1.2;
@@ -11407,13 +11407,13 @@ a.btn.btn_error{
   overflow: hidden;
 }
 .grid_list_search_result .right_area ul li .filter-option-inner-inner{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
 }
 .grid_list_search_result .right_area ul li span.stts,
 .grid_list_search_result .right_area ul li span.shrtby{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   font-weight: bold;
@@ -11519,7 +11519,7 @@ a.btn.btn_error{
   padding-left: 20px;
 }
 .h1ads_1st_list.half_style input.form-control::placeholder{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.2;
@@ -11620,14 +11620,14 @@ a.btn.btn_error{
   line-height: 1.2;
 }
 .sl_creator .media-body p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: rgb(72, 72, 72);
   line-height: 1.5;
   margin-bottom: 0;
 }
 .sl_creator .media-body a{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   font-weight: bold;
   line-height: 1.2;
@@ -11640,7 +11640,7 @@ a.btn.btn_error{
   background-color: #ffffff;
   border: 1px solid rgb(235, 235, 235);
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.2;
@@ -11659,7 +11659,7 @@ a.btn.btn_error{
   border: 1px solid rgb(235, 235, 235);
   border-radius: 8px;
   box-shadow: none;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 2.2;
 }
 .sasw_list .min_area .form-control::placeholder,
@@ -11683,7 +11683,7 @@ a.btn.btn_error{
   border: 1px solid rgb(235, 235, 235);
   border-radius: 8px;
   color: #484848;
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   height: 52px;
   line-height: 42px;
@@ -11709,7 +11709,7 @@ a.btn.btn_error{
   width: 100%;
 }
 .sasw_list .panel-heading h4.panel-title{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.2;
@@ -11743,7 +11743,7 @@ a.btn.btn_error{
   background-color: #ffffff;
   border: 1px solid rgb(235, 235, 235);
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 15px;
   height: 52px;
   padding-left: 20px;
 }
@@ -11867,7 +11867,7 @@ a.btn.btn_error{
   margin-bottom: 0;
 }
 .inbox_user_list .wrap .meta p.preview{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: rgb(119, 119, 119);
   line-height: 2;
@@ -12010,14 +12010,14 @@ a.btn.btn_error{
   background-color: #e74c3c;
 }
 .inbox_chatting_box .chatting_content li.media .media-body .date_time{
-  font-size: 14px;
+  font-size: 15px;
 }
 .inbox_chatting_box .chatting_content li.media .media-body p{
   background-color: #f7f7f7;
   border: 1px solid #f7f7f7;
   border-radius: 3px;
   color: #484848;
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Open Sans";
   margin-bottom: 0;
   padding: 10px 15px;
@@ -12054,7 +12054,7 @@ a.btn.btn_error{
   padding-left: 30px;
 }
 .message_container .message_input form input.form-control::placeholder {
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.714;
@@ -12218,7 +12218,7 @@ a.btn.btn_error{
   font-size: 20px;
 }
 .recent_job_activity .grid ul li p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.714;
@@ -12269,7 +12269,7 @@ a.btn.btn_error{
   border-left: 2px solid transparent;
   color: rgb(138, 153, 179);
   display: block;
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   line-height: 3.571;
   padding: 0 15px;
@@ -12340,7 +12340,7 @@ a.btn.btn_error{
 .sidebar-menu .treeview-menu li a{
   color: rgb(138, 153, 179);
   display: block;
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   line-height: 2.5;
   padding-left: 30px;
@@ -12493,7 +12493,7 @@ a.btn.btn_error{
   box-shadow:0px 1px 4px 0px rgba(0, 0, 0, 0.09);
   bottom: 20px;
   color: #484848;
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   line-height: 2.2;
   height: 50px;
@@ -12810,7 +12810,7 @@ a.btn.btn_error{
 }
 .blog_post_home2 .details .post_meta ul li a{
   color: #fafafa;
-  font-size: 14px;
+  font-size: 15px;
 }
 .blog_post_home2 .details .post_meta ul li a i{
   font-size: 18px;
@@ -12874,7 +12874,7 @@ a.btn.btn_error{
   margin-bottom: 20px;
 }
 .form_grid p{
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.714;
   margin-bottom: 30px;
 }
@@ -12883,7 +12883,7 @@ a.btn.btn_error{
   border-radius: 8px;
   background-color: #ffffff;
   color: #484848;
-  font-size: 14px;
+  font-size: 15px;
   height: 50px;
   line-height: 1.2;
   margin-bottom: 20px;
@@ -12893,7 +12893,7 @@ a.btn.btn_error{
   background-color: #ffffff;
   border: 1px solid #ebebeb;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.2;
@@ -12932,7 +12932,7 @@ a.btn.btn_error{
   margin-bottom: 20px;
 }
 .contact_localtion p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.714;
@@ -12965,7 +12965,7 @@ a.btn.btn_error{
   cursor: pointer;
 }
 .contact_form_social_area li a{
-  font-size: 14px;
+  font-size: 15px;
   color: #484848;
   line-height: 1.2;
 }
@@ -13539,7 +13539,7 @@ a.btn.btn_error{
   color: #ffffff;
 }
 .btn-default {
-  font-size: 14px;
+  font-size: 15px;
   padding: 8px 15px;
 }
 /*== Fonts Size, Font Weights, Height, Display & Position ==*/
@@ -13553,7 +13553,7 @@ a.btn.btn_error{
   font-size: 13px;
 }
 .fz14 {
-  font-size: 14px;
+  font-size: 15px;
 }
 .fz15 {
   font-size: 15px;
@@ -14625,7 +14625,7 @@ section {
   bottom: 15px;
   color: #fff !important;
   display: none;
-  font-size: 14px;
+  font-size: 15px;
   height: 45px;
   line-height: 40px;
   padding: 3px 10px;
@@ -15444,7 +15444,7 @@ canvas {
 .shop_grid .thumb .tag{
   border-radius: 3px;
   background-color: #3e4c66;
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #fefefe;
   height: 25px;
@@ -15571,7 +15571,7 @@ canvas {
   padding: 30px;
 }
 .checkout_form.style2 .heading p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.2;
@@ -15587,7 +15587,7 @@ canvas {
   background-color: #ffffff;
   border: 1px solid #ebebeb;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.2;
@@ -15606,7 +15606,7 @@ canvas {
   background-color: #ffffff;
   border: 1px solid #ebebeb;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.2;
@@ -15617,7 +15617,7 @@ canvas {
   background-color: #ffffff;
   border: 1px solid #ebebeb;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.2;
@@ -15753,7 +15753,7 @@ canvas {
   padding: 25px;
 }
 .payment_widget .bt_details p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.714;
@@ -15925,7 +15925,7 @@ canvas {
   padding: 15px 10px 0 0;
 }
 .single_product_grid .sps_content .content .shop_single_product_details p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.714;
@@ -16058,7 +16058,7 @@ canvas {
   color: rgb(72, 73, 77);
 }
 .product_single_content .mbp_pagination_comments .mbp_first.media .media-body p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.857;
@@ -16166,13 +16166,13 @@ ul.total_reivew_view li.sub_titles{
   margin-right: 10px;
 }
 ul.total_reivew_view li.avrg_review{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #767676;
   line-height: 2.143;
 }
 ul.total_reivew_view li.write_review{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #3e4c66;
   line-height: 2.57;
@@ -16183,7 +16183,7 @@ ul.total_reivew_view .star_list li{
   margin-right: 4px;
 }
 ul.total_reivew_view .star_list li a{  
-  font-size: 14px;
+  font-size: 15px;
   font-family: "FontAwesome";
   color: #bcc52a;
   line-height: 2.143;
@@ -16234,7 +16234,7 @@ ul.total_reivew_view .star_list li:last-child a{
 }
 .mbp_comment_form.style2 .sspd_review .review_rating_para,
 .review_star li p{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.714;
@@ -16247,7 +16247,7 @@ ul.total_reivew_view .star_list li:last-child a{
 }
 .mbp_comment_form.style2 .sspd_review li ul li a,
 .review_star li ul li a{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "FontAwesome";
   color: #bcc52a;
   line-height: 2.143;
@@ -16266,7 +16266,7 @@ ul.total_reivew_view .star_list li:last-child a{
   background-color: #ffffff;
   border: 1px solid #ebebeb;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.2;
@@ -16280,7 +16280,7 @@ ul.total_reivew_view .star_list li:last-child a{
   border: 1px solid #ebebeb;
   border-radius: 8px;
   color: #484848;
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   line-height: 1.2;
   margin-bottom: 20px;
@@ -16396,7 +16396,7 @@ button.gm-ui-hover-effect:focus {
   width: 100%;
 }
 .gm-style-iw-d h5{
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #3e4c66;
   line-height: 1.2;
@@ -16409,7 +16409,7 @@ button.gm-ui-hover-effect:focus {
   line-height: 1.2;
 }
 .gm-style-iw-d p {
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito";
   color: #484848;
   line-height: 1.2;

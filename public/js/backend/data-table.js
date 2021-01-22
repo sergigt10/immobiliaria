@@ -7,7 +7,7 @@
         [5, 10, 15, "Tots"]
       ],
       "order": [[ 0, "asc" ]],
-      "iDisplayLength": 10,
+      "iDisplayLength": 15,
       "language": {
         "processing": "Processant...",
         "lengthMenu": "Mostrant _MENU_ registres",
