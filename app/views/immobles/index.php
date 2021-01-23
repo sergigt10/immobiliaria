@@ -181,9 +181,9 @@
 									<img class="img-whp" src="<?php echo URLROOT; ?>/public/images/img-xarxa/usuari/thumb_img/thumb.php?src=../imatge-no-disponible.jpg&size=240x300&crop=0&trim=0" alt="<?php echo $usuari->empresa ?>">
 								<?php } ?>
 								<div class="overylay">
-									<ul class="social_icon">
+									<!-- <ul class="social_icon">
 										<li class="list-inline-item"><a href="<?php echo URLROOT; ?>/immobiliaries/immobles/<?php echo $usuari->id?>"><span class="flaticon-magnifying-glass"></span></a></li>
-									</ul>
+									</ul> -->
 								</div>
 							</div>
 						</div>

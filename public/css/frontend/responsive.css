@@ -26,6 +26,12 @@
 	.h1ads_1st_list.half_style li.custome_fields_half:nth-child(2){width: 60%;}
 	.feature_property_half_clist.style2 li.extrawide{width: 95%;}
 
+	.sidebar_listing_list.style2{ max-height: 800px; }
+
+	header.header-nav a.navbar_brand {
+		margin-right: -16px;
+	}
+
 }
 @media only screen and (max-width:1366px){
 	.dn-1366{display: none;}
@@ -136,6 +142,7 @@
 	.user_board{padding: 0 10px 0 0;}
 	.my_course_content_list .mc_content_list .sonny_progressbar .bar-container{margin-left: -175px;margin-right: 115px;}
 	.my_course_content_list .mc_content_list .sonny_progressbar p.title{margin-right: -15px;}
+
  }
 /* (min-width:992px) (max-width: 1199.98px) // Large devices (desktops, less than 1200px) */
 @media only screen and (max-width: 1199.98px){

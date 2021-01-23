@@ -208,7 +208,7 @@
 														foreach($caracteristiques as $caracteristica) {
 															foreach($data['caracteristiques'] as $all_caracteristiques) {
 																if( $caracteristica === $all_caracteristiques->id ){
-																	echo '<li><a href="#"><span class="flaticon-tick"></span>'.$all_caracteristiques->$nom.'</a></li>';
+																	echo '<li><p style="margin: 0 0 0px;"><span class="flaticon-tick"></span>'.$all_caracteristiques->$nom.'</p></li>';
 																}
 															}
 														}

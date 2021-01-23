@@ -7867,7 +7867,7 @@ ul.ab_counting li:last-child{
   font-size: 15px;
 }
 .our-agents{
-  border-bottom: 1px solid #e8eef2;
+  /* border-bottom: 1px solid #e8eef2; */
   padding-bottom: 90px;
 }
 .our_agent{
@@ -7882,7 +7882,7 @@ ul.ab_counting li:last-child{
   margin-bottom: 0;
 }
 .our_agent .thumb .overylay{
-  background-color: rgba(8, 15, 29, .1);
+  /* background-color: rgba(8, 15, 29, .1); */
   border-radius: 8px;
   bottom: 0;
   left: 0;
@@ -9725,12 +9725,12 @@ a.btn.btn_error{
   padding-left: 30px;
   position: relative;
 }
-.order_list li a span{
+.order_list li p span{
   color: #3e4c66;
   left: 0;
   position: absolute;
 }
-.order_list li a{
+.order_list li p{
   font-size: 15px;
   font-family: "Nunito";
   color: #484848;
