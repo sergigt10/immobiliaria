@@ -191,6 +191,36 @@
 							</div>
 						</div>
 						<div class="col-lg-12">
+							<div class="property_attachment_area">
+								<h4 class="mb20"><b><?php echo DOCUMENTS_DETALL; ?></b></h4>
+								<div class="iba_container style2">
+									<?php if( $mesfotos != $data['pdf_1'] && !empty($data['pdf_1']) && file_exists( '../../admin-web/public/pdf/'.$data['pdf_1'] ) ){ ?>
+										<a href="<?php echo URLROOT; ?>/public/pdf/<?php echo $data['pdf_1'] ?>" target="_blank">
+											<div class="icon_box_area style2">
+												<div class="score"><span class="flaticon-pdf text-thm fz30"></span></div>
+												<div class="details">
+													<h5><span class="flaticon-download text-thm pr10"></span> <?php echo VEURE_DOCUMENT_DETALL; ?> 1</h5>
+												</div>
+											</div>
+										</a>
+									<?php } ?>
+									<?php if( $mesfotos != $data['pdf_2'] && !empty($data['pdf_2']) && file_exists( '../../admin-web/public/pdf/'.$data['pdf_2'] ) ){ ?>
+										<a href="<?php echo URLROOT; ?>/public/pdf/<?php echo $data['pdf_2'] ?>" target="_blank">
+											<div class="icon_box_area style2">
+												<div class="score"><span class="flaticon-pdf text-thm fz30"></span></div>
+												<div class="details">
+													<h5><span class="flaticon-download text-thm pr10"></span> <?php echo VEURE_DOCUMENT_DETALL; ?> 2</h5>
+												</div>
+											</div>
+										</a>
+									<?php } ?>
+									<?php if( empty($data['pdf_1']) && empty($data['pdf_2']) ) { ?>
+										<p><?php echo NO_DISPONIBLE_DETALL; ?></p>
+									<?php } ?>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-12">
 							<div class="application_statics mt30">
 								<div class="row">
 									<div class="col-lg-12">

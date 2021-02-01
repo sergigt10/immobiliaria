@@ -5588,7 +5588,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 .walkscore_area{
   background-color: rgb(255, 255, 255);
   border: 1px solid rgb(235, 235, 235);
-  border-radius: 8px;
+  /* border-radius: 8px; */
   padding: 30px;
   position: relative;
 }

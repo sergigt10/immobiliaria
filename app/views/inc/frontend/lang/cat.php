@@ -101,6 +101,8 @@
     define('BANYS_DETALL', 'Banys:');
     define('CERTIFICAT_DETALL', 'Certificat energètic:');
     define('PREU_DETALL', 'Preu:');
+    define('DOCUMENTS_DETALL', 'Documents adjunts');
+    define('VEURE_DOCUMENT_DETALL', 'Veure el document');
     define('CARACTERISTIQUES_DETALL', 'Característiques');
     define('INTERESSAR_DETALL', 'També et pot interessar');
     define('CONTACTE_DETALL', 'Contacte');

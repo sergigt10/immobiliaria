@@ -400,6 +400,8 @@
         'imatge_8' => $immobles->imatge_8,
         'imatge_9' => $immobles->imatge_9,
         'imatge_10' => $immobles->imatge_10,
+        'pdf_1' => $immobles->pdf_1,
+        'pdf_2' => $immobles->pdf_2,
         'preu' => $immobles->preu,
         'habitacio' => $immobles->habitacio,
         'banys' => $immobles->banys,

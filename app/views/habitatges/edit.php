@@ -12,7 +12,7 @@
                 
                 <?php echo (!empty($data['titol_cat_err'])) ? "<div class='alert alert-danger' role='alert'>* ".$data['titol_cat_err']."</div>" : ' '; ?>
                 <?php echo (!empty($data['titol_esp_err'])) ? "<div class='alert alert-danger' role='alert'>* ".$data['titol_esp_err']."</div>" : ' '; ?>
-                <?php echo (!empty($data['titol_eng_err'])) ? "<div class='alert alert-danger' role='alert'>* ".$data['titol_eng_err']."</div>" : ' '; ?>
+                <!-- <?php echo (!empty($data['titol_eng_err'])) ? "<div class='alert alert-danger' role='alert'>* ".$data['titol_eng_err']."</div>" : ' '; ?> -->
                 <?php echo (!empty($data['referencia_err'])) ? "<div class='alert alert-danger' role='alert'>* ".$data['referencia_err']."</div>" : ' '; ?>
 
                 <?php echo (!empty($data['pdf_1_err'])) ? "<div class='alert alert-danger' role='alert'>* ".$data['pdf_1_err']."</div>" : ' '; ?>
@@ -30,7 +30,7 @@
                   </div>
 
                   <div class="form-group col-md-4">
-                    <label for="exampleInputEmail3">Títol ENG *:</label>
+                    <label for="exampleInputEmail3">Títol ENG:</label>
                     <input name="titol_eng" type="text" class="form-control" id="exampleInputEmail3" placeholder="Títol ENG" value="<?php echo $data['titol_eng']; ?>">
                   </div>
                 </div>
@@ -452,14 +452,14 @@
                       <div class="col-lg-12">
                         <div class="card">
                           <div class="card-body">
-                            <h4 style="color:red">Pujar només fitxers en format PDF</h4>
+                            <h4 style="color:red">Pujar només fitxers en format PDF. Màxim 5 MB per PDF.</h4>
                             <br>
                             <div class="form-row">
                               <div class="form-group col-md-9">
                                 <label>Pujar PDF 1</label>
                                 <input name="pdf_1_file" type="file" class="file-upload-default">
                                 <div class="input-group col-xs-12">
-                                  <input name="pdf_1" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="PDF 1" value="<?php echo $pdf_1?>">
+                                  <input name="pdf_1" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="PDF 1" value="<?php echo $data['pdf_1']?>">
                                   <span class="input-group-append">
                                     <button class="file-upload-browse btn btn-primary" type="button">Pujar PDF 1</button>
                                   </span>
@@ -480,7 +480,7 @@
                                 <label>Pujar PDF 2</label>
                                 <input name="pdf_2_file" type="file" class="file-upload-default">
                                 <div class="input-group col-xs-12">
-                                  <input name="pdf_2" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="PDF 2" value="<?php echo $pdf_2?>">
+                                  <input name="pdf_2" type="text" class="form-control file-upload-info" readonly="readonly" placeholder="PDF 2" value="<?php echo $data['pdf_2']?>">
                                   <span class="input-group-append">
                                     <button class="file-upload-browse btn btn-primary" type="button">Pujar PDF 2</button>
                                   </span>
