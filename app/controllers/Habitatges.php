@@ -94,6 +94,8 @@
           'imatge8' => trim($_POST['imatge8']),
           'imatge9' => trim($_POST['imatge9']),
           'imatge10' => trim($_POST['imatge10']),
+          'pdf_1' => trim($_POST['pdf_1']),
+          'pdf_2' => trim($_POST['pdf_2']),
           'portada' => (!isLoggedInAndAdmin()) ? '0' : trim($_POST['portada']),
           'preu' => trim($_POST['preu']),
           'habitacio' => trim($_POST['habitacio']),
@@ -106,8 +108,11 @@
           'caracteristica_id' => !isset($_POST['caracteristica_id']) ? '[""]' : json_encode($_POST['caracteristica_id']),
           'certificat_id' => trim($_POST['certificat_id']),
           'usuari_id' => $_SESSION['usuari_id'],
+          'titol_cat_err' => '',
           'titol_esp_err' => '',
           'referencia_err' => '',
+          'pdf_1_err' => '',
+          'pdf_2_err' => '',
           'provincies' => $provincies,
           'poblacions' => $poblacions,
           'caracteristiques' => $caracteristiques,
@@ -133,7 +138,7 @@
 
         // Validate data
         if(empty($data['titol_eng'])){
-          $data['titol_eng_err'] = 'Introduïr títol en anglès';
+          // $data['titol_eng_err'] = 'Introduïr títol en anglès';
         } else {
           $data['slug_eng'] = urls_amigables($data['titol_eng']);
         }
@@ -143,7 +148,7 @@
         }
 
         // Make sure no errors
-        if(empty($data['titol_cat_err']) && empty($data['titol_esp_err']) && empty($data['titol_eng_err']) && empty($data['referencia_err'])){
+        if(empty($data['titol_cat_err']) && empty($data['titol_esp_err']) && empty($data['referencia_err'])){
           // Validated
 
           // Pujada d'imatges
@@ -757,6 +762,101 @@
             }
             // ********* Fin REDUIR IMATGE *********
           }
+
+          if (!empty($data['pdf_1'])) {
+            $uploads_dir = 'pdf_tmp';
+            $nombre_archivo = $_FILES['pdf_1_file']['name'];
+            $ext = pathinfo($nombre_archivo, PATHINFO_EXTENSION);
+
+            $tipo_archivo = $_FILES['pdf_1_file']['type'];     
+            $tamano_archivo = $_FILES['pdf_1_file']['size'];
+            if (move_uploaded_file($_FILES['pdf_1_file']['tmp_name'], "$uploads_dir/$nombre_archivo"))
+            {
+              $vol_archi = round($tamano_archivo / 1024, 2);    // Volumen archivo en Kb redondeado a dos decimales
+              $extension = substr(strrchr($nombre_archivo, "."), 1);    // Extraemos la extension del archivo
+        
+              $volumen_min = "5120";           // volumen minimo en bit - 5120 = 5 kb 
+              $volumen_max = "5120000";       // volumen maximo en bit - 5120000 = 5 MB 
+               
+              $archivo_permitido1 = "application/pdf";  // tipo 1 de archivo permitido   
+               
+              if ($tamano_archivo >= $volumen_min AND $tamano_archivo <= $volumen_max AND ($tipo_archivo == $archivo_permitido1)){
+                $id_thumb=rand(1, 50);
+                $new_nombre = "1-".$data['slug_esp']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
+                $carpeta = "pdf";    // Carpeta en la que guardaremos nuestros archivos
+        
+                // Renombramos el archivo
+                $archivo_renombrado = "$new_nombre";   
+                rename("$uploads_dir/$nombre_archivo", "$uploads_dir/$archivo_renombrado");
+        
+                if (copy("$uploads_dir/$archivo_renombrado", "$carpeta/$archivo_renombrado")){  
+                  //echo "El fichero ha sido copiado con éxito.";
+                  $data['pdf_1'] = "$archivo_renombrado";
+                  //$pasar = explode(".",$nombre_archivo);
+                  //echo $pasar." hola";
+                }else {  
+                  //echo "El fichero NO se ha podido copiar.";
+                } 
+                // Eliminamos el archivo del directorio raiz una vez copiado
+                unlink("$uploads_dir/$archivo_renombrado");
+              }else {
+                //echo "El archivo no es del tipo ($tipo_archivo) o volumen permitido ($vol_archi Kb)";
+                // Eliminamos el archivo del directorio raiz cuando no es un archivo permitido
+                unlink("$uploads_dir/$nombre_archivo");
+                $data['pdf_1_err'] = 'El PDF es masa gran, mínim 5 MB.';
+              }
+            } else {
+                //echo "Debe adjuntar algún archivo";
+            }
+          }
+
+          if (!empty($data['pdf_2'])) {
+            $uploads_dir = 'pdf_tmp';
+            $nombre_archivo = $_FILES['pdf_2_file']['name'];
+            $ext = pathinfo($nombre_archivo, PATHINFO_EXTENSION);
+
+            $tipo_archivo = $_FILES['pdf_2_file']['type'];     
+            $tamano_archivo = $_FILES['pdf_2_file']['size'];
+            if (move_uploaded_file($_FILES['pdf_2_file']['tmp_name'], "$uploads_dir/$nombre_archivo"))
+            {
+              $vol_archi = round($tamano_archivo / 1024, 2);    // Volumen archivo en Kb redondeado a dos decimales
+              $extension = substr(strrchr($nombre_archivo, "."), 1);    // Extraemos la extension del archivo
+        
+              $volumen_min = "5120";           // volumen minimo en bit - 5120 = 5 kb 
+              $volumen_max = "5120000";       // volumen maximo en bit - 5120000 = 5 MB 
+               
+              $archivo_permitido1 = "application/pdf";  // tipo 1 de archivo permitido   
+               
+              if ($tamano_archivo >= $volumen_min AND $tamano_archivo <= $volumen_max AND ($tipo_archivo == $archivo_permitido1)){
+                $id_thumb=rand(1, 50);
+                $new_nombre = "2-".$data['slug_esp']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
+                $carpeta = "pdf";    // Carpeta en la que guardaremos nuestros archivos
+        
+                // Renombramos el archivo
+                $archivo_renombrado = "$new_nombre";   
+                rename("$uploads_dir/$nombre_archivo", "$uploads_dir/$archivo_renombrado");
+        
+                if (copy("$uploads_dir/$archivo_renombrado", "$carpeta/$archivo_renombrado")){  
+                  //echo "El fichero ha sido copiado con éxito.";
+                  $data['pdf_2'] = "$archivo_renombrado";
+                  //$pasar = explode(".",$nombre_archivo);
+                  //echo $pasar." hola";
+                }else {  
+                  //echo "El fichero NO se ha podido copiar.";
+                } 
+                // Eliminamos el archivo del directorio raiz una vez copiado
+                unlink("$uploads_dir/$archivo_renombrado");
+              }else {
+                //echo "El archivo no es del tipo ($tipo_archivo) o volumen permitido ($vol_archi Kb)";
+                // Eliminamos el archivo del directorio raiz cuando no es un archivo permitido
+                unlink("$uploads_dir/$nombre_archivo");
+                $data['pdf_2_err'] = 'El PDF es masa gran, mínim 5 MB.';
+              }
+            } else {
+                //echo "Debe adjuntar algún archivo";
+            }
+          }
+
           if($this->immobleModel->add($data)){
             flash('immoble_message', 'Immoble creat correctament');
             redirect('habitatges/index');
@@ -788,6 +888,8 @@
           'imatge8' => '',
           'imatge9' => '',
           'imatge10' => '',
+          'pdf_1' => '',
+          'pdf_2' => '',
           'portada' => '',
           'preu' => '',
           'habitacio' => '',
@@ -861,6 +963,8 @@
           'imatge8' => trim($_POST['imatge8']),
           'imatge9' => trim($_POST['imatge9']),
           'imatge10' => trim($_POST['imatge10']),
+          'pdf_1' => trim($_POST['pdf_1']),
+          'pdf_2' => trim($_POST['pdf_2']),
           'portada' => (!isLoggedInAndAdmin()) ? '0' : trim($_POST['portada']),
           'preu' => trim($_POST['preu']),
           'habitacio' => trim($_POST['habitacio']),
@@ -872,10 +976,11 @@
           'categoria_id' => trim($_POST['categoria_id']),
           'caracteristica_id' => !isset($_POST['caracteristica_id']) ? '[""]' : json_encode($_POST['caracteristica_id']),
           'certificat_id' => trim($_POST['certificat_id']),
-          'usuari_id' => $_SESSION['usuari_id'],
+          'usuari_id' => (!isLoggedInAndAdmin()) ? $_SESSION['usuari_id'] : $immoble->usuari_id,
           'titol_cat_err' => '',
           'titol_esp_err' => '',
-          'titol_eng_err' => '',
+          'pdf_1_err' => '',
+          'pdf_2_err' => '',
           'provincies' => $provincies,
           'idProvinciaByPoblacio' => $idProvinciaByPoblacio->provincia_id,
           'poblacions' => $poblacions,
@@ -897,6 +1002,9 @@
         $del_img9 = (!empty($_POST["del_img9"])) ? '1' : '0';
         $del_img10 = (!empty($_POST["del_img10"])) ? '1' : '0';
 
+        $del_pdf_1 = (!empty($_POST["pdf_1"])) ? '1' : '0';
+        $del_pdf_2 = (!empty($_POST["pdf_2"])) ? '1' : '0';
+
         // Validate data
         if(empty($data['titol_cat'])){
           $data['titol_cat_err'] = 'Introduïr títol en català';
@@ -913,7 +1021,7 @@
 
         // Validate data
         if(empty($data['titol_eng'])){
-          $data['titol_eng_err'] = 'Introduïr títol en anglès';
+          // $data['titol_eng_err'] = 'Introduïr títol en anglès';
         } else {
           $data['slug_eng'] = urls_amigables($data['titol_eng']);
         }
@@ -923,7 +1031,7 @@
         }
 
         // Make sure no errors
-        if(empty($data['titol_cat_err']) && empty($data['titol_esp_err']) && empty($data['titol_eng_err']) && empty($data['referencia_err'])){
+        if(empty($data['titol_cat_err']) && empty($data['titol_esp_err']) && empty($data['referencia_err'])){
           
           // Eliminar imatges
           if($del_img1 == "1"){
@@ -976,6 +1084,16 @@
             $data['imatge10'] = "";
           }
 
+          if($del_pdf_1 == "1"){
+            unlink('../../admin-web/public/images/img-xarxa/immoble/'.$data['pdf_1']);
+            $data['pdf_1'] = "";
+          }
+
+          if($del_pdf_2 == "1"){
+            unlink('../../admin-web/public/images/img-xarxa/immoble/'.$data['pdf_2']);
+            $data['pdf_2'] = "";
+          }
+
           $getimmobleImg = $this->immobleModel->getImmobleById($id);
 
           $dataImg = [
@@ -988,7 +1106,9 @@
             'imatge7' => $getimmobleImg->imatge_7,
             'imatge8' => $getimmobleImg->imatge_8,
             'imatge9' => $getimmobleImg->imatge_9,
-            'imatge10' => $getimmobleImg->imatge_10
+            'imatge10' => $getimmobleImg->imatge_10,
+            'pdf_1' => $getimmobleImg->pdf_1,
+            'pdf_2' => $getimmobleImg->pdf_2
           ];
 
           // Pujada d'imatges. Es mira si ens passen un arxiu i si aquest es nou.
@@ -1700,6 +1820,51 @@
               }
             }
             // ********* Fin REDUIR IMATGE *********
+          }
+
+          if (!empty($data['pdf_1']) && $del_pdf_1 != "1" && $dataImg['pdf_1']!=$data['pdf_1']) {
+            $uploads_dir = 'pdf_tmp';
+            $nombre_archivo = $_FILES['pdf_1_file']['name'];
+            $tipo_archivo = $_FILES['pdf_1_file']['type'];     
+            $tamano_archivo = $_FILES['pdf_1_file']['size'];
+            if (move_uploaded_file($_FILES['pdf_1_file']['tmp_name'], "$uploads_dir/$nombre_archivo"))
+            {
+              $vol_archi = round($tamano_archivo / 1024, 2);    // Volumen archivo en Kb redondeado a dos decimales
+              $extension = substr(strrchr($nombre_archivo, "."), 1);    // Extraemos la extension del archivo
+        
+              $volumen_min = "5120";           // volumen minimo en bit - 5120 = 5 kb 
+              $volumen_max = "5120000";       // volumen maximo en bit - 5120000 = 5 MB 
+               
+              $archivo_permitido1 = "application/pdf";  // tipo 1 de archivo permitido   
+               
+              if ($tamano_archivo >= $volumen_min AND $tamano_archivo <= $volumen_max AND ($tipo_archivo == $archivo_permitido1)){
+
+                $id_thumb=rand(1, 50);
+                $new_nombre = "1-".$data['slug_esp']."-".$id_thumb."-".$data['usuari_id']."-".uniqid().".".$ext;
+                $carpeta = "pdf";    // Carpeta en la que guardaremos nuestros archivos
+        
+                // Renombramos el archivo
+                $archivo_renombrado = "$new_nombre";   
+                rename("$uploads_dir/$nombre_archivo", "$uploads_dir/$archivo_renombrado");
+        
+                if (copy("$uploads_dir/$archivo_renombrado", "$carpeta/$archivo_renombrado")){  
+                  //echo "El fichero ha sido copiado con éxito.";
+                  $data['pdf_1'] = "$archivo_renombrado";
+                  $pdf_antic  = $dataImg['pdf_1'];
+                  unlink("$carpeta/$pdf_antic");
+                }else {  
+                  //echo "El fichero NO se ha podido copiar.";
+                } 
+                // Eliminamos el archivo del directorio raiz una vez copiado
+                unlink("$uploads_dir/$archivo_renombrado");
+              }else {
+                //echo "El archivo no es del tipo ($tipo_archivo) o volumen permitido ($vol_archi Kb)";
+                // Eliminamos el archivo del directorio raiz cuando no es un archivo permitido
+                unlink("$uploads_dir/$nombre_archivo");
+              }
+            } else {
+                //echo "Debe adjuntar algún archivo";
+            }
           }
 
           if($this->immobleModel->update($data)){
