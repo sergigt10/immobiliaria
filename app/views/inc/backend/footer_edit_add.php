@@ -44,13 +44,13 @@
       menubar: false,
       language: 'es_ES',
       selector: '.editor',
-      height: 500,
+      height: 250,
       theme: 'modern',
       plugins: [
         'advlist autolink lists link image charmap print preview hr anchor pagebreak',
         'searchreplace wordcount visualblocks visualchars code fullscreen',
         'insertdatetime media nonbreaking save table directionality',
-        'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc help'
+        'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc help '
       ],
       toolbar1: 'undo redo',
       toolbar2: '',

@@ -1,4 +1,9 @@
 <?php require APPROOT . '/views/inc/backend/header.php'; ?>
+  <style>
+    select.form-control:not([size]):not([multiple]), select.asColorPicker-input:not([size]):not([multiple]), .dataTables_wrapper select:not([size]):not([multiple]), .jsgrid .jsgrid-table .jsgrid-filter-row select:not([size]):not([multiple]), .select2-container--default select.select2-selection--single:not([size]):not([multiple]), .select2-container--default .select2-selection--single select.select2-search__field:not([size]):not([multiple]), select.typeahead:not([size]):not([multiple]), select.tt-query:not([size]):not([multiple]), select.tt-hint:not([size]):not([multiple]) {
+      height: calc(2.65rem + 2px) !important;
+    }
+  </style>
   <div class="main-panel">        
     <div class="content-wrapper">
       <div class="row">
@@ -42,7 +47,7 @@
 
                 <div class="form-group">
                   <label for="exampleInputEmail3">Descripció CAT:</label>
-                  <textarea id="tinyMceExample2" class="editor" name="descripcio_cat"><?php echo $data['descripcio_cat']; ?></textarea>
+                  <textarea width="100%" id="tinyMceExample2" class="editor" name="descripcio_cat"><?php echo $data['descripcio_cat']; ?></textarea>
                 </div>
                 
                 <div class="form-group">
@@ -75,7 +80,7 @@
                   </div>
 
                   <div class="form-group col-md-3">
-                  <label for="exampleInputEmail3">Superfície:</label>
+                    <label for="exampleInputEmail3">Superfície:</label>
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1">m²</span>
@@ -91,6 +96,7 @@
                     <br>
                     <h5 style="color:red">Si el camp no s'omple, per defecte és 0.</h5>
                   </div>
+
                 </div>
 
                 <div class="form-row">
@@ -113,7 +119,7 @@
                     </select>
                   </div>
 
-                  <div class="form-group col-md-2">
+                  <div class="form-group col-md-3">
                     <label for="exampleInputName1">Tipus d'operació:</label>
                     <select name="operacio_id" class="form-control" id="exampleSelectGender">
                       <?php foreach($data['operacions'] as $operacio) : ?>
@@ -122,7 +128,7 @@
                     </select>
                   </div>
 
-                  <div class="form-group col-md-2">
+                  <div class="form-group col-md-3">
                     <label for="exampleInputName1">Categoria de l'immoble:</label>
                     <select name="categoria_id" class="form-control" id="exampleSelectGender">
                       <?php foreach($data['categories'] as $categoria) : 
@@ -136,14 +142,107 @@
                     </select>
                   </div>
 
-                  <div class="form-group col-md-2">
-                    <label for="exampleInputName1">Eficiencia energètica:</label>
-                    <select name="certificat_id" class="form-control" id="exampleSelectGender">
+                </div>
+
+                <div class="row grid-margin">
+                  <div class="col-lg-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4>Lloguer:</h4>
+                        <div class="form-row">
+
+                          <div class="form-group col-md-3">
+                            <label for="exampleInputEmail3">Index de lloguer:</label>
+                            <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">€</span>
+                              </div>
+                              <input type="number" name="index_lloguer" min="0" class="form-control" placeholder="10" aria-label="index_lloguer" aria-describedby="basic-addon1" value="<?php echo $data['index_lloguer']; ?>">
+                            </div>
+                            <h5 style="color:red"><u>No s'ha d'afegir decimals, tampoc el símbol €.</u> Si el camp no s'omple, per defecte és 0.</h5>
+                          </div>
+
+                          <div class="form-group col-md-3">
+                            <label for="exampleInputEmail3">Preu comunitat:</label>
+                            <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">€</span>
+                              </div>
+                              <input type="number" name="preu_comunitat" min="0" class="form-control" placeholder="10" aria-label="preu_comunitat" aria-describedby="basic-addon1" value="<?php echo $data['preu_comunitat']; ?>">
+                            </div>
+                            <h5 style="color:red"><u>No s'ha d'afegir decimals, tampoc el símbol €.</u> Si el camp no s'omple, per defecte és 0.</h5>
+                          </div>
+
+                          <div class="form-group col-md-3">
+                            <label for="exampleInputEmail3">Preu contribució:</label>
+                            <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">€</span>
+                              </div>
+                              <input type="number" name="preu_contribucio" min="0" class="form-control" placeholder="10" aria-label="preu_contribucio" aria-describedby="basic-addon1" value="<?php echo $data['preu_contribucio']; ?>">
+                            </div>
+                            <h5 style="color:red"><u>No s'ha d'afegir decimals, tampoc el símbol €.</u> Si el camp no s'omple, per defecte és 0.</h5>
+                          </div>
+
+                          <div class="form-group col-md-3">
+                            <label for="exampleInputEmail3">Preu basura:</label>
+                            <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">€</span>
+                              </div>
+                              <input type="number" name="preu_basura" min="0" class="form-control" placeholder="10" aria-label="preu_basura" aria-describedby="basic-addon1" value="<?php echo $data['preu_basura']; ?>">
+                            </div>
+                            <h5 style="color:red"><u>No s'ha d'afegir decimals, tampoc el símbol €.</u> Si el camp no s'omple, per defecte és 0.</h5>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-row">
+
+                  <div class="form-group col-md-3">
+                    <label for="exampleInputName1">Escala eficiència consum:</label>
+                    <select name="consum_id" class="form-control" id="exampleSelectGender">
                       <?php foreach($data['certificats'] as $certificat) : ?>
                         <option value="<?php echo $certificat->id; ?>"><?php echo $certificat->nom_cat; ?></option>
                       <?php endforeach; ?>
                     </select>
                   </div>
+
+                  <div class="form-group col-md-3">
+                    <label for="exampleInputEmail3">Valor eficiència consum:</label>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">KWh/m² any</span>
+                      </div>
+                      <input type="number" name="valor_consum" min="0" step="any" class="form-control" placeholder="Valor eficiència consum" aria-label="valor_consum" aria-describedby="basic-addon1" value="<?php echo $data['valor_consum']; ?>">
+                    </div>
+                    <h5 style="color:red">No s'ha d'afegir el símbol KWh/m² any. Si el camp no s'omple, per defecte és 0.</h5>
+                  </div>
+
+                  <div class="form-group col-md-3">
+                    <label for="exampleInputName1">Escala eficiència emisions:</label>
+                    <select name="emisio_id" class="form-control" id="exampleSelectGender">
+                      <?php foreach($data['certificats'] as $certificat) : ?>
+                        <option value="<?php echo $certificat->id; ?>"><?php echo $certificat->nom_cat; ?></option>
+                      <?php endforeach; ?>
+                    </select>
+                  </div>
+                  
+                  <div class="form-group col-md-3">
+                    <label for="exampleInputEmail3">Valor eficiència emisions:</label>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Kg CO₂/m² any</span>
+                      </div>
+                      <input type="number" name="valor_emisio" min="0" step="any" class="form-control" placeholder="Valor eficiència emisions" aria-label="valor_emisio" aria-describedby="basic-addon1" value="<?php echo $data['valor_emisio']; ?>">
+                    </div>
+                    <h5 style="color:red">No s'ha d'afegir el símbol CO₂/m² any. Si el camp no s'omple, per defecte és 0.</h5>
+                  </div>
+
                 </div>
 
                 <div class="form-group">
