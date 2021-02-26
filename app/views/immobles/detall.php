@@ -169,32 +169,87 @@
 									</div>
 									<div class="col-md-6 col-lg-6 col-xl-8">
 										<ul class="list-inline-item">
-											<li><p><?php echo CERTIFICAT_DETALL; ?></p></li>
-											<li><p><?php echo REFERENCIA_DETALL; ?></p></li>
-											<li><p><?php echo PREU_DETALL; ?></p></li>
+											<li><p><?php echo CONSUM_DETALL; ?></p></li>
+											<li><p><?php echo EMISIONS_DETALL; ?></p></li>
 										</ul>
 										<ul class="list-inline-item">
-											<li><p><span><?php echo $data['certificat']; ?></span></p></li>
-											<li><p><span><?php echo $data['referencia']; ?></span></p></li>
-											<li>
-												<p>
-													<span>
-														<script>
-															correctPrice(<?php echo $data['preu']; ?>);
-														</script>
-													</span>
-												</p>
-											</li>
+											<li><p><span><?php echo $data['consum']; ?> - <?php echo $data['valor_consum']; ?> KWh/m² any</span></p></li>
+											<li><p><span><?php echo $data['emisio']; ?> - <?php echo $data['valor_emisio']; ?> Kg CO₂/m² any</span></p></li>
 										</ul>
 									</div>
 								</div>
 							</div>
 						</div>
+						
+						<?php if( $data['operacio_id_lloguer'] == 3 ) { ?>
+							<div class="col-lg-12">
+								<div class="additional_details">
+									<div class="row">
+										<div class="col-lg-12">
+											<h4 class="mb15"><b><?php echo INFORMACIO_LLOGUER_DETALL; ?></b></h4>
+										</div>
+										<div class="col-md-6 col-lg-6 col-xl-4">
+											<ul class="list-inline-item">
+												<li><p><?php echo INDEX_DETALL; ?></p></li>
+												<li><p><?php echo PREU_COMUNITAT_DETALL; ?></p></li>
+											</ul>
+											<ul class="list-inline-item">
+												<li>
+													<p>
+														<span>
+															<script>
+																correctPrice(<?php echo $data['index_lloguer']; ?>);
+															</script>
+														</span>
+													</p>
+												</li>
+												<li>
+													<p>
+														<span>
+															<script>
+																correctPrice(<?php echo $data['preu_comunitat']; ?>);
+															</script>
+														</span>
+													</p>
+												</li>
+											</ul>
+										</div>
+										<div class="col-md-6 col-lg-6 col-xl-8">
+											<ul class="list-inline-item">
+												<li><p><?php echo PREU_CONTRIBUCIO_DETALL; ?></p></li>
+												<li><p><?php echo PREU_BASURA_DETALL; ?></p></li>
+											</ul>
+											<ul class="list-inline-item">
+												<li>
+													<p>
+														<span>
+															<script>
+																correctPrice(<?php echo $data['preu_contribucio']; ?>);
+															</script>
+														</span>
+													</p>
+												</li>
+												<li>
+													<p>
+														<span>
+															<script>
+																correctPrice(<?php echo $data['preu_basura']; ?>);
+															</script>
+														</span>
+													</p>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						<?php } ?>
+
 						<div class="col-lg-12">
 							<div class="property_attachment_area">
 								<h4 class="mb20"><b><?php echo DOCUMENTS_DETALL; ?></b></h4>
 								<div class="iba_container style2">
-									<?php if( $mesfotos != $data['pdf_1'] && !empty($data['pdf_1']) && file_exists( '../../admin-web/public/pdf/'.$data['pdf_1'] ) ){ ?>
+									<?php if( !empty($data['pdf_1']) && file_exists( '../../admin-web/public/pdf/'.$data['pdf_1'] ) ){ ?>
 										<a href="<?php echo URLROOT; ?>/public/pdf/<?php echo $data['pdf_1'] ?>" target="_blank">
 											<div class="icon_box_area style2">
 												<div class="score"><span class="flaticon-pdf text-thm fz30"></span></div>
@@ -204,7 +259,7 @@
 											</div>
 										</a>
 									<?php } ?>
-									<?php if( $mesfotos != $data['pdf_2'] && !empty($data['pdf_2']) && file_exists( '../../admin-web/public/pdf/'.$data['pdf_2'] ) ){ ?>
+									<?php if( !empty($data['pdf_2']) && file_exists( '../../admin-web/public/pdf/'.$data['pdf_2'] ) ){ ?>
 										<a href="<?php echo URLROOT; ?>/public/pdf/<?php echo $data['pdf_2'] ?>" target="_blank">
 											<div class="icon_box_area style2">
 												<div class="score"><span class="flaticon-pdf text-thm fz30"></span></div>

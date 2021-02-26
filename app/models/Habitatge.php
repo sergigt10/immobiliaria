@@ -133,7 +133,7 @@
 
     // Get detall immoble
     public function getImmobleDetallById($id){
-        $this->db->query('SELECT immoble.id as id_immoble, immoble.titol_cat, immoble.titol_esp, immoble.titol_eng, immoble.referencia, immoble.descripcio_cat, immoble.descripcio_esp, immoble.descripcio_eng, immoble.imatge_1, immoble.imatge_2, immoble.imatge_3, immoble.imatge_4, immoble.imatge_5, immoble.imatge_6, immoble.imatge_7, immoble.imatge_8, immoble.imatge_9, immoble.imatge_10, immoble.pdf_1, immoble.pdf_2, immoble.valor_consum, immoble.valor_emisio, immoble.preu, immoble.index_lloguer, immoble.preu_comunitat, immoble.preu_contribucio, immoble.preu_basura, immoble.habitacio, immoble.banys, immoble.tamany, immoble.activat, immoble.caracteristica_id, immoble.operacio_id, immoble.poblacio_id, immoble.categoria_id, operacio.nom_cat AS operacio_cat, operacio.nom_esp AS operacio_esp, operacio.nom_eng AS operacio_eng, categoria.nom_cat AS categoria_cat, categoria.nom_esp AS categoria_esp, categoria.nom_eng AS categoria_eng, poblacio.nom_cat AS poblacio, provincia.nom_cat AS provincia, usuari.id as id_usuari, usuari.email, usuari.nom_cognoms, usuari.empresa, usuari.direccio, usuari.poblacio AS poblacio_usuari, usuari.codi_postal, usuari.telefon, usuari.web, usuari.logo, certificat.nom_cat AS certificat
+        $this->db->query('SELECT immoble.id as id_immoble, immoble.titol_cat, immoble.titol_esp, immoble.titol_eng, immoble.referencia, immoble.descripcio_cat, immoble.descripcio_esp, immoble.descripcio_eng, immoble.imatge_1, immoble.imatge_2, immoble.imatge_3, immoble.imatge_4, immoble.imatge_5, immoble.imatge_6, immoble.imatge_7, immoble.imatge_8, immoble.imatge_9, immoble.imatge_10, immoble.pdf_1, immoble.pdf_2, immoble.valor_consum, immoble.valor_emisio, immoble.preu, immoble.index_lloguer, immoble.preu_comunitat, immoble.preu_contribucio, immoble.preu_basura, immoble.habitacio, immoble.banys, immoble.tamany, immoble.activat, immoble.caracteristica_id, immoble.operacio_id, immoble.poblacio_id, immoble.categoria_id, operacio.nom_cat AS operacio_cat, operacio.nom_esp AS operacio_esp, operacio.nom_eng AS operacio_eng, categoria.nom_cat AS categoria_cat, categoria.nom_esp AS categoria_esp, categoria.nom_eng AS categoria_eng, poblacio.nom_cat AS poblacio, provincia.nom_cat AS provincia, usuari.id as id_usuari, usuari.email, usuari.nom_cognoms, usuari.empresa, usuari.direccio, usuari.poblacio AS poblacio_usuari, usuari.codi_postal, usuari.telefon, usuari.web, usuari.logo, consum.nom_cat AS consum, emisio.nom_cat AS emisio
         FROM immoble
         INNER JOIN poblacio
             ON immoble.poblacio_id = poblacio.id
@@ -145,10 +145,10 @@
             ON immoble.categoria_id = categoria.id
         INNER JOIN usuari
             ON immoble.usuari_id = usuari.id
-        INNER JOIN certificat
-            ON immoble.consum_id = certificat.id
-        INNER JOIN certificat
-            ON immoble.emisio_id = certificat.id
+        INNER JOIN certificat AS consum
+            ON immoble.consum_id = consum.id
+        INNER JOIN certificat AS emisio
+            ON immoble.emisio_id = emisio.id
         WHERE immoble.id = :id && immoble.activat = 1');
         $this->db->bind(':id', $id);
   
@@ -447,7 +447,7 @@
 
     // Add immoble
     public function add($data){
-      $this->db->query('INSERT INTO immoble (titol_cat, titol_esp, titol_eng, slug_cat, slug_esp, slug_eng, referencia, descripcio_cat, descripcio_esp, descripcio_eng, imatge_1, imatge_2, imatge_3, imatge_4, imatge_5, imatge_6, imatge_7, imatge_8, imatge_9, imatge_10, pdf_1, pdf_2, valor_consum, valor_emisio, portada, preu, index_lloguer, preu_comunitat, preu_contribucio, preu_basura, habitacio, banys, tamany, activat, operacio_id, poblacio_id, categoria_id, caracteristica_id, consum_id, emisio_id, usuari_id) VALUES (:titol_cat, :titol_esp, :titol_eng, :slug_cat, :slug_esp, :slug_eng, :referencia, :descripcio_cat, :descripcio_esp, :descripcio_eng, :imatge1, :imatge2, :imatge3, :imatge4, :imatge5, :imatge6, :imatge7, :imatge8, :imatge9, :imatge10, :pdf_1, :pdf_2, :valor_consum, :valor_emisio, :portada, :preu, :index_lloguer, preu_comunitat, :preu_contribucio, :preu_basura, :habitacio, :banys, :tamany, :activat, :operacio_id, :poblacio_id, :categoria_id, :caracteristica_id, :consum_id, :emisio_id, :usuari_id)');
+      $this->db->query('INSERT INTO immoble (titol_cat, titol_esp, titol_eng, slug_cat, slug_esp, slug_eng, referencia, descripcio_cat, descripcio_esp, descripcio_eng, imatge_1, imatge_2, imatge_3, imatge_4, imatge_5, imatge_6, imatge_7, imatge_8, imatge_9, imatge_10, pdf_1, pdf_2, valor_consum, valor_emisio, portada, preu, index_lloguer, preu_comunitat, preu_contribucio, preu_basura, habitacio, banys, tamany, activat, operacio_id, poblacio_id, categoria_id, caracteristica_id, consum_id, emisio_id, usuari_id) VALUES (:titol_cat, :titol_esp, :titol_eng, :slug_cat, :slug_esp, :slug_eng, :referencia, :descripcio_cat, :descripcio_esp, :descripcio_eng, :imatge1, :imatge2, :imatge3, :imatge4, :imatge5, :imatge6, :imatge7, :imatge8, :imatge9, :imatge10, :pdf_1, :pdf_2, :valor_consum, :valor_emisio, :portada, :preu, :index_lloguer, :preu_comunitat, :preu_contribucio, :preu_basura, :habitacio, :banys, :tamany, :activat, :operacio_id, :poblacio_id, :categoria_id, :caracteristica_id, :consum_id, :emisio_id, :usuari_id)');
       // Bind values
       $this->db->bind(':titol_cat', $data['titol_cat']);
       $this->db->bind(':titol_esp', $data['titol_esp']);

@@ -29600,4 +29600,12 @@ select.form-control, select.asColorPicker-input, .dataTables_wrapper select, .js
   background-position: right -26px;
 }
 
+.hide-preu-lloguer {
+  display: none;
+}
+
+.show-preu-lloguer {
+  display: block;
+}
+
 /*# sourceMappingURL=../maps/vertical-layout-light/style.css.map */

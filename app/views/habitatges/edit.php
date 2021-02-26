@@ -122,7 +122,7 @@
 
                   <div class="form-group col-md-3">
                     <label for="exampleInputName1">Tipus d'operacio:</label>
-                    <select name="operacio_id" class="form-control" id="exampleSelectGender">
+                    <select name="operacio_id" id="operacio" class="form-control" id="exampleSelectGender">
                       <?php foreach($data['operacions'] as $operacio) : ?>
                         <option value="<?php echo $operacio->id; ?>" <?php echo ($data['operacio_id']) == $operacio->id ? 'selected' : ''; ?> ><?php echo $operacio->nom_cat; ?></option>
                       <?php endforeach; ?>
@@ -139,8 +139,8 @@
                   </div>
                   
                 </div>
-
-                <div class="row grid-margin">
+                
+                <div class="row grid-margin" id="preu-lloguer">
                   <div class="col-lg-12">
                     <div class="card">
                       <div class="card-body">

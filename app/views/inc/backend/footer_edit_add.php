@@ -95,6 +95,34 @@
           }
       });
     });
+
+    /** Lloguer preus **/ 
+
+    function typeOperacio(operacioImmoble) {
+      if (operacioImmoble === "Lloguer") {
+      $( "#preu-lloguer" ).removeClass( "hide-preu-lloguer" );
+      $( "#preu-lloguer" ).addClass( "show-preu-lloguer" );
+      } else {
+        $( "#preu-lloguer" ).removeClass( "show-preu-lloguer" );
+        $( "#preu-lloguer" ).addClass( "hide-preu-lloguer" );
+      }
+    }
+
+    // Quan carreguem la pàgina edit o add
+    $(document).ready(function() {
+      // console.log("No change");
+      var operacioImmoble = jQuery("select#operacio option:selected").text();
+      typeOperacio(operacioImmoble);
+    });
+
+    // Quan seleccionem lloguer
+    $("#operacio").change(function() {
+      // console.log("change");
+      // Obtenim el nom de l'operació
+      var operacioImmoble = jQuery("select#operacio option:selected").text();
+      typeOperacio(operacioImmoble)
+    });
+
   </script>
 </body>
 </html>

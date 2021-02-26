@@ -99,8 +99,14 @@
     define('INFORMACIO_DETALL', 'Informació');
     define('HABITACIONS_DETALL', 'Habitacions:');
     define('BANYS_DETALL', 'Banys:');
-    define('CERTIFICAT_DETALL', 'Certificat energètic:');
+    define('CONSUM_DETALL', 'Consum energia:');
+    define('EMISIONS_DETALL', 'Emisions:');
     define('PREU_DETALL', 'Preu:');
+    define('INFORMACIO_LLOGUER_DETALL', 'Informació lloguer');
+    define('INDEX_DETALL', 'Index de lloguer:');
+    define('PREU_COMUNITAT_DETALL', 'Preu comunitat:');
+    define('PREU_CONTRIBUCIO_DETALL', 'Preu contribució:');
+    define('PREU_BASURA_DETALL', 'Preu basura:');
     define('DOCUMENTS_DETALL', 'Documents adjunts');
     define('VEURE_DOCUMENT_DETALL', 'Veure el document');
     define('CARACTERISTIQUES_DETALL', 'Característiques');
