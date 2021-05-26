@@ -1,6 +1,6 @@
 # Immobiliàries en xarxa
 
--   Made with a custom PHP framework following the MVC pattern.
+-   Custom PHP framework following the MVC pattern.
 -   Web page for a real estate.
 -   Website: <https://www.immobiliariesenxarxa.net/>
 
