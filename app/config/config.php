@@ -3,7 +3,7 @@
   define('DB_HOST', 'localhost');
   define('DB_USER', 'root');
   define('DB_PASS', '');
-  define('DB_NAME', 'enxarxa46_admin');
+  define('DB_NAME', 'nomBD');
 
   // App Root
   define('APPROOT', dirname(dirname(__FILE__)));
